@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946fcde4e0362e64692f6f04b992ca6d, type: 3}
+  m_Name: ItemConfig
+  m_EditorClassIdentifier: 
+  ListSkinDatas:
+  - typeItem: 0
+    id: 0
+    skinName: 0
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 7c2b87b120f583944978e38accae7d42, type: 3}
+    typeBuy: 0
+    matSkin: {fileID: 2100000, guid: b5ca3fdee01bc664291a8b87dc707bac, type: 2}
+    Coin: 0
+  - typeItem: 0
+    id: 1
+    skinName: 1
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: af0fa48258cab9c4799312891c55fe7a, type: 3}
+    typeBuy: 2
+    matSkin: {fileID: 2100000, guid: 3c5dff3f305fd6f48bde24472c7a3e31, type: 2}
+    Coin: 0
+  - typeItem: 0
+    id: 2
+    skinName: 4
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: b9c767761e842734eabeb091c4651ce1, type: 3}
+    typeBuy: 2
+    matSkin: {fileID: 2100000, guid: d948830f7315d4745ac810c039fc87bc, type: 2}
+    Coin: 0
+  - typeItem: 0
+    id: 3
+    skinName: 5
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 462253d945519214a98057d77ba7f55f, type: 3}
+    typeBuy: 3
+    matSkin: {fileID: 2100000, guid: b20f388252259ee41bb8f729a347dd55, type: 2}
+    Coin: 0
+  - typeItem: 0
+    id: 4
+    skinName: 7
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 1a29eddf862c0ca4591422036525aea2, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 2100000, guid: 0f6a1a9728996054d9f0770c6ab9d76e, type: 2}
+    Coin: 5000
+  - typeItem: 0
+    id: 5
+    skinName: 8
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 175373c1ac627f4459def2a4a7b46ed0, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 2100000, guid: 6d87a0640401a5344b0ce18feedca4e2, type: 2}
+    Coin: 5000
+  - typeItem: 0
+    id: 6
+    skinName: 10
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 978dc52fb017ed840acd7e143ffff0b5, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 2100000, guid: 8e48aede8408cfa408c912be12db1b3d, type: 2}
+    Coin: 5000
+  - typeItem: 0
+    id: 7
+    skinName: 2
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 7e1752e910fd50e40a2877156bf840af, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 2100000, guid: c38461ac222d7c246ae8c543ad0c8636, type: 2}
+    Coin: 10000
+  - typeItem: 0
+    id: 8
+    skinName: 3
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 57938656580afb145950fbe89ca5c05c, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 2100000, guid: 86052d9b818f0c843ba0ae14ed7d98d1, type: 2}
+    Coin: 10000
+  - typeItem: 0
+    id: 9
+    skinName: 6
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 4e4958193f316aa48b9425a45a4531eb, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 2100000, guid: 6de48ea76d4eaa94d918a1f9b53f0495, type: 2}
+    Coin: 10000
+  - typeItem: 0
+    id: 10
+    skinName: 9
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: a7a9038a541670342afed13d47ec8be1, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 2100000, guid: e676f420d7169fe46a698bdb9603dc60, type: 2}
+    Coin: 10000
+  - typeItem: 0
+    id: 11
+    skinName: 11
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 81857062104df1a408cd26b8742b1421, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 2100000, guid: fb1dfd1d0fb52214190ce39418cc0c09, type: 2}
+    Coin: 10000
+  ListGunDatas:
+  - typeItem: 1
+    id: 0
+    skinName: 0
+    gunName: 0
+    imageIcon: {fileID: 21300000, guid: 438b7240b5a029046b066b93b061c6c9, type: 3}
+    typeBuy: 0
+    matSkin: {fileID: 0}
+    Coin: 0
+  - typeItem: 1
+    id: 1
+    skinName: 0
+    gunName: 1
+    imageIcon: {fileID: 21300000, guid: 7d799ee15af385442bac5a48a510ca60, type: 3}
+    typeBuy: 2
+    matSkin: {fileID: 0}
+    Coin: 0
+  - typeItem: 1
+    id: 2
+    skinName: 0
+    gunName: 2
+    imageIcon: {fileID: 21300000, guid: 9a1909e5a96c9654a9065270462a583e, type: 3}
+    typeBuy: 2
+    matSkin: {fileID: 0}
+    Coin: 0
+  - typeItem: 1
+    id: 3
+    skinName: 0
+    gunName: 3
+    imageIcon: {fileID: 21300000, guid: 42a73bcbf2cede0418a2c3d573dcf440, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 0}
+    Coin: 5000
+  - typeItem: 1
+    id: 4
+    skinName: 0
+    gunName: 4
+    imageIcon: {fileID: 21300000, guid: 5427f502f42ae6f45a867b5638f2bbba, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 0}
+    Coin: 5000
+  - typeItem: 1
+    id: 5
+    skinName: 0
+    gunName: 5
+    imageIcon: {fileID: 21300000, guid: 53197e9d065ad674fa81917658e80dfd, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 0}
+    Coin: 10000
+  - typeItem: 1
+    id: 6
+    skinName: 0
+    gunName: 6
+    imageIcon: {fileID: 21300000, guid: 0b62377f15e657641955756fa343267a, type: 3}
+    typeBuy: 1
+    matSkin: {fileID: 0}
+    Coin: 10000
