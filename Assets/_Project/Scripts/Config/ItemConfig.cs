@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class ItemConfig : ScriptableObject
 {
     public List<ItemData> ListSkinDatas;
-    public List<ItemData> ListGunDatas ;
+    public List<ItemData> ListGunDatas;
 
     public void InitItem()
     {
@@ -23,12 +23,18 @@ public class ItemConfig : ScriptableObject
         ListGunDatas.First(dt => dt.typeBuy == TypeBuy.Default).IsUnlock = true;
     }
 
+    public void UnlockAllSkin()
+    {
+        ListSkinDatas.ForEach(skin => skin.IsUnlock = true);
+    }
+
     #region Skin
 
     public ItemData GetSkinDataById(int _id)
     {
         return ListSkinDatas.First(dt => dt.id == _id);
     }
+
     #endregion
 
     #region Gun
@@ -46,15 +52,14 @@ public class ItemData
 {
     public TypeItem typeItem;
     public int id;
-    [ShowIf("typeItem", TypeItem.Skin)] 
-    public SkinName skinName;
+    [ShowIf("typeItem", TypeItem.Skin)] public SkinName skinName;
 
-    [ShowIf("typeItem", TypeItem.Gun)] 
-    public GunName gunName;
-    
+    [ShowIf("typeItem", TypeItem.Gun)] public GunName gunName;
+
     public Sprite imageIcon;
     public TypeBuy typeBuy;
     [ShowIf("typeItem", TypeItem.Skin)] public Material matSkin;
+
     [ShowIf("typeBuy", global::TypeBuy.Coin)]
     public int Coin;
 
@@ -89,7 +94,7 @@ public enum TypeBuy
 
 public enum SkinName
 {
-    SkinDefault, 
+    SkinDefault,
     Cowboy,
     DeathStroke,
     Ghost,

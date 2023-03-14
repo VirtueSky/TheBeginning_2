@@ -24,6 +24,12 @@ public static partial class Data
         }
     }
 
+    public static bool IsOffInterAds
+    {
+        get => GetBool(Constant.IS_OFF_INTER_ADS, false);
+        set => SetBool(Constant.IS_OFF_INTER_ADS, value);
+    }
+
     public static int CurrentLevel
     {
         get { return GetInt(Constant.INDEX_LEVEL_CURRENT, 1); }
@@ -96,6 +102,7 @@ public static partial class Data
         get => GetInt(Constant.CURRENT_ID_GUN, 0);
         set => SetInt(Constant.CURRENT_ID_GUN, value);
     }
+
     #endregion
 
     #region SETTING_DATA

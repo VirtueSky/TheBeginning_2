@@ -7,10 +7,12 @@ public class PopupDebug : Popup
     public TMP_InputField SetLevel;
     public TMP_InputField SetCoin;
     public Toggle ToggleTesting;
+    public Toggle ToggleOffInterAds;
 
     public void OnEnable()
     {
         ToggleTesting.isOn = Data.IsTesting;
+        ToggleOffInterAds.isOn = Data.IsOffInterAds;
     }
 
     public void OnClickAccept()
@@ -21,6 +23,7 @@ public class PopupDebug : Popup
             GameManager.Instance.PrepareLevel();
             GameManager.Instance.StartGame();
         }
+
         if (SetCoin.text != null && SetCoin.text != "")
         {
             Data.CurrencyTotal = int.Parse(SetCoin.text);
@@ -36,8 +39,18 @@ public class PopupDebug : Popup
         Data.IsTesting = ToggleTesting.isOn;
     }
 
+    public void OnClickOffInterAds()
+    {
+        Data.IsOffInterAds = ToggleOffInterAds.isOn;
+    }
+
     public void OnClickFPSBtn()
     {
         GameManager.Instance.ChangeAFpsState();
+    }
+
+    public void OnClickUnLockAllSKin()
+    {
+        ConfigController.ItemConfig.UnlockAllSkin();
     }
 }
