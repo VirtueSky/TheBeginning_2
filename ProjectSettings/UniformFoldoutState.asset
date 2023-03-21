@@ -6,7 +6,7 @@
         },
         {
             "key": "AUTO_AD_LOADING_CONFIG_FOLDOUT_KEY",
-            "state": false
+            "state": true
         },
         {
             "key": "ADMOB_MODULE",

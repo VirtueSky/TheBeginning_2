@@ -2277,7 +2277,7 @@ MonoBehaviour:
   SetLevel: {fileID: 2288434987761459271}
   SetCoin: {fileID: 7397408201461823702}
   ToggleTesting: {fileID: 4894693133774114692}
-  ToggleOffInterAds: {fileID: 0}
+  ToggleOffInterAds: {fileID: 51959790991129721}
 --- !u!1 &7491507754432524308
 GameObject:
   m_ObjectHideFlags: 0
