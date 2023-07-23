@@ -41,6 +41,4 @@ public class Constant
     public const string EQUIP_ITEM = "EQUIP_ITEM";
     public const string GAMEOBJECT_SHOW = "GAMEOBJECT_SHOW";
     public const string PERCENT_WIN_GIFT = "PERCENT_WIN_GIFT";
-    public const string CURRENT_ID_SKIN = "CURRENT_ID_SKIN";
-    public const string CURRENT_ID_GUN = "CURRENT_ID_GUN";
 }

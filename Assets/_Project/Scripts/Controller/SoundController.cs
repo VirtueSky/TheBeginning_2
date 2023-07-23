@@ -18,18 +18,19 @@ public class SoundController : SingletonDontDestroy<SoundController>
         Observer.StartLevel += StartLevel;
         Observer.ClickButton += ClickButton;
         Observer.CoinMove += CoinMove;
+        Observer.PurchaseSucceed += PurchaseSucceed;
     }
 
     private void OnMusicChanged()
     {
         backgroundAudio.mute = !Data.BgSoundState;
     }
-    
+
     private void OnSoundChanged()
     {
         fxAudio.mute = !Data.FxSoundState;
     }
-    
+
     public void Setup()
     {
         OnMusicChanged();
@@ -99,6 +100,11 @@ public class SoundController : SingletonDontDestroy<SoundController>
     {
         PlayFX(SoundType.CoinMove);
     }
-    
+
+    private void PurchaseSucceed()
+    {
+        PlayFX(SoundType.PurchaseSucceed);
+    }
+
     #endregion
 }

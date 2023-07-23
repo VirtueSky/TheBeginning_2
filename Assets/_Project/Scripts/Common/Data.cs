@@ -71,36 +71,20 @@ public static partial class Data
 
     public static bool IsItemEquipped(string itemIdentity)
     {
-        return GetBool($"{Constant.EQUIP_ITEM}_{KeyItemCheckUnlocked}");
+        return GetBool($"{Constant.EQUIP_ITEM}_{IdItemUnlocked}");
     }
 
     public static void SetItemEquipped(string itemIdentity, bool isEquipped = true)
     {
-        SetBool($"{Constant.EQUIP_ITEM}_{KeyItemCheckUnlocked}", isEquipped);
+        SetBool($"{Constant.EQUIP_ITEM}_{IdItemUnlocked}", isEquipped);
     }
 
-    public static string KeyItemCheckUnlocked = "";
+    public static string IdItemUnlocked = "";
 
     public static bool IsItemUnlocked
     {
-        get => GetBool(KeyItemCheckUnlocked, false);
-        set => SetBool(KeyItemCheckUnlocked, value);
-    }
-
-    public static int CurrentIdSkin
-    {
-        get => GetInt(Constant.CURRENT_ID_SKIN, 0);
-        set
-        {
-            SetInt(Constant.CURRENT_ID_SKIN, value);
-            Observer.CurrentSkinChanged?.Invoke();
-        }
-    }
-
-    public static int CurrentIdGun
-    {
-        get => GetInt(Constant.CURRENT_ID_GUN, 0);
-        set => SetInt(Constant.CURRENT_ID_GUN, value);
+        get => GetBool($"{Constant.UNLOCK_ITEM}_{IdItemUnlocked}");
+        set => SetBool($"{Constant.UNLOCK_ITEM}_{IdItemUnlocked}", value);
     }
 
     #endregion

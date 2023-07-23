@@ -1,7 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
+using DG.Tweening;
+using MoreMountains.NiceVibrations;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public static class Utility
@@ -17,18 +21,20 @@ public static class Utility
 
     public static float GetScreenRatio()
     {
-        return (1920f / 1080f) / (Screen.height / (float) Screen.width);
+        return (1920f / 1080f) / (Screen.height / (float)Screen.width);
     }
-    
-    public static T FindComponentInChildWithTag<T>(this GameObject parent, string tag)where T:Component{
+
+    public static T FindComponentInChildWithTag<T>(this GameObject parent, string tag) where T : Component
+    {
         Transform t = parent.transform;
-        foreach(Transform tr in t)
+        foreach (Transform tr in t)
         {
-            if(tr.tag == tag)
+            if (tr.tag == tag)
             {
                 return tr.GetComponent<T>();
             }
         }
+
         return null;
     }
 
@@ -45,5 +51,51 @@ public static class Utility
         }
 
         return -1;
+    }
+
+    public static void SaveDataByJson<T>(string _key, T _saveData)
+    {
+        string data = JsonUtility.ToJson(_saveData);
+        PlayerPrefs.SetString(_key, data);
+    }
+
+    public static T GetDataByJson<T>(string _key)
+    {
+        string json = PlayerPrefs.GetString(_key);
+        //  if (!string.IsNullOrEmpty(json))
+        //  {
+        T getData = JsonConvert.DeserializeObject<T>(json);
+        return getData;
+        //  }
+    }
+
+    public static void SetLayerForAllChild(GameObject obj, int layerIndex)
+    {
+        obj.layer = layerIndex;
+        obj.GetComponentsInChildren<Transform>().ToList().ForEach(x => { x.gameObject.layer = layerIndex; });
+    }
+
+    public static void SetLayerForAllChild(GameObject obj, string layerName)
+    {
+        int layerIndex = LayerMask.NameToLayer(layerName);
+        obj.layer = layerIndex;
+        obj.GetComponentsInChildren<Transform>().ToList().ForEach(x => { x.gameObject.layer = layerIndex; });
+    }
+
+    public static void DelayByTweenAppendInterval(float timeDelay, Action callBack, Action completed = null)
+    {
+        DOTween.Sequence().AppendInterval(timeDelay).AppendCallback(() => { callBack?.Invoke(); }).OnComplete(() => { completed?.Invoke(); });
+    }
+
+    static bool isVibrate = true;
+
+    public static void HapticLimit(HapticTypes _type)
+    {
+        if (isVibrate)
+        {
+            isVibrate = false;
+            MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+            DelayByTweenAppendInterval(4, () => isVibrate = true);
+        }
     }
 }

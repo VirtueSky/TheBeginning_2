@@ -65,7 +65,6 @@ GameObject:
   - component: {fileID: 4367173969596095996}
   - component: {fileID: 6585146948068934751}
   - component: {fileID: 2239552373149595495}
-  - component: {fileID: 8522640226781467761}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -131,28 +130,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8522640226781467761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3613146547847393134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dfcf405286e2c74fa0638d8bb9a6e76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPress:
-    m_PersistentCalls:
-      m_Calls: []
-  CanClick: 1
-  HavePressEffect: 1
-  IsMoveEnter: 0
-  LocalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &4731941404136828425
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,12 +7,12 @@ public class PopupDebug : Popup
     public TMP_InputField SetLevel;
     public TMP_InputField SetCoin;
     public Toggle ToggleTesting;
-    public Toggle ToggleOffInterAds;
+    public Toggle ToggleIsOffInterAds;
 
     public void OnEnable()
     {
         ToggleTesting.isOn = Data.IsTesting;
-        ToggleOffInterAds.isOn = Data.IsOffInterAds;
+        ToggleIsOffInterAds.isOn = Data.IsOffInterAds;
     }
 
     public void OnClickAccept()
@@ -39,18 +39,19 @@ public class PopupDebug : Popup
         Data.IsTesting = ToggleTesting.isOn;
     }
 
-    public void OnClickOffInterAds()
-    {
-        Data.IsOffInterAds = ToggleOffInterAds.isOn;
-    }
-
     public void OnClickFPSBtn()
     {
         GameManager.Instance.ChangeAFpsState();
     }
 
-    public void OnClickUnLockAllSKin()
+    public void OnClickUnlockAllSkin()
     {
-        ConfigController.ItemConfig.UnlockAllSkin();
+        ConfigController.ItemConfig.UnlockAllSkins();
+        Observer.PurchaseSucceed?.Invoke();
+    }
+
+    public void OnClickIsOffInterAds()
+    {
+        Data.IsOffInterAds = ToggleIsOffInterAds.isOn;
     }
 }

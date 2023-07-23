@@ -814,7 +814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42617f2f5cc91dd4e92a75e680e45c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseAnimation: 0
   Background: {fileID: 0}
   Container: {fileID: 0}
   UseShowAnimation: 0
