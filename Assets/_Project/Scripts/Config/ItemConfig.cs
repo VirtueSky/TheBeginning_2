@@ -1,123 +1,111 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using Pancake;
-using Pancake.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "ItemConfig", menuName = "ScriptableObject/ItemConfig")]
 public class ItemConfig : ScriptableObject
 {
-    public List<ItemData> ListSkinDatas;
-    public List<ItemData> ListGunDatas;
+    public List<ItemData> itemDatas;
 
-    public void InitItem()
+    public void Initialize()
     {
-        UnlockItemDefaul();
+        //if (IAPManager.Instance.IsPurchased(Constant.IAP_VIP) || IAPManager.Instance.IsPurchased(Constant.IAP_ALL_SKINS)) UnlockAllSkins();
+        UnlockDefaultSkins();
     }
 
-    public void UnlockItemDefaul()
+    public void UnlockDefaultSkins()
     {
-        ListSkinDatas.First(dt => dt.typeBuy == TypeBuy.Default).IsUnlock = true;
-        ListGunDatas.First(dt => dt.typeBuy == TypeBuy.Default).IsUnlock = true;
+        foreach (ItemData item in itemDatas)
+        {
+            if (item.BuyType == BuyType.Default)
+            {
+                item.ClaimItem();
+            }
+        }
     }
 
-    public void UnlockAllSkin()
+    public void UnlockAllSkins()
     {
-        ListSkinDatas.ForEach(skin => skin.IsUnlock = true);
+        foreach (ItemData itemData in itemDatas)
+        {
+            itemData.IsUnlocked = true;
+        }
+    }
+    public ItemData GetItemData(string itemIdentity)
+    {
+        return itemDatas.Find(item => item.Identity == itemIdentity);
     }
 
-    #region Skin
-
-    public ItemData GetSkinDataById(int _id)
+    public List<ItemData> GetListItemDataByType(ItemType itemType)
     {
-        return ListSkinDatas.First(dt => dt.id == _id);
+        return itemDatas.FindAll(item => item.Type == itemType);
     }
 
-    #endregion
-
-    #region Gun
-
-    public ItemData GetGunDataById(int _id)
+    public ItemData GetGiftItemData()
     {
-        return ListGunDatas.First(dt => dt.id == _id);
+        List<ItemData> tempList =
+            itemDatas.FindAll(item => !item.IsUnlocked && (item.BuyType == BuyType.BuyCoin || item.BuyType == BuyType.WatchAds));
+        return tempList.Count > 0?tempList[Random.Range(0, tempList.Count)]:null;
     }
+}
 
-    #endregion
+public class ItemIdentity
+{
+    public string Identity => $"{Type}_{NumberID}";
+
+    public string Name;
+    public ItemType Type;
+    public int NumberID;
 }
 
 [Serializable]
-public class ItemData
+public class ItemData : ItemIdentity
 {
-    public TypeItem typeItem;
-    public int id;
-    [ShowIf("typeItem", TypeItem.Skin)] public SkinName skinName;
+    public BuyType BuyType;
+    public Sprite ShopIcon;
+    [ShowIf("BuyType",BuyType.BuyCoin)] public int CoinValue;
 
-    [ShowIf("typeItem", TypeItem.Gun)] public GunName gunName;
+    public void ClaimItem()
+    {
+        IsUnlocked = true;
+        EquipItem();
+    }
 
-    public Sprite imageIcon;
-    public TypeBuy typeBuy;
-    [ShowIf("typeItem", TypeItem.Skin)] public Material matSkin;
-
-    [ShowIf("typeBuy", global::TypeBuy.Coin)]
-    public int Coin;
-
-    public bool IsUnlock
+    public void EquipItem()
+    {
+        Data.SetItemEquipped(Identity);
+    }
+    
+    public bool IsUnlocked
     {
         get
         {
-            Data.KeyItemCheckUnlocked = typeItem + "_" + id;
+            Data.IdItemUnlocked = Identity;
             return Data.IsItemUnlocked;
         }
+
         set
         {
-            Data.KeyItemCheckUnlocked = typeItem + "_" + id;
+            //FirebaseManager.OnClaimItemSkin(Identity);
+            Data.IdItemUnlocked = Identity;
             Data.IsItemUnlocked = value;
         }
     }
 }
 
-public enum TypeItem
-{
-    Skin,
-    Gun,
-}
-
-public enum TypeBuy
+public enum BuyType
 {
     Default,
-    Coin,
-    Ads,
+    BuyCoin,
     DailyReward,
+    WatchAds,
+    Event,
 }
 
-public enum SkinName
+public enum ItemType
 {
-    SkinDefault,
-    Cowboy,
-    DeathStroke,
-    Ghost,
-    GunpowderSoldier,
-    Hunter,
-    Knight,
-    Military,
-    Musketeer,
-    Rambo,
-    RobinHood,
-    Terrorist,
-}
-
-public enum GunName
-{
-    GunDefault,
-    Gun1,
-    Gun2,
-    Gun3,
-    Gun4,
-    Gun5,
-    Gun6,
-    Gun7,
-    Gun8,
-    Gun9,
+    PlayerSkin,
+    WeaponSkin,
 }

@@ -3,39 +3,35 @@ using Pancake.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class LoadingController : MonoBehaviour
 {
     [Header("Components")]
-    public Image ProgressBar;
-    public TextMeshProUGUI LoadingText;
+    public Image progressBar;
+    public TextMeshProUGUI loadingText;
 
+    [FormerlySerializedAs("TimeLoading")]
     [Header("Attributes")] 
-    [Range(0.1f, 10f)] public float TimeLoading = 5f;
+    [Range(0.1f, 10f)] public float timeLoading = 5f;
 
-    private bool flagDoneProgress;
+    private bool _flagDoneProgress;
     private AsyncOperation _operation;
 
-    public void Awake()
-    {
-        AdsManager.Initialize();
-        FirebaseManager.Initialize();
-    }
-    
     void Start()
     {
         _operation = SceneManager.LoadSceneAsync(Constant.GAMEPLAY_SCENE);
         _operation.allowSceneActivation = false;
 
-        ProgressBar.fillAmount = 0;
-        ProgressBar.DOFillAmount(5, TimeLoading).OnUpdate(()=>LoadingText.text = $"Loading... {(int) (ProgressBar.fillAmount * 100)}%").OnComplete(()=> flagDoneProgress = true);
+        progressBar.fillAmount = 0;
+        progressBar.DOFillAmount(5, timeLoading).OnUpdate(()=>loadingText.text = $"Loading... {(int) (progressBar.fillAmount * 100)}%").OnComplete(()=> _flagDoneProgress = true);
         WaitProcess();
     }
     
     private async void WaitProcess()
     {
-        await UniTask.WaitUntil(() => AdsManager.IsInitialized && FirebaseManager.IsInitialized && flagDoneProgress);
+        await UniTask.WaitUntil(() => AdsController.Instance.IsInitialized && FirebaseController.Instance.isInitialized && _flagDoneProgress);
         ConfigController.Instance.Initialize();
         _operation.allowSceneActivation = true;
     }

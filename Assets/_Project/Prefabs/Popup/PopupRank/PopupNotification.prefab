@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2d5f5aed3fa0f44aa4192845a146e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseAnimation: 0
   Background: {fileID: 0}
   Container: {fileID: 0}
   UseShowAnimation: 0
@@ -521,6 +522,7 @@ MonoBehaviour:
   timeDisableButton: 0.2
   doubleClickInterval: 0.2
   longClickInterval: 0.5
+  delayDetectHold: 0.2
   onDoubleClick:
     m_PersistentCalls:
       m_Calls: []
@@ -528,6 +530,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onPointerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  onHold:
     m_PersistentCalls:
       m_Calls: []
   isMotion: 1

@@ -6,7 +6,7 @@
         },
         {
             "key": "AUTO_AD_LOADING_CONFIG_FOLDOUT_KEY",
-            "state": true
+            "state": false
         },
         {
             "key": "ADMOB_MODULE",
@@ -38,6 +38,10 @@
         },
         {
             "key": "LEVEL_EDITOR_PICKUP_AREA_CHILD__GAMEPLAY",
+            "state": true
+        },
+        {
+            "key": "UIBUTTON_SETTING",
             "state": true
         }
     ]

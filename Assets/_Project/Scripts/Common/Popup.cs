@@ -1,5 +1,5 @@
-using DG.Tweening;
 using UnityEngine;
+using DG.Tweening;
 using Pancake;
 
 public class Popup : MonoBehaviour

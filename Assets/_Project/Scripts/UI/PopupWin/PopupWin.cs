@@ -28,13 +28,13 @@ public class PopupWin : Popup
             ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() =>
             {
                 TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%";
-            })).OnComplete(() =>
+            })).OnComplete((() =>
             {
                 if (percent >= 100)
                 {
                     ReceiveGift();
                 }
-            });
+            }));
         }
     }
 

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Web.WebPages;
 using DG.Tweening;
 using Pancake;
 using UnityEngine;
@@ -16,12 +15,15 @@ public class ShowObject : MonoBehaviour
     public float DelayShowTime;
     [ShowIf(nameof(IsShowByLevel))] public List<int> LevelsShow;
     [ShowIf("IsShowByTime")] public int MaxTimeShow;
-    [ShowIf("IsShowByTime")][Group("horizontal/vars")][ReadOnly] public string ShowID;
-    
-    [ShowIf("IsShowByTime")][Button, Group("horizontal/buttons")]
+
+    [ShowIf("IsShowByTime")] [Group("horizontal/vars")] [ReadOnly]
+    public string ShowID;
+
+    [ShowIf("IsShowByTime")]
+    [Button, Group("horizontal/buttons")]
     public void RandomShowID()
     {
-        if (ShowID == null || ShowID.IsEmpty())
+        if (ShowID == null || ShowID == "")
         {
             ShowID = Ulid.NewUlid().ToString();
         }
@@ -39,7 +41,7 @@ public class ShowObject : MonoBehaviour
 
         return false;
     }
-    
+
     private bool EnableToShow()
     {
         bool testingCondition = !IsShowByTesting || (IsShowByTesting && Data.IsTesting);
@@ -51,7 +53,7 @@ public class ShowObject : MonoBehaviour
     public void Awake()
     {
         Setup();
-        
+
         if (IsShowByLevel) Observer.CurrentLevelChanged += Setup;
         if (IsShowByTesting) Observer.DebugChanged += Setup;
     }
@@ -64,8 +66,8 @@ public class ShowObject : MonoBehaviour
 
     public void Setup()
     {
-        if (DelayShowTime>0) gameObject.SetActive(false);
-        DOTween.Sequence().AppendInterval(DelayShowTime).AppendCallback(()=>
+        if (DelayShowTime > 0) gameObject.SetActive(false);
+        DOTween.Sequence().AppendInterval(DelayShowTime).AppendCallback(() =>
         {
             if (IsShowByTime) Data.IncreaseNumberShowGameObject(ShowID);
             gameObject.SetActive(EnableToShow());

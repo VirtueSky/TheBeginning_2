@@ -37,7 +37,6 @@ public static class Observer
     public static Action PurchaseFail;
     public static Action PurchaseSucceed;
     public static Action ClaimReward;
-    public static Action CurrentSkinChanged;
 
     #endregion
 
