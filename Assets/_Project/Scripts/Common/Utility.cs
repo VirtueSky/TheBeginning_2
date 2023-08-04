@@ -69,19 +69,24 @@ public static class Utility
         //  }
     }
 
-    public static void SetLayerForAllChild(GameObject obj, int layerIndex)
+    public static void SetLayerForAllChildObject(GameObject obj, int layerIndex)
     {
         obj.layer = layerIndex;
         obj.GetComponentsInChildren<Transform>().ToList().ForEach(x => { x.gameObject.layer = layerIndex; });
     }
-
-    public static void SetLayerForAllChild(GameObject obj, string layerName)
+    
+    public static void SetLayerForAllChildObject(GameObject obj, string layerName)
     {
         int layerIndex = LayerMask.NameToLayer(layerName);
         obj.layer = layerIndex;
         obj.GetComponentsInChildren<Transform>().ToList().ForEach(x => { x.gameObject.layer = layerIndex; });
     }
 
+    public static void SetTagForAllChildObject(GameObject obj, string _tag)
+    {
+        obj.tag = _tag;
+        obj.GetComponentsInChildren<Transform>().ToList().ForEach(x => { x.tag = _tag;});
+    }
     public static void DelayByTweenAppendInterval(float timeDelay, Action callBack, Action completed = null)
     {
         DOTween.Sequence().AppendInterval(timeDelay).AppendCallback(() => { callBack?.Invoke(); }).OnComplete(() => { completed?.Invoke(); });
