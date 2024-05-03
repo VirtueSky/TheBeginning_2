@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Pancake;
 using UnityEngine;
+using VirtueSky.Inspector;
 
 [CreateAssetMenu(fileName = "DailyRewardConfig", menuName = "ScriptableObject/DailyRewardConfig")]
 public class DailyRewardConfig : ScriptableObject
@@ -15,8 +15,12 @@ public class DailyRewardData
 {
     public DailyRewardType DailyRewardType;
     public Sprite Icon;
-    [ShowIf("DailyRewardType",DailyRewardType.Skin)] public string SkinID;
-    [ShowIf("DailyRewardType",DailyRewardType.Currency)]public int Value;
+
+    [ShowIf("DailyRewardType", DailyRewardType.Skin)]
+    public string SkinID;
+
+    [ShowIf("DailyRewardType", DailyRewardType.Currency)]
+    public int Value;
 }
 
 public enum DailyRewardType

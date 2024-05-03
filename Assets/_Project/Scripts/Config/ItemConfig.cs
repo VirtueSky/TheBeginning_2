@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Pancake;
 using UnityEngine;
+using VirtueSky.Inspector;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "ItemConfig", menuName = "ScriptableObject/ItemConfig")]
@@ -33,6 +33,7 @@ public class ItemConfig : ScriptableObject
             itemData.IsUnlocked = true;
         }
     }
+
     public ItemData GetItemData(string itemIdentity)
     {
         return itemDatas.Find(item => item.Identity == itemIdentity);
@@ -46,8 +47,9 @@ public class ItemConfig : ScriptableObject
     public ItemData GetGiftItemData()
     {
         List<ItemData> tempList =
-            itemDatas.FindAll(item => !item.IsUnlocked && (item.BuyType == BuyType.BuyCoin || item.BuyType == BuyType.WatchAds));
-        return tempList.Count > 0?tempList[Random.Range(0, tempList.Count)]:null;
+            itemDatas.FindAll(item =>
+                !item.IsUnlocked && (item.BuyType == BuyType.BuyCoin || item.BuyType == BuyType.WatchAds));
+        return tempList.Count > 0 ? tempList[Random.Range(0, tempList.Count)] : null;
     }
 }
 
@@ -65,7 +67,7 @@ public class ItemData : ItemIdentity
 {
     public BuyType BuyType;
     public Sprite ShopIcon;
-    [ShowIf("BuyType",BuyType.BuyCoin)] public int CoinValue;
+    [ShowIf("BuyType", BuyType.BuyCoin)] public int CoinValue;
 
     public void ClaimItem()
     {
@@ -77,7 +79,7 @@ public class ItemData : ItemIdentity
     {
         Data.SetItemEquipped(Identity);
     }
-    
+
     public bool IsUnlocked
     {
         get

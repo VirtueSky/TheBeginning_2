@@ -1,6 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
-using Pancake;
+using VirtueSky.Inspector;
 
 public class Popup : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class Popup : MonoBehaviour
     [ShowIf("UseHideAnimation")] public HideAnimationType HideAnimationType;
     public CanvasGroup CanvasGroup => GetComponent<CanvasGroup>();
     public Canvas Canvas => GetComponent<Canvas>();
+
     public virtual void Show()
     {
         BeforeShow();
@@ -22,18 +23,14 @@ public class Popup : MonoBehaviour
             switch (ShowAnimationType)
             {
                 case ShowAnimationType.OutBack:
-                    DOTween.Sequence().OnStart(() => Container.transform.localScale = Vector3.one*.9f)
-                        .Append(Container.transform.DOScale(Vector3.one, ConfigController.Game.DurationPopup).SetEase(Ease.OutBack).OnComplete(() =>
-                        {
-                            AfterShown();
-                        }));
+                    DOTween.Sequence().OnStart(() => Container.transform.localScale = Vector3.one * .9f)
+                        .Append(Container.transform.DOScale(Vector3.one, ConfigController.Game.DurationPopup)
+                            .SetEase(Ease.OutBack).OnComplete(() => { AfterShown(); }));
                     break;
                 case ShowAnimationType.Flip:
-                    DOTween.Sequence().OnStart(() => Container.transform.localEulerAngles = new Vector3(0,180,0))
-                        .Append(Container.transform.DORotate(Vector3.zero, ConfigController.Game.DurationPopup)).SetEase(Ease.Linear).OnComplete(() =>
-                        {
-                            AfterShown();
-                        });
+                    DOTween.Sequence().OnStart(() => Container.transform.localEulerAngles = new Vector3(0, 180, 0))
+                        .Append(Container.transform.DORotate(Vector3.zero, ConfigController.Game.DurationPopup))
+                        .SetEase(Ease.Linear).OnComplete(() => { AfterShown(); });
                     break;
             }
         }
@@ -51,7 +48,9 @@ public class Popup : MonoBehaviour
             switch (HideAnimationType)
             {
                 case HideAnimationType.InBack:
-                    DOTween.Sequence().Append(Container.transform.DOScale(Vector3.one*.7f, ConfigController.Game.DurationPopup).SetEase(Ease.InBack).OnComplete(() =>
+                    DOTween.Sequence().Append(Container.transform
+                        .DOScale(Vector3.one * .7f, ConfigController.Game.DurationPopup).SetEase(Ease.InBack)
+                        .OnComplete(() =>
                         {
                             gameObject.SetActive(false);
                             AfterShown();
@@ -74,11 +73,25 @@ public class Popup : MonoBehaviour
         }
     }
 
-    protected virtual void AfterInstantiate() { }
-    protected virtual void BeforeShow() { }
-    protected virtual void AfterShown() { }
-    protected virtual void BeforeHide() { }
-    protected virtual void AfterHidden() { }
+    protected virtual void AfterInstantiate()
+    {
+    }
+
+    protected virtual void BeforeShow()
+    {
+    }
+
+    protected virtual void AfterShown()
+    {
+    }
+
+    protected virtual void BeforeHide()
+    {
+    }
+
+    protected virtual void AfterHidden()
+    {
+    }
 }
 
 public enum ShowAnimationType
@@ -92,4 +105,3 @@ public enum HideAnimationType
     InBack,
     Fade,
 }
-

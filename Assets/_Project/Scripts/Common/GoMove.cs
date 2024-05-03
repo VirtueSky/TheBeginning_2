@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Pancake;
 using UnityEngine;
+using VirtueSky.Inspector;
+using VirtueSky.Misc;
 
 public class GoMove : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GoMove : MonoBehaviour
     void Start()
     {
         movingObject.transform.position = points[0].position;
-        if(!moveOnAwake)
+        if (!moveOnAwake)
         {
             _isMoving = false;
         }
@@ -30,7 +31,8 @@ public class GoMove : MonoBehaviour
             if (_currentPoint < points.Count)
             {
                 // Move the object towards the next point
-                movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position, points[_currentPoint].position, speed * Time.deltaTime);
+                movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position,
+                    points[_currentPoint].position, speed * Time.deltaTime);
                 if (movingObject.transform.position == points[_currentPoint].position)
                 {
                     // When the object reaches the point, move on to the next one
@@ -47,6 +49,7 @@ public class GoMove : MonoBehaviour
                     {
                         _currentPoint = 0;
                     }
+
                     if (_currentPoint < 0 && loop)
                     {
                         _currentPoint = points.Count - 1;
@@ -75,17 +78,17 @@ public class GoMove : MonoBehaviour
             }
         }
     }
-    
+
     public void StopMoving()
     {
         _isMoving = false;
     }
-    
+
     public void ResumeMoving()
     {
         _isMoving = true;
     }
-    
+
     [Button]
     public void ReverseMoving()
     {

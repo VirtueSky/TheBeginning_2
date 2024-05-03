@@ -1,16 +1,16 @@
 using System;
 using System.Collections;
 using Google.Play.Review;
-using MoreMountains.NiceVibrations;
-using Pancake.Monetization;
-using Pancake.Threading.Tasks;
 using UnityEngine;
+using VirtueSky.Ads;
+using VirtueSky.Threading.Tasks;
 
 public class PopupTest : Popup
 {
     private bool isShowBanner;
-    
+
     #region SetupInAppReview
+
 #if UNITY_ANDROID
     private ReviewManager _reviewManager = null;
     private PlayReviewInfo _playReviewInfo = null;
@@ -42,9 +42,8 @@ public class PopupTest : Popup
             url = "market://details?id=" + Application.identifier;
         }
 #endif
-        
+
         Application.OpenURL(url);
-        
     }
 
 #if UNITY_ANDROID
@@ -65,7 +64,7 @@ public class PopupTest : Popup
 
         _playReviewInfo = requestFlowOperation.GetResult();
     }
-    
+
     private IEnumerator IeCallReview()
     {
         if (_playReviewInfo == null)
@@ -81,7 +80,7 @@ public class PopupTest : Popup
             yield break;
         }
     }
-    
+
     public async void OnClickInAppReview()
     {
 #if UNITY_ANDROID
@@ -99,53 +98,37 @@ public class PopupTest : Popup
 #endif
     }
 #endif
+
     #endregion
 
     public void OnClickBtnShowBannerAds()
     {
         if (!isShowBanner)
         {
-            Advertising.ShowBannerAd();
+            Advertising.Instance.ShowBanner();
         }
         else
         {
-            Advertising.HideBannerAd();
+            Advertising.Instance.HideBanner();
         }
-        
     }
 
     public void OnClickBtnShowInterstitialAds()
     {
-        Advertising.ShowInterstitialAd();
+        Advertising.Instance.ShowInterstitial();
     }
-    
+
     public void OnClickBtnShowRewardAds()
     {
-        Advertising.ShowRewardedAd();
+        Advertising.Instance.ShowReward();
     }
-    
-    public void OnClickLightVibration()
-    {
-        MMVibrationManager.Haptic(HapticTypes.LightImpact);
-    }
-    
-    public void OnClickMediumVibration()
-    {
-        MMVibrationManager.Haptic(HapticTypes.MediumImpact);
-    }
-    
-    public void OnClickHeavyVibration()
-    {
-        MMVibrationManager.Haptic(HapticTypes.HeavyImpact);
-    }
+
 
     public void OnClickBuyCoin()
     {
-        
     }
 
     public void OnClickRemoveAds()
     {
-        
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using DG.Tweening;
-using Pancake;
+using VirtueSky.Inspector;
 
 public class PopupDailyReward : Popup
 {
@@ -12,8 +12,8 @@ public class PopupDailyReward : Popup
 
     [ReadOnly] public DailyRewardItem CurrentItem;
     public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
-    
-    
+
+
     private Sequence sequence;
 
     protected override void BeforeShow()
@@ -43,6 +43,7 @@ public class PopupDailyReward : Popup
             GameManager.Instance.gameState = GameState.PlayingGame;
             PopupController.Instance.Hide<PopupUI>();
         }
+
         sequence?.Kill();
     }
 
@@ -86,17 +87,16 @@ public class PopupDailyReward : Popup
             BtnWatchVideo.SetActive(false);
             BtnClaim.SetActive(false);
         }
-           
     }
 
     public void OnClickBtnClaimX5Video()
     {
-        AdsManager.ShowRewardAds(() =>
-        {
-            Observer.ClaimReward?.Invoke();
-            //Observer.OnNotifying?.Invoke();
-            CurrentItem.OnClaim(true);
-        });
+        // AdsManager.ShowRewardAds(() =>
+        // {
+        //     Observer.ClaimReward?.Invoke();
+        //     //Observer.OnNotifying?.Invoke();
+        //     CurrentItem.OnClaim(true);
+        // });
     }
 
     public void OnClickBtnClaim()

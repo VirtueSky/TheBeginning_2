@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Pancake;
-using UnityEditor;
 using UnityEngine;
+using VirtueSky.Inspector;
 using Random = UnityEngine.Random;
 
 
@@ -16,7 +15,8 @@ public class VisualEffectsController : SingletonDontDestroy<VisualEffectsControl
         return visualEffectDatas.Find(item => item.visualEffectType == visualEffectType);
     }
 
-    public void SpawnEffect(VisualEffectType visualEffectType,Vector3 position, Transform parent, Vector3? localScale = null, bool isDestroyedOnEnd = true, float timeDestroy = 3f)
+    public void SpawnEffect(VisualEffectType visualEffectType, Vector3 position, Transform parent,
+        Vector3? localScale = null, bool isDestroyedOnEnd = true, float timeDestroy = 3f)
     {
         VisualEffectData visualEffectData = GetVisualEffectDataByType(visualEffectType);
         if (visualEffectData != null)
@@ -28,7 +28,7 @@ public class VisualEffectsController : SingletonDontDestroy<VisualEffectsControl
             if (isDestroyedOnEnd) Destroy(effect, timeDestroy);
         }
     }
-    
+
     private bool IsItemExistedByVisualEffectType(VisualEffectType visualEffectType)
     {
         foreach (VisualEffectData item in visualEffectDatas)
@@ -48,12 +48,13 @@ public class VisualEffectsController : SingletonDontDestroy<VisualEffectsControl
         for (int i = 0; i < Enum.GetNames(typeof(VisualEffectType)).Length; i++)
         {
             VisualEffectData visualEffectData = new VisualEffectData();
-            visualEffectData.visualEffectType = (VisualEffectType) i;
+            visualEffectData.visualEffectType = (VisualEffectType)i;
             if (IsItemExistedByVisualEffectType(visualEffectData.visualEffectType)) continue;
             visualEffectDatas.Add(visualEffectData);
         }
 
-        visualEffectDatas = visualEffectDatas.GroupBy(elem => elem.visualEffectType).Select(group => group.First()).ToList();
+        visualEffectDatas = visualEffectDatas.GroupBy(elem => elem.visualEffectType).Select(group => group.First())
+            .ToList();
     }
 }
 

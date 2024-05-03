@@ -1,6 +1,7 @@
-using Pancake;
 using UnityEditor;
 using UnityEngine;
+using VirtueSky.Inspector;
+using VirtueSky.Misc;
 
 public class Level : MonoBehaviour
 {
@@ -13,61 +14,12 @@ public class Level : MonoBehaviour
     [Button]
     private void StartLevel()
     {
-        Data.CurrentLevel = Utility.GetNumberInAString(gameObject.name);
+        Data.CurrentLevel = gameObject.name.GetNumberInAString();
 
         EditorApplication.isPlaying = true;
     }
 #endif
 
-    void OnEnable()
-    {
-        Lean.Touch.LeanTouch.OnFingerDown += HandleFingerDown;
-        Lean.Touch.LeanTouch.OnFingerUp += HandleFingerUp;
-        Lean.Touch.LeanTouch.OnFingerUpdate += HandleFingerUpdate;
-    }
-
-    void OnDisable()
-    {
-        Lean.Touch.LeanTouch.OnFingerDown -= HandleFingerDown;
-        Lean.Touch.LeanTouch.OnFingerUp -= HandleFingerUp;
-        Lean.Touch.LeanTouch.OnFingerUpdate -= HandleFingerUpdate;
-    }
-
-    void HandleFingerDown(Lean.Touch.LeanFinger finger)
-    {
-        if (!finger.IsOverGui)
-        {
-            _isFingerDown = true;
-        }
-        //For object box 3D
-        // var ray = finger.GetRay(Camera);
-        // var hit = default(RaycastHit);
-        //
-        // if (Physics.Raycast(ray, out hit, float.PositiveInfinity)) { //ADDED LAYER SELECTION
-        //     Debug.Log(hit.collider.gameObject);
-        // }
-
-
-        //For object box 2D
-        // RaycastHit2D hit2D = Physics2D.GetRayIntersection(Camera.ScreenPointToRay(Input.mousePosition), Mathf.Infinity, layerMaskRayMovePin);
-        // if (hit2D.collider != null)
-        // {
-        //     Debug.Log(hit2D.collider.gameObject.name);
-        // }
-    }
-
-    void HandleFingerUp(Lean.Touch.LeanFinger finger)
-    {
-        _isFingerDown = false;
-    }
-
-    void HandleFingerUpdate(Lean.Touch.LeanFinger finger)
-    {
-        if (_isFingerDown)
-        {
-            _isFingerDrag = true;
-        }
-    }
 
     private void Start()
     {

@@ -1,9 +1,9 @@
 using DG.Tweening;
-using Pancake;
-using Pancake.Monetization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Ads;
+using VirtueSky.Inspector;
 
 public class PopupWin : Popup
 {
@@ -90,18 +90,18 @@ public class PopupWin : Popup
         }
         else
         {
-            if (Advertising.IsRewardedAdReady()) BonusArrowHandler.MoveObject.StopMoving();
-            AdsManager.ShowRewardAds(() =>
-            {
-                //FirebaseManager.OnWatchAdsRewardWin();
-                GetRewardAds();
-                Observer.ClaimReward?.Invoke();
-            }, (() =>
-            {
-                BonusArrowHandler.MoveObject.ResumeMoving();
-                BtnRewardAds.SetActive(true);
-                BtnTapToContinue.SetActive(true);
-            }));
+            // if (Advertising.IsRewardedAdReady()) BonusArrowHandler.MoveObject.StopMoving();
+            // AdsManager.ShowRewardAds(() =>
+            // {
+            //     //FirebaseManager.OnWatchAdsRewardWin();
+            //     GetRewardAds();
+            //     Observer.ClaimReward?.Invoke();
+            // }, (() =>
+            // {
+            //     BonusArrowHandler.MoveObject.ResumeMoving();
+            //     BtnRewardAds.SetActive(true);
+            //     BtnTapToContinue.SetActive(true);
+            // }));
         }
     }
 

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using Pancake;
 using UnityEngine;
+using VirtueSky.Inspector;
 
 [DeclareHorizontalGroup("horizontal")]
 [DeclareVerticalGroup("horizontal/vars")]
@@ -23,10 +23,10 @@ public class ShowObject : MonoBehaviour
     [Button, Group("horizontal/buttons")]
     public void RandomShowID()
     {
-        if (ShowID == null || ShowID == "")
-        {
-            ShowID = Ulid.NewUlid().ToString();
-        }
+        // if (ShowID == null || ShowID == "")
+        // {
+        //     ShowID = Ulid.NewUlid().ToString();
+        // }
     }
 
     private bool IsLevelInLevelsShow()

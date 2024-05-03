@@ -1,5 +1,5 @@
-using Pancake;
 using UnityEngine;
+using VirtueSky.Inspector;
 
 public class ConfigController : SingletonDontDestroy<ConfigController>
 {

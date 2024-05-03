@@ -1,30 +1,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Pancake;
 using UnityEngine;
+using VirtueSky.Inspector;
 using Random = UnityEngine.Random;
 
-[CreateAssetMenu(fileName ="SoundConfig",menuName = "ScriptableObject/SoundConfig")]
+[CreateAssetMenu(fileName = "SoundConfig", menuName = "ScriptableObject/SoundConfig")]
 public class SoundConfig : ScriptableObject
 {
     public List<SoundData> SoundDatas;
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     [Button]
     public void UpdateSoundDatas()
     {
         for (int i = 0; i < Enum.GetNames(typeof(SoundType)).Length; i++)
         {
             SoundData soundData = new SoundData();
-            soundData.SoundType = (SoundType) i;
+            soundData.SoundType = (SoundType)i;
             if (IsItemExistedBySoundType(soundData.SoundType)) continue;
             SoundDatas.Add(soundData);
         }
 
         SoundDatas = SoundDatas.GroupBy(elem => elem.SoundType).Select(group => group.First()).ToList();
     }
-    #endif
+#endif
 
     private bool IsItemExistedBySoundType(SoundType soundType)
     {
@@ -43,7 +43,6 @@ public class SoundConfig : ScriptableObject
     {
         return SoundDatas.Find(item => item.SoundType == soundType);
     }
-    
 }
 
 [Serializable]

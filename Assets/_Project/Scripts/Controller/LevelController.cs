@@ -1,16 +1,17 @@
 using UnityEngine;
-using Pancake;
+using VirtueSky.Inspector;
 using Debug = System.Diagnostics.Debug;
 
 public class LevelController : SingletonDontDestroy<LevelController>
 {
     [ReadOnly] public Level currentLevel;
     private GameConfig Game => ConfigController.Game;
+
     public void PrepareLevel()
     {
         GenerateLevel(Data.CurrentLevel);
     }
-    
+
     public void GenerateLevel(int indexLevel)
     {
         if (currentLevel != null)
@@ -20,13 +21,14 @@ public class LevelController : SingletonDontDestroy<LevelController>
 
         if (indexLevel > ConfigController.Game.MaxLevel)
         {
-            indexLevel = (indexLevel-Game.StartLoopLevel) % (Game.MaxLevel - Game.StartLoopLevel + 1) + Game.StartLoopLevel;
+            indexLevel = (indexLevel - Game.StartLoopLevel) % (Game.MaxLevel - Game.StartLoopLevel + 1) +
+                         Game.StartLoopLevel;
         }
         else
         {
             if (Game.LevelLoopType == LevelLoopType.NormalLoop)
             {
-                indexLevel = (indexLevel-1) % ConfigController.Game.MaxLevel + 1;
+                indexLevel = (indexLevel - 1) % ConfigController.Game.MaxLevel + 1;
             }
             else if (Game.LevelLoopType == LevelLoopType.RandomLoop)
             {
@@ -46,4 +48,3 @@ public class LevelController : SingletonDontDestroy<LevelController>
         return levelGo.GetComponent<Level>();
     }
 }
-
