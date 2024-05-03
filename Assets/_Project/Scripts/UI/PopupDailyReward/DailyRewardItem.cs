@@ -39,7 +39,7 @@ public class DailyRewardItem : MonoBehaviour
     private void SetUpData()
     {
         // Setup data
-        dailyRewardData = Data.IsStartLoopingDailyReward
+        dailyRewardData = UserData.IsStartLoopingDailyReward
             ? ConfigController.DailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
             : ConfigController.DailyRewardConfig.DailyRewardDatas[dayIndex - 1];
 
@@ -53,13 +53,13 @@ public class DailyRewardItem : MonoBehaviour
             //shopItemData = ConfigController.ItemConfig.GetShopItemDataById(dailyRewardData.SkinID);
         }
 
-        if (Data.DailyRewardDayIndex > dayIndex)
+        if (UserData.DailyRewardDayIndex > dayIndex)
         {
             dailyRewardItemState = DailyRewardItemState.Claimed;
         }
-        else if (Data.DailyRewardDayIndex == dayIndex)
+        else if (UserData.DailyRewardDayIndex == dayIndex)
         {
-            if (!Data.IsClaimedTodayDailyReward())
+            if (!UserData.IsClaimedTodayDailyReward())
                 dailyRewardItemState = DailyRewardItemState.ReadyToClaim;
             else
                 dailyRewardItemState = DailyRewardItemState.NotClaim;
@@ -118,15 +118,15 @@ public class DailyRewardItem : MonoBehaviour
         Observer.ClaimReward?.Invoke();
 
         // Save datas
-        Data.LastDailyRewardClaimed = DateTime.Now.ToString();
-        Data.DailyRewardDayIndex++;
-        Data.TotalClaimDailyReward++;
+        UserData.LastDailyRewardClaimed = DateTime.Now.ToString();
+        UserData.DailyRewardDayIndex++;
+        UserData.TotalClaimDailyReward++;
 
         // Claim by type
         switch (dailyRewardData.DailyRewardType)
         {
             case DailyRewardType.Currency:
-                Data.CurrencyTotal += coinValue * (isClaimX5 ? 5 : 1);
+                UserData.CurrencyTotal += coinValue * (isClaimX5 ? 5 : 1);
                 break;
             case DailyRewardType.Skin:
                 //shopItemData.IsUnlocked = true;

@@ -77,22 +77,22 @@ public class ItemData : ItemIdentity
 
     public void EquipItem()
     {
-        Data.SetItemEquipped(Identity);
+        UserData.SetItemEquipped(Identity);
     }
 
     public bool IsUnlocked
     {
         get
         {
-            Data.IdItemUnlocked = Identity;
-            return Data.IsItemUnlocked;
+            UserData.IdItemUnlocked = Identity;
+            return UserData.IsItemUnlocked;
         }
 
         set
         {
             //FirebaseManager.OnClaimItemSkin(Identity);
-            Data.IdItemUnlocked = Identity;
-            Data.IsItemUnlocked = value;
+            UserData.IdItemUnlocked = Identity;
+            UserData.IsItemUnlocked = value;
         }
     }
 }

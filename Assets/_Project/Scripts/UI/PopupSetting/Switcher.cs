@@ -8,36 +8,35 @@ using UnityEngine.UI;
 
 public class Switcher : MonoBehaviour
 {
-    [Header("Datas")]
-    public SwitchState SwitchState = SwitchState.Idle;
+    [Header("Datas")] public SwitchState SwitchState = SwitchState.Idle;
     public bool IsOn;
-    [Header("Components")]
-    public SettingType SettingType;
+    [Header("Components")] public SettingType SettingType;
     public Sprite On;
     public Sprite Off;
     public Image Switch;
     public Transform OffPos;
     public Transform OnPos;
     public TextMeshProUGUI SwitchText;
-    [Header("Config attribute")] 
-    [Range(0.1f,3f)] public float TimeSwitching = .5f;
+
+    [Header("Config attribute")] [Range(0.1f, 3f)]
+    public float TimeSwitching = .5f;
 
     private void SetupData()
     {
         switch (SettingType)
         {
             case SettingType.BackgroundSound:
-                IsOn = Data.BgSoundState;
+                IsOn = UserData.BgSoundState;
                 break;
             case SettingType.FxSound:
-                IsOn = Data.FxSoundState;
+                IsOn = UserData.FxSoundState;
                 break;
             case SettingType.Vibration:
-                IsOn = Data.VibrateState;
+                IsOn = UserData.VibrateState;
                 break;
         }
     }
-    
+
     private void SetupUI()
     {
         if (SwitchText) SwitchText.text = IsOn ? "On" : "Off";
@@ -56,7 +55,7 @@ public class Switcher : MonoBehaviour
         SetupData();
         SetupUI();
     }
-    
+
     private void OnEnable()
     {
         Switch.transform.position = IsOn ? OnPos.position : OffPos.position;
@@ -75,25 +74,24 @@ public class Switcher : MonoBehaviour
         {
             Switch.transform.DOMove(OnPos.position, TimeSwitching);
         }
+
         DOTween.Sequence().AppendInterval(TimeSwitching / 2f).SetEase(Ease.Linear).AppendCallback(() =>
         {
             switch (SettingType)
             {
                 case SettingType.BackgroundSound:
-                    Data.BgSoundState = !IsOn;
+                    UserData.BgSoundState = !IsOn;
                     break;
                 case SettingType.FxSound:
-                    Data.FxSoundState = !IsOn;
+                    UserData.FxSoundState = !IsOn;
                     break;
                 case SettingType.Vibration:
-                    Data.VibrateState = !IsOn;
+                    UserData.VibrateState = !IsOn;
                     break;
             }
+
             Setup();
-        }).OnComplete(() =>
-        {
-            SwitchState = SwitchState.Idle;
-        });
+        }).OnComplete(() => { SwitchState = SwitchState.Idle; });
     }
 }
 

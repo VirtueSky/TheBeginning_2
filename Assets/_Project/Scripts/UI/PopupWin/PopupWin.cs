@@ -46,12 +46,12 @@ public class PopupWin : Popup
 
     private void SetupProgressBar()
     {
-        ProcessBar.fillAmount = (float)Data.PercentWinGift / 100;
-        Data.PercentWinGift += ConfigController.Game.PercentWinGiftPerLevel;
-        Percent = (float)Data.PercentWinGift;
-        if (Data.PercentWinGift == 100)
+        ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
+        UserData.PercentWinGift += ConfigController.Game.PercentWinGiftPerLevel;
+        Percent = (float)UserData.PercentWinGift;
+        if (UserData.PercentWinGift == 100)
         {
-            Data.PercentWinGift = 0;
+            UserData.PercentWinGift = 0;
         }
     }
 
@@ -83,7 +83,7 @@ public class PopupWin : Popup
 
     public void OnClickAdsReward()
     {
-        if (Data.IsTesting)
+        if (UserData.IsTesting)
         {
             GetRewardAds();
             Observer.ClaimReward?.Invoke();
@@ -107,7 +107,7 @@ public class PopupWin : Popup
 
     public void GetRewardAds()
     {
-        Data.CurrencyTotal += TotalMoney * BonusArrowHandler.CurrentAreaItem.MultiBonus;
+        UserData.CurrencyTotal += TotalMoney * BonusArrowHandler.CurrentAreaItem.MultiBonus;
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
@@ -118,7 +118,7 @@ public class PopupWin : Popup
 
     public void OnClickContinue()
     {
-        Data.CurrencyTotal += TotalMoney;
+        UserData.CurrencyTotal += TotalMoney;
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
 

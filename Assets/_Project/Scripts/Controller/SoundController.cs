@@ -23,12 +23,12 @@ public class SoundController : SingletonDontDestroy<SoundController>
 
     private void OnMusicChanged()
     {
-        backgroundAudio.mute = !Data.BgSoundState;
+        backgroundAudio.mute = !UserData.BgSoundState;
     }
 
     private void OnSoundChanged()
     {
-        fxAudio.mute = !Data.FxSoundState;
+        fxAudio.mute = !UserData.FxSoundState;
     }
 
     public void Setup()

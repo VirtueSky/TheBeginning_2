@@ -12,6 +12,7 @@ public class FirebaseController : SingletonDontDestroy<FirebaseController>
 {
     public DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
     public bool isInitialized;
+
     protected override void Awake()
     {
         Initialize();
@@ -58,12 +59,21 @@ public class FirebaseController : SingletonDontDestroy<FirebaseController>
 
         var defaults = new System.Collections.Generic.Dictionary<string, object>
         {
-            {Constant.USE_LEVEL_AB_TESTING, Data.DEFAULT_USE_LEVEL_AB_TESTING},
-            {Constant.LEVEL_TURN_ON_INTERSTITIAL, Data.DEFAULT_LEVEL_TURN_ON_INTERSTITIAL},
-            {Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL, Data.DEFAULT_COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL},
-            {Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL, Data.DEFAULT_SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL},
-            {Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME, Data.DEFAULT_SHOW_INTERSTITIAL_ON_LOSE_GAME},
-            {Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL, Data.DEFAULT_SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL},
+            { Constant.USE_LEVEL_AB_TESTING, UserData.DEFAULT_USE_LEVEL_AB_TESTING },
+            { Constant.LEVEL_TURN_ON_INTERSTITIAL, UserData.DEFAULT_LEVEL_TURN_ON_INTERSTITIAL },
+            {
+                Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL,
+                UserData.DEFAULT_COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL
+            },
+            {
+                Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL,
+                UserData.DEFAULT_SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL
+            },
+            { Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME, UserData.DEFAULT_SHOW_INTERSTITIAL_ON_LOSE_GAME },
+            {
+                Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL,
+                UserData.DEFAULT_SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL
+            },
         };
         await Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.SetDefaultsAsync(defaults)
             .ContinueWithOnMainThread(task =>
@@ -106,30 +116,30 @@ public class FirebaseController : SingletonDontDestroy<FirebaseController>
                             info.FetchTime));
                     });
 
-                Data.UseLevelABTesting = int.Parse(FirebaseRemoteConfig.DefaultInstance
+                UserData.UseLevelABTesting = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.USE_LEVEL_AB_TESTING).StringValue);
-                Data.LevelTurnOnInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
+                UserData.LevelTurnOnInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.LEVEL_TURN_ON_INTERSTITIAL).StringValue);
-                Data.CounterNumbBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
+                UserData.CounterNumbBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL).StringValue);
-                Data.TimeWinBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
+                UserData.TimeWinBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL).StringValue);
-                Data.UseShowInterstitialOnLoseGame = int.Parse(FirebaseRemoteConfig.DefaultInstance
+                UserData.UseShowInterstitialOnLoseGame = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME).StringValue);
-                Data.TimeLoseBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
+                UserData.TimeLoseBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL).StringValue);
 
                 Debug.Log("<color=Green>Firebase Remote Config Fetching Values</color>");
-                Debug.Log($"<color=Green>Data.UseLevelABTesting: {Data.UseLevelABTesting}</color>");
-                Debug.Log($"<color=Green>Data.LevelTurnOnInterstitial: {Data.LevelTurnOnInterstitial}</color>");
+                Debug.Log($"<color=Green>Data.UseLevelABTesting: {UserData.UseLevelABTesting}</color>");
+                Debug.Log($"<color=Green>Data.LevelTurnOnInterstitial: {UserData.LevelTurnOnInterstitial}</color>");
                 Debug.Log(
-                    $"<color=Green>Data.CounterNumbBetweenTwoInterstitial: {Data.CounterNumbBetweenTwoInterstitial}</color>");
+                    $"<color=Green>Data.CounterNumbBetweenTwoInterstitial: {UserData.CounterNumbBetweenTwoInterstitial}</color>");
                 Debug.Log(
-                    $"<color=Green>Data.TimeWinBetweenTwoInterstitial: {Data.TimeWinBetweenTwoInterstitial}</color>");
+                    $"<color=Green>Data.TimeWinBetweenTwoInterstitial: {UserData.TimeWinBetweenTwoInterstitial}</color>");
                 Debug.Log(
-                    $"<color=Green>Data.UseShowInterstitialOnLoseGame: {Data.UseShowInterstitialOnLoseGame}</color>");
+                    $"<color=Green>Data.UseShowInterstitialOnLoseGame: {UserData.UseShowInterstitialOnLoseGame}</color>");
                 Debug.Log(
-                    $"<color=Green>Data.TimeLoseBetweenTwoInterstitial: {Data.TimeLoseBetweenTwoInterstitial}</color>");
+                    $"<color=Green>Data.TimeLoseBetweenTwoInterstitial: {UserData.TimeLoseBetweenTwoInterstitial}</color>");
                 Debug.Log("<color=Green>Firebase Remote Config Fetching completed!</color>");
             }
             else

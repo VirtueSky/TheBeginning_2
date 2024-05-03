@@ -56,7 +56,7 @@ public class GameManager : SingletonDontDestroy<GameManager>
 
     public void BackLevel()
     {
-        Data.CurrentLevel--;
+        UserData.CurrentLevel--;
 
         PrepareLevel();
         StartGame();
@@ -65,7 +65,7 @@ public class GameManager : SingletonDontDestroy<GameManager>
     public void NextLevel()
     {
         Observer.SkipLevel?.Invoke(levelController.currentLevel);
-        Data.CurrentLevel++;
+        UserData.CurrentLevel++;
 
         PrepareLevel();
         StartGame();
@@ -87,7 +87,7 @@ public class GameManager : SingletonDontDestroy<GameManager>
             gameState == GameState.WinGame) return;
         gameState = GameState.WinGame;
         Observer.WinLevel?.Invoke(levelController.currentLevel);
-        Data.CurrentLevel++;
+        UserData.CurrentLevel++;
         DOTween.Sequence().AppendInterval(delayPopupShowTime).AppendCallback(() =>
         {
             PopupController.Instance.HideAll();
@@ -113,7 +113,7 @@ public class GameManager : SingletonDontDestroy<GameManager>
 
     public void ChangeAFpsState()
     {
-        if (Data.IsTesting)
+        if (UserData.IsTesting)
         {
             AFpsCounter.enabled = !AFpsCounter.isActiveAndEnabled;
         }

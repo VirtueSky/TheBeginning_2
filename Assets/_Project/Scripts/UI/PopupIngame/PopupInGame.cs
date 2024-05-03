@@ -40,8 +40,8 @@ public class PopupInGame : Popup
 
     public void Setup()
     {
-        LevelText.text = $"Level {Data.CurrentLevel}";
-        LevelTypeText.text = $"Level {(Data.UseLevelABTesting == 0 ? "A" : "B")}";
+        LevelText.text = $"Level {UserData.CurrentLevel}";
+        LevelTypeText.text = $"Level {(UserData.UseLevelABTesting == 0 ? "A" : "B")}";
     }
 
     public void OnClickHome()
@@ -54,7 +54,7 @@ public class PopupInGame : Popup
 
     public void OnClickReplay()
     {
-        if (Data.IsTesting)
+        if (UserData.IsTesting)
         {
             GameManager.Instance.ReplayGame();
         }
@@ -77,7 +77,7 @@ public class PopupInGame : Popup
 
     public void OnClickSkip()
     {
-        if (Data.IsTesting)
+        if (UserData.IsTesting)
         {
             GameManager.Instance.NextLevel();
         }
@@ -95,13 +95,13 @@ public class PopupInGame : Popup
 
     public void OnClickLevelA()
     {
-        Data.UseLevelABTesting = 0;
+        UserData.UseLevelABTesting = 0;
         GameManager.Instance.ReplayGame();
     }
 
     public void OnClickLevelB()
     {
-        Data.UseLevelABTesting = 1;
+        UserData.UseLevelABTesting = 1;
         GameManager.Instance.ReplayGame();
     }
 

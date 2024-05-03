@@ -11,22 +11,22 @@ public class PopupDebug : Popup
 
     public void OnEnable()
     {
-        ToggleTesting.isOn = Data.IsTesting;
-        ToggleIsOffInterAds.isOn = Data.IsOffInterAds;
+        ToggleTesting.isOn = UserData.IsTesting;
+        ToggleIsOffInterAds.isOn = UserData.IsOffInterAds;
     }
 
     public void OnClickAccept()
     {
         if (SetLevel.text != null && SetLevel.text != "")
         {
-            Data.CurrentLevel = int.Parse(SetLevel.text);
+            UserData.CurrentLevel = int.Parse(SetLevel.text);
             GameManager.Instance.PrepareLevel();
             GameManager.Instance.StartGame();
         }
 
         if (SetCoin.text != null && SetCoin.text != "")
         {
-            Data.CurrencyTotal = int.Parse(SetCoin.text);
+            UserData.CurrencyTotal = int.Parse(SetCoin.text);
         }
 
         SetCoin.text = string.Empty;
@@ -36,7 +36,7 @@ public class PopupDebug : Popup
 
     public void ChangeTestingState()
     {
-        Data.IsTesting = ToggleTesting.isOn;
+        UserData.IsTesting = ToggleTesting.isOn;
     }
 
     public void OnClickFPSBtn()
@@ -52,6 +52,6 @@ public class PopupDebug : Popup
 
     public void OnClickIsOffInterAds()
     {
-        Data.IsOffInterAds = ToggleIsOffInterAds.isOn;
+        UserData.IsOffInterAds = ToggleIsOffInterAds.isOn;
     }
 }

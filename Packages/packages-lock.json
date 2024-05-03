@@ -84,13 +84,6 @@
       },
       "hash": "039118f280938f9770ed4efcf04b5bf030981e7e"
     },
-    "com.pancake.playfab": {
-      "version": "https://github.com/pancake-llc/playfab.git#2.153.221024",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "4ccac33a0c4893b1f67d3eafda1767acb7d06eb9"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

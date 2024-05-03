@@ -9,7 +9,7 @@ public class LevelController : SingletonDontDestroy<LevelController>
 
     public void PrepareLevel()
     {
-        GenerateLevel(Data.CurrentLevel);
+        GenerateLevel(UserData.CurrentLevel);
     }
 
     public void GenerateLevel(int indexLevel)

@@ -15,17 +15,17 @@ public class CurrencyCounter : MonoBehaviour
     {
         Observer.SaveCurrencyTotal += SaveCurrency;
         Observer.CurrencyTotalChanged += UpdateCurrencyAmountText;
-        CurrencyAmountText.text = Data.CurrencyTotal.ToString();
+        CurrencyAmountText.text = UserData.CurrencyTotal.ToString();
     }
 
     private void SaveCurrency()
     {
-        currentCoin = Data.CurrencyTotal;
+        currentCoin = UserData.CurrencyTotal;
     }
-    
+
     private void UpdateCurrencyAmountText()
     {
-        if ( Data.CurrencyTotal > currentCoin)
+        if (UserData.CurrencyTotal > currentCoin)
         {
             IncreaseCurrency();
         }
@@ -46,11 +46,11 @@ public class CurrencyCounter : MonoBehaviour
             {
                 isFirstMove = true;
                 int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-                int nextAmount = (Data.CurrencyTotal - currentCurrencyAmount)/StepCount;
+                int nextAmount = (UserData.CurrencyTotal - currentCurrencyAmount) / StepCount;
                 int step = StepCount;
-                CurrencyTextCount(currentCurrencyAmount, nextAmount,step);
+                CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
             }
-        }, ()=>
+        }, () =>
         {
             Observer.CoinMove?.Invoke();
             if (!isPopupUIActive) PopupController.Instance.Hide<PopupUI>();
@@ -60,25 +60,24 @@ public class CurrencyCounter : MonoBehaviour
     private void DecreaseCurrency()
     {
         int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-        int nextAmount = (Data.CurrencyTotal - currentCurrencyAmount)/StepCount;
+        int nextAmount = (UserData.CurrencyTotal - currentCurrencyAmount) / StepCount;
         int step = StepCount;
-        CurrencyTextCount(currentCurrencyAmount, nextAmount,step);
+        CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
     }
 
-    private void CurrencyTextCount(int currentCurrencyValue,int nextAmountValue,int stepCount)
+    private void CurrencyTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)
     {
         if (stepCount == 0)
         {
-            CurrencyAmountText.text = Data.CurrencyTotal.ToString();
+            CurrencyAmountText.text = UserData.CurrencyTotal.ToString();
             return;
         }
+
         int totalValue = (currentCurrencyValue + nextAmountValue);
-        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate:true).AppendCallback(() =>
-        {
-            CurrencyAmountText.text = totalValue.ToString();
-        }).AppendCallback(()=>
-        {
-            CurrencyTextCount(totalValue, nextAmountValue, stepCount - 1);
-        });
+        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true)
+            .AppendCallback(() => { CurrencyAmountText.text = totalValue.ToString(); }).AppendCallback(() =>
+            {
+                CurrencyTextCount(totalValue, nextAmountValue, stepCount - 1);
+            });
     }
 }

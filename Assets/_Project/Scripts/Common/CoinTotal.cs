@@ -13,6 +13,6 @@ public class CoinTotal : MonoBehaviour
 
     private void UpdateCurrencyText()
     {
-        currencyTotal.text = Data.CurrencyTotal.ToString();
+        currencyTotal.text = UserData.CurrencyTotal.ToString();
     }
 }

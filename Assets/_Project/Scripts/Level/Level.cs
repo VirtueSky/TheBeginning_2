@@ -14,7 +14,7 @@ public class Level : MonoBehaviour
     [Button]
     private void StartLevel()
     {
-        Data.CurrentLevel = gameObject.name.GetNumberInAString();
+        UserData.CurrentLevel = gameObject.name.GetNumberInAString();
 
         EditorApplication.isPlaying = true;
     }
