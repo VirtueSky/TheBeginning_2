@@ -6,6 +6,12 @@ public partial struct UserData
 {
     #region GAME_DATA
 
+    public static int PercentWinGift
+    {
+        get => Get(Constant.PERCENT_WIN_GIFT, 0);
+        set => Set(Constant.PERCENT_WIN_GIFT, value);
+    }
+
     public static bool IsFirstOpenGame
     {
         get => Get(Constant.IS_FIRST_OPEN_GAME, 0) == 1;
