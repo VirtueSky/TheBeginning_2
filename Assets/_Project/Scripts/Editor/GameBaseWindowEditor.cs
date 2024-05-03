@@ -19,21 +19,21 @@ public class GameBaseWindowEditor : EditorWindow
         Debug.Log($"<color=Green>Data.IsTesting = {UserData.IsTesting}</color>");
     }
 
-    [MenuItem("GameBase/Open Scene/Launcher Scene %F1")]
+    [MenuItem("GameBase/Open Scene/Launcher %F1")]
     public static void PlayFromLauncherScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Open Scene/Gameplay Scene %F3")]
+    [MenuItem("GameBase/Open Scene/Gameplay %F3")]
     public static void PlayFromGamePlayScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAMEPLAY_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Open Scene/Service Scene %F2")]
+    [MenuItem("GameBase/Open Scene/Service %F2")]
     public static void PlayFromServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICES_SCENE}.unity");
