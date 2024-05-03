@@ -5,12 +5,12 @@ public static class Observer
     #region GameSystem
 
     // Debug
-    public static Action DebugChanged;
+    public static Action IsTestingChanged;
 
     // Currency
-    public static Action SaveCurrencyTotal;
+    public static Action SaveCoinTotal;
 
-    public static Action CurrencyTotalChanged;
+    public static Action CoinTotalChanged;
 
     // Level Spawn
     public static Action CurrentLevelChanged;
@@ -37,18 +37,6 @@ public static class Observer
     public static Action PurchaseFail;
     public static Action PurchaseSucceed;
     public static Action ClaimReward;
-
-    #endregion
-
-    #region Gameplay
-
-    // Game event
-    public static Action<Level> StartLevel;
-    public static Action<Level> ReplayLevel;
-    public static Action<Level> SkipLevel;
-    public static Action<Level> WinLevel;
-    public static Action<Level> LoseLevel;
-    public static Action<Level> FirstStartLevel;
 
     #endregion
 }

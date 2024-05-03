@@ -396,6 +396,103 @@ PlayerSettings:
       m_Height: 81
       m_Kind: 2
       m_SubKind: 
+  - m_BuildTarget: iPhone
+    m_Icons:
+    - m_Textures: []
+      m_Width: 180
+      m_Height: 180
+      m_Kind: 0
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 120
+      m_Height: 120
+      m_Kind: 0
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 167
+      m_Height: 167
+      m_Kind: 0
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 152
+      m_Height: 152
+      m_Kind: 0
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 76
+      m_Height: 76
+      m_Kind: 0
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 120
+      m_Height: 120
+      m_Kind: 3
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 80
+      m_Height: 80
+      m_Kind: 3
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 80
+      m_Height: 80
+      m_Kind: 3
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 40
+      m_Height: 40
+      m_Kind: 3
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 87
+      m_Height: 87
+      m_Kind: 1
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 58
+      m_Height: 58
+      m_Kind: 1
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 29
+      m_Height: 29
+      m_Kind: 1
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 58
+      m_Height: 58
+      m_Kind: 1
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 29
+      m_Height: 29
+      m_Kind: 1
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 60
+      m_Height: 60
+      m_Kind: 2
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 40
+      m_Height: 40
+      m_Kind: 2
+      m_SubKind: iPhone
+    - m_Textures: []
+      m_Width: 40
+      m_Height: 40
+      m_Kind: 2
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 20
+      m_Height: 20
+      m_Kind: 2
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 1024
+      m_Height: 1024
+      m_Kind: 4
+      m_SubKind: App Store
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
@@ -738,7 +835,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: ENABLE_PLAYFABADMIN_API;ENABLE_PLAYFABSERVER_API;MOREMOUNTAINS_NICEVIBRATIONS;MOREMOUNTAINS_NICEVIBRATIONS_RUMBLE;PANCAKE_MULTIPLE_DEX;PANCAKE_ADS;PANCAKE_NOTIFICATION;PANCAKE_PLAYFAB;PANCAKE_LEANTOUCH
+    Android: ENABLE_PLAYFABADMIN_API;ENABLE_PLAYFABSERVER_API;MOREMOUNTAINS_NICEVIBRATIONS;MOREMOUNTAINS_NICEVIBRATIONS_RUMBLE;PANCAKE_MULTIPLE_DEX;PANCAKE_ADS;PANCAKE_NOTIFICATION;PANCAKE_PLAYFAB;PANCAKE_LEANTOUCH;PRIME_TWEEN_DOTWEEN_ADAPTER
     CloudRendering: ENABLE_PLAYFABADMIN_API;ENABLE_PLAYFABSERVER_API;PANCAKE_MAX_ENABLE;PANCAKE_MULTIPLE_DEX;PANCAKE_ADS;PANCAKE_NOTIFICATION;PANCAKE_PLAYFAB
     EmbeddedLinux: ENABLE_PLAYFABADMIN_API;ENABLE_PLAYFABSERVER_API;PANCAKE_MULTIPLE_DEX;PANCAKE_ADS;PANCAKE_NOTIFICATION;PANCAKE_PLAYFAB
     GameCoreScarlett: ENABLE_PLAYFABADMIN_API;ENABLE_PLAYFABSERVER_API;PANCAKE_MULTIPLE_DEX;PANCAKE_ADS;PANCAKE_NOTIFICATION;PANCAKE_PLAYFAB

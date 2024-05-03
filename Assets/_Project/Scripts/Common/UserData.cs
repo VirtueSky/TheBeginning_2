@@ -14,17 +14,17 @@ public partial struct UserData
 
     public static bool IsFirstOpenGame
     {
-        get => Get(Constant.IS_FIRST_OPEN_GAME, 0) == 1;
-        set => Set(Constant.IS_FIRST_OPEN_GAME, value ? 1 : 0);
+        get => Get(Constant.IS_FIRST_OPEN_GAME, false);
+        set => Set(Constant.IS_FIRST_OPEN_GAME, value);
     }
 
     public static bool IsTesting
     {
-        get => Get(Constant.IS_TESTING, 0) == 1;
+        get => Get(Constant.IS_TESTING, false);
         set
         {
-            Set(Constant.IS_TESTING, value ? 1 : 0);
-            Observer.DebugChanged?.Invoke();
+            Set(Constant.IS_TESTING, value);
+            Observer.IsTestingChanged?.Invoke();
         }
     }
 
@@ -56,14 +56,14 @@ public partial struct UserData
         Set($"{Constant.GAMEOBJECT_SHOW}_{gameObjectID}", ++value);
     }
 
-    public static int CurrencyTotal
+    public static int CoinTotal
     {
         get => Get(Constant.CURRENCY_TOTAL, 0);
         set
         {
-            Observer.SaveCurrencyTotal?.Invoke();
+            Observer.SaveCoinTotal?.Invoke();
             Set(Constant.CURRENCY_TOTAL, value);
-            Observer.CurrencyTotalChanged?.Invoke();
+            Observer.CoinTotalChanged?.Invoke();
         }
     }
 
