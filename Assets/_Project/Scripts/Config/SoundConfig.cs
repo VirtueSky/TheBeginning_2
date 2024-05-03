@@ -5,7 +5,7 @@ using UnityEngine;
 using VirtueSky.Inspector;
 using Random = UnityEngine.Random;
 
-[CreateAssetMenu(fileName = "SoundConfig", menuName = "ScriptableObject/SoundConfig")]
+[CreateAssetMenu(fileName = "SoundConfig", menuName = "Config/SoundConfig")]
 public class SoundConfig : ScriptableObject
 {
     public List<SoundData> SoundDatas;

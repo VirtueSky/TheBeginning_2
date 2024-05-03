@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Base.Data;
+using Base.Global;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Inspector;

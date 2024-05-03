@@ -16,8 +16,9 @@ public class Constant
     public const string VIBRATE_STATE = "VIBRATE_STATE";
 
     // Scene
-    public const string LOADING_SCENE = "LoadingScene";
-    public const string GAMEPLAY_SCENE = "GamePlayScene";
+    public const string LAUNCHER_SCENE = "Launcher";
+    public const string GAMEPLAY_SCENE = "Gameplay";
+    public const string SERVICES_SCENE = "Service";
 
     // Playfab
     public const string PLAYFAB_LOGIN_ID = "PLAYFAB_LOGIN_ID";

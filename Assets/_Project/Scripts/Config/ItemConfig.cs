@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Base.Data;
 using UnityEngine;
 using VirtueSky.Inspector;
 using Random = UnityEngine.Random;
 
-[CreateAssetMenu(fileName = "ItemConfig", menuName = "ScriptableObject/ItemConfig")]
+[CreateAssetMenu(fileName = "ItemConfig", menuName = "Config/ItemConfig")]
 public class ItemConfig : ScriptableObject
 {
     public List<ItemData> itemDatas;
