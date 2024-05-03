@@ -22,38 +22,38 @@
       "hash": "50d04b09ae563e7eed9b72180973870171e15423"
     },
     "com.google.external-dependency-manager": {
-      "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.175",
+      "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.179",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "38e491f898253a5ba719a6f62e5f8160f46971ae"
+      "hash": "66fd0c1b84d72ec9ac32e2eece65f2630b4b262e"
     },
     "com.google.firebase.analytics": {
-      "version": "https://github.com/firebase-unity/firebase-analytics.git#10.6.0",
+      "version": "https://github.com/firebase-unity/firebase-analytics.git#11.9.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.firebase.app": "10.6.0"
+        "com.google.firebase.app": "11.9.0"
       },
-      "hash": "ac1e8a74bf1c2dea34d1d014e46a1b0f66b66cdf"
+      "hash": "07847943f9e7de1ef0f97ea8c90b29f915fe3343"
     },
     "com.google.firebase.app": {
-      "version": "https://github.com/firebase-unity/firebase-app.git#10.6.0",
+      "version": "https://github.com/firebase-unity/firebase-app.git#11.9.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.external-dependency-manager": "1.2.175"
+        "com.google.external-dependency-manager": "1.2.177"
       },
-      "hash": "3a8471883dc9d84d3d39508f3655668ef377f33a"
+      "hash": "3d26bd3c8a2c15ca59cef20b930bed4d1094a353"
     },
     "com.google.firebase.remote-config": {
-      "version": "https://github.com/firebase-unity/firebase-remote-config.git#10.6.0",
+      "version": "https://github.com/firebase-unity/firebase-remote-config.git#11.9.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.firebase.app": "10.6.0"
+        "com.google.firebase.app": "11.9.0"
       },
-      "hash": "2c58b0137004202e78a23ff84e11bdf903803137"
+      "hash": "42ee23d82d7e15cd0f791d098b6b4e666eb301c6"
     },
     "com.google.play.common": {
       "version": "https://github.com/google-unity/google-play-common.git#1.8.1",
@@ -271,14 +271,14 @@
       }
     },
     "com.wolf-package.unity-common": {
-      "version": "https://github.com/wolf-package/unity-common.git#1.0.1",
+      "version": "https://github.com/wolf-package/unity-common.git#1.0.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.serialization": "3.1.1",
         "com.unity.collections": "2.1.4"
       },
-      "hash": "ad0c4351bfb44b9e477b5e954012e966fd53a5dc"
+      "hash": "c978471d089deca45c98961c38855073a443082b"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
