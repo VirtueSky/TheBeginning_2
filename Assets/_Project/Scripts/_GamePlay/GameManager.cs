@@ -7,4 +7,14 @@ namespace Base.Game
     public class GameManager : Singleton<GameManager>
     {
     }
+
+    public enum GameState
+    {
+        PrepareLevel,
+        PlayingLevel,
+        WaitingResult,
+        LoseLevel,
+        WinLevel,
+        Lobby
+    }
 }
