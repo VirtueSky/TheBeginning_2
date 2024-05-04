@@ -20,19 +20,6 @@ public class Constant
     public const string GAMEPLAY_SCENE = "Gameplay";
     public const string SERVICES_SCENE = "Service";
 
-    // Playfab
-    public const string PLAYFAB_LOGIN_ID = "PLAYFAB_LOGIN_ID";
-    public const string PLAYER_ID = "PLAYER_ID";
-    public const string PLAYER_NAME = "PLAYER_NAME";
-    public const string PLAYER_COUNTRY_CODE = "PLAYER_COUNTRY_CODE";
-
-    // Firebase
-    public const string USE_LEVEL_AB_TESTING = "USE_LEVEL_AB_TESTING";
-    public const string LEVEL_TURN_ON_INTERSTITIAL = "LEVEL_TURN_ON_INTERSTITIAL";
-    public const string COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL = "COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL";
-    public const string SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL = "SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL";
-    public const string SHOW_INTERSTITIAL_ON_LOSE_GAME = "SHOW_INTERSTITIAL_ON_LOSE_GAME";
-    public const string SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL = "SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL";
 
     // Game Data
     public const string CURRENCY_TOTAL = "CURRENCY_TOTAL";
@@ -42,4 +29,7 @@ public class Constant
     public const string EQUIP_ITEM = "EQUIP_ITEM";
     public const string GAMEOBJECT_SHOW = "GAMEOBJECT_SHOW";
     public const string PERCENT_WIN_GIFT = "PERCENT_WIN_GIFT";
+
+    // Ads
+    public const string ADS_COUNTER = "ADS_COUNTER";
 }

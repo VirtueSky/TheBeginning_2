@@ -2,7 +2,7 @@ using System;
 
 namespace Base.Global
 {
-    public static class Observer
+    public partial struct Observer
     {
         #region GameSystem
 

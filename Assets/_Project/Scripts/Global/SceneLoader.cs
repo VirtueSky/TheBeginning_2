@@ -1,12 +1,13 @@
-using UnityEditor.Playables;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using VirtueSky.Core;
+using VirtueSky.Inspector;
 
 namespace Base.Global
 {
+    [EditorIcon("icon_controller"), HideMonoScript]
     public class SceneLoader : Singleton<SceneLoader>
     {
         public void ChangeScene(string sceneName)
