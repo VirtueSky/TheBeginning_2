@@ -73,3 +73,7 @@ crashlytics-build.properties
 # Ignore some files
 /remote_config_data
 /.idea
+# File Data
+/[Tt]empDataStorage
+# Finder Cache
+/[Aa]ssets/_Root/[Ee]ditor/[Ff]inderCache
