@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 1646167644}
   - component: {fileID: 1646167645}
   - component: {fileID: 1646167646}
+  - component: {fileID: 1646167648}
   m_Layer: 0
   m_Name: Service
   m_TagString: Untagged
@@ -346,6 +347,19 @@ MonoBehaviour:
   currentLevel: {fileID: 0}
   previousLevel: {fileID: 0}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+--- !u!114 &1646167648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646167639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc174ab83c3aa44788b14e587102ebfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
 --- !u!1 &2146724308
 GameObject:
   m_ObjectHideFlags: 0
