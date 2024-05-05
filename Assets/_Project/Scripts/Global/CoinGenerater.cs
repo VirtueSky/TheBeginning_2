@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using PrimeTween;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Core;
 using VirtueSky.ObjectPooling;
 using VirtueSky.Threading.Tasks;
@@ -14,6 +13,7 @@ namespace Base.Global
     {
         [SerializeField] private Vector3 from = Vector3.zero;
         [SerializeField] private GameObject to;
+        [SerializeField] private Transform holder;
         [SerializeField] private int numberCoin;
         [SerializeField] private int delay;
         [SerializeField] private float durationNear;
@@ -29,6 +29,19 @@ namespace Base.Global
 
         private List<GameObject> coinsActive = new List<GameObject>();
 
+        public override void OnEnable()
+        {
+            base.OnEnable();
+            Observer.SetPositionCoinGenerate += SetFrom;
+            SetFrom(holder.position);
+        }
+
+        public override void OnDisable()
+        {
+            base.OnDisable();
+            Observer.SetPositionCoinGenerate -= SetFrom;
+        }
+
         public void SetFrom(Vector3 from)
         {
             this.from = from;
@@ -37,10 +50,6 @@ namespace Base.Global
         public void SetToGameObject(GameObject to)
         {
             this.to = to;
-        }
-
-        private void Start()
-        {
         }
 
         public async void GenerateCoin(Action moveOneCoinDone, Action moveAllCoinDone,
@@ -56,7 +65,7 @@ namespace Base.Global
             for (int i = 0; i < this.numberCoin; i++)
             {
                 await UniTask.Delay(Random.Range(0, delay));
-                GameObject coin = PoolManager.Instance.Spawn(iconCoinPrefab, transform);
+                GameObject coin = PoolManager.Instance.Spawn(iconCoinPrefab, holder);
                 coin.transform.localScale = Vector3.one * scale;
                 coinsActive.Add(coin);
                 coin.transform.position = from;
@@ -85,7 +94,7 @@ namespace Base.Global
                 {
                     moveAllCoinDone?.Invoke();
 
-                    from = Vector3.zero;
+                    SetFrom(holder.position);
                 }
             });
         }

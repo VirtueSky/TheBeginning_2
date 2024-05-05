@@ -32,7 +32,7 @@ RectTransform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
@@ -226,10 +226,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   from: {x: 0, y: 0, z: 0}
   to: {fileID: 9157539959958119255}
+  holder: {fileID: 7775329050491216779}
   numberCoin: 20
   delay: 20
-  durationNear: 0.5
-  durationTarget: 0.5
+  durationNear: 0.6
+  durationTarget: 0.7
   easeNear: 12
   easeTarget: 21
   scale: 0.5

@@ -1,5 +1,8 @@
 #if UNITY_EDITOR
 using Base.Data;
+using Base.Game;
+using Base.Global;
+using Base.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;

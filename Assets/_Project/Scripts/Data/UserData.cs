@@ -96,35 +96,6 @@ namespace Base.Data
 
         #endregion
 
-        #region SETTING_DATA
-
-        public static bool BgSoundState
-        {
-            get => GameData.Get(Constant.BACKGROUND_SOUND_STATE, true);
-            set
-            {
-                GameData.Set(Constant.BACKGROUND_SOUND_STATE, value);
-                Observer.MusicChanged?.Invoke();
-            }
-        }
-
-        public static bool FxSoundState
-        {
-            get => GameData.Get(Constant.FX_SOUND_STATE, true);
-            set
-            {
-                GameData.Set(Constant.FX_SOUND_STATE, value);
-                Observer.SoundChanged?.Invoke();
-            }
-        }
-
-        public static bool VibrateState
-        {
-            get => GameData.Get(Constant.VIBRATE_STATE, true);
-            set => GameData.Set(Constant.VIBRATE_STATE, value);
-        }
-
-        #endregion
 
         #region DAILY_REWARD
 
