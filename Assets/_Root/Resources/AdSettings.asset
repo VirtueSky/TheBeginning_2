@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f24e5e094279489e564e1f39bacd9, type: 3}
+  m_Name: AdSettings
+  m_EditorClassIdentifier: 
+  runtimeAutoInit: 1
+  adCheckingInterval: 8
+  adLoadingInterval: 15
+  adNetwork: 1
+  sdkKey: 
+  applovinEnableAgeRestrictedUser: 0
+  maxBannerAdUnit:
+    androidId: 
+    iOSId: 
+    size: 0
+    position: 0
+  maxInterstitialAdUnit:
+    androidId: 
+    iOSId: 
+  maxRewardAdUnit:
+    androidId: 
+    iOSId: 
+  maxRewardedInterstitialAdUnit:
+    androidId: 
+    iOSId: 
+  maxAppOpenAdUnit:
+    androidId: 
+    iOSId: 
+  admobBannerAdUnit:
+    androidId: 
+    iOSId: 
+    size: 5
+    position: 0
+    useCollapsible: 0
+    useTestId: 0
+  admobInterstitialAdUnit:
+    androidId: 
+    iOSId: 
+    useTestId: 0
+  admobRewardAdUnit:
+    androidId: 
+    iOSId: 
+    useTestId: 0
+  admobRewardedInterstitialAdUnit:
+    androidId: 
+    iOSId: 
+    useTestId: 0
+  admobAppOpenAdUnit:
+    androidId: 
+    iOSId: 
+    useTestId: 0
+  admobEnableTestMode: 0
+  enableGDPR: 0
+  enableGDPRTestMode: 0
+  admobDevicesTest: []

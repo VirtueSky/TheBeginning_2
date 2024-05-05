@@ -170,6 +170,7 @@ MonoBehaviour:
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
   timeLoading: 2.5
+  isWaitingFetchRemoteConfig: 0
 --- !u!1 &326257131
 GameObject:
   m_ObjectHideFlags: 0
