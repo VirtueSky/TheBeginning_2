@@ -1,4 +1,5 @@
 using Base.Services;
+using VirtueSky.DataStorage;
 
 namespace Base.Data
 {
@@ -6,7 +7,7 @@ namespace Base.Data
     {
         public static T GetRemoteConfigData<T>(KeyFirebaseRemoteConfig key)
         {
-            return FirebaseRemoteConfigManager.Instance.GetData(key).GetValue<T>();
+            return GameData.Get<T>(key.ToString());
         }
     }
 }

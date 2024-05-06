@@ -3,7 +3,6 @@
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
     "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
     "com.google.android.appbundle": "https://github.com/google-unity/android-app-bundle.git#1.8.0",
-    "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.179",
     "com.google.firebase.analytics": "https://github.com/firebase-unity/firebase-analytics.git#11.9.0",
     "com.google.firebase.app": "https://github.com/firebase-unity/firebase-app.git#11.9.0",
     "com.google.firebase.remote-config": "https://github.com/firebase-unity/firebase-remote-config.git#11.9.0",
@@ -57,6 +56,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.179"
   }
 }

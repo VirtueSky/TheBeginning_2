@@ -29,7 +29,7 @@ public class ShowObject : MonoBehaviour
 
     private bool EnableToShow()
     {
-        bool testingCondition = !IsShowByTesting || (IsShowByTesting && UserData.IsTesting);
+        bool testingCondition = !IsShowByTesting || (IsShowByTesting && UserData.IsTestingAdministrator);
         bool levelCondition = !IsShowByLevel || (IsShowByLevel && IsLevelInLevelsShow());
         return testingCondition && levelCondition;
     }

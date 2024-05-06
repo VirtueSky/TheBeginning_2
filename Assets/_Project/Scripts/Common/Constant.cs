@@ -32,7 +32,10 @@ public class Constant
 
     // Ads
     public const string ADS_COUNTER = "ADS_COUNTER";
+
+    // Admin
     public const string IS_OFF_INTER_ADS_ADMIN = "IS_OFF_INTER_ADS_ADMIN";
     public const string IS_OFF_BANNER_ADS_ADMIN = "IS_OFF_BANNER_ADS_ADMIN";
     public const string IS_OFF_REWARD_ADS_ADMIN = "IS_OFF_REWARD_ADS_ADMIN";
+    public const string IS_OFF_UI_ADMIN = "IS_OFF_UI_ADMIN";
 }

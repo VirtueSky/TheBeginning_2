@@ -112,17 +112,5 @@ namespace Base.Services
             });
         }
 #endif
-        public FirebaseRemoteConfigData GetData(KeyFirebaseRemoteConfig _key)
-        {
-            foreach (var data in ListRemoteConfigData)
-            {
-                if (data.key == _key)
-                {
-                    return data;
-                }
-            }
-
-            return null;
-        }
     }
 }

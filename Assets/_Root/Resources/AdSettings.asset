@@ -41,15 +41,15 @@ MonoBehaviour:
     size: 5
     position: 0
     useCollapsible: 0
-    useTestId: 0
+    useTestId: 1
   admobInterstitialAdUnit:
     androidId: 
     iOSId: 
-    useTestId: 0
+    useTestId: 1
   admobRewardAdUnit:
     androidId: 
     iOSId: 
-    useTestId: 0
+    useTestId: 1
   admobRewardedInterstitialAdUnit:
     androidId: 
     iOSId: 
@@ -59,6 +59,6 @@ MonoBehaviour:
     iOSId: 
     useTestId: 0
   admobEnableTestMode: 0
-  enableGDPR: 0
-  enableGDPRTestMode: 0
+  enableGDPR: 1
+  enableGDPRTestMode: 1
   admobDevicesTest: []

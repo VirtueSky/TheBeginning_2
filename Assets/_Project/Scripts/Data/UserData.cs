@@ -21,16 +21,6 @@ namespace Base.Data
             set => GameData.Set(Constant.IS_FIRST_OPEN_GAME, value);
         }
 
-        public static bool IsTesting
-        {
-            get => GameData.Get(Constant.IS_TESTING, false);
-            set
-            {
-                GameData.Set(Constant.IS_TESTING, value);
-                Observer.IsTestingChanged?.Invoke();
-            }
-        }
-
 
         public static int CurrentLevel
         {

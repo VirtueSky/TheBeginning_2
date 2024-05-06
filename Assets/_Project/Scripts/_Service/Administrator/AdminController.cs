@@ -1,9 +1,10 @@
+using Base.Data;
 using Base.Game;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using VirtueSky.Core;
+using VirtueSky.Ads;
 using VirtueSky.Inspector;
 
 namespace Base.Services
@@ -40,35 +41,29 @@ namespace Base.Services
         [SerializeField] private Button btnShowReward;
         [SerializeField] private Button btnModifyConsent;
         [SerializeField] private ItemConfig itemConfig;
-
         [SerializeField] private GameConfig gameConfig;
-        // [HeaderLine("SO")] [SerializeField] private BooleanVariable isOffUIVariable;
-        // [SerializeField] private BooleanVariable isOffInterAds;
-        // [SerializeField] private BooleanVariable isOffBannerAds;
-        // [SerializeField] private BooleanVariable isOffRewardAds;
-        // [SerializeField] private BooleanVariable isTestingVariable;
-        // [SerializeField] private IntegerVariable indexLevelVariable;
-        // [SerializeField] private IntegerVariable currentCoin;
-        // [SerializeField] private ItemConfig itemConfig;
-        // [SerializeField] private GameConfig gameConfig;
-        // [SerializeField] private EventNoParam showConsentOption;
-        // [SerializeField] private BooleanVariable gdpr_required_variable;
-        // [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
-        // [SerializeField] private GameStateVariable gameStateVariable;
-        // [SerializeField] private EventNoParam callNextLevelEvent;
-        // [SerializeField] private EventNoParam callPreviousLevelEvent;
-        // [SerializeField] private FloatEvent callWinLevelEvent;
-        // [SerializeField] private FloatEvent callLoseLevelEvent;
+        private bool isRequireGDPR = false;
 
         private void Awake()
         {
             gameObject.SetActive(gameConfig.enableAdministrator);
+            AdStatic.OnPrivacyRequiredGDPR += OnChangeRequireGDPR;
+        }
+
+        private void OnDestroy()
+        {
+            AdStatic.OnPrivacyRequiredGDPR -= OnChangeRequireGDPR;
+        }
+
+        void OnChangeRequireGDPR(bool isRequire)
+        {
+            isRequireGDPR = isRequire;
         }
 
         private void OnEnable()
         {
             SetupDefault();
-            // btnModifyConsent.gameObject.SetActive(gdpr_required_variable.Value);
+            btnModifyConsent.gameObject.SetActive(isRequireGDPR);
             // button
             btnModifyConsent.onClick.AddListener(OnClickModifyConsent);
             btnJumpToLevel.onClick.AddListener(OnClickJumpToLevel);
@@ -125,39 +120,43 @@ namespace Base.Services
 
         void Refresh()
         {
-            // toggleOffUI.isOn = isOffUIVariable.Value;
-            // toggleIsTesting.isOn = isTestingVariable.Value;
-            // toggleOffBannerAds.isOn = isOffBannerAds.Value;
-            // toggleOffInterAds.isOn = isOffInterAds.Value;
-            // toggleOffRewardAds.isOn = isOffRewardAds.Value;
-            //
-            // btnShowBanner.gameObject.SetActive(Application.isMobilePlatform);
-            // btnHideBanner.gameObject.SetActive(Application.isMobilePlatform);
-            // btnShowInter.gameObject.SetActive(Application.isMobilePlatform);
-            // btnShowReward.gameObject.SetActive(Application.isMobilePlatform);
-            //
-            // btnNextLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
-            // btnPrevLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
-            // btnWinLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
-            // btnLoseLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
+            toggleOffUI.isOn = UserData.IsOffUIAdministrator;
+            toggleIsTesting.isOn = UserData.IsTestingAdministrator;
+            toggleOffBannerAds.isOn = UserData.IsTestOffBannerAdsAdministrator;
+            toggleOffInterAds.isOn = UserData.IsOffInterAdsAdministrator;
+            toggleOffRewardAds.isOn = UserData.IsOffRewardAdsAdministrator;
+
+            btnShowBanner.gameObject.SetActive(Application.isMobilePlatform);
+            btnHideBanner.gameObject.SetActive(Application.isMobilePlatform);
+            btnShowInter.gameObject.SetActive(Application.isMobilePlatform);
+            btnShowReward.gameObject.SetActive(Application.isMobilePlatform);
+
+            btnNextLevel.gameObject.SetActive(GameManager.Instance != null &&
+                                              GameManager.Instance.GameState == GameState.PlayingLevel);
+            btnPrevLevel.gameObject.SetActive(GameManager.Instance != null &&
+                                              GameManager.Instance.GameState == GameState.PlayingLevel);
+            btnWinLevel.gameObject.SetActive(GameManager.Instance != null &&
+                                             GameManager.Instance.GameState == GameState.PlayingLevel);
+            btnLoseLevel.gameObject.SetActive(GameManager.Instance != null &&
+                                              GameManager.Instance.GameState == GameState.PlayingLevel);
         }
 
         void OnClickJumpToLevel()
         {
             if (inputFieldLevel.text != "")
             {
-                // indexLevelVariable.Value = int.Parse(inputFieldLevel.text);
+                UserData.CurrentLevel = int.Parse(inputFieldLevel.text);
             }
 
             inputFieldLevel.text = "";
-            // callPlayCurrentLevelEvent.Raise();
+            GameManager.Instance.PlayCurrentLevel();
         }
 
         void OnClickEnterCurrency()
         {
             if (inputFieldCurrency.text != "")
             {
-                // currentCoin.Value = int.Parse(inputFieldCurrency.text);
+                UserData.CoinTotal = int.Parse(inputFieldCurrency.text);
             }
 
             inputFieldCurrency.text = "";
@@ -165,27 +164,27 @@ namespace Base.Services
 
         void OnClickAdd10000Coin()
         {
-            // currentCoin.Value += 10000;
+            UserData.CoinTotal += 10000;
         }
 
         void OnClickShowBanner()
         {
-            // AppControlAds.AdUnitBanner.Show();
+            Advertising.Instance.ShowBanner();
         }
 
         void OnClickHideBanner()
         {
-            // AppControlAds.AdUnitBanner.Destroy();
+            Advertising.Instance.HideBanner();
         }
 
         void OnClickShowInter()
         {
-            //AppControlAds.AdUnitInter.Show();
+            Advertising.Instance.ShowInterstitial();
         }
 
         void OnClickShowReward()
         {
-            // AppControlAds.AdUnitReward.Show();
+            Advertising.Instance.ShowReward();
         }
 
         void OnClickUnlockAllSkins()
@@ -195,52 +194,54 @@ namespace Base.Services
 
         void OnClickNextLevel()
         {
-            // callNextLevelEvent.Raise();
+            GameManager.Instance.NextLevel();
         }
 
         void OnClickPreviousLevel()
         {
-            // callPreviousLevelEvent.Raise();
+            GameManager.Instance.BackLevel();
         }
 
         void OnClickWinLevel()
         {
-            // callWinLevelEvent.Raise(1.5f);
+            GameManager.Instance.WinLevel(1.5f);
         }
 
         void OnClickLoseLevel()
         {
-            //callLoseLevelEvent.Raise(1.5f);
+            GameManager.Instance.LoseLevel(1.5f);
         }
 
         void OnChangeOffIsTesting(bool isOn)
         {
-            // isTestingVariable.Value = isOn;
+            UserData.IsTestingAdministrator = isOn;
         }
 
         void OnChangeOffInter(bool isOn)
         {
-            // isOffInterAds.Value = isOn;
+            UserData.IsOffInterAdsAdministrator = isOn;
         }
 
         void OnChangeOffReward(bool isOn)
         {
-            // isOffRewardAds.Value = isOn;
+            UserData.IsOffRewardAdsAdministrator = isOn;
         }
 
         void OnChangeOffBanner(bool isOn)
         {
-            // isOffBannerAds.Value = isOn;
+            UserData.IsTestOffBannerAdsAdministrator = isOn;
         }
 
         void OnChangeOffUI(bool isOn)
         {
-            // isOffUIVariable.Value = isOn;
+            UserData.IsOffUIAdministrator = isOn;
         }
 
         void OnClickModifyConsent()
         {
-            // showConsentOption.Raise();
+#if VIRTUESKY_ADMOB
+            Advertising.Instance.ShowPrivacyOptionsForm();
+#endif
         }
 
         void OnClickShowHideAdmin()

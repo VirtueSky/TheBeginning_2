@@ -18,8 +18,8 @@ public class GameBaseWindowEditor : EditorWindow
     [MenuItem("GameBase/Switch IsTesting %`")]
     public static void SwitchIsTesting()
     {
-        UserData.IsTesting = !UserData.IsTesting;
-        Debug.Log($"<color=Green>Data.IsTesting = {UserData.IsTesting}</color>");
+        UserData.IsTestingAdministrator = !UserData.IsTestingAdministrator;
+        Debug.Log($"<color=Green>Data.IsTesting = {UserData.IsTestingAdministrator}</color>");
     }
 
     [MenuItem("GameBase/Open Scene/Launcher %F1")]

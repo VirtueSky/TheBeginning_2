@@ -82,12 +82,6 @@ namespace Base.Services
             }
         }
 #endif
-
-
-        public T GetValue<T>()
-        {
-            return GameData.Get<T>(key.ToString());
-        }
     }
 
     public enum TypeRemoteConfigData

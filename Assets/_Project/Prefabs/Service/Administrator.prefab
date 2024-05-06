@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 7729305507112206620}
   - component: {fileID: 600411265061536568}
   - component: {fileID: 486071785117385308}
+  - component: {fileID: 1494261788308708002}
   m_Layer: 7
   m_Name: Administrator
   m_TagString: Untagged
@@ -451,6 +452,47 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1494261788308708002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451392690155246270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa302f61ff9943be8ba03661a5e86876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShow: 0
+  container: {fileID: 5550216500383882055}
+  holder: {fileID: 8454857659827045719}
+  btnShowHideAdmin: {fileID: 3122771233727140311}
+  iconButtonShowAdmin: {fileID: 3993962120136202913}
+  iconBtnShow: {fileID: 21300000, guid: 427917e6f87d5f948933c3557fbc9ca7, type: 3}
+  iconBtnHide: {fileID: 21300000, guid: 1ce78dd93df74ee429d0387ef0feb3ce, type: 3}
+  toggleOffUI: {fileID: 3455367170370541535}
+  toggleIsTesting: {fileID: 9099764751783287371}
+  toggleOffInterAds: {fileID: 3171900556065652942}
+  toggleOffBannerAds: {fileID: 5935378164289619742}
+  toggleOffRewardAds: {fileID: 8743950153964576051}
+  inputFieldCurrency: {fileID: 1930641107307741410}
+  inputFieldLevel: {fileID: 4308972750497747012}
+  btnNextLevel: {fileID: 220368050631894036}
+  btnPrevLevel: {fileID: 8280694652889522512}
+  btnWinLevel: {fileID: 8101774480122182387}
+  btnLoseLevel: {fileID: 2309137181918822498}
+  btnJumpToLevel: {fileID: 4377674837596243287}
+  btnEnterCurrency: {fileID: 572658622773386958}
+  btnAddCurrency: {fileID: 4537654838896785595}
+  btnUnlockAllSkin: {fileID: 5740954382840693040}
+  btnShowBanner: {fileID: 2225653330937527306}
+  btnHideBanner: {fileID: 499848378681231245}
+  btnShowInter: {fileID: 7400787311909270748}
+  btnShowReward: {fileID: 1347485939482409873}
+  btnModifyConsent: {fileID: 7849666180238090868}
+  itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
+  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
 --- !u!1 &611984390817880100
 GameObject:
   m_ObjectHideFlags: 0
