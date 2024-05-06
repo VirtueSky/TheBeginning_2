@@ -31,11 +31,6 @@ namespace Base.Data
             }
         }
 
-        public static bool IsOffInterAds
-        {
-            get => GameData.Get(Constant.IS_OFF_INTER_ADS, false);
-            set => GameData.Set(Constant.IS_OFF_INTER_ADS, value);
-        }
 
         public static int CurrentLevel
         {

@@ -1,4 +1,5 @@
 using System;
+using Base.Data;
 using Firebase.RemoteConfig;
 using UnityEngine;
 using VirtueSky.DataStorage;
@@ -45,8 +46,6 @@ namespace Base.Services
                     GameData.Set(key.ToString(), defaultValueInt);
                     break;
             }
-
-            Debug.Log($"<color=Green>Setup default data remote config completed</color>");
         }
 #if VIRTUESKY_FIREBASE_REMOTECONFIG
         public void SetupData(ConfigValue result)

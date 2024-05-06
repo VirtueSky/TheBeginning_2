@@ -8,7 +8,7 @@ public class Constant
     public const string IS_START_LOOPING_DAILY_REWARD = "IS_START_LOOPING_DAILY_REWARD";
     public const string DAILY_REWARD_DAY_INDEX = "DAILY_REWARD_DAY_INDEX";
     public const string TOTAL_CLAIM_DAILY_REWARD = "TOTAL_CLAIM_DAILY_REWARD";
-    public const string IS_OFF_INTER_ADS = "IS_OFF_INTER_ADS";
+
 
     // Sound
     public const string BACKGROUND_SOUND_STATE = "BACKGROUND_SOUND_STATE";
@@ -32,4 +32,7 @@ public class Constant
 
     // Ads
     public const string ADS_COUNTER = "ADS_COUNTER";
+    public const string IS_OFF_INTER_ADS_ADMIN = "IS_OFF_INTER_ADS_ADMIN";
+    public const string IS_OFF_BANNER_ADS_ADMIN = "IS_OFF_BANNER_ADS_ADMIN";
+    public const string IS_OFF_REWARD_ADS_ADMIN = "IS_OFF_REWARD_ADS_ADMIN";
 }

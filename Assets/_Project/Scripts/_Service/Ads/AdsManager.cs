@@ -22,7 +22,7 @@ namespace Base.Services
         public override void FixedTick()
         {
             base.FixedTick();
-            if (GameManager.Instance.GameState == GameState.PlayingLevel)
+            if (GameManager.Instance != null && GameManager.Instance.GameState == GameState.PlayingLevel)
             {
                 timePlay += Time.deltaTime;
             }
@@ -36,17 +36,19 @@ namespace Base.Services
 
         bool IsEnableToShowInter()
         {
-            // return indexLevelVariable.Value > remoteConfigLevelTurnOnInterstitial.Value &&
-            //        adsCounterVariable.Value >= remoteConfigInterstitialCappingLevelVariable.Value &&
-            //        timePlay >= remoteConfigInterstitialCappingTimeVariable.Value && !isOffInterAdsVariable.Value &&
-            //        remoteConfigOnOffInterstitial.Value;
-            return true;
+            return UserData.CurrentLevel >=
+                   UserData.GetRemoteConfigData<int>(KeyFirebaseRemoteConfig.RMC_LEVEL_TURN_ON_INTER_ADS) &&
+                   UserData.AdsCounter >=
+                   UserData.GetRemoteConfigData<int>(KeyFirebaseRemoteConfig.RMC_INTER_CAPPING_LEVEL) && timePlay >=
+                   UserData.GetRemoteConfigData<int>(KeyFirebaseRemoteConfig.RMC_INTER_CAPPING_TIME)
+                   && UserData.GetRemoteConfigData<bool>(KeyFirebaseRemoteConfig.RMC_ON_OFF_INTER) &&
+                   !UserData.IsOffInterAdsAdministrator;
         }
 
         bool IsEnableToShowBanner()
         {
-            //return !isOffBannerVariable.Value && remoteConfigOnOffBanner.Value;
-            return true;
+            return !UserData.IsTestOffBannerAdsAdministrator &&
+                   UserData.GetRemoteConfigData<bool>(KeyFirebaseRemoteConfig.RMC_ON_OFF_BANNER);
         }
 
         public bool IsRewardReady()
@@ -56,8 +58,7 @@ namespace Base.Services
 
         bool IsEnableToShowReward()
         {
-            // return !isOffRewardVariable.Value;
-            return true;
+            return !UserData.IsOffRewardAdsAdministrator;
         }
 
         public void ShowBanner()
