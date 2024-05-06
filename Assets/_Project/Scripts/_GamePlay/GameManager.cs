@@ -15,6 +15,8 @@ namespace Base.Game
     {
         [ReadOnly, SerializeField] private GameState gameState;
         [SerializeField] private Transform levelHolder;
+
+        public GameState GameState => gameState;
         private Level CurrentLevel() => LevelLoader.Instance.CurrentLevel();
         private Level PreviousLevel() => LevelLoader.Instance.PreviousLevel();
 

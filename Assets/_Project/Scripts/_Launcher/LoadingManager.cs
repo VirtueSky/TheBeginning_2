@@ -1,4 +1,5 @@
 using Base.Global;
+using Base.Services;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
@@ -56,7 +57,7 @@ namespace Base.Launcher
             await Addressables.LoadSceneAsync(Constant.SERVICES_SCENE, LoadSceneMode.Additive);
             if (isWaitingFetchRemoteConfig)
             {
-                await UniTask.WaitUntil(() => FirebaseRemoteConfig.Instance.IsInitialized);
+                await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.Instance.IsFetchRemoteConfigCompleted);
             }
 
             SceneLoader.Instance.ChangeScene(Constant.GAMEPLAY_SCENE);

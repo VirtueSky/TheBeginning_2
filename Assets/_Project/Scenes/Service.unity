@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -277,6 +277,81 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
+  dependencyStatus: 7
+  isSetupDefaultData: 1
+  listRemoteConfigData:
+  - key: 0
+    typeRemoteConfigData: 2
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 5
+    resultValueInt: 0
+  - key: 1
+    typeRemoteConfigData: 2
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 2
+    resultValueInt: 0
+  - key: 2
+    typeRemoteConfigData: 2
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 8
+    resultValueInt: 0
+  - key: 3
+    typeRemoteConfigData: 1
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 0
+    resultValueInt: 0
+  - key: 4
+    typeRemoteConfigData: 1
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 0
+    resultValueInt: 0
+  - key: 5
+    typeRemoteConfigData: 2
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 3
+    resultValueInt: 0
+  - key: 6
+    typeRemoteConfigData: 1
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 3
+    resultValueInt: 0
+  - key: 7
+    typeRemoteConfigData: 0
+    defaultValueString: 1.0
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 3
+    resultValueInt: 0
+  - key: 8
+    typeRemoteConfigData: 0
+    defaultValueString: Update Content
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 3
+    resultValueInt: 0
 --- !u!114 &1646167644
 MonoBehaviour:
   m_ObjectHideFlags: 0
