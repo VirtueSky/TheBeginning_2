@@ -1,3 +1,4 @@
+using System;
 using Base.Game;
 using Base.Services;
 using Base.UI;
@@ -10,11 +11,15 @@ namespace Base.UI
     {
         [SerializeField] private SoundData musicHome;
 
+        private void Start()
+        {
+            NotificationInGame.Instance.Show("Welcome!");
+        }
+
         protected override void OnBeforeShow()
         {
             base.OnBeforeShow();
             AudioManager.Instance.PlayMusic(musicHome);
-            NotificationInGame.Instance.Show("Welcome!");
         }
 
         public void OnClickStartGame()
@@ -25,6 +30,11 @@ namespace Base.UI
         public void OnClickSettings()
         {
             PopupManager.Instance.Show<PopupSetting>(false);
+        }
+
+        public void OnClickDailyReward()
+        {
+            PopupManager.Instance.Show<PopupDailyReward>(false);
         }
     }
 }

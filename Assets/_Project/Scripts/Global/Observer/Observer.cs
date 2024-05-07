@@ -20,6 +20,8 @@ namespace Base.Global
 
         #endregion
 
+        public static Action OnClaimDailyReward;
+
         public static Action<Vector3> SetPositionCoinGenerate;
     }
 }
