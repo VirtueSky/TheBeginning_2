@@ -1,4 +1,5 @@
 using Base.Game;
+using Base.Services;
 using Base.UI;
 using UnityEngine;
 using VirtueSky.Audio;
@@ -13,6 +14,7 @@ namespace Base.UI
         {
             base.OnBeforeShow();
             AudioManager.Instance.PlayMusic(musicHome);
+            NotificationInGame.Instance.Show("Welcome!");
         }
 
         public void OnClickStartGame()
