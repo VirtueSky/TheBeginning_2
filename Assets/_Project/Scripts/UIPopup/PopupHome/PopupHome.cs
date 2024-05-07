@@ -21,5 +21,10 @@ namespace Base.UI
         {
             GameManager.Instance.PlayCurrentLevel();
         }
+
+        public void OnClickSettings()
+        {
+            PopupManager.Instance.Show<PopupSetting>(false);
+        }
     }
 }

@@ -22,6 +22,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e88470d756379b4da1a25b64017d380
+    m_Address: Assets/_Project/Prefabs/Service/Administrator.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 561b7d90a27a77f41b6fe11e8d3ee3f9
+    m_Address: Assets/_Project/Prefabs/Service/NotificationInGame.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aeaaf99903ec2e7448dc949cc1b6f6a5
+    m_Address: Assets/_Project/Prefabs/Service/RequireInternet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
   m_SchemaSet:

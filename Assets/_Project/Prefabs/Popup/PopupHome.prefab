@@ -1284,7 +1284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 89262921429321214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 758924723592963736}
+        m_TargetAssemblyTypeName: Base.UI.PopupHome, Assembly-CSharp
+        m_MethodName: OnClickSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isMotion: 1
   easingTypes: 15
   scale: 0.9
