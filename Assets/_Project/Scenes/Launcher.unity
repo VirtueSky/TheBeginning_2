@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -169,6 +169,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
+  serviceScene:
+    m_AssetGUID: 77b1768aad43e4481a4442ca9598a1cd
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  gameplayScene:
+    m_AssetGUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   timeLoading: 2.5
   isWaitingFetchRemoteConfig: 0
 --- !u!1 &326257131

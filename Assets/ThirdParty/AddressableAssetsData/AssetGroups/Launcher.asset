@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Launcher
   m_Data:
     m_SerializedData: []
-  m_GUID: 2e8a0c8618bcc4932a1c1932c74c66f6
+  m_GUID: 776f0aafdf1f04142a8af87b86c04de6
   m_SerializeEntries:
   - m_GUID: 88e5565e5271a624ea89a3298cf8d4d0
     m_Address: Launcher
@@ -25,4 +25,6 @@ MonoBehaviour:
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 13a7e5f2e337f6d448298e38e257b01b, type: 2}
+    - {fileID: 11400000, guid: a60c51c0cac6723418a149b8cf3c8b11, type: 2}

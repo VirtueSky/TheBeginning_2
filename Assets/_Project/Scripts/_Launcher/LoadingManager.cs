@@ -22,7 +22,6 @@ namespace Base.Launcher
     {
         [HeaderLine("Attributes")] public Image progressBar;
         public TextMeshProUGUI loadingText;
-
         [Range(0.1f, 10f)] public float timeLoading = 5f;
         [SerializeField] bool isWaitingFetchRemoteConfig = true;
         private bool flagDoneProgress;

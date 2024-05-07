@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Service
   m_Data:
     m_SerializedData: []
-  m_GUID: 49de528c41f3344ad90ccee5b057fb01
+  m_GUID: 435b59376d443b54d9729df596b4c249
   m_SerializeEntries:
   - m_GUID: 77b1768aad43e4481a4442ca9598a1cd
     m_Address: Service
@@ -40,4 +40,6 @@ MonoBehaviour:
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: fadf0c36ec69245419621eb249b2e444, type: 2}
+    - {fileID: 11400000, guid: 1781841c8ff958a4a8da62e4659a0cc2, type: 2}

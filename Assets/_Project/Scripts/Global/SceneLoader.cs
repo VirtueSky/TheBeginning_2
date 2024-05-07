@@ -10,6 +10,27 @@ namespace Base.Global
     [EditorIcon("icon_controller"), HideMonoScript]
     public class SceneLoader : Singleton<SceneLoader>
     {
+        public void ChangeScene(AssetReference sceneReference)
+        {
+            foreach (var scene in GetAllLoadedScene())
+            {
+                if (!scene.name.Equals(Constant.SERVICES_SCENE))
+                {
+                    if (Static.sceneHolder.ContainsKey(scene.name))
+                    {
+                        Addressables.UnloadSceneAsync(Static.sceneHolder[scene.name]);
+                        Static.sceneHolder.Remove(scene.name);
+                    }
+                    else
+                    {
+                        SceneManager.UnloadSceneAsync(scene);
+                    }
+                }
+            }
+
+            Addressables.LoadSceneAsync(sceneReference, LoadSceneMode.Additive).Completed += OnAdditiveSceneLoaded;
+        }
+
         public void ChangeScene(string sceneName)
         {
             foreach (var scene in GetAllLoadedScene())

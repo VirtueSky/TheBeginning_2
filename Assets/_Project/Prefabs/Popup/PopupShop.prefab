@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3148620018233505073}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -145,7 +144,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3148620018233505073}
-  - component: {fileID: 8675668869206180065}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -168,28 +166,12 @@ RectTransform:
   - {fileID: 2826715660874559297}
   - {fileID: 7843751566554092689}
   m_Father: {fileID: 7370416450938019889}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8675668869206180065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7064240004806998928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97afc556caea1c44969477eb7ddec74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConformX: 1
-  ConformY: 1
-  Logging: 0
 --- !u!1 &7370416450938019894
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +184,6 @@ GameObject:
   - component: {fileID: 1788165637488831168}
   - component: {fileID: 645323652005445488}
   - component: {fileID: -7875144206898530341}
-  - component: {fileID: 2915254623132364138}
   m_Layer: 5
   m_Name: PopupShop
   m_TagString: Untagged
@@ -225,7 +206,6 @@ RectTransform:
   - {fileID: 2889927691598436472}
   - {fileID: 3148620018233505073}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -249,7 +229,9 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -282,25 +264,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2915254623132364138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7370416450938019894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e68ffdfbf9a6ad4383b39fac3fc0c74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseAnimation: 0
-  Background: {fileID: 8722397669771440195}
-  Container: {fileID: 7064240004806998928}
-  UseShowAnimation: 0
-  ShowAnimationType: 0
-  UseHideAnimation: 0
-  HideAnimationType: 0
 --- !u!1 &7536292437439048616
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +275,6 @@ GameObject:
   - component: {fileID: 7843751566554092689}
   - component: {fileID: 4378084168400200001}
   - component: {fileID: 6840975007889894293}
-  - component: {fileID: 9097706628565693054}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -333,7 +295,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3148620018233505073}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -378,131 +339,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9097706628565693054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7536292437439048616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 6840975007889894293}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2915254623132364138}
-        m_TargetAssemblyTypeName: Popup, Assembly-CSharp
-        m_MethodName: Hide
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 0
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  motionData:
-    scale: {x: 0.92, y: 0.92}
-    motion: 2
-    durationDown: 0.1
-    durationUp: 0.1
-    interpolatorDown:
-      ease: 0
-      strength: 0
-      customCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    interpolatorUp:
-      ease: 0
-      strength: 0
-      customCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    durationDown: 0.1
-    durationUp: 0.1
-    interpolatorDown:
-      ease: 0
-      strength: 0
-      customCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    interpolatorUp:
-      ease: 0
-      strength: 0
-      customCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
 --- !u!1 &8722397669771440195
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +370,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7370416450938019889}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

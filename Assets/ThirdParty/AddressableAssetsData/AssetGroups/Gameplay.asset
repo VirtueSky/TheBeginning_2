@@ -15,10 +15,15 @@ MonoBehaviour:
   m_GroupName: Gameplay
   m_Data:
     m_SerializedData: []
-  m_GUID: a645495f2f59847feb5caaef6a95c54b
+  m_GUID: 00b6ba3a664e24e41a2baa725f9b3bc8
   m_SerializeEntries:
   - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
     m_Address: Gameplay
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f09001724e3f0b644aada44bd0a99cc2
+    m_Address: PopupDailyReward
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -32,16 +37,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f09001724e3f0b644aada44bd0a99cc2
-    m_Address: PopupDailyReward
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 813a9cef4af4e4a4c91638583b5577d4
-    m_Address: PopupShop
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 978822c5a74dfba4dab63a5a695a08fc
     m_Address: PopupLose
     m_ReadOnly: 0
@@ -49,6 +44,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bd72ebe47024c0428d207cb890f7d32
     m_Address: PopupSetting
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 813a9cef4af4e4a4c91638583b5577d4
+    m_Address: PopupShop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -60,4 +60,6 @@ MonoBehaviour:
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: d4fc42766ec2e8a4482b3df153b8694e, type: 2}
+    - {fileID: 11400000, guid: 95965ab5c2d394841875357ab244a087, type: 2}

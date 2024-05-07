@@ -1,9 +1,12 @@
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Threading.Tasks;
 
 public class EntryGame : BaseMono
 {
+    [SerializeField] private AssetReference launcherScene;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -11,7 +14,7 @@ public class EntryGame : BaseMono
 
     private async void Start()
     {
-        await Addressables.LoadSceneAsync(Constant.LAUNCHER_SCENE);
+        await Addressables.LoadSceneAsync(launcherScene);
         Destroy(gameObject);
     }
 }

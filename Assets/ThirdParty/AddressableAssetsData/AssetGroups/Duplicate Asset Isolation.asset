@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 81a7668506744bc4ca5d720cf798a2f2
+  m_SerializeEntries:
+  - m_GUID: 0414325cc03918d47bedc3751f7127d6
+    m_Address: Assets/_Project/Fonts/TMP_LilitaOne_Stroke.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68e6db2ebdc24f95958faec2be5558d6
+    m_Address: Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe393ace9b354375a9cb14cdbbc28be4
+    m_Address: Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6af9d8621b13945d78f30c83cf9ea91c
+    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e72f90332b069ab4eab7cca3290f4faf
+    m_Address: Assets/_Project/Textures/UI/Common/ui_button_debug.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3265ab4bf004d28a9537516768c1c75
+    m_Address: Assets/ThirdParty/TextMesh Pro/Fonts/LiberationSans.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2aa0188f290954406bb715c2da89b36b
+    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f98e99f62fe5bf64785d5d28997f0fdc
+    m_Address: Assets/_Project/Textures/UI/Common/ui_tick.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ce78dd93df74ee429d0387ef0feb3ce
+    m_Address: Assets/_Project/Textures/UI/Administrator/editor_btn_slide_close.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 427917e6f87d5f948933c3557fbc9ca7
+    m_Address: Assets/_Project/Textures/UI/Administrator/editor_btn_slide_open.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc010066eec5ef24eb9fa923867c670f
+    m_Address: Assets/_Project/Config/GameConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf6201b4097e66c43983ff56f832ac35
+    m_Address: Assets/_Project/Config/ItemConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d15ab71442963c47b22b47460111e35
+    m_Address: Assets/_Project/Fonts/TMP_LilitaOne.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fb3ab62ecb5d44928052e616b179bdb
+    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a40e92ec88aa74d7e91ac7ac63811d29
+    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 840413f1c26612449b52205cea05e970
+    m_Address: Assets/_Project/Textures/UI/Rank Sprite/leaderboard/leaderboard_whitebar.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a5ce0d84e1719b44db18026663efb565, type: 2}
+    - {fileID: 11400000, guid: 710b7f11e6898c64c9013d240b56bc9b, type: 2}
