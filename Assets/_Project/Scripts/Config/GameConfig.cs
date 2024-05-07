@@ -2,6 +2,7 @@ using UnityEngine;
 using VirtueSky.Inspector;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
+[HideMonoScript]
 public class GameConfig : ScriptableObject
 {
     [Space, HeaderLine("Level config")] public int maxLevel = 2;

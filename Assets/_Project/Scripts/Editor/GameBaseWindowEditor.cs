@@ -1,25 +1,57 @@
 #if UNITY_EDITOR
-using Base.Data;
-using Base.Game;
-using Base.Global;
-using Base.UI;
+using System;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using VirtueSky.DataStorage;
+using VirtueSky.Inspector;
+using VirtueSky.UtilsEditor;
 
 public class GameBaseWindowEditor : EditorWindow
 {
-    void OnGUI()
+    private Editor _editorGameConfig;
+    private GameConfig _gameConfig;
+    private Vector2 _scrollPosition;
+
+    [MenuItem("GameBase/Open GameConfig %`")]
+    public static void OpenGameConfigWindow()
     {
-        GUILayout.BeginHorizontal(EditorStyles.toolbar);
-        GUILayout.EndHorizontal();
+        GameConfig gameConfig = AssetUtils.FindAssetAtFolder<GameConfig>(new string[] { "Assets" }).FirstOrDefault();
+        GameBaseWindowEditor window = GetWindow<GameBaseWindowEditor>("Game Config");
+        window._gameConfig = gameConfig;
+        if (window == null)
+        {
+            Debug.LogError("Couldn't open the ads settings window!");
+            return;
+        }
+
+        window.minSize = new Vector2(350, 250);
+        window.Show();
     }
 
-    [MenuItem("GameBase/Switch IsTesting %`")]
-    public static void SwitchIsTesting()
+    private void OnGUI()
     {
-        UserData.IsTestingAdministrator = !UserData.IsTestingAdministrator;
-        Debug.Log($"<color=Green>Data.IsTesting = {UserData.IsTestingAdministrator}</color>");
+        EditorGUI.DrawRect(new Rect(0, 0, position.width, position.height),
+            GameDataEditor.ColorBackgroundRectWindowSunflower.ToColor());
+        GUI.contentColor = GameDataEditor.ColorTextContentWindowSunflower.ToColor();
+        GUI.backgroundColor = GameDataEditor.ColorContentWindowSunflower.ToColor();
+        if (_editorGameConfig == null)
+        {
+            _editorGameConfig = UnityEditor.Editor.CreateEditor(_gameConfig);
+        }
+
+        if (_editorGameConfig == null)
+        {
+            EditorGUILayout.HelpBox("Couldn't create the settings resources editor.",
+                MessageType.Error);
+            return;
+        }
+
+        _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
+        _editorGameConfig.OnInspectorGUI();
+        GUILayout.Space(10);
+        EditorGUILayout.EndScrollView();
     }
 
     [MenuItem("GameBase/Open Scene/Launcher %F1")]
@@ -41,13 +73,6 @@ public class GameBaseWindowEditor : EditorWindow
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICES_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
-    }
-
-    [MenuItem("GameBase/Data/Add 100k Money")]
-    public static void Add100kMoney()
-    {
-        UserData.CoinTotal += 100000;
-        Debug.Log($"<color=Green>Add 100k coin succeed</color>");
     }
 }
 #endif
