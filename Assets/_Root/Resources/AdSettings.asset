@@ -36,18 +36,18 @@ MonoBehaviour:
     androidId: 
     iOSId: 
   admobBannerAdUnit:
-    androidId: 
+    androidId: ca-app-pub-3940256099942544/6300978111
     iOSId: 
     size: 5
     position: 0
     useCollapsible: 0
     useTestId: 1
   admobInterstitialAdUnit:
-    androidId: 
+    androidId: ca-app-pub-3940256099942544/1033173712
     iOSId: 
     useTestId: 1
   admobRewardAdUnit:
-    androidId: 
+    androidId: ca-app-pub-3940256099942544/5224354917
     iOSId: 
     useTestId: 1
   admobRewardedInterstitialAdUnit:
