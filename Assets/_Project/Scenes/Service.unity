@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1756,7 +1756,7 @@ GameObject:
   - component: {fileID: 1646167649}
   - component: {fileID: 1646167642}
   - component: {fileID: 1646167647}
-  - component: {fileID: 1646167643}
+  - component: {fileID: 1646167650}
   - component: {fileID: 1646167644}
   - component: {fileID: 1646167645}
   - component: {fileID: 1646167646}
@@ -1813,94 +1813,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
---- !u!114 &1646167643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646167639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c21d76de0ddf41eb8114f5606706bb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 0
-  dependencyStatus: 7
-  isSetupDefaultData: 1
-  listRemoteConfigData:
-  - key: 0
-    typeRemoteConfigData: 2
-    defaultValueString: 
-    resultValueString: 
-    defaultValueBool: 0
-    resultValueBool: 0
-    defaultValueInt: 5
-    resultValueInt: 0
-  - key: 1
-    typeRemoteConfigData: 2
-    defaultValueString: 
-    resultValueString: 
-    defaultValueBool: 0
-    resultValueBool: 0
-    defaultValueInt: 2
-    resultValueInt: 0
-  - key: 2
-    typeRemoteConfigData: 2
-    defaultValueString: 
-    resultValueString: 
-    defaultValueBool: 0
-    resultValueBool: 0
-    defaultValueInt: 8
-    resultValueInt: 0
-  - key: 3
-    typeRemoteConfigData: 1
-    defaultValueString: 
-    resultValueString: 
-    defaultValueBool: 0
-    resultValueBool: 0
-    defaultValueInt: 0
-    resultValueInt: 0
-  - key: 4
-    typeRemoteConfigData: 1
-    defaultValueString: 
-    resultValueString: 
-    defaultValueBool: 0
-    resultValueBool: 0
-    defaultValueInt: 0
-    resultValueInt: 0
-  - key: 5
-    typeRemoteConfigData: 2
-    defaultValueString: 
-    resultValueString: 
-    defaultValueBool: 0
-    resultValueBool: 0
-    defaultValueInt: 3
-    resultValueInt: 0
-  - key: 6
-    typeRemoteConfigData: 1
-    defaultValueString: 
-    resultValueString: 
-    defaultValueBool: 1
-    resultValueBool: 0
-    defaultValueInt: 3
-    resultValueInt: 0
-  - key: 7
-    typeRemoteConfigData: 0
-    defaultValueString: 1.0
-    resultValueString: 
-    defaultValueBool: 1
-    resultValueBool: 0
-    defaultValueInt: 3
-    resultValueInt: 0
-  - key: 8
-    typeRemoteConfigData: 0
-    defaultValueString: Update Content
-    resultValueString: 
-    defaultValueBool: 1
-    resultValueBool: 0
-    defaultValueInt: 3
-    resultValueInt: 0
 --- !u!114 &1646167644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1955,6 +1867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b50df30899f480c95c7c37859db2cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
 --- !u!114 &1646167647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,6 +1911,94 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
   poolDatas: []
+--- !u!114 &1646167650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646167639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b374ae39990b432b8607489d1974fb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
+  dependencyStatus: 7
+  isSetupDefaultData: 1
+  listRemoteConfigData:
+  - key: RMC_LEVEL_TURN_ON_INTER_ADS
+    typeRemoteConfigData: 2
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 5
+    resultValueInt: 0
+  - key: RMC_INTER_CAPPING_LEVEL
+    typeRemoteConfigData: 2
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 2
+    resultValueInt: 0
+  - key: RMC_INTER_CAPPING_TIME
+    typeRemoteConfigData: 2
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 0
+    resultValueBool: 0
+    defaultValueInt: 8
+    resultValueInt: 0
+  - key: RMC_ON_OFF_INTER
+    typeRemoteConfigData: 1
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 8
+    resultValueInt: 0
+  - key: RMC_ON_OFF_BANNER
+    typeRemoteConfigData: 1
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 8
+    resultValueInt: 0
+  - key: RMC_LEVEL_SHOW_RATE_AND_REVIEW
+    typeRemoteConfigData: 2
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 3
+    resultValueInt: 0
+  - key: RMC_ON_OFF_RATE_AND_REVIEW
+    typeRemoteConfigData: 1
+    defaultValueString: 
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 3
+    resultValueInt: 0
+  - key: RMC_VERSION_UPDATE
+    typeRemoteConfigData: 0
+    defaultValueString: 1.0
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 3
+    resultValueInt: 0
+  - key: RMC_CONTENT_UPDATE
+    typeRemoteConfigData: 0
+    defaultValueString: Update Content
+    resultValueString: 
+    defaultValueBool: 1
+    resultValueBool: 0
+    defaultValueInt: 3
+    resultValueInt: 0
 --- !u!1 &1652047841
 GameObject:
   m_ObjectHideFlags: 0

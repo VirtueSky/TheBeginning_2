@@ -255,8 +255,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.6",
-      "depth": 0,
+      "version": "3.0.8",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
@@ -285,14 +285,16 @@
       }
     },
     "com.wolf-package.unity-common": {
-      "version": "https://github.com/wolf-package/unity-common.git#1.0.2",
+      "version": "https://github.com/wolf-package/unity-common.git#1.0.3",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.serialization": "3.1.1",
-        "com.unity.collections": "2.1.4"
+        "com.unity.collections": "2.1.4",
+        "com.unity.textmeshpro": "3.0.8",
+        "com.unity.addressables": "1.21.20"
       },
-      "hash": "c978471d089deca45c98961c38855073a443082b"
+      "hash": "369b472d6d801ec89ff21d8d53064f015c187af2"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

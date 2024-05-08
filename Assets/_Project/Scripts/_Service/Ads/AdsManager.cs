@@ -5,6 +5,7 @@ using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
+using VirtueSky.RemoteConfigs;
 using VirtueSky.TrackingRevenue;
 
 namespace Base.Services
@@ -36,19 +37,17 @@ namespace Base.Services
 
         bool IsEnableToShowInter()
         {
-            return UserData.CurrentLevel >=
-                   UserData.GetRemoteConfigData<int>(KeyFirebaseRemoteConfig.RMC_LEVEL_TURN_ON_INTER_ADS) &&
-                   UserData.AdsCounter >=
-                   UserData.GetRemoteConfigData<int>(KeyFirebaseRemoteConfig.RMC_INTER_CAPPING_LEVEL) && timePlay >=
-                   UserData.GetRemoteConfigData<int>(KeyFirebaseRemoteConfig.RMC_INTER_CAPPING_TIME)
-                   && UserData.GetRemoteConfigData<bool>(KeyFirebaseRemoteConfig.RMC_ON_OFF_INTER) &&
+            return UserData.CurrentLevel >= RemoteData.RMC_LEVEL_TURN_ON_INTER_ADS &&
+                   UserData.AdsCounter >= RemoteData.RMC_INTER_CAPPING_LEVEL &&
+                   timePlay >= RemoteData.RMC_INTER_CAPPING_TIME &&
+                   RemoteData.RMC_ON_OFF_INTER &&
                    !UserData.IsOffInterAdsAdministrator;
         }
 
         bool IsEnableToShowBanner()
         {
             return !UserData.IsTestOffBannerAdsAdministrator &&
-                   UserData.GetRemoteConfigData<bool>(KeyFirebaseRemoteConfig.RMC_ON_OFF_BANNER);
+                   RemoteData.RMC_ON_OFF_BANNER;
         }
 
         public bool IsRewardReady()

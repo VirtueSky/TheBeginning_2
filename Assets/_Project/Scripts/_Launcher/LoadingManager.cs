@@ -1,5 +1,4 @@
 using Base.Global;
-using Base.Services;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
@@ -10,6 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
+using VirtueSky.RemoteConfigs;
 using VirtueSky.Threading.Tasks;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
