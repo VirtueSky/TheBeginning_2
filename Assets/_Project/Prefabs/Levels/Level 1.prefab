@@ -299,7 +299,7 @@ MonoBehaviour:
   - {fileID: 6699581152747611969}
   - {fileID: 4775607257343131413}
   - {fileID: 3220077259936833505}
-  speed: 1
+  speed: 5
   moveOnAwake: 1
   loop: 1
 --- !u!1 &8469226754386088863

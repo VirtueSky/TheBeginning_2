@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 81a7668506744bc4ca5d720cf798a2f2
+  m_GUID: 6b5f07deb50975c41a28cafc81ad2870
   m_SerializeEntries:
   - m_GUID: 0414325cc03918d47bedc3751f7127d6
     m_Address: Assets/_Project/Fonts/TMP_LilitaOne_Stroke.asset
@@ -101,5 +101,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: a5ce0d84e1719b44db18026663efb565, type: 2}
-    - {fileID: 11400000, guid: 710b7f11e6898c64c9013d240b56bc9b, type: 2}
+    - {fileID: 11400000, guid: ac70bd7f756ffab45800a18f7cd2215e, type: 2}
+    - {fileID: 11400000, guid: 8c3d2bdf040717e4ca1af9db6d4adf76, type: 2}
