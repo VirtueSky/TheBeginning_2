@@ -74,6 +74,8 @@ crashlytics-build.properties
 /remote_config_data
 /.idea
 # File Data
-/[Tt]empDataStorage/*.dat
+/[Tt]empDataStorage
+/[Tt]empDataStorage.meta
 # Finder Cache
 /[Aa]ssets/_Root/[Ee]ditor/[Ff]inderCache
+/[Aa]ssets/_Root/[Ee]ditor/[Ff]inderCache.meta
