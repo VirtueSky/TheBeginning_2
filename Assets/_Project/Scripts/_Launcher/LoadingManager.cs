@@ -52,8 +52,8 @@ namespace Base.Launcher
 
         private async void LoadScene()
         {
-            await UniTask.WaitUntil(() => flagDoneProgress);
             await Addressables.LoadSceneAsync(Constant.SERVICES_SCENE, LoadSceneMode.Additive);
+            await UniTask.WaitUntil(() => flagDoneProgress);
             if (isWaitingFetchRemoteConfig)
             {
                 await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.Instance.IsFetchRemoteConfigCompleted);
