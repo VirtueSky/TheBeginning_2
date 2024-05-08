@@ -1,5 +1,6 @@
 using Base.Data;
 using Base.Game;
+using Base.Global;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
@@ -48,16 +49,23 @@ namespace Base.Services
         {
             gameObject.SetActive(gameConfig.enableAdministrator);
             AdStatic.OnPrivacyRequiredGDPR += OnChangeRequireGDPR;
+            Observer.OnChangeStateGame += OnChangeStateGame;
         }
 
         private void OnDestroy()
         {
             AdStatic.OnPrivacyRequiredGDPR -= OnChangeRequireGDPR;
+            Observer.OnChangeStateGame -= OnChangeStateGame;
         }
 
         void OnChangeRequireGDPR(bool isRequire)
         {
             isRequireGDPR = isRequire;
+        }
+
+        void OnChangeStateGame(GameState gameState)
+        {
+            Refresh();
         }
 
         private void OnEnable()
@@ -117,6 +125,7 @@ namespace Base.Services
             Init();
             Refresh();
         }
+
 
         void Refresh()
         {

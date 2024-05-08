@@ -1,12 +1,11 @@
 using System;
+using Base.Game;
 using UnityEngine;
 
 namespace Base.Global
 {
     public partial struct Observer
     {
-        #region GameSystem
-
         // Debug
         public static Action IsTestingChanged;
 
@@ -18,7 +17,7 @@ namespace Base.Global
         // Level Spawn
         public static Action CurrentLevelChanged;
 
-        #endregion
+        public static Action<GameState> OnChangeStateGame;
 
         public static Action OnClaimDailyReward;
 

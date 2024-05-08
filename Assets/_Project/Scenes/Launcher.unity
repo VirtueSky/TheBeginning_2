@@ -169,18 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
-  serviceScene:
-    m_AssetGUID: 77b1768aad43e4481a4442ca9598a1cd
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  gameplayScene:
-    m_AssetGUID: 9fc0d4010bbf28b4594072e72b8655ab
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
   timeLoading: 2.5
-  isWaitingFetchRemoteConfig: 0
+  isWaitingFetchRemoteConfig: 1
 --- !u!1 &326257131
 GameObject:
   m_ObjectHideFlags: 0
