@@ -59,8 +59,9 @@ namespace Base.UI
             SetupUI();
         }
 
-        private void OnEnable()
+        public override void OnEnable()
         {
+            base.OnEnable();
             Setup();
             switchBar.transform.position = isOn ? onPos.position : offPos.position;
         }

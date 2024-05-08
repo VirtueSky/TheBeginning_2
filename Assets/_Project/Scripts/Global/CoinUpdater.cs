@@ -18,15 +18,17 @@ namespace Base.Global
 
         private int _currentCoin;
 
-        private void OnEnable()
+        public override void OnEnable()
         {
+            base.OnEnable();
             Observer.CoinTotalChanged += UpdateCoinAmountText;
             CurrencyAmountText.text = UserData.CoinTotal.ToString();
             SaveCurrentCoin();
         }
 
-        private void OnDisable()
+        public override void OnDisable()
         {
+            base.OnDisable();
             Observer.CoinTotalChanged -= UpdateCoinAmountText;
         }
 

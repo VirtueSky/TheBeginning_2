@@ -23,8 +23,9 @@ namespace Base.Game
 
         private int index = 1;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             Debug.Assert(cameraUI != null, "CameraUI != null");
             canvasScaler.matchWidthOrHeight = cameraUI.aspect > .6f ? 1 : 0;
         }
