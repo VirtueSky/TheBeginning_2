@@ -65,7 +65,7 @@ namespace Base.Global
             for (int i = 0; i < this.numberCoin; i++)
             {
                 await UniTask.Delay(Random.Range(0, delay));
-                GameObject coin = PoolManager.Instance.Spawn(iconCoinPrefab, holder);
+                GameObject coin = iconCoinPrefab.Spawn(holder);
                 coin.transform.localScale = Vector3.one * scale;
                 coinsActive.Add(coin);
                 coin.transform.position = from;
@@ -82,7 +82,7 @@ namespace Base.Global
             MoveToTarget(coin, () =>
             {
                 coinsActive.Remove(coin);
-                PoolManager.Instance.DeSpawn(coin);
+                coin.DeSpawn();
                 if (!isScaleIconTo)
                 {
                     isScaleIconTo = true;
