@@ -20,7 +20,5 @@ namespace Base.Global
         public static Action<GameState> OnChangeStateGame;
 
         public static Action OnClaimDailyReward;
-
-        public static Action<Vector3> SetPositionCoinGenerate;
     }
 }

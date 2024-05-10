@@ -12,58 +12,41 @@ namespace Base.Global
         public TextMeshProUGUI CurrencyAmountText;
         public int StepCount = 10;
         public float DelayTime = .01f;
-        public CoinGenerater coinGenerate;
-        [SerializeField] private SoundData soundCoinMove;
-
-
-        private int _currentCoin;
+        [SerializeField] private GameObject iconCoin;
+        bool isFirsCoinMoveDone = false;
 
         public override void OnEnable()
         {
             base.OnEnable();
-            Observer.CoinTotalChanged += UpdateCoinAmountText;
             CurrencyAmountText.text = UserData.CoinTotal.ToString();
-            SaveCurrentCoin();
+            CoinGenerate.Instance.AddTo(iconCoin);
+            CoinGenerate.Instance.moveOneCoinDone += MoveOneCoinDone;
+            CoinGenerate.Instance.moveAllCoinDone += MoveAllCoinDone;
         }
 
         public override void OnDisable()
         {
             base.OnDisable();
-            Observer.CoinTotalChanged -= UpdateCoinAmountText;
+            CoinGenerate.Instance.RemoveTo(iconCoin);
+            CoinGenerate.Instance.moveOneCoinDone -= MoveOneCoinDone;
+            CoinGenerate.Instance.moveAllCoinDone -= MoveAllCoinDone;
         }
 
-        private void SaveCurrentCoin()
+        void MoveOneCoinDone()
         {
-            _currentCoin = UserData.CoinTotal;
-        }
-
-        public void UpdateCoinAmountText()
-        {
-            if (UserData.CoinTotal > _currentCoin)
+            if (!isFirsCoinMoveDone)
             {
-                IncreaseCoin();
-            }
-            else
-            {
-                DecreaseCoin();
+                isFirsCoinMoveDone = true;
+                int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
+                int nextAmount = (UserData.CoinTotal - currentCurrencyAmount) / StepCount;
+                int step = StepCount;
+                CoinTextCount(currentCurrencyAmount, nextAmount, step);
             }
         }
 
-        private void IncreaseCoin()
+        void MoveAllCoinDone()
         {
-            bool isFirstMove = false;
-            coinGenerate.GenerateCoin(() =>
-            {
-                if (!isFirstMove)
-                {
-                    isFirstMove = true;
-                    AudioManager.Instance.PlaySfx(soundCoinMove);
-                    int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-                    int nextAmount = (UserData.CoinTotal - currentCurrencyAmount) / StepCount;
-                    int step = StepCount;
-                    CoinTextCount(currentCurrencyAmount, nextAmount, step);
-                }
-            }, () => { SaveCurrentCoin(); });
+            isFirsCoinMoveDone = false;
         }
 
         private void DecreaseCoin()
@@ -72,7 +55,6 @@ namespace Base.Global
             int nextAmount = (UserData.CoinTotal - currentCurrencyAmount) / StepCount;
             int step = StepCount;
             CoinTextCount(currentCurrencyAmount, nextAmount, step);
-            SaveCurrentCoin();
         }
 
         private void CoinTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)

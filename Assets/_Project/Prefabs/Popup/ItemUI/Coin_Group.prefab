@@ -180,7 +180,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6817646120335261458}
-  - component: {fileID: 4263153800849296664}
   - component: {fileID: 7876397376129618411}
   - component: {fileID: 8424903263070193019}
   - component: {fileID: 4846328247907292304}
@@ -212,31 +211,6 @@ RectTransform:
   m_AnchoredPosition: {x: -50, y: -50}
   m_SizeDelta: {x: 269, y: 90}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &4263153800849296664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8350183679644058450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d470bcfb73a344b5bb439476ab923583, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  from: {x: 0, y: 0, z: 0}
-  to: {fileID: 9157539959958119255}
-  holder: {fileID: 7775329050491216779}
-  numberCoin: 20
-  delay: 20
-  durationNear: 0.6
-  durationTarget: 0.7
-  easeNear: 12
-  easeTarget: 21
-  scale: 0.5
-  offsetNear: 1
-  iconCoinPrefab: {fileID: 6793577256207356087, guid: c16f53179d9a79242b8f3649594b682b,
-    type: 3}
 --- !u!114 &7876397376129618411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,8 +226,7 @@ MonoBehaviour:
   CurrencyAmountText: {fileID: 3353084705399956700}
   StepCount: 10
   DelayTime: 0.02
-  coinGenerate: {fileID: 4263153800849296664}
-  soundCoinMove: {fileID: 11400000, guid: 214646daf20504498a5b0b5ddfe1bf4b, type: 2}
+  iconCoin: {fileID: 9157539959958119255}
 --- !u!222 &8424903263070193019
 CanvasRenderer:
   m_ObjectHideFlags: 0

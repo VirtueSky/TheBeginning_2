@@ -126,7 +126,7 @@ public class DailyRewardItem : MonoBehaviour
         switch (dailyRewardData.DailyRewardType)
         {
             case DailyRewardType.Currency:
-                Observer.SetPositionCoinGenerate?.Invoke(transform.position);
+                CoinGenerate.Instance.SetFrom(transform.position);
                 UserData.CoinTotal += coinValue * (isClaimX5 ? 5 : 1);
                 break;
             case DailyRewardType.Skin:
