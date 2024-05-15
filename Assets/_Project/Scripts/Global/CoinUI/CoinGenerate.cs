@@ -81,7 +81,10 @@ namespace Base.Global
         public void RemoveTo(GameObject obj)
         {
             listTo.Remove(obj);
-            to = listTo.Last();
+            if (listTo.Count > 0)
+            {
+                to = listTo.Last();
+            }
         }
 
 
