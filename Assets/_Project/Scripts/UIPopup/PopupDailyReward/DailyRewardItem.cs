@@ -11,9 +11,12 @@ public class DailyRewardItem : MonoBehaviour
     [ReadOnly] public int dayIndex;
     public TextMeshProUGUI textDay;
     public TextMeshProUGUI textValue;
+
     public Image greenTick;
-    public Image backgroundClaim;
+
+    // public Image backgroundClaim;
     public Image backgroundCanNotClaim;
+    public Image backgroundLock;
     public Image iconItem;
     [SerializeField] private DailyRewardConfig dailyRewardConfig;
 
@@ -34,9 +37,10 @@ public class DailyRewardItem : MonoBehaviour
 
     public void SetDefaultUI()
     {
-        backgroundClaim.gameObject.SetActive(false);
+        // backgroundClaim.gameObject.SetActive(false);
         backgroundCanNotClaim.gameObject.SetActive(false);
         greenTick.gameObject.SetActive(false);
+        backgroundLock.gameObject.SetActive(false);
     }
 
     private void SetUpData()
@@ -46,12 +50,12 @@ public class DailyRewardItem : MonoBehaviour
             ? dailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
             : dailyRewardConfig.DailyRewardDatas[dayIndex - 1];
 
-        coinValue = dailyRewardData.Value;
+        coinValue = dailyRewardData.value;
         // Setup states
-        if (dailyRewardData.DailyRewardType == DailyRewardType.Currency)
+        if (dailyRewardData.dailyRewardType == DailyRewardType.Currency)
         {
         }
-        else if (dailyRewardData.DailyRewardType == DailyRewardType.Skin)
+        else if (dailyRewardData.dailyRewardType == DailyRewardType.Skin)
         {
             //shopItemData = ConfigController.ItemConfig.GetShopItemDataById(dailyRewardData.SkinID);
         }
@@ -85,27 +89,28 @@ public class DailyRewardItem : MonoBehaviour
         switch (dailyRewardItemState)
         {
             case DailyRewardItemState.Claimed:
-                backgroundClaim.gameObject.SetActive(false);
+                // backgroundClaim.gameObject.SetActive(false);
                 backgroundCanNotClaim.gameObject.SetActive(true);
                 greenTick.gameObject.SetActive(true);
                 break;
             case DailyRewardItemState.ReadyToClaim:
-                backgroundClaim.gameObject.SetActive(true);
+                //backgroundClaim.gameObject.SetActive(true);
                 backgroundCanNotClaim.gameObject.SetActive(false);
                 greenTick.gameObject.SetActive(false);
                 break;
             case DailyRewardItemState.NotClaim:
-                backgroundClaim.gameObject.SetActive(false);
+                // backgroundClaim.gameObject.SetActive(false);
                 backgroundCanNotClaim.gameObject.SetActive(false);
                 greenTick.gameObject.SetActive(false);
+                backgroundLock.gameObject.SetActive(true);
                 break;
         }
 
-        switch (dailyRewardData.DailyRewardType)
+        switch (dailyRewardData.dailyRewardType)
         {
             case DailyRewardType.Currency:
                 textValue.gameObject.SetActive(true);
-                iconItem.sprite = dailyRewardData.Icon;
+                iconItem.sprite = dailyRewardData.icon;
                 iconItem.SetNativeSize();
                 break;
             case DailyRewardType.Skin:
@@ -123,7 +128,7 @@ public class DailyRewardItem : MonoBehaviour
         UserData.TotalClaimDailyReward++;
 
         // Claim by type
-        switch (dailyRewardData.DailyRewardType)
+        switch (dailyRewardData.dailyRewardType)
         {
             case DailyRewardType.Currency:
                 CoinGenerate.Instance.SetFrom(transform.position);

@@ -67,7 +67,7 @@ namespace Base.UI
             {
                 if (currentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
                 {
-                    btnWatchVideo.SetActive(currentItem.DailyRewardData.DailyRewardType == DailyRewardType.Currency);
+                    btnWatchVideo.SetActive(currentItem.DailyRewardData.dailyRewardType == DailyRewardType.Currency);
                     btnClaim.SetActive(true);
                 }
                 else

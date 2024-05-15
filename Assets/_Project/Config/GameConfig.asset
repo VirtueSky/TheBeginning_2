@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   maxLevel: 2
-  startLoopLevel: 0
+  startLoopLevel: 1
   enableAdministrator: 1
   targetFrameRate: 60
   winLevelMoney: 100
