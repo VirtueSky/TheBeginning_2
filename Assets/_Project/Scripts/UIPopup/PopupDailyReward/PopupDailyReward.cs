@@ -21,16 +21,10 @@ namespace Base.UI
         protected override void OnBeforeShow()
         {
             base.OnBeforeShow();
-            Observer.OnClaimDailyReward += Setup;
             ResetDailyReward();
             Setup();
         }
 
-        protected override void OnBeforeHide()
-        {
-            base.OnBeforeHide();
-            Observer.OnClaimDailyReward -= Setup;
-        }
 
         public void ResetDailyReward()
         {
@@ -63,23 +57,12 @@ namespace Base.UI
                 if (IsCurrentItem(item.dayIndex)) currentItem = item;
             }
 
-            if (currentItem)
+            btnWatchVideo.SetActive(false);
+            btnClaim.SetActive(false);
+            if (currentItem && currentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
             {
-                if (currentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
-                {
-                    btnWatchVideo.SetActive(currentItem.DailyRewardData.dailyRewardType == DailyRewardType.Currency);
-                    btnClaim.SetActive(true);
-                }
-                else
-                {
-                    btnWatchVideo.SetActive(false);
-                    btnClaim.SetActive(false);
-                }
-            }
-            else
-            {
-                btnWatchVideo.SetActive(false);
-                btnClaim.SetActive(false);
+                btnWatchVideo.SetActive(currentItem.DailyRewardData.dailyRewardType == DailyRewardType.Coin);
+                btnClaim.SetActive(true);
             }
         }
 
@@ -87,13 +70,21 @@ namespace Base.UI
         {
             AdsManager.Instance.ShowRewardAds(() =>
             {
-                currentItem.OnClaim(true, () => Observer.OnClaimDailyReward?.Invoke());
+                currentItem.OnClaim(true, () =>
+                {
+                    Observer.OnClaimDailyReward?.Invoke();
+                    Setup();
+                });
             });
         }
 
         public void OnClickBtnClaim()
         {
-            currentItem.OnClaim(false, () => Observer.OnClaimDailyReward?.Invoke());
+            currentItem.OnClaim(false, () =>
+            {
+                Observer.OnClaimDailyReward?.Invoke();
+                Setup();
+            });
         }
 
         public void OnClickNextDay()
