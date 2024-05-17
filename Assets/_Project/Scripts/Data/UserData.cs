@@ -29,6 +29,7 @@ namespace Base.Data
             set
             {
                 GameData.Set(Constant.INDEX_LEVEL_CURRENT, value >= 1 ? value : 1);
+                GameData.Save();
                 Observer.CurrentLevelChanged?.Invoke();
             }
         }
@@ -51,6 +52,7 @@ namespace Base.Data
             {
                 Observer.SaveCoinTotal?.Invoke();
                 GameData.Set(Constant.CURRENCY_TOTAL, value);
+                GameData.Save();
                 Observer.CoinTotalChanged?.Invoke();
             }
         }
