@@ -6,7 +6,7 @@ using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
-using VirtueSky.TrackingRevenue;
+using VirtueSky.Tracking;
 
 namespace Base.Game
 {
@@ -40,7 +40,7 @@ namespace Base.Game
         public void ReplayLevel()
         {
             Observer.OnReplayLevel?.Invoke(CurrentLevel());
-            AppTracking.FirebaseAnalyticTrack("On_Replay_Level", "level_name", CurrentLevel().name);
+            FirebaseTracking.TrackEvent("On_Replay_Level", "level_name", CurrentLevel().name);
             StartLevel();
             PopupManager.Instance.Show<PopupInGame>();
         }
@@ -70,7 +70,7 @@ namespace Base.Game
             var currentLevelPrefab = CurrentLevel();
             levelHolder.ClearTransform();
             Instantiate(currentLevelPrefab, levelHolder, false);
-            AppTracking.FirebaseAnalyticTrack("On_Start_Level", "level_name", CurrentLevel().name);
+            FirebaseTracking.TrackEvent("On_Start_Level", "level_name", CurrentLevel().name);
         }
 
         public void WinLevel(float timeDelayShowPopup = 2.5f)
@@ -80,7 +80,7 @@ namespace Base.Game
             GameState = GameState.WinLevel;
             Observer.OnWinLevel?.Invoke(CurrentLevel());
             UserData.AdsCounter++;
-            AppTracking.FirebaseAnalyticTrack("On_Win_Level", "level_name", CurrentLevel().name);
+            FirebaseTracking.TrackEvent("On_Win_Level", "level_name", CurrentLevel().name);
             App.Delay(timeDelayShowPopup, () =>
             {
                 UserData.CurrentLevel++;
@@ -96,7 +96,7 @@ namespace Base.Game
             GameState = GameState.LoseLevel;
             Observer.OnLoseLevel?.Invoke(CurrentLevel());
             UserData.AdsCounter++;
-            AppTracking.FirebaseAnalyticTrack("On_Lose_Level", "level_name", CurrentLevel().name);
+            FirebaseTracking.TrackEvent("On_Lose_Level", "level_name", CurrentLevel().name);
             App.Delay(timeDelayShowPopup, () => { PopupManager.Instance.Show<PopupLose>(); });
         }
 

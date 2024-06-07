@@ -6,7 +6,7 @@ using VirtueSky.Ads;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.RemoteConfigs;
-using VirtueSky.TrackingRevenue;
+using VirtueSky.Tracking;
 
 namespace Base.Services
 {
@@ -37,7 +37,8 @@ namespace Base.Services
 
         bool IsEnableToShowInter()
         {
-            return UserData.CurrentLevel >= RemoteData.RMC_LEVEL_TURN_ON_INTER_ADS &&
+            return Advertising.Instance.IsInterstitialReady() &&
+                   UserData.CurrentLevel >= RemoteData.RMC_LEVEL_TURN_ON_INTER_ADS &&
                    UserData.AdsCounter >= RemoteData.RMC_INTER_CAPPING_LEVEL &&
                    timePlay >= RemoteData.RMC_INTER_CAPPING_TIME &&
                    RemoteData.RMC_ON_OFF_INTER &&
@@ -57,7 +58,7 @@ namespace Base.Services
 
         bool IsEnableToShowReward()
         {
-            return !UserData.IsOffRewardAdsAdministrator;
+            return Advertising.Instance.IsRewardedReady() && !UserData.IsOffRewardAdsAdministrator;
         }
 
         public void ShowBanner()
@@ -65,35 +66,27 @@ namespace Base.Services
             if (IsEnableToShowBanner())
             {
                 Advertising.Instance.ShowBanner();
-                AppTracking.FirebaseAnalyticTrack("Show_Banner");
+                FirebaseTracking.TrackEvent("Show_Banner");
             }
         }
 
         public void HideBanner()
         {
             Advertising.Instance.HideBanner();
-            AppTracking.FirebaseAnalyticTrack("Hide_Banner");
+            FirebaseTracking.TrackEvent("Hide_Banner");
         }
 
         public void ShowInterstitial(Action completeCallback = null, Action displayCallback = null)
         {
             if (IsEnableToShowInter())
             {
-                if (Advertising.Instance.IsInterstitialReady())
-                {
-                    AppTracking.FirebaseAnalyticTrack("Request_Interstitial");
-                    Advertising.Instance.ShowInterstitial().OnCompleted(() =>
-                    {
-                        completeCallback?.Invoke();
-                        AppTracking.FirebaseAnalyticTrack("Show_Interstitial_Completed");
-                        ResetCounter();
-                    }).OnDisplayed(displayCallback);
-                }
-                else
+                FirebaseTracking.TrackEvent("Request_Interstitial");
+                Advertising.Instance.ShowInterstitial().OnCompleted(() =>
                 {
                     completeCallback?.Invoke();
+                    FirebaseTracking.TrackEvent("Show_Interstitial_Completed");
                     ResetCounter();
-                }
+                }).OnDisplayed(displayCallback);
             }
             else
             {
@@ -108,25 +101,12 @@ namespace Base.Services
         {
             if (IsEnableToShowReward())
             {
-                if (Advertising.Instance.IsRewardedReady())
+                FirebaseTracking.TrackEvent("Request_Reward");
+                Advertising.Instance.ShowReward().OnCompleted(() =>
                 {
-                    AppTracking.FirebaseAnalyticTrack("Request_Reward");
-                    Advertising.Instance.ShowReward().OnCompleted(() =>
-                    {
-                        completeCallback?.Invoke();
-                        AppTracking.FirebaseAnalyticTrack("Show_Reward_Completed");
-                    }).OnDisplayed(displayCallback).OnClosed(closeCallback).OnSkipped(skipCallback);
-                }
-                else if (Advertising.Instance.IsInterstitialReady())
-                {
-                    Advertising.Instance.ShowInterstitial().OnCompleted(completeCallback).OnDisplayed(displayCallback)
-                        .OnClosed(closeCallback)
-                        .OnSkipped(skipCallback);
-                }
-                else
-                {
-                    AppTracking.FirebaseAnalyticTrack("Reward ads not ready");
-                }
+                    completeCallback?.Invoke();
+                    FirebaseTracking.TrackEvent("Show_Reward_Completed");
+                }).OnDisplayed(displayCallback).OnClosed(closeCallback).OnSkipped(skipCallback);
             }
             else
             {
