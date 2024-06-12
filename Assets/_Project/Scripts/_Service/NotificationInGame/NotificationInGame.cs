@@ -33,9 +33,9 @@ namespace Base.Services
         {
             if (!gameConfig.enableNotificationInGame) return;
             if (!isShow) return;
-            isShow = false;
             Tween.UIAnchoredPositionY(container, posYHide, timeMove, Ease.InBack).OnComplete(() =>
             {
+                isShow = false;
                 gameObject.SetActive(false);
             });
         }

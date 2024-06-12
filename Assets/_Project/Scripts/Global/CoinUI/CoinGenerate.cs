@@ -28,6 +28,7 @@ namespace Base.Global
 
         public Action moveOneCoinDone;
         public Action moveAllCoinDone;
+        public Action decreaseCoin;
         private bool isScaleIconTo = false;
 
         private List<GameObject> coinsActive = new List<GameObject>();
@@ -63,6 +64,7 @@ namespace Base.Global
             }
             else
             {
+                decreaseCoin?.Invoke();
                 SaveCache();
             }
         }

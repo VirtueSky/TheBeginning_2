@@ -42,12 +42,12 @@ namespace Base.Services
                    UserData.AdsCounter >= RemoteData.RMC_INTER_CAPPING_LEVEL &&
                    timePlay >= RemoteData.RMC_INTER_CAPPING_TIME &&
                    RemoteData.RMC_ON_OFF_INTER &&
-                   !UserData.IsOffInterAdsAdministrator;
+                   !UserData.IsOffInterAdsDebug;
         }
 
         bool IsEnableToShowBanner()
         {
-            return !UserData.IsTestOffBannerAdsAdministrator &&
+            return !UserData.IsOffBannerAdsDebug &&
                    RemoteData.RMC_ON_OFF_BANNER;
         }
 
@@ -58,7 +58,7 @@ namespace Base.Services
 
         bool IsEnableToShowReward()
         {
-            return Advertising.Instance.IsRewardedReady() && !UserData.IsOffRewardAdsAdministrator;
+            return Advertising.Instance.IsRewardedReady() && !UserData.IsOffRewardAdsDebug;
         }
 
         public void ShowBanner()

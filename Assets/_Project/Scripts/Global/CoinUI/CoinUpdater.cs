@@ -22,6 +22,7 @@ namespace Base.Global
             CoinGenerate.Instance.AddTo(iconCoin);
             CoinGenerate.Instance.moveOneCoinDone += MoveOneCoinDone;
             CoinGenerate.Instance.moveAllCoinDone += MoveAllCoinDone;
+            CoinGenerate.Instance.decreaseCoin += DecreaseCoin;
         }
 
         public override void OnDisable()
@@ -30,6 +31,7 @@ namespace Base.Global
             CoinGenerate.Instance.RemoveTo(iconCoin);
             CoinGenerate.Instance.moveOneCoinDone -= MoveOneCoinDone;
             CoinGenerate.Instance.moveAllCoinDone -= MoveAllCoinDone;
+            CoinGenerate.Instance.decreaseCoin -= DecreaseCoin;
         }
 
         void MoveOneCoinDone()
