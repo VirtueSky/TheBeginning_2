@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5364855900474096421}
   - component: {fileID: 4193108907411764844}
+  - component: {fileID: 2601415616851360835}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -59,6 +60,33 @@ MonoBehaviour:
   ConformX: 1
   ConformY: 1
   Logging: 0
+--- !u!114 &2601415616851360835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44115311812151522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4574ec97a6b46ea89eb2fbda52ba706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listGraphics:
+  - {fileID: 3421561290902501057}
+  - {fileID: 4609003189904288388}
+  - {fileID: 4995003225708122407}
+  - {fileID: 1818379489753769811}
+  - {fileID: 1735350241572243168}
+  - {fileID: 5894052544315565554}
+  - {fileID: 640313825970560007}
+  - {fileID: 5052775970818756078}
+  - {fileID: 5907823700991422491}
+  - {fileID: 6024780701430577970}
+  - {fileID: 8288219723752485141}
+  - {fileID: 6734407538229713967}
+  - {fileID: 6411312079665324011}
+  - {fileID: 1629731330820015014}
 --- !u!1 &337785703427156683
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class GameBaseWindowEditor : EditorWindow
     private GameConfig _gameConfig;
     private Vector2 _scrollPosition;
 
-    [MenuItem("GameBase/Open GameConfig %`")]
+    [MenuItem("GameBase/Open GameConfig %`", priority = 1)]
     public static void OpenGameConfigWindow()
     {
         GameConfig gameConfig = AssetUtils.FindAssetAtFolder<GameConfig>(new string[] { "Assets" }).FirstOrDefault();
@@ -54,21 +54,21 @@ public class GameBaseWindowEditor : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    [MenuItem("GameBase/Open Scene/Launcher %F1")]
+    [MenuItem("GameBase/Launcher %F1", priority = 101)]
     public static void PlayFromLauncherScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Open Scene/Gameplay %F3")]
+    [MenuItem("GameBase/Gameplay %F2", priority = 102)]
     public static void PlayFromGamePlayScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAMEPLAY_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Open Scene/Service %F2")]
+    [MenuItem("GameBase/Service %F3", priority = 103)]
     public static void PlayFromServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICES_SCENE}.unity");

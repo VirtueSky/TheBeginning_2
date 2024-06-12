@@ -9,7 +9,7 @@ using VirtueSky.Misc;
 
 public class OffUI : MonoBehaviour
 {
-    [SerializeField] private List<Graphic> listGraphics;
+    [SerializeField] private List<Graphic> listGraphics = new List<Graphic>();
 
     private void OnEnable()
     {
