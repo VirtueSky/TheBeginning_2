@@ -2,7 +2,6 @@ using Base.Data;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
-using VirtueSky.Audio;
 using VirtueSky.Core;
 
 namespace Base.Global
@@ -39,10 +38,7 @@ namespace Base.Global
             if (!isFirsCoinMoveDone)
             {
                 isFirsCoinMoveDone = true;
-                int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-                int nextAmount = (UserData.CoinTotal - currentCurrencyAmount) / StepCount;
-                int step = StepCount;
-                CoinTextCount(currentCurrencyAmount, nextAmount, step);
+                UpdateTextCoin();
             }
         }
 
@@ -53,10 +49,7 @@ namespace Base.Global
 
         private void DecreaseCoin()
         {
-            int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-            int nextAmount = (UserData.CoinTotal - currentCurrencyAmount) / StepCount;
-            int step = StepCount;
-            CoinTextCount(currentCurrencyAmount, nextAmount, step);
+            UpdateTextCoin();
         }
 
         private void CoinTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)
@@ -73,6 +66,14 @@ namespace Base.Global
                     CurrencyAmountText.text = totalValue.ToString();
                 })
                 .AppendCallback(() => { CoinTextCount(totalValue, nextAmountValue, stepCount - 1); });
+        }
+
+        void UpdateTextCoin()
+        {
+            int starCoin = int.Parse(CurrencyAmountText.text);
+            int coinChange = starCoin;
+            Tween.Custom(starCoin, UserData.CoinTotal, 0.5f, valueChange => coinChange = (int)valueChange)
+                .OnUpdate(this, (coin, tween) => { CurrencyAmountText.text = coinChange.ToString(); });
         }
     }
 }

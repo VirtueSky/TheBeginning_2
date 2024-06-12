@@ -25,7 +25,6 @@ namespace Base.Services
                     if (_targetCoin != "")
                     {
                         UserData.CoinTotal = int.Parse(_targetCoin);
-                        _targetCoin = "";
                     }
                 },
                 icon: DebugViewStatic.IconOkeDebug);
