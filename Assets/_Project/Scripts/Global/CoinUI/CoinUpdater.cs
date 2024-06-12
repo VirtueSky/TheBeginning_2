@@ -9,8 +9,6 @@ namespace Base.Global
     public class CoinUpdater : BaseMono
     {
         public TextMeshProUGUI CurrencyAmountText;
-        public int StepCount = 10;
-        public float DelayTime = .01f;
         [SerializeField] private GameObject iconCoin;
         bool isFirsCoinMoveDone = false;
 
@@ -52,21 +50,6 @@ namespace Base.Global
             UpdateTextCoin();
         }
 
-        private void CoinTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)
-        {
-            if (stepCount == 0)
-            {
-                CurrencyAmountText.text = UserData.CoinTotal.ToString();
-                return;
-            }
-
-            int totalValue = (currentCurrencyValue + nextAmountValue);
-            DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true).AppendCallback(() =>
-                {
-                    CurrencyAmountText.text = totalValue.ToString();
-                })
-                .AppendCallback(() => { CoinTextCount(totalValue, nextAmountValue, stepCount - 1); });
-        }
 
         void UpdateTextCoin()
         {
