@@ -20,44 +20,36 @@ MonoBehaviour:
   applovinEnableAgeRestrictedUser: 0
   maxBannerAdUnit:
     androidId: 
-    iOSId: 
     size: 0
     position: 0
   maxInterstitialAdUnit:
     androidId: 
-    iOSId: 
   maxRewardAdUnit:
     androidId: 
-    iOSId: 
   maxRewardedInterstitialAdUnit:
     androidId: 
-    iOSId: 
   maxAppOpenAdUnit:
     androidId: 
-    iOSId: 
+    autoShow: 0
   admobBannerAdUnit:
     androidId: ca-app-pub-3940256099942544/6300978111
-    iOSId: 
     size: 5
     position: 0
     useCollapsible: 0
     useTestId: 1
   admobInterstitialAdUnit:
     androidId: ca-app-pub-3940256099942544/1033173712
-    iOSId: 
     useTestId: 1
   admobRewardAdUnit:
     androidId: ca-app-pub-3940256099942544/5224354917
-    iOSId: 
     useTestId: 1
   admobRewardedInterstitialAdUnit:
     androidId: 
-    iOSId: 
     useTestId: 0
   admobAppOpenAdUnit:
     androidId: 
-    iOSId: 
-    useTestId: 0
+    autoShow: 1
+    useTestId: 1
   admobEnableTestMode: 0
   enableGDPR: 1
   enableGDPRTestMode: 1
