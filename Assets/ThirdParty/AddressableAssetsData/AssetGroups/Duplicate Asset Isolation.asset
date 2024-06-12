@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 6b5f07deb50975c41a28cafc81ad2870
+  m_GUID: ab118675c2334034aad09c0cd7664774
   m_SerializeEntries:
   - m_GUID: 0414325cc03918d47bedc3751f7127d6
     m_Address: Assets/_Project/Fonts/TMP_LilitaOne_Stroke.asset
@@ -32,38 +32,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6af9d8621b13945d78f30c83cf9ea91c
-    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_yellow.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e72f90332b069ab4eab7cca3290f4faf
-    m_Address: Assets/_Project/Textures/UI/Common/ui_button_debug.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e3265ab4bf004d28a9537516768c1c75
-    m_Address: Assets/ThirdParty/TextMesh Pro/Fonts/LiberationSans.ttf
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2aa0188f290954406bb715c2da89b36b
-    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_green.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f98e99f62fe5bf64785d5d28997f0fdc
-    m_Address: Assets/_Project/Textures/UI/Common/ui_tick.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ce78dd93df74ee429d0387ef0feb3ce
-    m_Address: Assets/_Project/Textures/UI/Administrator/editor_btn_slide_close.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 427917e6f87d5f948933c3557fbc9ca7
-    m_Address: Assets/_Project/Textures/UI/Administrator/editor_btn_slide_open.png
+  - m_GUID: 840413f1c26612449b52205cea05e970
+    m_Address: Assets/_Project/Textures/UI/Rank Sprite/leaderboard/leaderboard_whitebar.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -72,28 +42,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bf6201b4097e66c43983ff56f832ac35
-    m_Address: Assets/_Project/Config/ItemConfig.asset
+  - m_GUID: e3265ab4bf004d28a9537516768c1c75
+    m_Address: Assets/ThirdParty/TextMesh Pro/Fonts/LiberationSans.ttf
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8d15ab71442963c47b22b47460111e35
-    m_Address: Assets/_Project/Fonts/TMP_LilitaOne.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5fb3ab62ecb5d44928052e616b179bdb
-    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_red.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a40e92ec88aa74d7e91ac7ac63811d29
-    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_blue.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 840413f1c26612449b52205cea05e970
-    m_Address: Assets/_Project/Textures/UI/Rank Sprite/leaderboard/leaderboard_whitebar.png
+  - m_GUID: 1eaee135ce037439d925cee5e41ce026
+    m_Address: Assets/_Project/Textures/GUI.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
