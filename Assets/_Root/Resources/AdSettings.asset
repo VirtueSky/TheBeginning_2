@@ -47,7 +47,7 @@ MonoBehaviour:
     androidId: 
     useTestId: 0
   admobAppOpenAdUnit:
-    androidId: 
+    androidId: ca-app-pub-3940256099942544/9257395921
     autoShow: 1
     useTestId: 1
   admobEnableTestMode: 0
