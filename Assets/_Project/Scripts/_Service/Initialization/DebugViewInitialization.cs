@@ -10,6 +10,16 @@ namespace Base.Services
         [SerializeField] private DebugSheet debugViewSheet;
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private ItemConfig itemConfig;
+        [HeaderLine("Icon"), SerializeField] private Sprite iconTool;
+        [SerializeField] private Sprite iconAds;
+        [SerializeField] private Sprite iconLevel;
+        [SerializeField] private Sprite iconWin;
+        [SerializeField] private Sprite iconLose;
+        [SerializeField] private Sprite iconNext;
+        [SerializeField] private Sprite iconBack;
+        [SerializeField] private Sprite iconToggle;
+        [SerializeField] private Sprite iconInput;
+        [SerializeField] private Sprite iconOke;
 
         public override void Initialization()
         {
@@ -21,12 +31,17 @@ namespace Base.Services
             debugViewSheet.gameObject.SetActive(true);
             var initPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning2 Debug");
             // Game Page
-            initPage.AddPageLinkButton<GameDebugPage>("Game Debug", icon: DebugViewStatic.IconToolDebug, onLoad:
-                debugView => { debugView.page.Init(itemConfig); });
+            initPage.AddPageLinkButton<GameDebugPage>("Game Debug", icon: iconTool, onLoad:
+                debugView => { debugView.page.Init(itemConfig, iconInput, iconOke, iconToggle); });
             // Ads Page
-            initPage.AddPageLinkButton<AdsDebugPage>("Ads Debug", icon: DebugViewStatic.IconAdsDebug);
+            initPage.AddPageLinkButton<AdsDebugPage>("Ads Debug", icon: iconAds,
+                onLoad: debugView => { debugView.page.Init(iconToggle); });
             // Level Page
-            initPage.AddPageLinkButton<LevelDebugPage>("Level Debug", icon: DebugViewStatic.IconLevelDebug);
+            initPage.AddPageLinkButton<LevelDebugPage>("Level Debug", icon: iconLevel,
+                onLoad: debugView =>
+                {
+                    debugView.page.Init(iconNext, iconBack, iconWin, iconLose, iconInput, iconOke);
+                });
             initPage.Reload();
         }
     }

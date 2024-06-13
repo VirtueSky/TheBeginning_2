@@ -2,21 +2,39 @@ using System.Threading.Tasks;
 using Base.Data;
 using Base.Game;
 using UnityDebugSheet.Runtime.Core.Scripts;
+using UnityEngine;
 
 namespace Base.Services
 {
     public class LevelDebugPage : DefaultDebugPageBase
     {
+        private Sprite iconNext;
+        private Sprite iconBack;
+        private Sprite iconWin;
+        private Sprite iconLose;
+        private Sprite iconInput;
+        private Sprite iconOk;
         protected override string Title => "Level Debug";
+
+        public void Init(Sprite _iconNext,
+            Sprite _iconBack, Sprite _iconWin, Sprite _iconLose, Sprite _iconInput, Sprite _iconOk)
+        {
+            iconNext = _iconNext;
+            iconBack = _iconBack;
+            iconWin = _iconWin;
+            iconLose = _iconLose;
+            iconInput = _iconInput;
+            iconOk = _iconOk;
+        }
 
         public override Task Initialize()
         {
-            AddButton("Next Level", clicked: NextLevel, icon: DebugViewStatic.IconNextDebug);
-            AddButton("Prev Level", clicked: PrevLevel, icon: DebugViewStatic.IconBackDebug);
-            AddButton("Win Level", clicked: WinLevel, icon: DebugViewStatic.IconWinDebug);
-            AddButton("Lose Level", clicked: LoseLevel, icon: DebugViewStatic.IconLoseDebug);
-            AddInputField("Input Level:", valueChanged: ChangeLevel, icon: DebugViewStatic.IconInputDebug);
-            AddButton("Jump to level input", clicked: PlayCurrentLevel, icon: DebugViewStatic.IconOkeDebug);
+            AddButton("Next Level", clicked: NextLevel, icon: iconNext);
+            AddButton("Prev Level", clicked: PrevLevel, icon: iconBack);
+            AddButton("Win Level", clicked: WinLevel, icon: iconWin);
+            AddButton("Lose Level", clicked: LoseLevel, icon: iconLose);
+            AddInputField("Input Level:", valueChanged: ChangeLevel, icon: iconInput);
+            AddButton("Jump to level input", clicked: PlayCurrentLevel, icon: iconOk);
             return base.Initialize();
         }
 
