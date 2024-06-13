@@ -8,7 +8,13 @@ namespace Base.Services
 {
     public class AdsDebugPage : DefaultDebugPageBase
     {
+        private Sprite iconToggle;
         protected override string Title => "Advertising Debug";
+
+        public void Init(Sprite _iconToggle)
+        {
+            iconToggle = _iconToggle;
+        }
 
         public override Task Initialize()
         {
@@ -17,13 +23,13 @@ namespace Base.Services
             AddButton("Show Inter", clicked: ShowInter);
             AddButton("Show Reward", clicked: ShowReward);
             AddSwitch(UserData.IsOffInterAdsDebug, "Is Off Inter", valueChanged: b => UserData.IsOffInterAdsDebug = b,
-                icon: DebugViewStatic.IconToggleDebug);
+                icon: iconToggle);
             AddSwitch(UserData.IsOffBannerAdsDebug, "Is Off Banner",
                 valueChanged: b => UserData.IsOffBannerAdsDebug = b,
-                icon: DebugViewStatic.IconToggleDebug);
+                icon: iconToggle);
             AddSwitch(UserData.IsOffRewardAdsDebug, "Is Off Reward",
                 valueChanged: b => UserData.IsOffRewardAdsDebug = b,
-                icon: DebugViewStatic.IconToggleDebug);
+                icon: iconToggle);
             return base.Initialize();
         }
 
