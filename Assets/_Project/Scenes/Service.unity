@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,6 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431478659}
   - component: {fileID: 431478661}
+  - component: {fileID: 431478665}
   - component: {fileID: 431478660}
   - component: {fileID: 431478662}
   - component: {fileID: 431478663}
@@ -422,6 +423,18 @@ MonoBehaviour:
   iconToggle: {fileID: 21300000, guid: 5aff09c0f38369e4c9f563e16f6fb7ef, type: 3}
   iconInput: {fileID: 21300000, guid: 6cf985f7ae70b3048983210385dc27d2, type: 3}
   iconOke: {fileID: 21300000, guid: 6e84e7d8948d694489b6358566c6d2b1, type: 3}
+--- !u!114 &431478665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431478658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ad29da9c7341f9addcde862cfbf9a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &612027120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1151,7 +1164,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1646167640}
   - component: {fileID: 1646167641}
-  - component: {fileID: 1646167649}
   - component: {fileID: 1646167642}
   - component: {fileID: 1646167647}
   - component: {fileID: 1646167650}
@@ -1194,11 +1206,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serviceInitializations:
-  - {fileID: 431478661}
+  - {fileID: 431478665}
   - {fileID: 431478660}
   - {fileID: 431478664}
-  - {fileID: 431478663}
   - {fileID: 431478662}
+  - {fileID: 431478663}
+  - {fileID: 431478661}
 --- !u!114 &1646167642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,18 +1239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
   autoSchedule: 1
-  channels:
-  - identifier: CombackGame
-    minute: 1440
-    repeat: 1
-    bigPicture: 0
-    namePicture: 
-    overrideIcon: 0
-    smallIcon: 
-    largeIcon: 
-    datas:
-    - title: Hey!
-      message: Let's comback game
+  channels: []
 --- !u!114 &1646167645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,20 +1298,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
---- !u!114 &1646167649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646167639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e207a1155d44baa9563f4918e31b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 0
-  poolDatas: []
 --- !u!114 &1646167650
 MonoBehaviour:
   m_ObjectHideFlags: 0
