@@ -1,14 +1,14 @@
 using VirtueSky.Inspector;
-using VirtueSky.Vibration;
+using VirtueSky.ObjectPooling;
 
 namespace Base.Services
 {
     [HideMonoScript]
-    public class VibrationInitialization : ServiceInitialization
+    public class PoolInitialization : ServiceInitialization
     {
         public override void Initialization()
         {
-            Vibration.Init();
+            Pool.InitPool();
         }
     }
 }
