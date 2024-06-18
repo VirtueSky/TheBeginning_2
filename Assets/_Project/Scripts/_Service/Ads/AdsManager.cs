@@ -37,7 +37,7 @@ namespace Base.Services
 
         bool IsEnableToShowInter()
         {
-            return Advertising.Instance.IsInterstitialReady() &&
+            return Advertising.InterstitialAd.IsReady() &&
                    UserData.CurrentLevel >= RemoteData.RMC_LEVEL_TURN_ON_INTER_ADS &&
                    UserData.AdsCounter >= RemoteData.RMC_INTER_CAPPING_LEVEL &&
                    timePlay >= RemoteData.RMC_INTER_CAPPING_TIME &&
@@ -51,28 +51,24 @@ namespace Base.Services
                    RemoteData.RMC_ON_OFF_BANNER;
         }
 
-        public bool IsRewardReady()
-        {
-            return Advertising.Instance.IsRewardedReady();
-        }
 
         bool IsEnableToShowReward()
         {
-            return Advertising.Instance.IsRewardedReady() && !UserData.IsOffRewardAdsDebug;
+            return Advertising.RewardAd.IsReady() && !UserData.IsOffRewardAdsDebug;
         }
 
         public void ShowBanner()
         {
             if (IsEnableToShowBanner())
             {
-                Advertising.Instance.ShowBanner();
+                Advertising.BannerAd.Show();
                 FirebaseTracking.TrackEvent("Show_Banner");
             }
         }
 
         public void HideBanner()
         {
-            Advertising.Instance.HideBanner();
+            Advertising.BannerAd.HideBanner();
             FirebaseTracking.TrackEvent("Hide_Banner");
         }
 
@@ -81,7 +77,7 @@ namespace Base.Services
             if (IsEnableToShowInter())
             {
                 FirebaseTracking.TrackEvent("Request_Interstitial");
-                Advertising.Instance.ShowInterstitial().OnCompleted(() =>
+                Advertising.InterstitialAd.Show().OnCompleted(() =>
                 {
                     completeCallback?.Invoke();
                     FirebaseTracking.TrackEvent("Show_Interstitial_Completed");
@@ -102,7 +98,7 @@ namespace Base.Services
             if (IsEnableToShowReward())
             {
                 FirebaseTracking.TrackEvent("Request_Reward");
-                Advertising.Instance.ShowReward().OnCompleted(() =>
+                Advertising.RewardAd.Show().OnCompleted(() =>
                 {
                     completeCallback?.Invoke();
                     FirebaseTracking.TrackEvent("Show_Reward_Completed");

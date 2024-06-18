@@ -1149,8 +1149,8 @@ MonoBehaviour:
   durationTarget: 0.7
   easeNear: 12
   easeTarget: 21
-  scale: 0.5
-  offsetNear: 1
+  scale: 0.7
+  offsetNear: 1.3
   iconCoinPrefab: {fileID: 6793577256207356087, guid: c16f53179d9a79242b8f3649594b682b,
     type: 3}
   soundCoinMove: {fileID: 11400000, guid: 214646daf20504498a5b0b5ddfe1bf4b, type: 2}

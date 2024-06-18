@@ -37,7 +37,7 @@ namespace Base.Services
         {
             if (Application.isMobilePlatform)
             {
-                Advertising.Instance.ShowBanner();
+                Advertising.BannerAd.Show();
             }
             else
             {
@@ -49,7 +49,7 @@ namespace Base.Services
         {
             if (Application.isMobilePlatform)
             {
-                Advertising.Instance.HideBanner();
+                Advertising.BannerAd.HideBanner();
             }
             else
             {
@@ -61,7 +61,7 @@ namespace Base.Services
         {
             if (Application.isMobilePlatform)
             {
-                Advertising.Instance.ShowInterstitial();
+                Advertising.InterstitialAd.Show();
             }
             else
             {
@@ -73,7 +73,7 @@ namespace Base.Services
         {
             if (Application.isMobilePlatform)
             {
-                Advertising.Instance.ShowReward();
+                Advertising.RewardAd.Show();
             }
             else
             {
