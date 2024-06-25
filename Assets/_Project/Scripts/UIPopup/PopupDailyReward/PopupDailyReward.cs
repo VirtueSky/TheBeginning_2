@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Base.Data;
 using Base.Global;
 using Base.Services;
@@ -75,7 +76,7 @@ namespace Base.UI
                     Observer.OnClaimDailyReward?.Invoke();
                     Setup();
                 });
-            });
+            }, trackingRewardPosition: $"${MethodBase.GetCurrentMethod().Name}_{this.name}");
         }
 
         public void OnClickBtnClaim()
