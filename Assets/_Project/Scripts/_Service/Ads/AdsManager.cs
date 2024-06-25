@@ -93,20 +93,20 @@ namespace Base.Services
 
         public void ShowRewardAds(Action completeCallback = null, Action skipCallback = null,
             Action displayCallback = null,
-            Action closeCallback = null)
+            Action closeCallback = null, string trackingRewardPosition = "")
         {
             if (IsEnableToShowReward())
             {
-                FirebaseTracking.TrackEvent("Request_Reward");
+                FirebaseTracking.TrackEvent("Request_Reward", "reward_position", trackingRewardPosition);
                 Advertising.RewardAd.Show().OnCompleted(() =>
                 {
                     completeCallback?.Invoke();
-                    FirebaseTracking.TrackEvent("Show_Reward_Completed");
+                    FirebaseTracking.TrackEvent("Show_Reward_Completed", "reward_position", trackingRewardPosition);
                 }).OnDisplayed(displayCallback).OnClosed(closeCallback).OnSkipped(skipCallback);
             }
             else
             {
-                AppTracking.FirebaseAnalyticTrack("Reward ads not ready");
+                FirebaseTracking.TrackEvent("Reward ads not ready");
             }
         }
     }
