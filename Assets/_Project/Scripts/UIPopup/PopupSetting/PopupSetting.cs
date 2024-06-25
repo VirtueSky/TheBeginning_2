@@ -1,30 +1,50 @@
+#if VIRTUESKY_ADMOB
+using GoogleMobileAds.Ump.Api;
+#endif
 using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Ads;
 
 namespace Base.UI
 {
     public class PopupSetting : UIPopup
     {
         [SerializeField] private Button buttonRestore;
-
+        [SerializeField] private Button buttonPrivacyConsent;
         protected override void OnBeforeShow()
         {
             base.OnBeforeShow();
-            buttonRestore.gameObject.SetActive(false);
+           SetupButtonDefault();
 #if UNITY_IOS
             buttonRestore.gameObject.SetActive(true);
 #endif
+#if VIRTUESKY_ADMOB
+            buttonPrivacyConsent.gameObject.SetActive(ConsentInformation.PrivacyOptionsRequirementStatus == PrivacyOptionsRequirementStatus.Required);
+#endif
             buttonRestore.onClick.AddListener(OnClickRestorePurchase);
+            buttonPrivacyConsent.onClick.AddListener(OnClickPrivacyConsent);
         }
-
         protected override void OnBeforeHide()
         {
             base.OnBeforeHide();
             buttonRestore.onClick.RemoveListener(OnClickRestorePurchase);
+            buttonPrivacyConsent.onClick.RemoveListener(OnClickPrivacyConsent);
         }
 
-        public void OnClickRestorePurchase()
+        void SetupButtonDefault()
         {
+            buttonRestore.gameObject.SetActive(false);
+            buttonPrivacyConsent.gameObject.SetActive(false);
+        }
+         void OnClickRestorePurchase()
+        {
+        }
+
+        void OnClickPrivacyConsent()
+        {
+#if VIRTUESKY_ADMOB
+            Advertising.Instance.ShowPrivacyOptionsForm();
+#endif
         }
     }
 }
