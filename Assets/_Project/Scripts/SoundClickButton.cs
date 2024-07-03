@@ -18,6 +18,6 @@ public class SoundClickButton : MonoBehaviour
 
     void PlaySoundClickButton()
     {
-        AudioManager.Instance.PlaySfx(sfxClickButton);
+        sfxClickButton.PlaySfx();
     }
 }

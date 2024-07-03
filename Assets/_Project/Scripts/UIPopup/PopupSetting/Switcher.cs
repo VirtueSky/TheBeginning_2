@@ -101,14 +101,14 @@ namespace Base.UI
 
         private bool MusicChanged
         {
-            get => AudioManager.Instance.MusicVolume >= 0.99f;
-            set => AudioManager.Instance.MusicVolume = value ? 1 : 0;
+            get => AudioManager.MusicVolume >= 0.99f;
+            set => AudioManager.MusicVolume = value ? 1 : 0;
         }
 
         private bool SoundFxChanged
         {
-            get => AudioManager.Instance.SfxVolume >= 0.99f;
-            set => AudioManager.Instance.SfxVolume = value ? 1 : 0;
+            get => AudioManager.SfxVolume >= 0.99f;
+            set => AudioManager.SfxVolume = value ? 1 : 0;
         }
 
         private bool VibrateChanged

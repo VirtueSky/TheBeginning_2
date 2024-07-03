@@ -107,7 +107,7 @@ namespace Base.Global
                     if (!isScaleIconTo)
                     {
                         isScaleIconTo = true;
-                        AudioManager.Instance.PlaySfx(soundCoinMove);
+                        soundCoinMove.PlaySfx();
                         ScaleIconTo();
                     }
 
