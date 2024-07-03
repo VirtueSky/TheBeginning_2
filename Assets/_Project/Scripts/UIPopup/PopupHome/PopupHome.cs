@@ -17,7 +17,7 @@ namespace Base.UI
         protected override void OnBeforeShow()
         {
             base.OnBeforeShow();
-            AudioManager.Instance.PlayMusic(musicHome);
+            musicHome.PlayMusic();
         }
 
         public void OnClickStartGame()

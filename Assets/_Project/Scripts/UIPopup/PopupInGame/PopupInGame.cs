@@ -20,7 +20,7 @@ namespace Base.UI
             base.OnBeforeShow();
             Setup();
             Observer.CurrentLevelChanged += Setup;
-            AudioManager.Instance.PlayMusic(musicInGame);
+            musicInGame.PlayMusic();
         }
 
         protected override void OnBeforeHide()

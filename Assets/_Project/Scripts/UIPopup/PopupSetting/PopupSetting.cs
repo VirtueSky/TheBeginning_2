@@ -22,13 +22,13 @@ namespace Base.UI
             buttonPrivacyConsent.gameObject.SetActive(ConsentInformation.PrivacyOptionsRequirementStatus == PrivacyOptionsRequirementStatus.Required);
 #endif
             buttonRestore.onClick.AddListener(OnClickRestorePurchase);
-            buttonPrivacyConsent.onClick.AddListener(OnClickPrivacyConsent);
+            buttonPrivacyConsent.onClick.AddListener(OnClickShowAgainGDPR);
         }
         protected override void OnBeforeHide()
         {
             base.OnBeforeHide();
             buttonRestore.onClick.RemoveListener(OnClickRestorePurchase);
-            buttonPrivacyConsent.onClick.RemoveListener(OnClickPrivacyConsent);
+            buttonPrivacyConsent.onClick.RemoveListener(OnClickShowAgainGDPR);
         }
 
         void SetupButtonDefault()
@@ -40,10 +40,10 @@ namespace Base.UI
         {
         }
 
-        void OnClickPrivacyConsent()
+        void OnClickShowAgainGDPR()
         {
 #if VIRTUESKY_ADMOB
-            Advertising.Instance.ShowPrivacyOptionsForm();
+            Advertising.ShowAgainGdpr();
 #endif
         }
     }

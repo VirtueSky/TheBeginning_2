@@ -56,7 +56,7 @@ namespace Base.Launcher
             await UniTask.WaitUntil(() => flagDoneProgress);
             if (isWaitingFetchRemoteConfig)
             {
-                await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.Instance.IsFetchRemoteConfigCompleted);
+                await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.IsFetchRemoteConfigCompleted);
             }
 
             SceneLoader.Instance.ChangeScene(Constant.GAMEPLAY_SCENE);
