@@ -17,18 +17,18 @@ namespace Base.Global
             base.OnEnable();
             CurrencyAmountText.text = UserData.CoinTotal.ToString();
             CoinGenerate.Instance.AddTo(iconCoin);
-            CoinGenerate.Instance.moveOneCoinDone += MoveOneCoinDone;
-            CoinGenerate.Instance.moveAllCoinDone += MoveAllCoinDone;
-            CoinGenerate.Instance.decreaseCoin += DecreaseCoin;
+            CoinGenerate.MoveOneCoinDone += MoveOneCoinDone;
+            CoinGenerate.MoveAllCoinDone += MoveAllCoinDone;
+            CoinGenerate.DecreaseCoin += DecreaseCoin;
         }
 
         public override void OnDisable()
         {
             base.OnDisable();
             CoinGenerate.Instance.RemoveTo(iconCoin);
-            CoinGenerate.Instance.moveOneCoinDone -= MoveOneCoinDone;
-            CoinGenerate.Instance.moveAllCoinDone -= MoveAllCoinDone;
-            CoinGenerate.Instance.decreaseCoin -= DecreaseCoin;
+            CoinGenerate.MoveOneCoinDone -= MoveOneCoinDone;
+            CoinGenerate.MoveAllCoinDone -= MoveAllCoinDone;
+            CoinGenerate.DecreaseCoin -= DecreaseCoin;
         }
 
         void MoveOneCoinDone()

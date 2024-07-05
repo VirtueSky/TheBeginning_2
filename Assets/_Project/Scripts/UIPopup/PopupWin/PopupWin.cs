@@ -18,13 +18,13 @@ namespace Base.UI
         {
             base.OnBeforeShow();
             isDoneAllCoinGenerate = false;
-            CoinGenerate.Instance.moveAllCoinDone += OnMoveAllCoinDone;
+            CoinGenerate.MoveAllCoinDone += OnMoveAllCoinDone;
         }
 
         protected override void OnBeforeHide()
         {
             base.OnBeforeHide();
-            CoinGenerate.Instance.moveAllCoinDone -= OnMoveAllCoinDone;
+            CoinGenerate.MoveAllCoinDone -= OnMoveAllCoinDone;
         }
 
         void OnMoveAllCoinDone()
