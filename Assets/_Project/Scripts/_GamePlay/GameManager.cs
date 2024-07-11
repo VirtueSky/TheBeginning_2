@@ -1,3 +1,4 @@
+using System;
 using Base.Data;
 using Base.Global;
 using Base.Levels;
@@ -19,6 +20,13 @@ namespace Base.Game
         private Level CurrentLevel() => LevelLoader.Instance.CurrentLevel();
         private Level PreviousLevel() => LevelLoader.Instance.PreviousLevel();
 
+        public static event Action<Level> OnStartLevel;
+        public static event Action<Level> OnReplayLevel;
+        public static event Action<Level> OnNextLevel;
+        public static event Action<Level> OnBackLevel;
+        public static event Action<Level> OnWinLevel;
+        public static event Action<Level> OnLoseLevel;
+
         private void Start()
         {
             BackHome();
@@ -39,7 +47,7 @@ namespace Base.Game
 
         public void ReplayLevel()
         {
-            Observer.OnReplayLevel?.Invoke(CurrentLevel());
+            OnReplayLevel?.Invoke(CurrentLevel());
             FirebaseTracking.TrackEvent("On_Replay_Level", "level_name", CurrentLevel().name);
             StartLevel();
             PopupManager.Instance.Show<PopupInGame>();
@@ -47,8 +55,8 @@ namespace Base.Game
 
         public async void NextLevel()
         {
-            Observer.OnNextLevel?.Invoke(CurrentLevel());
             UserData.CurrentLevel++;
+            OnNextLevel?.Invoke(CurrentLevel());
             var levelPrefab = await LevelLoader.Instance.LoadLevel();
             levelHolder.ClearTransform();
             Instantiate(levelPrefab, levelHolder, false);
@@ -57,6 +65,7 @@ namespace Base.Game
         public void BackLevel()
         {
             UserData.CurrentLevel--;
+            OnBackLevel?.Invoke(CurrentLevel());
             var levelPrefab = PreviousLevel();
             levelHolder.ClearTransform();
             Instantiate(levelPrefab, levelHolder, false);
@@ -66,7 +75,7 @@ namespace Base.Game
         public void StartLevel()
         {
             GameState = GameState.PlayingLevel;
-            Observer.OnStartLevel?.Invoke(CurrentLevel());
+            OnStartLevel?.Invoke(CurrentLevel());
             var currentLevelPrefab = CurrentLevel();
             levelHolder.ClearTransform();
             Instantiate(currentLevelPrefab, levelHolder, false);
@@ -78,7 +87,7 @@ namespace Base.Game
             if (GameState == GameState.WaitingResult || GameState == GameState.WinLevel ||
                 GameState == GameState.LoseLevel) return;
             GameState = GameState.WinLevel;
-            Observer.OnWinLevel?.Invoke(CurrentLevel());
+            OnWinLevel?.Invoke(CurrentLevel());
             UserData.AdsCounter++;
             FirebaseTracking.TrackEvent("On_Win_Level", "level_name", CurrentLevel().name);
             App.Delay(timeDelayShowPopup, () =>
@@ -94,7 +103,7 @@ namespace Base.Game
             if (GameState == GameState.WaitingResult || GameState == GameState.WinLevel ||
                 GameState == GameState.LoseLevel) return;
             GameState = GameState.LoseLevel;
-            Observer.OnLoseLevel?.Invoke(CurrentLevel());
+            OnLoseLevel?.Invoke(CurrentLevel());
             UserData.AdsCounter++;
             FirebaseTracking.TrackEvent("On_Lose_Level", "level_name", CurrentLevel().name);
             App.Delay(timeDelayShowPopup, () => { PopupManager.Instance.Show<PopupLose>(); });
