@@ -1,3 +1,5 @@
+using System;
+using Base.Game;
 using UnityEngine;
 using VirtueSky.Core;
 
@@ -13,6 +15,23 @@ namespace Base.Levels
             {
                 CacheTransform = transform;
             }
+
+            GameManager.OnWinLevel += OnWinLevel;
+            GameManager.OnLoseLevel += OnLoseLevel;
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.OnWinLevel -= OnWinLevel;
+            GameManager.OnLoseLevel -= OnLoseLevel;
+        }
+
+        private void OnWinLevel(Level level)
+        {
+        }
+
+        private void OnLoseLevel(Level level)
+        {
         }
     }
 }

@@ -8,17 +8,17 @@ using VirtueSky.DataStorage;
 using VirtueSky.Inspector;
 using VirtueSky.UtilsEditor;
 
-public class GameBaseWindowEditor : EditorWindow
+public class TheBeginning2WindowEditor : EditorWindow
 {
     private Editor _editorGameConfig;
     private GameConfig _gameConfig;
     private Vector2 _scrollPosition;
 
-    [MenuItem("GameBase/Open GameConfig %`", priority = 1)]
+    [MenuItem("TheBeginning_2/Open GameConfig %`", priority = 1)]
     public static void OpenGameConfigWindow()
     {
         GameConfig gameConfig = AssetUtils.FindAssetAtFolder<GameConfig>(new string[] { "Assets" }).FirstOrDefault();
-        GameBaseWindowEditor window = GetWindow<GameBaseWindowEditor>("Game Config");
+        TheBeginning2WindowEditor window = GetWindow<TheBeginning2WindowEditor>("Game Config");
         window._gameConfig = gameConfig;
         if (window == null)
         {
@@ -54,21 +54,21 @@ public class GameBaseWindowEditor : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    [MenuItem("GameBase/Launcher %F1", priority = 101)]
+    [MenuItem("TheBeginning_2/Launcher %F1", priority = 101)]
     public static void PlayFromLauncherScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Gameplay %F2", priority = 102)]
+    [MenuItem("TheBeginning_2/Gameplay %F2", priority = 102)]
     public static void PlayFromGamePlayScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAMEPLAY_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Service %F3", priority = 103)]
+    [MenuItem("TheBeginning_2/Service %F3", priority = 103)]
     public static void PlayFromServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICES_SCENE}.unity");

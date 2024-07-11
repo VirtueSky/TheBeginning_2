@@ -26,9 +26,10 @@ namespace Base.Global
         [SerializeField] private GameObject iconCoinPrefab;
         [SerializeField] private SoundData soundCoinMove;
 
-        public Action moveOneCoinDone;
-        public Action moveAllCoinDone;
-        public Action decreaseCoin;
+        public static event Action OnMoveOneCoinDone;
+        public static event Action OnMoveAllCoinDone;
+        public static event Action OnDecreaseCoin;
+
         private bool isScaleIconTo = false;
 
         private List<GameObject> coinsActive = new List<GameObject>();
@@ -64,7 +65,7 @@ namespace Base.Global
             }
             else
             {
-                decreaseCoin?.Invoke();
+                OnDecreaseCoin?.Invoke();
                 SaveCache();
             }
         }
@@ -82,6 +83,7 @@ namespace Base.Global
 
         public void RemoveTo(GameObject obj)
         {
+            if (listTo.Count == 0) return;
             listTo.Remove(obj);
             if (listTo.Count > 0)
             {
@@ -90,7 +92,7 @@ namespace Base.Global
         }
 
 
-        public async void GenerateCoin()
+        private async void GenerateCoin()
         {
             isScaleIconTo = false;
             for (int i = 0; i < this.numberCoin; i++)
@@ -111,10 +113,10 @@ namespace Base.Global
                         ScaleIconTo();
                     }
 
-                    moveOneCoinDone?.Invoke();
+                    OnMoveOneCoinDone?.Invoke();
                     if (coinsActive.Count == 0)
                     {
-                        moveAllCoinDone?.Invoke();
+                        OnMoveAllCoinDone?.Invoke();
                         SaveCache();
                         SetFrom(holder.position);
                     }
