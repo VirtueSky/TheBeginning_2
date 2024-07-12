@@ -30,7 +30,7 @@ namespace Base.Game
             canvasScaler.matchWidthOrHeight = cameraUI.aspect > .6f ? 1 : 0;
         }
 
-        public async void Show<T>(bool isHideAll = true)
+        private async void InternalShow<T>(bool isHideAll = true)
         {
             _container.TryGetValue(typeof(T), out UIPopup popup);
             if (popup == null)
@@ -42,7 +42,7 @@ namespace Base.Game
                     var popupInstance = Instantiate(popupPrefab, parentContainer);
                     if (isHideAll)
                     {
-                        HideAll();
+                        InternalHideAll();
                     }
 
                     popupInstance.Show();
@@ -60,7 +60,7 @@ namespace Base.Game
                 {
                     if (isHideAll)
                     {
-                        HideAll();
+                        InternalHideAll();
                     }
 
                     popup.Show();
@@ -68,7 +68,7 @@ namespace Base.Game
             }
         }
 
-        public void Hide<T>()
+        private void InternalHide<T>()
         {
             if (_container.TryGetValue(typeof(T), out UIPopup popup))
             {
@@ -83,22 +83,17 @@ namespace Base.Game
             }
         }
 
-        public UIPopup Get<T>()
+        private UIPopup InternalGet<T>()
         {
-            if (_container.TryGetValue(typeof(T), out UIPopup popup))
-            {
-                return popup;
-            }
-
-            return null;
+            return _container.GetValueOrDefault(typeof(T));
         }
 
-        public bool IsPopupReady<T>()
+        private bool InternalIsPopupReady<T>()
         {
             return _container.ContainsKey(typeof(T));
         }
 
-        public void HideAll()
+        private void InternalHideAll()
         {
             foreach (var popup in _container.Values)
             {
@@ -109,7 +104,7 @@ namespace Base.Game
             }
         }
 
-        string GetKeyPopup(string fullName)
+        private string GetKeyPopup(string fullName)
         {
             int index = fullName.LastIndexOf('.');
             if (index != -1)
@@ -121,5 +116,15 @@ namespace Base.Game
                 return fullName;
             }
         }
+
+        #region API
+
+        public static void Show<T>(bool isHideAll = true) => Instance.InternalShow<T>(isHideAll);
+        public static void Hide<T>() => Instance.InternalHide<T>();
+        public static UIPopup Get<T>() => Instance.InternalGet<T>();
+        public static bool IsPopupReady<T>() => Instance.InternalIsPopupReady<T>();
+        public static void HideAll() => Instance.InternalHideAll();
+
+        #endregion
     }
 }

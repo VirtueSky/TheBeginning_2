@@ -35,14 +35,14 @@ namespace Base.Game
         public void BackHome()
         {
             GameState = GameState.Lobby;
-            PopupManager.Instance.Show<PopupHome>();
+            PopupManager.Show<PopupHome>();
             levelHolder.ClearTransform();
         }
 
         public void PlayCurrentLevel()
         {
             StartLevel();
-            PopupManager.Instance.Show<PopupInGame>();
+            PopupManager.Show<PopupInGame>();
         }
 
         public void ReplayLevel()
@@ -50,7 +50,7 @@ namespace Base.Game
             OnReplayLevel?.Invoke(CurrentLevel());
             FirebaseTracking.TrackEvent("On_Replay_Level", "level_name", CurrentLevel().name);
             StartLevel();
-            PopupManager.Instance.Show<PopupInGame>();
+            PopupManager.Show<PopupInGame>();
         }
 
         public async void NextLevel()
@@ -94,7 +94,7 @@ namespace Base.Game
             {
                 UserData.CurrentLevel++;
                 var ins = LevelLoader.Instance.LoadLevel();
-                PopupManager.Instance.Show<PopupWin>();
+                PopupManager.Show<PopupWin>();
             });
         }
 
@@ -106,7 +106,7 @@ namespace Base.Game
             OnLoseLevel?.Invoke(CurrentLevel());
             UserData.AdsCounter++;
             FirebaseTracking.TrackEvent("On_Lose_Level", "level_name", CurrentLevel().name);
-            App.Delay(timeDelayShowPopup, () => { PopupManager.Instance.Show<PopupLose>(); });
+            App.Delay(timeDelayShowPopup, () => { PopupManager.Show<PopupLose>(); });
         }
 
         public GameState GameState
