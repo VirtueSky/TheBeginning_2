@@ -14,6 +14,7 @@ using VirtueSky.Threading.Tasks;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
 #endif
+using VirtueSky.Tracking;
 
 namespace Base.Launcher
 {
@@ -36,11 +37,11 @@ namespace Base.Launcher
         private void Init()
         {
 #if UNITY_IOS
-        if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() ==
-            ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
-        {
-            ATTrackingStatusBinding.RequestAuthorizationTracking();
-        }
+            if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() ==
+                ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
+            {
+                ATTrackingStatusBinding.RequestAuthorizationTracking(FirebaseTracking.TrackEventATTResult);
+            }
 #endif
 
             progressBar.fillAmount = 0;

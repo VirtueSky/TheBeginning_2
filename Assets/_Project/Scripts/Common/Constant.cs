@@ -9,12 +9,6 @@ public class Constant
     public const string DAILY_REWARD_DAY_INDEX = "DAILY_REWARD_DAY_INDEX";
     public const string TOTAL_CLAIM_DAILY_REWARD = "TOTAL_CLAIM_DAILY_REWARD";
 
-
-    // Sound
-    public const string BACKGROUND_SOUND_STATE = "BACKGROUND_SOUND_STATE";
-    public const string FX_SOUND_STATE = "FX_SOUND_STATE";
-    public const string VIBRATE_STATE = "VIBRATE_STATE";
-
     // Scene
     public const string LAUNCHER_SCENE = "Launcher";
     public const string GAMEPLAY_SCENE = "Gameplay";

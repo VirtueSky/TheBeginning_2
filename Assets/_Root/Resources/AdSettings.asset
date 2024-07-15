@@ -54,3 +54,14 @@ MonoBehaviour:
   enableGDPR: 1
   enableGDPRTestMode: 1
   admobDevicesTest: []
+  androidAppKey: 
+  iOSAppKey: 
+  useTestAppKey: 0
+  ironSourceBannerAdUnit:
+    androidId: 
+    size: 0
+    position: 0
+  ironSourceInterstitialAdUnit:
+    androidId: 
+  ironSourceRewardAdUnit:
+    androidId: 

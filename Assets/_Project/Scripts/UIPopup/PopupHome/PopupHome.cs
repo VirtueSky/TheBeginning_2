@@ -27,12 +27,12 @@ namespace Base.UI
 
         public void OnClickSettings()
         {
-            PopupManager.Instance.Show<PopupSetting>(false);
+            PopupManager.Show<PopupSetting>(false);
         }
 
         public void OnClickDailyReward()
         {
-            PopupManager.Instance.Show<PopupDailyReward>(false);
+            PopupManager.Show<PopupDailyReward>(false);
         }
     }
 }
