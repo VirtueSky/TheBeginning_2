@@ -11,20 +11,26 @@ namespace Base.Services
         private Sprite iconInput;
         private Sprite iconOk;
         private Sprite iconToggle;
+        private Sprite iconCoinDebug;
+        private Sprite iconOutfitDebug;
         private string _targetCoin = "";
         protected override string Title => "Game Debug";
 
-        public void Init(ItemConfig _itemConfig, Sprite _iconInput, Sprite _iconOk, Sprite _iconToggle)
+        public void Init(ItemConfig _itemConfig, Sprite _iconInput, Sprite _iconOk, Sprite _iconToggle,
+            Sprite _iconCoinDebug,
+            Sprite _iconOutfitDebug)
         {
             itemConfig = _itemConfig;
             iconInput = _iconInput;
             iconOk = _iconOk;
             iconToggle = _iconToggle;
+            iconCoinDebug = _iconCoinDebug;
+            iconOutfitDebug = _iconOutfitDebug;
         }
 
         public override Task Initialize()
         {
-            AddButton("Add 10000 Coin", clicked: () => UserData.CoinTotal += 10000);
+            AddButton("Add 10000 Coin", icon: iconCoinDebug, clicked: () => UserData.CoinTotal += 10000);
             AddInputField("Input Coin:", valueChanged: s => _targetCoin = s, icon: iconInput);
             AddButton("Enter Input Coin", clicked: () =>
                 {
@@ -34,7 +40,7 @@ namespace Base.Services
                     }
                 },
                 icon: iconOk);
-            AddButton("Unlock All Skin", clicked: () => itemConfig.UnlockAllSkins());
+            AddButton("Unlock All Skin", icon: iconOutfitDebug, clicked: () => itemConfig.UnlockAllSkins());
             AddSwitch(UserData.IsOffUIDebug, "Is Hide UI", valueChanged: b => UserData.IsOffUIDebug = b,
                 icon: iconToggle);
             AddSwitch(UserData.IsTestingDebug, "Is Testing", valueChanged: b => UserData.IsTestingDebug = b,
