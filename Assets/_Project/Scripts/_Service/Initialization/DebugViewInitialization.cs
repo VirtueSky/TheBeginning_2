@@ -20,6 +20,13 @@ namespace Base.Services
         [SerializeField] private Sprite iconToggle;
         [SerializeField] private Sprite iconInput;
         [SerializeField] private Sprite iconOke;
+        [SerializeField] private Sprite iconAnalysis;
+        [SerializeField] private Sprite iconFps;
+        [SerializeField] private Sprite iconAudio;
+        [SerializeField] private Sprite iconRam;
+        [SerializeField] private Sprite iconAdvanced;
+        [SerializeField] private Sprite iconCoinDebug;
+        [SerializeField] private Sprite iconOutfitDebug;
 
         public override void Initialization()
         {
@@ -32,7 +39,10 @@ namespace Base.Services
             var initPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning2 Debug");
             // Game Page
             initPage.AddPageLinkButton<GameDebugPage>("Game Debug", icon: iconTool, onLoad:
-                debugView => { debugView.page.Init(itemConfig, iconInput, iconOke, iconToggle); });
+                debugView =>
+                {
+                    debugView.page.Init(itemConfig, iconInput, iconOke, iconToggle, iconCoinDebug, iconOutfitDebug);
+                });
             // Ads Page
             initPage.AddPageLinkButton<AdsDebugPage>("Ads Debug", icon: iconAds,
                 onLoad: debugView => { debugView.page.Init(iconToggle); });
@@ -42,6 +52,9 @@ namespace Base.Services
                 {
                     debugView.page.Init(iconNext, iconBack, iconWin, iconLose, iconInput, iconOke);
                 });
+            // Add system analysis page
+            initPage.AddPageLinkButton<SystemAnalysisDebugPage>("System analysis", icon: iconAnalysis, onLoad:
+                debugView => { debugView.page.Init(iconFps, iconRam, iconAudio, iconAdvanced); });
             initPage.Reload();
         }
     }
