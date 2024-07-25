@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: AdSettings
   m_EditorClassIdentifier: 
   runtimeAutoInit: 1
+  runtimeAutoInitType: 0
   adCheckingInterval: 8
   adLoadingInterval: 15
   adNetwork: 1
+  enableGDPR: 1
+  enableGDPRTestMode: 1
   sdkKey: 
   applovinEnableAgeRestrictedUser: 0
   maxBannerAdUnit:
@@ -51,8 +54,6 @@ MonoBehaviour:
     autoShow: 1
     useTestId: 1
   admobEnableTestMode: 0
-  enableGDPR: 1
-  enableGDPRTestMode: 1
   admobDevicesTest: []
   androidAppKey: 
   iOSAppKey: 
