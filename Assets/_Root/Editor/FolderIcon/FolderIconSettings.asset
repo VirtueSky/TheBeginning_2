@@ -15,5 +15,7 @@ MonoBehaviour:
   setupIconDefault: 1
   customIcon: 1
   folderIconDatas:
-  - icon: {fileID: 0}
-    folderName: 
+  - icon: {fileID: 2800000, guid: 7ce51c638aeaa3840ab61c4a4af3885b, type: 3}
+    folderName: _Project
+  - icon: {fileID: 2800000, guid: b84c63ef648173140b8fa6c05aef2768, type: 3}
+    folderName: _Root
