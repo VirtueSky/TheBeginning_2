@@ -299,7 +299,7 @@
       }
     },
     "com.wolf-package.unity-common": {
-      "version": "https://github.com/wolf-package/unity-common.git#1.2.4",
+      "version": "https://github.com/wolf-package/unity-common.git#1.2.5",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -308,7 +308,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "f7281fbc78fd88985efcb96d8415201955ccb77e"
+      "hash": "de091d4f86d067598d07042abe260873d1f216df"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
