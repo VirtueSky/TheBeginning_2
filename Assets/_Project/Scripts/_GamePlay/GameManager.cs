@@ -56,29 +56,29 @@ namespace Base.Game
         public async void NextLevel()
         {
             UserData.CurrentLevel++;
-            OnNextLevel?.Invoke(CurrentLevel());
             var levelPrefab = await LevelLoader.Instance.LoadLevel();
             levelHolder.ClearTransform();
             Instantiate(levelPrefab, levelHolder, false);
+            OnNextLevel?.Invoke(CurrentLevel());
         }
 
         public void BackLevel()
         {
             UserData.CurrentLevel--;
-            OnBackLevel?.Invoke(CurrentLevel());
             var levelPrefab = PreviousLevel();
             levelHolder.ClearTransform();
             Instantiate(levelPrefab, levelHolder, false);
+            OnBackLevel?.Invoke(CurrentLevel());
             var ins = LevelLoader.Instance.LoadLevel();
         }
 
         public void StartLevel()
         {
             GameState = GameState.PlayingLevel;
-            OnStartLevel?.Invoke(CurrentLevel());
             var currentLevelPrefab = CurrentLevel();
             levelHolder.ClearTransform();
             Instantiate(currentLevelPrefab, levelHolder, false);
+            OnStartLevel?.Invoke(CurrentLevel());
             FirebaseTracking.TrackEvent("On_Start_Level", "level_name", CurrentLevel().name);
         }
 
