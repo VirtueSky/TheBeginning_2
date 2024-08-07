@@ -1,3 +1,4 @@
+using Consolation;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
 using VirtueSky.Inspector;
@@ -8,6 +9,7 @@ namespace Base.Services
     public class DebugViewInitialization : ServiceInitialization
     {
         [SerializeField] private DebugSheet debugViewSheet;
+        [SerializeField] private ConsoleInGame consoleInGamePrefab;
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private ItemConfig itemConfig;
         [HeaderLine("Icon"), SerializeField] private Sprite iconTool;
@@ -27,15 +29,19 @@ namespace Base.Services
         [SerializeField] private Sprite iconAdvanced;
         [SerializeField] private Sprite iconCoinDebug;
         [SerializeField] private Sprite iconOutfitDebug;
+        [SerializeField] private Sprite iconConsoleLog;
+        [SerializeField] private Sprite iconSlider;
 
         public override void Initialization()
         {
             if (!gameConfig.enableDebugView)
             {
                 debugViewSheet.gameObject.SetActive(false);
+                return;
             }
 
             debugViewSheet.gameObject.SetActive(true);
+            SetupConsoleInGame();
             var initPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning2 Debug");
             // Game Page
             initPage.AddPageLinkButton<GameDebugPage>("Game Debug", icon: iconTool, onLoad:
@@ -55,7 +61,15 @@ namespace Base.Services
             // Add system analysis page
             initPage.AddPageLinkButton<SystemAnalysisDebugPage>("System analysis", icon: iconAnalysis, onLoad:
                 debugView => { debugView.page.Init(iconFps, iconRam, iconAudio, iconAdvanced); });
+            // Add Console pag
+            initPage.AddPageLinkButton<ConsoleLogDebugPage>("Console Log", icon: iconConsoleLog,
+                onLoad: debugView => { debugView.page.Init(iconToggle, iconInput, iconOke, iconSlider); });
             initPage.Reload();
+        }
+
+        void SetupConsoleInGame()
+        {
+            Instantiate(consoleInGamePrefab);
         }
     }
 }

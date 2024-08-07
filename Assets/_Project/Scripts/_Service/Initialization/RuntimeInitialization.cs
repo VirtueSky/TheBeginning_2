@@ -8,7 +8,7 @@ namespace Base.Services
     public class RuntimeInitialization : BaseMono
     {
         [SerializeField] private ServiceInitialization[] serviceInitializations;
-        private void Start()
+        private void Awake()
         {
             foreach (var serviceInitialization in serviceInitializations)
             {
