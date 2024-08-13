@@ -2,6 +2,8 @@
 using Unity.Advertisement.IosSupport;
 #endif
 using VirtueSky.Inspector;
+using VirtueSky.RemoteConfigs;
+using VirtueSky.Threading.Tasks;
 using VirtueSky.Tracking;
 
 namespace Base.Services
@@ -14,8 +16,9 @@ namespace Base.Services
             TrackingIosATT();
         }
 
-        private void TrackingIosATT()
+        private async void TrackingIosATT()
         {
+            await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.FirebaseDependencyAvailable);
 #if UNITY_IOS
             if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() ==
                 ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
