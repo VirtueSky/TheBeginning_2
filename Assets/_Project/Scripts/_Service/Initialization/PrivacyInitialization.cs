@@ -13,19 +13,34 @@ namespace Base.Services
     {
         public override void Initialization()
         {
-            TrackingIosATT();
+            RequireTracking();
         }
 
-        private async void TrackingIosATT()
+        private async void RequireTracking()
         {
             await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.FirebaseDependencyAvailable);
 #if UNITY_IOS
             if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() ==
                 ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
             {
-                ATTrackingStatusBinding.RequestAuthorizationTracking(FirebaseTracking.TrackEventATTResult);
+                ATTrackingStatusBinding.RequestAuthorizationTracking(CallbackTracking);
             }
+            else
+            {
+                AppTracking.StartTrackingAdjust();
+                AppTracking.StartTrackingAppsFlyer();
+            }
+#else
+            AppTracking.StartTrackingAdjust();
+            AppTracking.StartTrackingAppsFlyer();
 #endif
+        }
+
+        private void CallbackTracking(int status)
+        {
+            AppTracking.StartTrackingAdjust();
+            AppTracking.StartTrackingAppsFlyer();
+            FirebaseTracking.TrackEventATTResult(status);
         }
     }
 }
