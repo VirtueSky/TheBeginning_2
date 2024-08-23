@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
-using VirtueSky.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 public class EntryGame : BaseMono
 {

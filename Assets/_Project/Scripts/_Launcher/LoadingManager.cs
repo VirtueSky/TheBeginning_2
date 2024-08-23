@@ -10,7 +10,7 @@ using UnityEngine.UI;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.RemoteConfigs;
-using VirtueSky.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 namespace Base.Launcher
 {

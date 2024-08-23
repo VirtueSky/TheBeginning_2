@@ -3,7 +3,7 @@ using Unity.Advertisement.IosSupport;
 #endif
 using VirtueSky.Inspector;
 using VirtueSky.RemoteConfigs;
-using VirtueSky.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using VirtueSky.Tracking;
 
 namespace Base.Services
