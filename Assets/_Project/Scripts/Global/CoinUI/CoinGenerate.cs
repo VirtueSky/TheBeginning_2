@@ -7,7 +7,7 @@ using UnityEngine;
 using VirtueSky.Audio;
 using VirtueSky.Core;
 using VirtueSky.ObjectPooling;
-using VirtueSky.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Random = UnityEngine.Random;
 
 namespace Base.Global

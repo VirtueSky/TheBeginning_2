@@ -32,10 +32,10 @@ public class TheBeginning2WindowEditor : EditorWindow
 
     private void OnGUI()
     {
-        EditorGUI.DrawRect(new Rect(0, 0, position.width, position.height),
-            GameDataEditor.ColorBackgroundRectWindowSunflower.ToColor());
-        GUI.contentColor = GameDataEditor.ColorTextContentWindowSunflower.ToColor();
-        GUI.backgroundColor = GameDataEditor.ColorContentWindowSunflower.ToColor();
+        // EditorGUI.DrawRect(new Rect(0, 0, position.width, position.height),
+        //     GameDataEditor.ColorBackgroundRectWindowSunflower.ToColor());
+        // GUI.contentColor = GameDataEditor.ColorTextContentWindowSunflower.ToColor();
+        // GUI.backgroundColor = GameDataEditor.ColorContentWindowSunflower.ToColor();
         if (_editorGameConfig == null)
         {
             _editorGameConfig = UnityEditor.Editor.CreateEditor(_gameConfig);

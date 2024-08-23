@@ -4,7 +4,7 @@ using Base.Game;
 using Base.Global;
 using UnityEngine;
 using VirtueSky.Core;
-using VirtueSky.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 namespace Base.UI
 {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
-using VirtueSky.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 public struct EditorInitializer
 {
