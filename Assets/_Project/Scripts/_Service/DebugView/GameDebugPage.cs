@@ -30,14 +30,11 @@ namespace Base.Services
 
         public override Task Initialize()
         {
-            AddButton("Add 10000 Coin", icon: iconCoinDebug, clicked: () => UserData.CoinTotal += 10000);
+            AddButton("Add 10000 Coin", icon: iconCoinDebug, clicked: () => CoinSystem.AddCoin(10000));
             AddInputField("Input Coin:", valueChanged: s => _targetCoin = s, icon: iconInput);
             AddButton("Enter Input Coin", clicked: () =>
                 {
-                    if (_targetCoin != "")
-                    {
-                        UserData.CoinTotal = int.Parse(_targetCoin);
-                    }
+                    if (_targetCoin != "") CoinSystem.SetCoin(int.Parse(_targetCoin));
                 },
                 icon: iconOk);
             AddButton("Unlock All Skin", icon: iconOutfitDebug, clicked: () => itemConfig.UnlockAllSkins());

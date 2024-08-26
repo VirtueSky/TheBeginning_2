@@ -45,18 +45,6 @@ namespace Base.Data
             GameData.Set($"{Constant.GAMEOBJECT_SHOW}_{gameObjectID}", ++value);
         }
 
-        public static int CoinTotal
-        {
-            get => GameData.Get(Constant.CURRENCY_TOTAL, 0);
-            set
-            {
-                Observer.SaveCoinTotal?.Invoke();
-                GameData.Set(Constant.CURRENCY_TOTAL, value);
-                GameData.Save();
-                Observer.CoinTotalChanged?.Invoke();
-            }
-        }
-
         public static int ProgressAmount
         {
             get => GameData.Get(Constant.PROGRESS_AMOUNT, 0);
