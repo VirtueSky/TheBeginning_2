@@ -15,20 +15,26 @@ namespace Base.Global
         public override void OnEnable()
         {
             base.OnEnable();
-            CurrencyAmountText.text = UserData.CoinTotal.ToString();
-            CoinGenerate.Instance.AddTo(iconCoin);
-            CoinGenerate.OnMoveOneCoinDone += MoveOneCoinDone;
-            CoinGenerate.OnMoveAllCoinDone += MoveAllCoinDone;
-            CoinGenerate.OnDecreaseCoin += DecreaseCoin;
+            CurrencyAmountText.text = CoinSystem.GetCurrentCoin().ToString();
+            if (CoinGenerate.Instance != null)
+            {
+                CoinGenerate.Instance.AddTo(iconCoin);
+                CoinGenerate.OnMoveOneCoinDone += MoveOneCoinDone;
+                CoinGenerate.OnMoveAllCoinDone += MoveAllCoinDone;
+                CoinGenerate.OnDecreaseCoin += DecreaseCoin;
+            }
         }
 
         public override void OnDisable()
         {
             base.OnDisable();
-            CoinGenerate.Instance.RemoveTo(iconCoin);
-            CoinGenerate.OnMoveOneCoinDone -= MoveOneCoinDone;
-            CoinGenerate.OnMoveAllCoinDone -= MoveAllCoinDone;
-            CoinGenerate.OnDecreaseCoin -= DecreaseCoin;
+            if (CoinGenerate.Instance != null)
+            {
+                CoinGenerate.Instance.RemoveTo(iconCoin);
+                CoinGenerate.OnMoveOneCoinDone -= MoveOneCoinDone;
+                CoinGenerate.OnMoveAllCoinDone -= MoveAllCoinDone;
+                CoinGenerate.OnDecreaseCoin -= DecreaseCoin;
+            }
         }
 
         void MoveOneCoinDone()
@@ -55,7 +61,7 @@ namespace Base.Global
         {
             int starCoin = int.Parse(CurrencyAmountText.text);
             int coinChange = starCoin;
-            Tween.Custom(starCoin, UserData.CoinTotal, 0.5f, valueChange => coinChange = (int)valueChange)
+            Tween.Custom(starCoin, CoinSystem.GetCurrentCoin(), 0.5f, valueChange => coinChange = (int)valueChange)
                 .OnUpdate(this, (coin, tween) => { CurrencyAmountText.text = coinChange.ToString(); });
         }
     }

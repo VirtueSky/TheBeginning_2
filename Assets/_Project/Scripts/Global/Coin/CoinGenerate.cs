@@ -41,36 +41,33 @@ namespace Base.Global
         public override void OnEnable()
         {
             base.OnEnable();
-            Observer.CoinTotalChanged += HandleGenerateCoin;
+            CoinSystem.OnAddCoinCompletedEvent += GenerateCoin;
+            CoinSystem.OnMinusCoinCompletedEvent += DecreaseCoin;
+            CoinSystem.OnSetFromCoinGenerateEvent += OnSetFrom;
             SaveCache();
-            SetFrom(holder.position);
+            OnSetFrom(holder.position);
         }
 
         public override void OnDisable()
         {
             base.OnDisable();
-            Observer.CoinTotalChanged -= HandleGenerateCoin;
+            CoinSystem.OnAddCoinCompletedEvent -= GenerateCoin;
+            CoinSystem.OnMinusCoinCompletedEvent -= DecreaseCoin;
+            CoinSystem.OnSetFromCoinGenerateEvent -= OnSetFrom;
         }
 
         private void SaveCache()
         {
-            cacheCurrentCoin = UserData.CoinTotal;
+            cacheCurrentCoin = CoinSystem.GetCurrentCoin();
         }
 
-        private void HandleGenerateCoin()
+        private void DecreaseCoin()
         {
-            if (UserData.CoinTotal > cacheCurrentCoin)
-            {
-                GenerateCoin();
-            }
-            else
-            {
-                OnDecreaseCoin?.Invoke();
-                SaveCache();
-            }
+            OnDecreaseCoin?.Invoke();
+            SaveCache();
         }
 
-        public void SetFrom(Vector3 from)
+        private void OnSetFrom(Vector3 from)
         {
             this.from = from;
         }
@@ -118,7 +115,7 @@ namespace Base.Global
                     {
                         OnMoveAllCoinDone?.Invoke();
                         SaveCache();
-                        SetFrom(holder.position);
+                        OnSetFrom(holder.position);
                     }
                 });
             }

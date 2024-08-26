@@ -9,10 +9,6 @@ namespace Base.Global
         // Debug
         public static Action IsTestingChanged;
 
-        // Currency
-        public static Action SaveCoinTotal;
-
-        public static Action CoinTotalChanged;
 
         // Level Spawn
         public static Action CurrentLevelChanged;
