@@ -76,41 +76,13 @@ namespace Base.UI
         private bool _firstTimeEnterWeekly = true;
         private bool _firstTimeEnterWorld = true;
 
-        // Auth service
-        private StatusLogin statusLogin;
-        private string nameAuth;
-        private string serverCode;
-
-        #region Authentication
-
-        private void OnStatusLoginChanged(StatusLogin status)
-        {
-            statusLogin = status;
-        }
-
-        private void OnNameAuth(string name)
-        {
-            nameAuth = name;
-        }
-
-        private void OnServerCode(string code)
-        {
-            serverCode = code;
-        }
-
-        #endregion
 
         protected override void OnBeforeShow()
         {
             base.OnBeforeShow();
             _countInOnePage = slots.Count;
             _sequences = new Sequence[slots.Count];
-            GooglePlayGamesAuthentication.StatusLoginEvent += OnStatusLoginChanged;
-            AppleAuthentication.StatusLoginEvent += OnStatusLoginChanged;
-            GooglePlayGamesAuthentication.NameEvent += OnNameAuth;
-            AppleAuthentication.NameEvent += OnNameAuth;
-            GooglePlayGamesAuthentication.ServerCodeEvent += OnServerCode;
-            AppleAuthentication.ServerCodeEvent += OnServerCode;
+
             buttonNextPage.onClick.AddListener(OnButtonNextPagePressed);
             buttonPreviousPage.onClick.AddListener(OnButtonPreviousPagePressed);
             buttonAllTimeRank.onClick.AddListener(OnButtonAllTimeRankPressed);
@@ -121,12 +93,7 @@ namespace Base.UI
         protected override void OnBeforeHide()
         {
             base.OnBeforeHide();
-            GooglePlayGamesAuthentication.StatusLoginEvent -= OnStatusLoginChanged;
-            AppleAuthentication.StatusLoginEvent -= OnStatusLoginChanged;
-            GooglePlayGamesAuthentication.NameEvent -= OnNameAuth;
-            AppleAuthentication.NameEvent -= OnNameAuth;
-            GooglePlayGamesAuthentication.ServerCodeEvent -= OnServerCode;
-            AppleAuthentication.ServerCodeEvent -= OnServerCode;
+
             buttonNextPage.onClick.RemoveListener(OnButtonNextPagePressed);
             buttonPreviousPage.onClick.RemoveListener(OnButtonPreviousPagePressed);
             buttonAllTimeRank.onClick.RemoveListener(OnButtonAllTimeRankPressed);
@@ -231,10 +198,10 @@ namespace Base.UI
 #if UNITY_ANDROID && VIRTUESKY_GPGS
             if (!GooglePlayGamesAuthentication.IsSignIn())
             {
-                statusLogin = StatusLogin.NotLoggedIn;
-                GooglePlayGamesAuthentication.Login();
-                await UniTask.WaitUntil(() => statusLogin == StatusLogin.Successful);
-                if (string.IsNullOrEmpty(serverCode))
+                ServiceAuthentication.SetStatusLogin(StatusLogin.NotLoggedIn);
+                ServiceAuthentication.Login();
+                await UniTask.WaitUntil(() => ServiceAuthentication.GetStatusLogin() == StatusLogin.Successful);
+                if (string.IsNullOrEmpty(ServiceAuthentication.GetServerCode()))
                 {
                     // Login failed
                     Debug.Log("Login failed");
@@ -244,9 +211,9 @@ namespace Base.UI
             }
             else
             {
-                statusLogin = StatusLogin.NotLoggedIn;
+                ServiceAuthentication.SetStatusLogin(StatusLogin.NotLoggedIn);
                 GooglePlayGamesAuthentication.GetNewServerCode();
-                await UniTask.WaitUntil(() => statusLogin == StatusLogin.Successful);
+                await UniTask.WaitUntil(() => ServiceAuthentication.GetStatusLogin() == StatusLogin.Successful);
             }
 
             if (AuthenticationService.Instance.SessionTokenExists)
@@ -256,16 +223,16 @@ namespace Base.UI
             }
             else
             {
-                await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(serverCode);
+                await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(ServiceAuthentication.GetServerCode());
             }
 #endif
 
 #if UNITY_IOS && !UNITY_EDITOR
-            statusLogin = StatusLogin.NotLoggedIn;
-            AppleAuthentication.Login();
-            await UniTask.WaitUntil(() => statusLogin == StatusLogin.Successful);
+            ServiceAuthentication.SetStatusLogin(StatusLogin.NotLoggedIn);
+            ServiceAuthentication.Login();
+            await UniTask.WaitUntil(() => ServiceAuthentication.GetStatusLogin() == StatusLogin.Successful);
 
-            if (string.IsNullOrEmpty(serverCode))
+            if (string.IsNullOrEmpty(ServiceAuthentication.GetServerCode()))
             {
                 // Login failed
                 Debug.Log("Login failed");
@@ -279,7 +246,7 @@ namespace Base.UI
             }
             else
             {
-                await AuthenticationService.Instance.SignInWithAppleAsync(serverCode);
+                await AuthenticationService.Instance.SignInWithAppleAsync(ServiceAuthentication.GetServerCode());
             }
 
 #endif
