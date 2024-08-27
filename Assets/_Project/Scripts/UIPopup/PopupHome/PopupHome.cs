@@ -34,5 +34,10 @@ namespace Base.UI
         {
             PopupManager.Show<PopupDailyReward>(false);
         }
+
+        public void OnClickPopupLeaderboard()
+        {
+            PopupManager.Show<PopupLeaderboard>(false);
+        }
     }
 }
