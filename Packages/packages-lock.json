@@ -171,8 +171,8 @@
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.4",
-        "com.unity.modules.unityanalytics": "1.0.0",
-        "com.unity.nuget.mono-cecil": "1.11.4"
+        "com.unity.nuget.mono-cecil": "1.11.4",
+        "com.unity.modules.unityanalytics": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -259,8 +259,8 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.collections": "2.1.4",
-        "com.unity.burst": "1.7.2"
+        "com.unity.burst": "1.7.2",
+        "com.unity.collections": "2.1.4"
       },
       "url": "https://packages.unity.com"
     },
@@ -345,8 +345,8 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.wolf-package.unity-common": {
-      "version": "https://github.com/wolf-package/unity-common.git#1.3.2",
+    "com.wolf-org.sunflower2": {
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.3.3",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -355,7 +355,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "1e3b12aaba4e3087abb5a323bcf414b23a0bd4ab"
+      "hash": "f2195af350090ed2b0647a9d4fbef1e25a3ef4a6"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
