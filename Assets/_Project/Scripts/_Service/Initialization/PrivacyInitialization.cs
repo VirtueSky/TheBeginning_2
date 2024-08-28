@@ -40,7 +40,7 @@ namespace Base.Services
         {
             AppTracking.StartTrackingAdjust();
             AppTracking.StartTrackingAppsFlyer();
-            FirebaseTracking.TrackEventATTResult(status);
+            AppTracking.TrackEventATTResult(status);
         }
     }
 }
