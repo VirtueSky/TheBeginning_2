@@ -6,7 +6,6 @@ using VirtueSky.Ads;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.RemoteConfigs;
-using VirtueSky.Tracking;
 
 namespace Base.Services
 {
@@ -62,25 +61,25 @@ namespace Base.Services
             if (IsEnableToShowBanner())
             {
                 Advertising.BannerAd.Show();
-                FirebaseTracking.TrackEvent("Show_Banner");
+                //FirebaseTracking.TrackEvent("Show_Banner");
             }
         }
 
         public void HideBanner()
         {
             Advertising.BannerAd.HideBanner();
-            FirebaseTracking.TrackEvent("Hide_Banner");
+            // FirebaseTracking.TrackEvent("Hide_Banner");
         }
 
         public void ShowInterstitial(Action completeCallback = null, Action displayCallback = null)
         {
             if (IsEnableToShowInter())
             {
-                FirebaseTracking.TrackEvent("Request_Interstitial");
+                //  FirebaseTracking.TrackEvent("Request_Interstitial");
                 Advertising.InterstitialAd.Show().OnCompleted(() =>
                 {
                     completeCallback?.Invoke();
-                    FirebaseTracking.TrackEvent("Show_Interstitial_Completed");
+                    //  FirebaseTracking.TrackEvent("Show_Interstitial_Completed");
                     ResetCounter();
                 }).OnDisplayed(displayCallback);
             }
@@ -97,16 +96,16 @@ namespace Base.Services
         {
             if (IsEnableToShowReward())
             {
-                FirebaseTracking.TrackEvent("Request_Reward", "reward_position", trackingRewardPosition);
+                // FirebaseTracking.TrackEvent("Request_Reward", "reward_position", trackingRewardPosition);
                 Advertising.RewardAd.Show().OnCompleted(() =>
                 {
                     completeCallback?.Invoke();
-                    FirebaseTracking.TrackEvent("Show_Reward_Completed", "reward_position", trackingRewardPosition);
+                    //   FirebaseTracking.TrackEvent("Show_Reward_Completed", "reward_position", trackingRewardPosition);
                 }).OnDisplayed(displayCallback).OnClosed(closeCallback).OnSkipped(skipCallback);
             }
             else
             {
-                FirebaseTracking.TrackEvent("Reward ads not ready");
+                // FirebaseTracking.TrackEvent("Reward ads not ready");
             }
         }
     }
