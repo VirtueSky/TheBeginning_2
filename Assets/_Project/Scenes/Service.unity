@@ -1266,6 +1266,60 @@ MonoBehaviour:
   iconCoinPrefab: {fileID: 6793577256207356087, guid: c16f53179d9a79242b8f3649594b682b,
     type: 3}
   soundCoinMove: {fileID: 11400000, guid: 214646daf20504498a5b0b5ddfe1bf4b, type: 2}
+--- !u!1 &1641637198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1641637200}
+  - component: {fileID: 1641637199}
+  m_Layer: 0
+  m_Name: --- UI SERVICE ---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1641637199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641637198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3036e8f2fe4f8e4bb99b79fe6ebdf01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customText: 1
+  textColor:
+    serializedVersion: 2
+    rgba: 4287168767
+  textStyle: 3
+  textAlignment: 1
+  customHighlight: 1
+  highlightColor:
+    serializedVersion: 2
+    rgba: 3255230208
+--- !u!4 &1641637200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641637198}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646167639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1645,60 @@ Transform:
   - {fileID: 385792344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1737927843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1737927844}
+  - component: {fileID: 1737927845}
+  m_Layer: 0
+  m_Name: --- SERVICE ---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1737927844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737927843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1737927845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737927843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3036e8f2fe4f8e4bb99b79fe6ebdf01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customText: 1
+  textColor:
+    serializedVersion: 2
+    rgba: 4278213375
+  textStyle: 3
+  textAlignment: 1
+  customHighlight: 1
+  highlightColor:
+    serializedVersion: 2
+    rgba: 3269440256
 --- !u!1 &2117882516
 GameObject:
   m_ObjectHideFlags: 0
@@ -6421,8 +6529,10 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1737927844}
   - {fileID: 431478659}
   - {fileID: 1646167640}
   - {fileID: 2146724309}
+  - {fileID: 1641637200}
   - {fileID: 1652047842}
   - {fileID: 1074052691}
