@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8795868126398221223}
   - component: {fileID: 2077999413197001154}
   - component: {fileID: 1183000081337619799}
+  - component: {fileID: 7760332864710808613}
+  - component: {fileID: 4013716671779998260}
   m_Layer: 5
   m_Name: StartText
   m_TagString: Untagged
@@ -67,8 +69,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0414325cc03918d47bedc3751f7127d6, type: 2}
-  m_sharedMaterial: {fileID: 3604630249188092411, guid: 0414325cc03918d47bedc3751f7127d6,
+  m_fontAsset: {fileID: 11400000, guid: 8d15ab71442963c47b22b47460111e35, type: 2}
+  m_sharedMaterial: {fileID: 3604630249188092411, guid: 8d15ab71442963c47b22b47460111e35,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -135,6 +137,41 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7760332864710808613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281575362435226077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476932f1680198544b423513d634d37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 1183000081337619799}
+  property:
+    enabled: 0
+    value: font
+  variable: {fileID: 11400000, guid: 3649cd1108be54544a4e7f24d2e684fe, type: 2}
+--- !u!114 &4013716671779998260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281575362435226077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c43f4ebada4d6ab7202113210604cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 1183000081337619799}
+  property:
+    enabled: 0
+    value: text
+  variable: {fileID: 11400000, guid: 38b4b5d189f167e4a907c0e2c6f7209c, type: 2}
+  formatArgs: []
 --- !u!1 &539712436981356423
 GameObject:
   m_ObjectHideFlags: 0
