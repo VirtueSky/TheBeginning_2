@@ -11,6 +11,7 @@ using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.RemoteConfigs;
 using Cysharp.Threading.Tasks;
+using VirtueSky.Localization;
 
 namespace Base.Launcher
 {
@@ -18,7 +19,7 @@ namespace Base.Launcher
     public class LoadingManager : BaseMono
     {
         [HeaderLine("Attributes")] public Image progressBar;
-        public TextMeshProUGUI loadingText;
+        public LocaleTextComponent localeTextLoading;
         [Range(0.1f, 10f)] public float timeLoading = 5f;
         [SerializeField] bool isWaitingFetchRemoteConfig = true;
         private bool flagDoneProgress;
@@ -32,11 +33,11 @@ namespace Base.Launcher
 
         private void Init()
         {
+            Locale.LoadLanguageSetting();
             progressBar.fillAmount = 0;
             progressBar.DOFillAmount(1, timeLoading)
                 .OnUpdate(progressBar,
-                    (image, tween) => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%")
-                .OnComplete(() => flagDoneProgress = true);
+                    (image, tween) => localeTextLoading.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}")).OnComplete(() => flagDoneProgress = true);
         }
 
         private async void LoadScene()

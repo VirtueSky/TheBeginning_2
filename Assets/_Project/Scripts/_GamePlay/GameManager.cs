@@ -112,7 +112,7 @@ namespace Base.Game
         public GameState GameState
         {
             get => gameState;
-            set
+            private set
             {
                 gameState = value;
                 Observer.OnChangeStateGame?.Invoke(gameState);

@@ -7,6 +7,7 @@ using Base.Global;
 using Base.Services;
 using UnityEngine;
 using VirtueSky.Inspector;
+using VirtueSky.Utils;
 
 namespace Base.UI
 {
@@ -70,13 +71,13 @@ namespace Base.UI
         public void OnClickBtnClaimX5Video()
         {
             AdsManager.Instance.ShowRewardAds(() =>
-            {
-                currentItem.OnClaim(true, () =>
                 {
-                    Observer.OnClaimDailyReward?.Invoke();
-                    Setup();
-                });
-            }, trackingRewardPosition: $"${MethodBase.GetCurrentMethod().Name}_{this.name}");
+                    currentItem.OnClaim(true, () =>
+                    {
+                        Observer.OnClaimDailyReward?.Invoke();
+                        Setup();
+                    });
+                }, trackingRewardPosition: $"${MethodBase.GetCurrentMethod().Name}_{this.name}");
         }
 
         public void OnClickBtnClaim()

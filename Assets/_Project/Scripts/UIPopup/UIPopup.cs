@@ -2,6 +2,7 @@ using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
+using VirtueSky.Utils;
 
 namespace Base.UI
 {

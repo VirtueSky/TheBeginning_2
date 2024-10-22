@@ -5,11 +5,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
+using VirtueSky.Localization;
 
 public class DailyRewardItem : MonoBehaviour
 {
     [ReadOnly] public int dayIndex;
-    public TextMeshProUGUI textDay;
     public TextMeshProUGUI textValue;
 
     public Image greenTick;
@@ -19,6 +19,8 @@ public class DailyRewardItem : MonoBehaviour
     public Image backgroundLock;
     public Image iconItem;
     [SerializeField] private DailyRewardConfig dailyRewardConfig;
+
+    [SerializeField] private LocaleTextComponent localeTextDay;
 
     //[SerializeField] private EventNoParam claimRewardEvent;
     private int coinValue;
@@ -84,7 +86,7 @@ public class DailyRewardItem : MonoBehaviour
     public void SetUpUI(int i)
     {
         SetDefaultUI();
-        textDay.text = "Day " + (i + 1);
+        localeTextDay.UpdateArgs($"{i + 1}");
         textValue.text = coinValue.ToString();
         switch (dailyRewardItemState)
         {

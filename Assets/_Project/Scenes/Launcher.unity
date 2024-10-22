@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressBar: {fileID: 1926659687}
-  loadingText: {fileID: 1603526854}
+  localeTextLoading: {fileID: 1603526857}
   timeLoading: 2.5
   isWaitingFetchRemoteConfig: 0
 --- !u!1 &326257131
@@ -757,6 +757,8 @@ GameObject:
   - component: {fileID: 1603526853}
   - component: {fileID: 1603526855}
   - component: {fileID: 1603526854}
+  - component: {fileID: 1603526857}
+  - component: {fileID: 1603526856}
   m_Layer: 5
   m_Name: LoadingText
   m_TagString: Untagged
@@ -805,16 +807,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loading 0%
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0414325cc03918d47bedc3751f7127d6, type: 2}
-  m_sharedMaterial: {fileID: 3604630249188092411, guid: 0414325cc03918d47bedc3751f7127d6,
+  m_fontAsset: {fileID: 11400000, guid: 8d15ab71442963c47b22b47460111e35, type: 2}
+  m_sharedMaterial: {fileID: 3604630249188092411, guid: 8d15ab71442963c47b22b47460111e35,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289405842
+  m_fontColor: {r: 0.57316387, g: 0.13585795, b: 0.6698113, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -881,6 +883,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603526852}
   m_CullTransparentMesh: 1
+--- !u!114 &1603526856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603526852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476932f1680198544b423513d634d37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 1603526854}
+  property:
+    enabled: 0
+    value: font
+  variable: {fileID: 11400000, guid: 3649cd1108be54544a4e7f24d2e684fe, type: 2}
+--- !u!114 &1603526857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603526852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c43f4ebada4d6ab7202113210604cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 1603526854}
+  property:
+    enabled: 0
+    value: text
+  variable: {fileID: 11400000, guid: 7927448a902ec5b4097fc7330c7a5cb0, type: 2}
+  formatArgs:
+  - 0
 --- !u!1 &1607607002
 GameObject:
   m_ObjectHideFlags: 0
