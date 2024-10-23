@@ -17,6 +17,7 @@ namespace Base.UI
         public GameObject btnWatchVideo;
 
         public GameObject btnClaim;
+        [SerializeField] private InterAdWrapper interAdWrapper;
         [ReadOnly] public DailyRewardItem currentItem;
         public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
 
@@ -70,14 +71,14 @@ namespace Base.UI
 
         public void OnClickBtnClaimX5Video()
         {
-            AdsManager.Instance.ShowRewardAds(() =>
+            interAdWrapper.Show(() =>
+            {
+                currentItem.OnClaim(true, () =>
                 {
-                    currentItem.OnClaim(true, () =>
-                    {
-                        Observer.OnClaimDailyReward?.Invoke();
-                        Setup();
-                    });
-                }, trackingRewardPosition: $"${MethodBase.GetCurrentMethod().Name}_{this.name}");
+                    Observer.OnClaimDailyReward?.Invoke();
+                    Setup();
+                });
+            });
         }
 
         public void OnClickBtnClaim()

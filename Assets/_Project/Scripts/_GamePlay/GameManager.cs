@@ -90,7 +90,7 @@ namespace Base.Game
                 GameState == GameState.LoseLevel) return;
             GameState = GameState.WinLevel;
             OnWinLevel?.Invoke(CurrentLevel());
-            UserData.AdsCounter++;
+
             // FirebaseTracking.TrackEvent("On_Win_Level", "level_name", CurrentLevel().name);
             App.Delay(timeDelayShowPopup, () =>
             {
@@ -106,7 +106,7 @@ namespace Base.Game
                 GameState == GameState.LoseLevel) return;
             GameState = GameState.LoseLevel;
             OnLoseLevel?.Invoke(CurrentLevel());
-            UserData.AdsCounter++;
+
             //   FirebaseTracking.TrackEvent("On_Lose_Level", "level_name", CurrentLevel().name);
             App.Delay(timeDelayShowPopup, () => { PopupManager.Show<PopupLose>(); });
         }

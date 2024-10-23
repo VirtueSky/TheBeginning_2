@@ -113,11 +113,5 @@ namespace Base.Data
         }
 
         #endregion
-
-        public static int AdsCounter
-        {
-            get => GameData.Get(Constant.ADS_COUNTER, 0);
-            set => GameData.Set(Constant.ADS_COUNTER, value);
-        }
     }
 }
