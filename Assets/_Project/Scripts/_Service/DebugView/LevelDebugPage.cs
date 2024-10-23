@@ -46,7 +46,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works when you play games");
+                NotificationInGame.Show("Only works when you play games");
             }
         }
 
@@ -58,7 +58,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works when you play games");
+                NotificationInGame.Show("Only works when you play games");
             }
         }
 
@@ -70,7 +70,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works when you play games");
+                NotificationInGame.Show("Only works when you play games");
             }
         }
 
@@ -82,7 +82,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works when you play games");
+                NotificationInGame.Show("Only works when you play games");
             }
         }
 
@@ -94,7 +94,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works when you play games");
+                NotificationInGame.Show("Only works when you play games");
             }
         }
 
@@ -106,7 +106,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works when you play games");
+                NotificationInGame.Show("Only works when you play games");
             }
         }
 

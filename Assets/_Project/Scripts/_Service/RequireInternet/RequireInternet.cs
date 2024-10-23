@@ -1,5 +1,3 @@
-using VirtueSky.Core;
-
 namespace Base.Services
 {
     public class RequireInternet : Singleton<RequireInternet>

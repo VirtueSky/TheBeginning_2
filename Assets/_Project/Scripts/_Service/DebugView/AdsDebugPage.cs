@@ -41,7 +41,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works on mobile platform");
+                NotificationInGame.Show("Only works on mobile platform");
             }
         }
 
@@ -53,7 +53,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works on mobile platform");
+                NotificationInGame.Show("Only works on mobile platform");
             }
         }
 
@@ -65,7 +65,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works on mobile platform");
+                NotificationInGame.Show("Only works on mobile platform");
             }
         }
 
@@ -77,7 +77,7 @@ namespace Base.Services
             }
             else
             {
-                NotificationInGame.Instance.Show("Only works on mobile platform");
+                NotificationInGame.Show("Only works on mobile platform");
             }
         }
     }

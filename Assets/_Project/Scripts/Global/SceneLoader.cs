@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
@@ -8,7 +9,7 @@ using VirtueSky.Inspector;
 namespace Base.Global
 {
     [EditorIcon("icon_controller"), HideMonoScript]
-    public class SceneLoader : Singleton<SceneLoader>
+    public class SceneLoader : MonoBehaviour
     {
         public void ChangeScene(AssetReference sceneReference)
         {

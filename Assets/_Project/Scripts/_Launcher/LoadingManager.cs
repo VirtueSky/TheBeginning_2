@@ -49,7 +49,7 @@ namespace Base.Launcher
                 await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.IsFetchRemoteConfigCompleted);
             }
 
-            SceneLoader.Instance.ChangeScene(Constant.GAMEPLAY_SCENE);
+            //   SceneLoader.Instance.ChangeScene(Constant.GAMEPLAY_SCENE);
         }
 
 
