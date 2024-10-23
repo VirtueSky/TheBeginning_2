@@ -1453,7 +1453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbc4b5b828744b8b6bea92621ca9ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 0
   currentLevel: {fileID: 0}
   previousLevel: {fileID: 0}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}

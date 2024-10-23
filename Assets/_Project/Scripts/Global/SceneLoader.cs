@@ -9,58 +9,29 @@ using VirtueSky.Inspector;
 namespace Base.Global
 {
     [EditorIcon("icon_controller"), HideMonoScript]
-    public class SceneLoader : MonoBehaviour
+    public class SceneLoader : Singleton<SceneLoader>
     {
-        public void ChangeScene(AssetReference sceneReference)
-        {
-            foreach (var scene in GetAllLoadedScene())
-            {
-                if (!scene.name.Equals(Constant.SERVICES_SCENE))
-                {
-                    if (Static.sceneHolder.ContainsKey(scene.name))
-                    {
-                        Addressables.UnloadSceneAsync(Static.sceneHolder[scene.name]);
-                        Static.sceneHolder.Remove(scene.name);
-                    }
-                    else
-                    {
-                        SceneManager.UnloadSceneAsync(scene);
-                    }
-                }
-            }
-
-            Addressables.LoadSceneAsync(sceneReference, LoadSceneMode.Additive).Completed += OnAdditiveSceneLoaded;
-        }
-
         public void ChangeScene(string sceneName)
         {
+            SceneManager.sceneLoaded += OnSceneLoaded;
             foreach (var scene in GetAllLoadedScene())
             {
                 if (!scene.name.Equals(Constant.SERVICES_SCENE))
                 {
-                    if (Static.sceneHolder.ContainsKey(scene.name))
-                    {
-                        Addressables.UnloadSceneAsync(Static.sceneHolder[scene.name]);
-                        Static.sceneHolder.Remove(scene.name);
-                    }
-                    else
-                    {
-                        SceneManager.UnloadSceneAsync(scene);
-                    }
+                    SceneManager.UnloadSceneAsync(scene);
+                    Static.sceneHolder.Remove(scene.name);
                 }
             }
 
-            Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive).Completed += OnAdditiveSceneLoaded;
+            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         }
 
-        void OnAdditiveSceneLoaded(AsyncOperationHandle<SceneInstance> scene)
+
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (scene.Status == AsyncOperationStatus.Succeeded)
-            {
-                string sceneName = scene.Result.Scene.name;
-                Static.sceneHolder.Add(sceneName, scene);
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
-            }
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            Static.sceneHolder.Add(scene.name, scene);
+            SceneManager.SetActiveScene(scene);
         }
 
         private Scene[] GetAllLoadedScene()

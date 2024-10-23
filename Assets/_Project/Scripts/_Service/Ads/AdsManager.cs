@@ -22,7 +22,7 @@ namespace Base.Services
         public override void FixedTick()
         {
             base.FixedTick();
-            if (GameManager.Instance.GameState == GameState.PlayingLevel)
+            if (GameManager.Instance != null && GameManager.Instance.GameState == GameState.PlayingLevel)
             {
                 timePlay += Time.deltaTime;
             }

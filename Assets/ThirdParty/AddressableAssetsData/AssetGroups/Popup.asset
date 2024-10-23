@@ -10,18 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Gameplay
+  m_Name: Popup
   m_EditorClassIdentifier: 
-  m_GroupName: Gameplay
+  m_GroupName: Popup
   m_Data:
     m_SerializedData: []
   m_GUID: 00b6ba3a664e24e41a2baa725f9b3bc8
   m_SerializeEntries:
-  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
-    m_Address: Gameplay
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f09001724e3f0b644aada44bd0a99cc2
     m_Address: PopupDailyReward
     m_ReadOnly: 0
