@@ -23,13 +23,6 @@ namespace Base.Game
 
         private int index = 1;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            Debug.Assert(cameraUI != null, "CameraUI != null");
-            canvasScaler.matchWidthOrHeight = cameraUI.aspect > .6f ? 1 : 0;
-        }
-
         private async void InternalShow<T>(bool isHideAll = true)
         {
             _container.TryGetValue(typeof(T), out UIPopup popup);

@@ -46,9 +46,9 @@ namespace Base.Services
         private bool Conditions()
         {
             return Advertising.InterstitialAd.IsReady() &&
-                   UserData.CurrentLevel >= RemoteData.RMC_LEVEL_TURN_ON_INTER_ADS &&
-                   adsCounter >= RemoteData.RMC_INTER_CAPPING_LEVEL &&
-                   timeAdsPlay >= RemoteData.RMC_INTER_CAPPING_TIME && RemoteData.RMC_ON_OFF_INTER &&
+                   UserData.CurrentLevel >= RemoteData.LEVEL_TURN_ON_INTER_ADS &&
+                   adsCounter >= RemoteData.INTER_CAPPING_LEVEL &&
+                   timeAdsPlay >= RemoteData.INTER_CAPPING_TIME && RemoteData.ON_OFF_INTER &&
                    !UserData.IsOffInterAdsDebug;
         }
 
