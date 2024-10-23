@@ -1,11 +1,9 @@
 #if UNITY_EDITOR
-using System;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using VirtueSky.DataStorage;
-using VirtueSky.Inspector;
+using VirtueSky.Misc;
 using VirtueSky.UtilsEditor;
 
 public class TheBeginning2WindowEditor : EditorWindow
@@ -58,21 +56,21 @@ public class TheBeginning2WindowEditor : EditorWindow
     public static void PlayFromLauncherScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
-        Debug.Log($"<color=Green>Change scene succeed</color>");
+        Debug.Log($"Change {Constant.LAUNCHER_SCENE} scene succeed".SetColor(Color.cyan));
     }
 
     [MenuItem("TheBeginning_2/Gameplay %F2", priority = 102)]
     public static void PlayFromGamePlayScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAMEPLAY_SCENE}.unity");
-        Debug.Log($"<color=Green>Change scene succeed</color>");
+        Debug.Log($"Change {Constant.GAMEPLAY_SCENE} scene succeed".SetColor(Color.cyan));
     }
 
     [MenuItem("TheBeginning_2/Service %F3", priority = 103)]
     public static void PlayFromServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICES_SCENE}.unity");
-        Debug.Log($"<color=Green>Change scene succeed</color>");
+        Debug.Log($"Change {Constant.SERVICES_SCENE} scene succeed".SetColor(Color.cyan));
     }
 }
 #endif
