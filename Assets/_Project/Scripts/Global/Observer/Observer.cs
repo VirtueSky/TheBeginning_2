@@ -13,7 +13,6 @@ namespace Base.Global
         // Level Spawn
         public static Action CurrentLevelChanged;
 
-        public static Action<GameState> OnChangeStateGame;
 
         public static Action OnClaimDailyReward;
 

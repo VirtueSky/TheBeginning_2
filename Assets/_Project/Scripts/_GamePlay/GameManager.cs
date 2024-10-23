@@ -17,8 +17,8 @@ namespace Base.Game
         [ReadOnly, SerializeField] private GameState gameState;
         [SerializeField] private Transform levelHolder;
 
-        private Level CurrentLevel() => LevelLoader.Instance.CurrentLevel();
-        private Level PreviousLevel() => LevelLoader.Instance.PreviousLevel();
+        private Level CurrentLevel() => LevelLoader.CurrentLevel();
+        private Level PreviousLevel() => LevelLoader.PreviousLevel();
 
         public static event Action<Level> OnStartLevel;
         public static event Action<Level> OnReplayLevel;
@@ -26,6 +26,8 @@ namespace Base.Game
         public static event Action<Level> OnBackLevel;
         public static event Action<Level> OnWinLevel;
         public static event Action<Level> OnLoseLevel;
+        public static event Action<GameState> OnChangeStateGame;
+
 
         private void Start()
         {
@@ -56,7 +58,7 @@ namespace Base.Game
         public async void NextLevel()
         {
             UserData.CurrentLevel++;
-            var levelPrefab = await LevelLoader.Instance.LoadLevel();
+            var levelPrefab = await LevelLoader.LoadLevel();
             levelHolder.ClearTransform();
             Instantiate(levelPrefab, levelHolder, false);
             OnNextLevel?.Invoke(CurrentLevel());
@@ -69,7 +71,7 @@ namespace Base.Game
             levelHolder.ClearTransform();
             Instantiate(levelPrefab, levelHolder, false);
             OnBackLevel?.Invoke(CurrentLevel());
-            var ins = LevelLoader.Instance.LoadLevel();
+            var ins = LevelLoader.LoadLevel();
         }
 
         public void StartLevel()
@@ -88,12 +90,12 @@ namespace Base.Game
                 GameState == GameState.LoseLevel) return;
             GameState = GameState.WinLevel;
             OnWinLevel?.Invoke(CurrentLevel());
-            UserData.AdsCounter++;
+
             // FirebaseTracking.TrackEvent("On_Win_Level", "level_name", CurrentLevel().name);
             App.Delay(timeDelayShowPopup, () =>
             {
                 UserData.CurrentLevel++;
-                var ins = LevelLoader.Instance.LoadLevel();
+                var ins = LevelLoader.LoadLevel();
                 PopupManager.Show<PopupWin>();
             });
         }
@@ -104,7 +106,7 @@ namespace Base.Game
                 GameState == GameState.LoseLevel) return;
             GameState = GameState.LoseLevel;
             OnLoseLevel?.Invoke(CurrentLevel());
-            UserData.AdsCounter++;
+
             //   FirebaseTracking.TrackEvent("On_Lose_Level", "level_name", CurrentLevel().name);
             App.Delay(timeDelayShowPopup, () => { PopupManager.Show<PopupLose>(); });
         }
@@ -115,7 +117,7 @@ namespace Base.Game
             private set
             {
                 gameState = value;
-                Observer.OnChangeStateGame?.Invoke(gameState);
+                OnChangeStateGame?.Invoke(gameState);
             }
         }
     }

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace Base.Global
 {
     public struct Static
     {
-        public static Dictionary<string, AsyncOperationHandle<SceneInstance>> sceneHolder =
-            new Dictionary<string, AsyncOperationHandle<SceneInstance>>();
+        public static Dictionary<string, Scene> sceneHolder =
+            new Dictionary<string, Scene>();
     }
 }

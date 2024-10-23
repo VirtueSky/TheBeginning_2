@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Gameplay_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: a3260b9c89464161b1d01aefc514f932, type: 3}
+  m_Name: banner_ads_wrapper
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 84851684e49b10c44b05a1cc4fd7d18a, type: 2}
-  m_StaticContent: 0

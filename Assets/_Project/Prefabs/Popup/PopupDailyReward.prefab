@@ -2455,6 +2455,7 @@ MonoBehaviour:
   pointHidePos: {x: 0, y: 0, z: 0}
   btnWatchVideo: {fileID: 2509353737946875765}
   btnClaim: {fileID: 7151091472365318068}
+  interAdWrapper: {fileID: 11400000, guid: 42423d79245304d6681c6699ae00b57f, type: 2}
   currentItem: {fileID: 0}
 --- !u!1 &7825645213151778321
 GameObject:

@@ -42,8 +42,8 @@ namespace Base.UI
 
         void SetupUiButtonLanguage()
         {
-            effectButtonEn.colorFactor = 1;
-            effectButtonVi.colorFactor = 1;
+            effectButtonEn.effectFactor = 1;
+            effectButtonVi.effectFactor = 1;
             if (Locale.CurrentLanguage == Language.English) effectButtonEn.effectFactor = 0;
             if (Locale.CurrentLanguage == Language.Vietnamese) effectButtonVi.effectFactor = 0;
         }

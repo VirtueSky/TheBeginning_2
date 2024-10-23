@@ -1,10 +1,6 @@
 using Base.Global;
 using PrimeTween;
-using TMPro;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Core;
@@ -37,12 +33,13 @@ namespace Base.Launcher
             progressBar.fillAmount = 0;
             progressBar.DOFillAmount(1, timeLoading)
                 .OnUpdate(progressBar,
-                    (image, tween) => localeTextLoading.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}")).OnComplete(() => flagDoneProgress = true);
+                    (image, tween) => localeTextLoading.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}"))
+                .OnComplete(() => flagDoneProgress = true);
         }
 
         private async void LoadScene()
         {
-            await Addressables.LoadSceneAsync(Constant.SERVICES_SCENE, LoadSceneMode.Additive);
+            await SceneManager.LoadSceneAsync(Constant.SERVICES_SCENE, LoadSceneMode.Additive);
             await UniTask.WaitUntil(() => flagDoneProgress);
             if (isWaitingFetchRemoteConfig)
             {
@@ -50,17 +47,6 @@ namespace Base.Launcher
             }
 
             SceneLoader.Instance.ChangeScene(Constant.GAMEPLAY_SCENE);
-        }
-
-
-        void OnServiceLoaded(AsyncOperationHandle<SceneInstance> scene)
-        {
-            if (scene.Status == AsyncOperationStatus.Succeeded)
-            {
-                string sceneName = scene.Result.Scene.name;
-                Static.sceneHolder.Add(sceneName, scene);
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
-            }
         }
     }
 }
