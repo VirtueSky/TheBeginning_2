@@ -205,7 +205,7 @@ namespace Base.UI
                 {
                     // Login failed
                     Debug.Log("Login failed");
-                    NotificationInGame.Instance.Show("Failed to retrieve Google play games authorization code");
+                    NotificationInGame.Show("Failed to retrieve Google play games authorization code");
                     return;
                 }
             }
@@ -236,7 +236,7 @@ namespace Base.UI
             {
                 // Login failed
                 Debug.Log("Login failed");
-                NotificationInGame.Instance.Show("Failed to login Apple");
+                NotificationInGame.Show("Failed to login Apple");
             }
 
             if (AuthenticationService.Instance.SessionTokenExists)
@@ -292,10 +292,10 @@ namespace Base.UI
 
         string GetPlayerName()
         {
-#if UNITY_EDITOR_64
+#if UNITY_EDITOR
             return playerNameEditor;
 #else
-            return nameVariable.Value;
+            return ServiceAuthentication.GetNameAuthentication();
 #endif
         }
 
