@@ -4,6 +4,7 @@ using Unity.Advertisement.IosSupport;
 using VirtueSky.Inspector;
 using VirtueSky.RemoteConfigs;
 using Cysharp.Threading.Tasks;
+using VirtueSky.Core;
 using VirtueSky.Tracking;
 
 namespace Base.Services
@@ -16,9 +17,8 @@ namespace Base.Services
             RequireTracking();
         }
 
-        private async void RequireTracking()
+        private void RequireTracking()
         {
-            await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.FirebaseDependencyAvailable);
 #if UNITY_IOS
             if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() ==
                 ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
@@ -38,8 +38,17 @@ namespace Base.Services
 
         private void CallbackTracking(int status)
         {
-            AppTracking.StartTrackingAdjust();
-            AppTracking.StartTrackingAppsFlyer();
+            App.RunOnMainThread(() =>
+            {
+                AppTracking.StartTrackingAdjust();
+                AppTracking.StartTrackingAppsFlyer();
+                TrackingAttFirebase(status);
+            });
+        }
+
+        async void TrackingAttFirebase(int status)
+        {
+            await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.FirebaseDependencyAvailable);
             AppTracking.TrackEventATTResult(status);
         }
     }
