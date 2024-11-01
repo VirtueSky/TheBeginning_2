@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Tayx.Graphy;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
+using System.Collections;
 
 namespace Base.Services
 {
@@ -21,29 +22,31 @@ namespace Base.Services
             iconAdvanced = _iconAdvanced;
         }
 
+
+#if UDS_USE_ASYNC_METHODS
         public override Task Initialize()
         {
-            AddEnumPicker(GraphyManager.Instance.FpsModuleState, "Fps", icon: iconFps,
-                activeValueChanged: @enum =>
-                {
-                    GraphyManager.Instance.FpsModuleState = (GraphyManager.ModuleState)@enum;
-                });
-            AddEnumPicker(GraphyManager.Instance.RamModuleState, "Ram", icon: iconRam,
-                activeValueChanged: @enum =>
-                {
-                    GraphyManager.Instance.RamModuleState = (GraphyManager.ModuleState)@enum;
-                });
-            AddEnumPicker(GraphyManager.Instance.AudioModuleState, "Audio", icon: iconAudio,
-                activeValueChanged: @enum =>
-                {
-                    GraphyManager.Instance.AudioModuleState = (GraphyManager.ModuleState)@enum;
-                });
-            AddEnumPicker(GraphyManager.Instance.AdvancedModuleState, "Advanced", icon: iconAdvanced,
-                activeValueChanged: @enum =>
-                {
-                    GraphyManager.Instance.AdvancedModuleState = (GraphyManager.ModuleState)@enum;
-                });
+            OnInitialize();
             return base.Initialize();
+        }
+#else
+        public override IEnumerator Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#endif
+
+        void OnInitialize()
+        {
+            AddEnumPicker(GraphyManager.Instance.FpsModuleState, "Fps", icon: iconFps,
+                activeValueChanged: @enum => { GraphyManager.Instance.FpsModuleState = (GraphyManager.ModuleState)@enum; });
+            AddEnumPicker(GraphyManager.Instance.RamModuleState, "Ram", icon: iconRam,
+                activeValueChanged: @enum => { GraphyManager.Instance.RamModuleState = (GraphyManager.ModuleState)@enum; });
+            AddEnumPicker(GraphyManager.Instance.AudioModuleState, "Audio", icon: iconAudio,
+                activeValueChanged: @enum => { GraphyManager.Instance.AudioModuleState = (GraphyManager.ModuleState)@enum; });
+            AddEnumPicker(GraphyManager.Instance.AdvancedModuleState, "Advanced", icon: iconAdvanced,
+                activeValueChanged: @enum => { GraphyManager.Instance.AdvancedModuleState = (GraphyManager.ModuleState)@enum; });
         }
     }
 }

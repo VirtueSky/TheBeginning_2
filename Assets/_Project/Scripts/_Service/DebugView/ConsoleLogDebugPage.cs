@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using Consolation;
 using UnityDebugSheet.Runtime.Core.Scripts;
@@ -25,7 +26,23 @@ namespace Base.Services
             iconSlider = _iconSlider;
         }
 
+
+#if UDS_USE_ASYNC_METHODS
         public override Task Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#else
+        public override IEnumerator Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#endif
+
+
+        void OnInitialize()
         {
             AddSwitch(isShowConsole, "Show", icon: iconToggle, valueChanged: b =>
             {
@@ -40,7 +57,6 @@ namespace Base.Services
                 valueChanged: f => ConsoleInGame.CustomWidth = f);
             AddSlider(ConsoleInGame.CustomHeight, 500, 1920, "Custom Height", icon: iconSlider,
                 valueChanged: f => ConsoleInGame.CustomHeight = f);
-            return base.Initialize();
         }
 
         void FontSize()
