@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using Base.Data;
 using UnityDebugSheet.Runtime.Core.Scripts;
@@ -15,8 +16,22 @@ namespace Base.Services
         {
             iconToggle = _iconToggle;
         }
-
+#if UDS_USE_ASYNC_METHODS
         public override Task Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#else
+        public override IEnumerator Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#endif
+
+
+        void OnInitialize()
         {
             AddButton("Show Banner", clicked: ShowBanner);
             AddButton("Hide Banner", clicked: HideBanner);
@@ -30,7 +45,6 @@ namespace Base.Services
             AddSwitch(UserData.IsOffRewardAdsDebug, "Is Off Reward",
                 valueChanged: b => UserData.IsOffRewardAdsDebug = b,
                 icon: iconToggle);
-            return base.Initialize();
         }
 
         void ShowBanner()
