@@ -1,5 +1,6 @@
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.Misc;
 using VirtueSky.ObjectPooling;
 
 namespace VirtueSky.Vfx
@@ -10,6 +11,12 @@ namespace VirtueSky.Vfx
         {
             if (vfxData == null) return;
             GameObject vfxPrefab = index < 0 ? vfxData.GetVfxRandom() : vfxData.GetVfxByIndex(index);
+            if (vfxPrefab == null || vfxPrefab == default)
+            {
+                Debug.Log("VfxData null".SetColor(Color.red));
+                return;
+            }
+
             GameObject vfxSpawn = vfxPrefab.Spawn(position, quaternion, parent, false);
             vfxSpawn.transform.localScale = localScale;
             App.Delay(vfxData.TimeDestroy, () => vfxSpawn.DeSpawn());
@@ -19,6 +26,12 @@ namespace VirtueSky.Vfx
         {
             if (vfxData == null) return;
             GameObject vfxPrefab = index < 0 ? vfxData.GetVfxRandom() : vfxData.GetVfxByIndex(index);
+            if (vfxPrefab == null || vfxPrefab == default)
+            {
+                Debug.Log("VfxData null".SetColor(Color.red));
+                return;
+            }
+
             GameObject vfxSpawn = vfxPrefab.Spawn(position, quaternion, parent, false);
             App.Delay(vfxData.TimeDestroy, () => vfxSpawn.DeSpawn());
         }
@@ -27,6 +40,12 @@ namespace VirtueSky.Vfx
         {
             if (vfxData == null) return;
             GameObject vfxPrefab = index < 0 ? vfxData.GetVfxRandom() : vfxData.GetVfxByIndex(index);
+            if (vfxPrefab == null || vfxPrefab == default)
+            {
+                Debug.Log("VfxData null".SetColor(Color.red));
+                return;
+            }
+
             GameObject vfxSpawn = vfxPrefab.Spawn(parent, false);
             App.Delay(vfxData.TimeDestroy, () => vfxSpawn.DeSpawn());
         }
