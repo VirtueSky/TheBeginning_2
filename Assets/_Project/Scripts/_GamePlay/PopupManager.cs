@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using Cysharp.Threading.Tasks;
+using VirtueSky.Misc;
 
 namespace Base.Game
 {
@@ -44,7 +45,7 @@ namespace Base.Game
                 }
                 else
                 {
-                    Debug.Log("Popup not found in the list to show");
+                    Debug.Log("Popup not found in the list to show".SetColor(Color.red));
                 }
             }
             else
@@ -72,7 +73,7 @@ namespace Base.Game
             }
             else
             {
-                Debug.Log("Popup not found to hide");
+                Debug.Log("Popup not found to hide".SetColor(Color.red));
             }
         }
 
