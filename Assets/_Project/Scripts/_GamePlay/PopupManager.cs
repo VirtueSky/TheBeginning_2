@@ -8,23 +8,23 @@ using VirtueSky.Core;
 using VirtueSky.Inspector;
 using Cysharp.Threading.Tasks;
 using VirtueSky.Misc;
+using VirtueSky.Utils;
 
 namespace Base.Game
 {
     [EditorIcon("icon_generator")]
     public class PopupManager : Singleton<PopupManager>
     {
-        [HeaderLine("Environment")] [SerializeField]
+        [HeaderLine("Environment", false, CustomColor.Aqua, CustomColor.Beige)] [SerializeField]
         private Transform parentContainer;
 
-        [SerializeField] private CanvasScaler canvasScaler;
         [SerializeField] private Camera cameraUI;
 
         private readonly Dictionary<Type, UIPopup> _container = new Dictionary<Type, UIPopup>();
 
         private int index = 1;
 
-        private async void InternalShow<T>(bool isHideAll = true)
+        private async void InternalShow<T>(bool isHideAll = true, Action showPopupCompleted = null)
         {
             _container.TryGetValue(typeof(T), out UIPopup popup);
             if (popup == null)
@@ -40,6 +40,7 @@ namespace Base.Game
                     }
 
                     popupInstance.Show();
+                    showPopupCompleted?.Invoke();
                     _container.Add(popupInstance.GetType(), popupInstance);
                     popupInstance.canvas.sortingOrder = index++;
                 }
@@ -58,17 +59,19 @@ namespace Base.Game
                     }
 
                     popup.Show();
+                    showPopupCompleted?.Invoke();
                 }
             }
         }
 
-        private void InternalHide<T>()
+        private void InternalHide<T>(Action hidePopupCompleted = null)
         {
             if (_container.TryGetValue(typeof(T), out UIPopup popup))
             {
                 if (popup.isActiveAndEnabled)
                 {
                     popup.Hide();
+                    hidePopupCompleted?.Invoke();
                 }
             }
             else
@@ -113,8 +116,8 @@ namespace Base.Game
 
         #region API
 
-        public static void Show<T>(bool isHideAll = true) => Instance.InternalShow<T>(isHideAll);
-        public static void Hide<T>() => Instance.InternalHide<T>();
+        public static void Show<T>(bool isHideAll = true, Action showPopupCompleted = null) => Instance.InternalShow<T>(isHideAll, showPopupCompleted);
+        public static void Hide<T>(Action hidePopupCompleted = null) => Instance.InternalHide<T>(hidePopupCompleted);
         public static UIPopup Get<T>() => Instance.InternalGet<T>();
         public static bool IsPopupReady<T>() => Instance.InternalIsPopupReady<T>();
         public static void HideAll() => Instance.InternalHideAll();
