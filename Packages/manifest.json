@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
-    "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
+    "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.10.2",
+    "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.0",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10",
     "com.google.android.appbundle": "https://github.com/google-unity/android-app-bundle.git#1.8.0",
     "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.183",
