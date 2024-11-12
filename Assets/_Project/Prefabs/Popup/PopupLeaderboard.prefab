@@ -331,13 +331,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &224395381304464487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2342,13 +2344,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &1524761230528512825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,13 +2800,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &1685605135902583050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,13 +3885,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &2490004730782747270
 GameObject:
   m_ObjectHideFlags: 0
@@ -12156,13 +12164,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &8122722824895129202
 GameObject:
   m_ObjectHideFlags: 0
@@ -13993,27 +14003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8056741447939895724, guid: 2345a1956d85da44b887446ae85e9a3c,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8056741447939895724, guid: 2345a1956d85da44b887446ae85e9a3c,
-        type: 3}
       propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8056741447939895725, guid: 2345a1956d85da44b887446ae85e9a3c,
-        type: 3}
-      propertyPath: CollisionModule.type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8056741447939895725, guid: 2345a1956d85da44b887446ae85e9a3c,
-        type: 3}
-      propertyPath: VelocityModule.inWorldSpace
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8056741447939895725, guid: 2345a1956d85da44b887446ae85e9a3c,
-        type: 3}
-      propertyPath: CollisionModule.collisionMessages
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8056741447939895725, guid: 2345a1956d85da44b887446ae85e9a3c,
@@ -14024,11 +14014,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8056741447939895723, guid: 2345a1956d85da44b887446ae85e9a3c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7431305598417785561}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2345a1956d85da44b887446ae85e9a3c, type: 3}
 --- !u!224 &5227838364753503813 stripped
 RectTransform:
@@ -14036,53 +14022,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 339607234635633823}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &7744446786647074098 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8056741447939895725, guid: 2345a1956d85da44b887446ae85e9a3c,
-    type: 3}
-  m_PrefabInstance: {fileID: 339607234635633823}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7744446786647074100 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8056741447939895723, guid: 2345a1956d85da44b887446ae85e9a3c,
-    type: 3}
-  m_PrefabInstance: {fileID: 339607234635633823}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7431305598417785561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7744446786647074100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f0b0b6d0b7542bfbd20a3e05b04ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsTrail: 0
-  m_IgnoreCanvasScaler: 0
-  m_AbsoluteMode: 0
-  m_Scale3D: {x: 100, y: 100, z: 100}
-  m_AnimatableProperties: []
-  m_Particles:
-  - {fileID: 7744446786647074098}
-  m_MeshSharing: 0
-  m_GroupId: 0
-  m_GroupMaxId: 0
-  m_PositionMode: 0
-  m_AutoScaling: 0
-  m_AutoScalingMode: 2
-  m_UseCustomView: 0
-  m_CustomViewSize: 10
 --- !u!1001 &7250186343798454384
 PrefabInstance:
   m_ObjectHideFlags: 0

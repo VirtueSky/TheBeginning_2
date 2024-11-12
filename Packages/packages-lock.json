@@ -288,7 +288,7 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/wolf-org/sunflower_2.git#1.4.3",
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.4.4",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -297,7 +297,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "125bd769ecb5d350d1afe1c55901dc4b7d27dd39"
+      "hash": "8b358183c529726d37f8d6138ad5dfca9dae81d0"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

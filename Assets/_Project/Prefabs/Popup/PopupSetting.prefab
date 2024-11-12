@@ -343,13 +343,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!114 &4374167719703305856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,13 +939,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!114 &4807454331921140101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,13 +1179,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &3165607451584744687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,13 +1935,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &6077205205080482408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,13 +2200,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &6631244465714846239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,13 +2710,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!114 &7336628634041015393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2920,8 +2932,8 @@ MonoBehaviour:
   pointHidePos: {x: 0, y: 0, z: 0}
   buttonRestore: {fileID: 132315991019770645}
   buttonPrivacyConsent: {fileID: 3042463913333363349}
-  effectButtonEn: {fileID: 0}
-  effectButtonVi: {fileID: 0}
+  effectButtonEn: {fileID: 4374167719703305856}
+  effectButtonVi: {fileID: 7411037456667648809}
 --- !u!1 &7463646213186776663
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,13 +3068,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!114 &7411037456667648809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3896,13 +3910,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!114 &1344000477585114417
 MonoBehaviour:
   m_ObjectHideFlags: 0

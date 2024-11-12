@@ -306,13 +306,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 0
+  soundClickButton: {fileID: 0}
 --- !u!1 &1183502145764974384
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +960,7 @@ MonoBehaviour:
   - {fileID: 8300233274868405494}
   - {fileID: 716333493150946566}
   - {fileID: 6861118664202004070}
-  - {fileID: 7132074505647568845}
+  - {fileID: 0}
   - {fileID: 7222081238262506826}
 --- !u!1 &5489148110521580800
 GameObject:
@@ -1339,13 +1341,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 0
+  soundClickButton: {fileID: 0}
 --- !u!1 &9211212431835267844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,18 +1571,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7132074505647568845 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2903493140146075227, guid: 98774e16ed73648d6b01875a2be95749,
-    type: 3}
-  m_PrefabInstance: {fileID: 5382206557617291670}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f0b0b6d0b7542bfbd20a3e05b04ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7222081238262506826 stripped
