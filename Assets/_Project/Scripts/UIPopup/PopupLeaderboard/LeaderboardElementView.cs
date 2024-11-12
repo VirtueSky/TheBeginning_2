@@ -41,8 +41,8 @@ namespace Base.UI
                 decor.SetActive(true);
             }
 
-            TryGetComponent<UIShiny>(out var uiShiny);
-            if (uiShiny != null) uiShiny.enabled = (rank == 1 || rank == 2 || rank == 3);
+            // TryGetComponent<UIShiny>(out var uiShiny);
+            // if (uiShiny != null) uiShiny.enabled = (rank == 1 || rank == 2 || rank == 3);
         }
     }
 }

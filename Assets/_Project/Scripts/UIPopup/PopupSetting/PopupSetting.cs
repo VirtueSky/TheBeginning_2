@@ -42,10 +42,10 @@ namespace Base.UI
 
         void SetupUiButtonLanguage()
         {
-            effectButtonEn.effectFactor = 1;
-            effectButtonVi.effectFactor = 1;
-            if (Locale.CurrentLanguage == Language.English) effectButtonEn.effectFactor = 0;
-            if (Locale.CurrentLanguage == Language.Vietnamese) effectButtonVi.effectFactor = 0;
+            effectButtonEn.toneIntensity = 1;
+            effectButtonVi.toneIntensity = 1;
+            if (Locale.CurrentLanguage == Language.English) effectButtonEn.toneIntensity = 0;
+            if (Locale.CurrentLanguage == Language.Vietnamese) effectButtonVi.toneIntensity = 0;
         }
 
         public void OnClickChangeLanguageEn()

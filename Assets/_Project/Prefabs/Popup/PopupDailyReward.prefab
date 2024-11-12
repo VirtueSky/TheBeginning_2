@@ -214,7 +214,7 @@ MonoBehaviour:
   - {fileID: 6103005492968984741}
   - {fileID: 3776761031219763745}
   - {fileID: 7110826140986403137}
-  - {fileID: 6873366422230169834}
+  - {fileID: 0}
   - {fileID: 6458391932773608045}
 --- !u!1 &87697190871830783
 GameObject:
@@ -917,13 +917,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &2509353737946875765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,13 +1059,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &2745478461110048965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,13 +1449,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 0
+  soundClickButton: {fileID: 0}
 --- !u!114 &5815844887159117968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2246,13 +2252,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &7305659512101303458
 GameObject:
   m_ObjectHideFlags: 0
@@ -4245,6 +4253,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin_Group
       objectReference: {fileID: 0}
+    - target: {fileID: 2136762598846095640, guid: 98774e16ed73648d6b01875a2be95749,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136762598846095640, guid: 98774e16ed73648d6b01875a2be95749,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136762598846095640, guid: 98774e16ed73648d6b01875a2be95749,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5773653057479345576, guid: 98774e16ed73648d6b01875a2be95749,
         type: 3}
       propertyPath: m_SortingLayer
@@ -4383,18 +4406,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6873366422230169834 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2903493140146075227, guid: 98774e16ed73648d6b01875a2be95749,
-    type: 3}
-  m_PrefabInstance: {fileID: 8586216011497262769}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f0b0b6d0b7542bfbd20a3e05b04ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7110826140986403137 stripped

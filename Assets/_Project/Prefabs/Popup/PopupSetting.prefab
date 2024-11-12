@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 95583102602571062}
   - component: {fileID: 4477173790250534693}
   - component: {fileID: 5259765422244395708}
-  - component: {fileID: 5137357858446740731}
+  - component: {fileID: 4374167719703305856}
   m_Layer: 5
   m_Name: BtnEn
   m_TagString: Untagged
@@ -343,14 +343,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
---- !u!114 &5137357858446740731
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
+--- !u!114 &4374167719703305856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,16 +361,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 914248792439533838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8b2ed11d675446c5a49da1ea296d490, type: 3}
+  m_Script: {fileID: 11500000, guid: 938fce054c42f40a3969e27a88d9bdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 1
-  m_ColorFactor: 1
-  m_BlurFactor: 1
-  m_EffectMode: 1
-  m_ColorMode: 0
-  m_BlurMode: 0
-  m_AdvancedBlur: 0
+  m_ToneFilter: 1
+  m_ToneIntensity: 1
+  m_ToneParams: {x: 0, y: 0, z: 0, w: 0}
+  m_ColorFilter: 0
+  m_ColorIntensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SamplingFilter: 0
+  m_SamplingIntensity: 0.5
+  m_TransitionFilter: 0
+  m_TransitionRate: 0.5
+  m_TransitionReverse: 0
+  m_TransitionTex: {fileID: 0}
+  m_TransitionTexScale: {x: 1, y: 1}
+  m_TransitionTexOffset: {x: 0, y: 0}
+  m_TransitionRotation: 0
+  m_TransitionKeepAspectRatio: 1
+  m_TransitionWidth: 0.2
+  m_TransitionSoftness: 0.2
+  m_TransitionColorFilter: 6
+  m_TransitionColor: {r: 0, g: 0.5, b: 1, a: 1}
+  m_TargetMode: 0
+  m_TargetColor: {r: 1, g: 1, b: 1, a: 1}
+  m_TargetRange: 0.1
+  m_TargetSoftness: 0.5
+  m_BlendType: 1
+  m_SrcBlendMode: 1
+  m_DstBlendMode: 10
+  m_ShadowMode: 0
+  m_ShadowDistance: {x: 1, y: -1}
+  m_ShadowIteration: 1
+  m_ShadowFade: 0.9
+  m_ShadowEffectOnOrigin: 0
+  m_ShadowMirrorScale: 0.5
 --- !u!1 &1486192922910655112
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,13 +939,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!114 &4807454331921140101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,13 +1179,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &3165607451584744687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,13 +1935,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &6077205205080482408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,13 +2200,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!1 &6631244465714846239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,13 +2710,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!114 &7336628634041015393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2894,8 +2932,8 @@ MonoBehaviour:
   pointHidePos: {x: 0, y: 0, z: 0}
   buttonRestore: {fileID: 132315991019770645}
   buttonPrivacyConsent: {fileID: 3042463913333363349}
-  effectButtonEn: {fileID: 5137357858446740731}
-  effectButtonVi: {fileID: 3238442412066362015}
+  effectButtonEn: {fileID: 4374167719703305856}
+  effectButtonVi: {fileID: 7411037456667648809}
 --- !u!1 &7463646213186776663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,7 +2946,7 @@ GameObject:
   - component: {fileID: 1541378458990680615}
   - component: {fileID: 9163461352131494248}
   - component: {fileID: 224102990859033373}
-  - component: {fileID: 3238442412066362015}
+  - component: {fileID: 7411037456667648809}
   m_Layer: 5
   m_Name: BtnVi
   m_TagString: Untagged
@@ -3030,14 +3068,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
---- !u!114 &3238442412066362015
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
+--- !u!114 &7411037456667648809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3046,16 +3086,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 7463646213186776663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8b2ed11d675446c5a49da1ea296d490, type: 3}
+  m_Script: {fileID: 11500000, guid: 938fce054c42f40a3969e27a88d9bdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 1
-  m_ColorFactor: 1
-  m_BlurFactor: 1
-  m_EffectMode: 1
-  m_ColorMode: 0
-  m_BlurMode: 0
-  m_AdvancedBlur: 0
+  m_ToneFilter: 1
+  m_ToneIntensity: 1
+  m_ToneParams: {x: 0, y: 0, z: 0, w: 0}
+  m_ColorFilter: 0
+  m_ColorIntensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SamplingFilter: 0
+  m_SamplingIntensity: 0.5
+  m_TransitionFilter: 0
+  m_TransitionRate: 0.5
+  m_TransitionReverse: 0
+  m_TransitionTex: {fileID: 0}
+  m_TransitionTexScale: {x: 1, y: 1}
+  m_TransitionTexOffset: {x: 0, y: 0}
+  m_TransitionRotation: 0
+  m_TransitionKeepAspectRatio: 1
+  m_TransitionWidth: 0.2
+  m_TransitionSoftness: 0.2
+  m_TransitionColorFilter: 6
+  m_TransitionColor: {r: 0, g: 0.5, b: 1, a: 1}
+  m_TargetMode: 0
+  m_TargetColor: {r: 1, g: 1, b: 1, a: 1}
+  m_TargetRange: 0.1
+  m_TargetSoftness: 0.5
+  m_BlendType: 1
+  m_SrcBlendMode: 1
+  m_DstBlendMode: 10
+  m_ShadowMode: 0
+  m_ShadowDistance: {x: 1, y: -1}
+  m_ShadowIteration: 1
+  m_ShadowFade: 0.9
+  m_ShadowEffectOnOrigin: 0
+  m_ShadowMirrorScale: 0.5
 --- !u!1 &7616326084959031557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,13 +3910,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  soundClickButton: {fileID: 11400000, guid: 011404cb54429497ab707af6681917b4, type: 2}
 --- !u!114 &1344000477585114417
 MonoBehaviour:
   m_ObjectHideFlags: 0

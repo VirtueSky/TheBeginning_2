@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2224969764901048643}
   - component: {fileID: 1333092346162148389}
   - component: {fileID: 4459611276723025948}
-  - component: {fileID: 7704389096035993558}
   m_Layer: 5
   m_Name: fx_star
   m_TagString: Untagged
@@ -4865,31 +4864,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6081226495541462261}
   m_CullTransparentMesh: 0
---- !u!114 &7704389096035993558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6081226495541462261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f0b0b6d0b7542bfbd20a3e05b04ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsTrail: 0
-  m_IgnoreCanvasScaler: 0
-  m_Scale: 100
-  m_Scale3D: {x: 50, y: 50, z: 50}
-  m_AnimatableProperties: []
-  m_Particles:
-  - {fileID: 2224969764901048643}
-  m_ShrinkByMaterial: 0

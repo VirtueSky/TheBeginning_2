@@ -224,8 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrencyAmountText: {fileID: 3353084705399956700}
-  StepCount: 10
-  DelayTime: 0.02
   iconCoin: {fileID: 9157539959958119255}
 --- !u!222 &8424903263070193019
 CanvasRenderer:
@@ -349,6 +347,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7376751915565757575}
     m_Modifications:
+    - target: {fileID: 1333092346162148389, guid: 13121c2ae78cf4c439133bcbd83d53dc,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6081226495541462261, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}
       propertyPath: m_Name
@@ -397,17 +400,17 @@ PrefabInstance:
     - target: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}
@@ -477,11 +480,62 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6081226495541462261, guid: 13121c2ae78cf4c439133bcbd83d53dc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4719241179075443106}
   m_SourcePrefab: {fileID: 100100000, guid: 13121c2ae78cf4c439133bcbd83d53dc, type: 3}
+--- !u!1 &1640684618260657528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6081226495541462261, guid: 13121c2ae78cf4c439133bcbd83d53dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4800901732960760205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4719241179075443106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640684618260657528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f0b0b6d0b7542bfbd20a3e05b04ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_IsTrail: 0
+  m_IgnoreCanvasScaler: 0
+  m_AbsoluteMode: 0
+  m_Scale3D: {x: 50, y: 50, z: 50}
+  m_AnimatableProperties: []
+  m_Particles:
+  - {fileID: 6647476357041725646}
+  m_MeshSharing: 0
+  m_GroupId: 0
+  m_GroupMaxId: 0
+  m_PositionMode: 0
+  m_AutoScaling: 0
+  m_AutoScalingMode: 2
+  m_UseCustomView: 0
+  m_CustomViewSize: 10
 --- !u!224 &2136762598846095640 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4800901732960760205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6647476357041725646 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2224969764901048643, guid: 13121c2ae78cf4c439133bcbd83d53dc,
     type: 3}
   m_PrefabInstance: {fileID: 4800901732960760205}
   m_PrefabAsset: {fileID: 0}

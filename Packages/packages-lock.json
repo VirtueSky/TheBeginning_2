@@ -1,18 +1,23 @@
 {
   "dependencies": {
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git",
+      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.0",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "b43e40508b167d143330d8b9eff0d5c9965cdf3c"
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "53e6b41b9da8909ef6caa435dad523146621b5f0"
     },
     "com.coffee.ui-particle": {
-      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.10.2",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "429ff2dd09264fd091ed3005c7a4c247f118c7ae"
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.particlesystem": "1.0.0"
+      },
+      "hash": "2b3cec69aceddbddf1c5307d28300c3328161ab4"
     },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10",
@@ -21,75 +26,12 @@
       "dependencies": {},
       "hash": "7c0f199fe0d3fc528024488ccd671e6c7b27745b"
     },
-    "com.google.android.appbundle": {
-      "version": "https://github.com/google-unity/android-app-bundle.git#1.8.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "50d04b09ae563e7eed9b72180973870171e15423"
-    },
     "com.google.external-dependency-manager": {
       "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.183",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "d5ff67d7b8fe2aea1ae801aaba2d6f2dbad39917"
-    },
-    "com.google.firebase.analytics": {
-      "version": "https://github.com/firebase-unity/firebase-analytics.git#11.9.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.firebase.app": "11.9.0"
-      },
-      "hash": "07847943f9e7de1ef0f97ea8c90b29f915fe3343"
-    },
-    "com.google.firebase.app": {
-      "version": "https://github.com/firebase-unity/firebase-app.git#11.9.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.external-dependency-manager": "1.2.177"
-      },
-      "hash": "3d26bd3c8a2c15ca59cef20b930bed4d1094a353"
-    },
-    "com.google.firebase.remote-config": {
-      "version": "https://github.com/firebase-unity/firebase-remote-config.git#11.9.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.firebase.app": "11.9.0"
-      },
-      "hash": "42ee23d82d7e15cd0f791d098b6b4e666eb301c6"
-    },
-    "com.google.play.common": {
-      "version": "https://github.com/google-unity/google-play-common.git#1.8.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.android.appbundle": "1.8.0"
-      },
-      "hash": "5c3fb2edb0d5fdd0e71b283b0ca529f8baf61059"
-    },
-    "com.google.play.core": {
-      "version": "https://github.com/google-unity/google-play-core.git#1.8.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.android.appbundle": "1.8.0",
-        "com.google.external-dependency-manager": "1.2.172"
-      },
-      "hash": "c8b5299670d28304ca0b96b493d3593fd6ac1862"
-    },
-    "com.google.play.review": {
-      "version": "https://github.com/google-unity/in-app-review.git#1.8.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.play.common": "1.8.1",
-        "com.google.play.core": "1.8.1"
-      },
-      "hash": "039118f280938f9770ed4efcf04b5bf030981e7e"
     },
     "com.harumak.unitydebugsheet": {
       "version": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
@@ -346,7 +288,7 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/wolf-org/sunflower_2.git#1.4.3",
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.4.4",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -355,7 +297,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "125bd769ecb5d350d1afe1c55901dc4b7d27dd39"
+      "hash": "8b358183c529726d37f8d6138ad5dfca9dae81d0"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

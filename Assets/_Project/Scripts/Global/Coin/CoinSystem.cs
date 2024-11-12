@@ -12,6 +12,7 @@ public class CoinSystem : MonoBehaviour
     private static event Action<int, Vector3> OnAddCoinEvent;
     private static event Action<int> OnMinusCoinEvent;
     private static event Action<int, Vector3> OnSetCoinEvent;
+    private const string CURRENT_COIN = "CURRENT_COIN";
 
     private void Awake()
     {
@@ -29,10 +30,10 @@ public class CoinSystem : MonoBehaviour
 
     private static int CurrentCoin
     {
-        get => GameData.Get(Constant.CURRENT_COIN, 0);
+        get => GameData.Get(CURRENT_COIN, 0);
         set
         {
-            GameData.Set(Constant.CURRENT_COIN, value);
+            GameData.Set(CURRENT_COIN, value);
             GameData.Save();
         }
     }
