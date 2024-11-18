@@ -10,14 +10,14 @@
       "hash": "53e6b41b9da8909ef6caa435dad523146621b5f0"
     },
     "com.coffee.ui-particle": {
-      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.10.2",
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.10.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
-      "hash": "2b3cec69aceddbddf1c5307d28300c3328161ab4"
+      "hash": "2e813c531325647f9d228100a76ab91cff993a00"
     },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10",
@@ -288,7 +288,7 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/wolf-org/sunflower_2.git#1.4.4",
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.4.5",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -297,7 +297,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "8b358183c529726d37f8d6138ad5dfca9dae81d0"
+      "hash": "835b7c5aac4611b8d6aa69956aa2e0e965cd17e0"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
