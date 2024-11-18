@@ -1,3 +1,4 @@
+using Base.Services;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +34,7 @@ namespace Base.Launcher
                 await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.IsFetchRemoteConfigCompleted);
             }
 
+            NotificationInGame.Show("Welcome!");
             Destroy(gameObject);
         }
     }
