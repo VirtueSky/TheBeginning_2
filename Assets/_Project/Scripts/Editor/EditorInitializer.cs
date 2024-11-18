@@ -13,7 +13,7 @@ public struct EditorInitializer
             case Constant.SERVICES_SCENE:
                 return;
             case Constant.GAMEPLAY_SCENE:
-                await SceneManager.LoadSceneAsync(Constant.GAMEPLAY_SCENE);
+                await SceneManager.LoadSceneAsync(Constant.SERVICES_SCENE);
                 break;
         }
     }
