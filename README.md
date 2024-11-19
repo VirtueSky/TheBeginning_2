@@ -1,4 +1,4 @@
-# Base Game Unity (Andorid & iOS)
+# Base Game Unity (Android & iOS)
 - Unity 2022.3 (LTS)
   
 Description: Gamebase for mobile hyper casual, casual game 
