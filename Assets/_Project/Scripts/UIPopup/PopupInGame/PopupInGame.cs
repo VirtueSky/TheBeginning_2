@@ -19,14 +19,14 @@ namespace Base.UI
         {
             base.OnBeforeShow();
             Setup();
-            Observer.CurrentLevelChanged += Setup;
+            EventName.CurrentLevelChanged.AddListener(Setup);
             musicInGame.PlayMusic();
         }
 
         protected override void OnBeforeHide()
         {
             base.OnBeforeHide();
-            Observer.CurrentLevelChanged -= Setup;
+            EventName.CurrentLevelChanged.RemoveListener(Setup);
         }
 
         public void Setup()

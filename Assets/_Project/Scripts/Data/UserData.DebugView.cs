@@ -11,7 +11,7 @@ namespace Base.Data
             set
             {
                 GameData.Set(Constant.IS_TESTING, value);
-                Observer.IsTestingChanged?.Invoke();
+                EventName.IsTestingChanged.Raise();
             }
         }
 
@@ -39,7 +39,7 @@ namespace Base.Data
             set
             {
                 GameData.Set(Constant.IS_OFF_UI_ADMIN, value);
-                Observer.OffUIChanged?.Invoke(value);
+                EventName.OffUIChanged.Raise(value);
             }
         }
     }

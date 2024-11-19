@@ -14,13 +14,13 @@ public class OffUI : MonoBehaviour
     private void OnEnable()
     {
         GetComponentUI();
-        Observer.OffUIChanged += Setup;
+        EventName.OffUIChanged.AddListener(Setup);
         Setup(UserData.IsOffUIDebug);
     }
 
     private void OnDisable()
     {
-        Observer.OffUIChanged -= Setup;
+        EventName.OffUIChanged.RemoveListener(Setup);
     }
 
     void Setup(bool isOff)

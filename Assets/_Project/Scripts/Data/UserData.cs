@@ -30,7 +30,7 @@ namespace Base.Data
             {
                 GameData.Set(Constant.INDEX_LEVEL_CURRENT, value >= 1 ? value : 1);
                 GameData.Save();
-                Observer.CurrentLevelChanged?.Invoke();
+                EventName.CurrentLevelChanged.Raise();
             }
         }
 
