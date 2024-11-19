@@ -11,7 +11,6 @@ namespace Base.UI
 
         private void Start()
         {
-            NotificationInGame.Show("Welcome!");
         }
 
         protected override void OnBeforeShow()

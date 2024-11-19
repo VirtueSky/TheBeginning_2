@@ -36,14 +36,14 @@ public class ShowObject : MonoBehaviour
 
     private void Awake()
     {
-        Observer.IsTestingChanged += SetupByIsTesting;
-        Observer.CurrentLevelChanged += SetupByIndexLevel;
+        EventName.IsTestingChanged.AddListener(SetupByIsTesting);
+        EventName.CurrentLevelChanged.AddListener(SetupByIndexLevel);
     }
 
     private void OnDestroy()
     {
-        Observer.IsTestingChanged -= SetupByIsTesting;
-        Observer.CurrentLevelChanged -= SetupByIndexLevel;
+        EventName.IsTestingChanged.RemoveListener(SetupByIsTesting);
+        EventName.CurrentLevelChanged.RemoveListener(SetupByIndexLevel);
     }
 
     public void OnEnable()

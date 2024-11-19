@@ -75,7 +75,8 @@ namespace Base.UI
             {
                 currentItem.OnClaim(true, () =>
                 {
-                    Observer.OnClaimDailyReward?.Invoke();
+                    //  Observer.OnClaimDailyReward?.Invoke();
+                    EventName.ClaimDailyReward.Raise();
                     Setup();
                 });
             });
@@ -85,7 +86,7 @@ namespace Base.UI
         {
             currentItem.OnClaim(false, () =>
             {
-                Observer.OnClaimDailyReward?.Invoke();
+                EventName.ClaimDailyReward.Raise();
                 Setup();
             });
         }

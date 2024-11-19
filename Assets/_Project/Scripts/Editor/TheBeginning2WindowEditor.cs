@@ -48,12 +48,6 @@ public class TheBeginning2WindowEditor : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    [MenuItem("TheBeginning_2/Launcher %F1", priority = 101)]
-    public static void PlayFromLauncherScene()
-    {
-        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
-        Debug.Log($"Change {Constant.LAUNCHER_SCENE} scene succeed".SetColor(Color.cyan));
-    }
 
     [MenuItem("TheBeginning_2/Gameplay %F2", priority = 102)]
     public static void PlayFromGamePlayScene()
@@ -62,7 +56,7 @@ public class TheBeginning2WindowEditor : EditorWindow
         Debug.Log($"Change {Constant.GAMEPLAY_SCENE} scene succeed".SetColor(Color.cyan));
     }
 
-    [MenuItem("TheBeginning_2/Service %F3", priority = 103)]
+    [MenuItem("TheBeginning_2/Service %F1", priority = 101)]
     public static void PlayFromServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICES_SCENE}.unity");

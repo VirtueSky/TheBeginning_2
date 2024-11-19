@@ -10,7 +10,6 @@ public class Constant
     public const string TOTAL_CLAIM_DAILY_REWARD = "TOTAL_CLAIM_DAILY_REWARD";
 
     // Scene
-    public const string LAUNCHER_SCENE = "Launcher";
     public const string GAMEPLAY_SCENE = "Gameplay";
     public const string SERVICES_SCENE = "Service";
 

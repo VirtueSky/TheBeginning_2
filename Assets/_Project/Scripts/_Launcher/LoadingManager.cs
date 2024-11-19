@@ -1,7 +1,6 @@
-using Base.Global;
+using Base.Services;
 using PrimeTween;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
@@ -18,35 +17,25 @@ namespace Base.Launcher
         public LocaleTextComponent localeTextLoading;
         [Range(0.1f, 10f)] public float timeLoading = 5f;
         [SerializeField] bool isWaitingFetchRemoteConfig = true;
-        private bool flagDoneProgress;
 
-        private void Awake()
+        private void Start()
         {
-            Init();
-            LoadScene();
-        }
-
-
-        private void Init()
-        {
-            Locale.LoadLanguageSetting();
             progressBar.fillAmount = 0;
             progressBar.DOFillAmount(1, timeLoading)
                 .OnUpdate(progressBar,
                     (image, tween) => localeTextLoading.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}"))
-                .OnComplete(() => flagDoneProgress = true);
+                .OnComplete(Done);
         }
 
-        private async void LoadScene()
+        private async void Done()
         {
-            await SceneManager.LoadSceneAsync(Constant.SERVICES_SCENE, LoadSceneMode.Additive);
-            await UniTask.WaitUntil(() => flagDoneProgress);
             if (isWaitingFetchRemoteConfig)
             {
                 await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.IsFetchRemoteConfigCompleted);
             }
 
-            SceneLoader.Instance.ChangeScene(Constant.GAMEPLAY_SCENE);
+            NotificationInGame.Show("Welcome!");
+            Destroy(gameObject);
         }
     }
 }
