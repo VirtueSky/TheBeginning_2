@@ -1,4 +1,4 @@
-# Base Game Unity (Andorid & Ios), Use singleton pattern
+# Base Game Unity (Andorid & iOS)
 - Unity 2022.3 (LTS)
   
 Description: Gamebase for mobile hyper casual, casual game 
