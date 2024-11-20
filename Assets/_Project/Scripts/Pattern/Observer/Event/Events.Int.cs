@@ -1,27 +1,47 @@
 using System;
 using System.Collections.Generic;
 
-public static partial class Events
+namespace Virtuesky.Events
 {
-    private static readonly Dictionary<EventName, Action<int>> _dictIntEvents = new Dictionary<EventName, Action<int>>();
-
-    public static void AddListener(this EventName eventName, Action<int> @event)
+    public static partial class Events
     {
-        if (!_dictIntEvents.TryAdd(eventName, @event))
-            _dictIntEvents[eventName] += @event;
-    }
+        private static readonly Dictionary<EventName, Action<int>> _dictIntEvents =
+            new Dictionary<EventName, Action<int>>();
 
-    public static void RemoveListener(this EventName eventName, Action<int> @event)
-    {
-        if (_dictIntEvents.ContainsKey(eventName))
+        private static readonly List<IEventsListener<int>> listenersInt = new List<IEventsListener<int>>();
+
+        public static void AddListener(this EventName eventName, Action<int> @event)
         {
-            _dictIntEvents[eventName] -= @event;
-            if (_dictIntEvents[eventName] == null) _dictIntEvents.Remove(eventName);
+            if (!_dictIntEvents.TryAdd(eventName, @event))
+                _dictIntEvents[eventName] += @event;
         }
-    }
 
-    public static void Raise(this EventName eventName, int value)
-    {
-        if (_dictIntEvents.TryGetValue(eventName, out var @event)) @event?.Invoke(value);
+        public static void RemoveListener(this EventName eventName, Action<int> @event)
+        {
+            if (_dictIntEvents.ContainsKey(eventName))
+            {
+                _dictIntEvents[eventName] -= @event;
+                if (_dictIntEvents[eventName] == null) _dictIntEvents.Remove(eventName);
+            }
+        }
+
+        public static void AddListener(this EventName eventName, IEventsListener<int> listener)
+        {
+            if (!listenersInt.Contains(listener)) listenersInt.Add(listener);
+        }
+
+        public static void RemoveListener(this EventName eventName, IEventsListener<int> listener)
+        {
+            if (listenersInt.Contains(listener)) listenersInt.Remove(listener);
+        }
+
+        public static void Raise(this EventName eventName, int value)
+        {
+            if (_dictIntEvents.TryGetValue(eventName, out var @event)) @event?.Invoke(value);
+            for (int i = listenersInt.Count - 1; i >= 0; i--)
+            {
+                listenersInt[i].OnEventRaised(eventName, value);
+            }
+        }
     }
 }
