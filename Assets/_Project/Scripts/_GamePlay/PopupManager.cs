@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using Base.UI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.UI;
-using VirtueSky.Core;
 using VirtueSky.Inspector;
 using Cysharp.Threading.Tasks;
 using VirtueSky.Misc;
@@ -17,8 +15,6 @@ namespace Base.Game
     {
         [HeaderLine("Environment", false, CustomColor.Aqua, CustomColor.Beige)] [SerializeField]
         private Transform parentContainer;
-
-        [SerializeField] private Camera cameraUI;
 
         private readonly Dictionary<Type, UIPopup> _container = new Dictionary<Type, UIPopup>();
 
@@ -116,8 +112,12 @@ namespace Base.Game
 
         #region API
 
-        public static void Show<T>(bool isHideAll = true, Action showPopupCompleted = null) => Instance.InternalShow<T>(isHideAll, showPopupCompleted);
-        public static void Hide<T>(Action hidePopupCompleted = null) => Instance.InternalHide<T>(hidePopupCompleted);
+        public static void Show<T>(bool isHideAll = true, Action showPopupCompleted = null) =>
+            Instance.InternalShow<T>(isHideAll, showPopupCompleted);
+
+        public static void Hide<T>(Action hidePopupCompleted = null) =>
+            Instance.InternalHide<T>(hidePopupCompleted);
+
         public static UIPopup Get<T>() => Instance.InternalGet<T>();
         public static bool IsPopupReady<T>() => Instance.InternalIsPopupReady<T>();
         public static void HideAll() => Instance.InternalHideAll();
