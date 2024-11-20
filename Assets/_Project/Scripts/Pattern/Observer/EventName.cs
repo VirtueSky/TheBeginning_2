@@ -1,7 +1,11 @@
-public enum EventName
+namespace Virtuesky.Events
 {
-    IsTestingChanged,
-    CurrentLevelChanged,
-    ClaimDailyReward,
-    OffUIChanged
+    public enum EventName
+    {
+        None,
+        IsTestingChanged,
+        CurrentLevelChanged,
+        ClaimDailyReward,
+        OffUIChanged,
+    }
 }

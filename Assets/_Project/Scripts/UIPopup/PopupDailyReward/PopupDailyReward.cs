@@ -6,6 +6,7 @@ using Base.Data;
 using Base.Global;
 using Base.Services;
 using UnityEngine;
+using Virtuesky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Utils;
 
