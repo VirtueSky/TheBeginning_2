@@ -1,10 +1,38 @@
-# Base Game Unity (Andorid & Ios), Use singleton pattern
+# Base Game Unity (Android & iOS)
 - Unity 2022.3 (LTS)
   
 Description: Gamebase for mobile hyper casual, casual game 
 
 
-(Use: [Unity-Common Package](https://github.com/wolf-package/unity-common))
+(Use: [Sunflower2 Package](https://github.com/wolf-org/sunflower_2))
+
+- GameFlow
+
+```mermaid
+flowchart TD
+
+subgraph ServiceScene["<i class="fa-brands fa-unity"></i> Service Scene"]
+    Initialization(Initialization)
+    LevelLoader(LevelLoader)
+    AudioManager(AudioManager)
+    end
+
+    subgraph GameScene["<i class="fa-brands fa-unity"></i> Game Scene"]
+    GameManager(GameManager)
+    PopupManager(PopupManager)
+    end
+    EntryGame{Entry Game} --> ServiceScene
+    AudioManager --> SoundComponent{{Pooling: SoundComponent-AudioSource}}
+    Initialization --Load Game Scene--> GameScene 
+    GameManager --> StartGame{Start Game} --> LevelLoader --Instantiate--> Level(Level)
+    PopupManager --Show PopupInGame--> StartGame
+    Level --Win Level--> WinGame{Win Game} --Next Level-->GameManager
+    Level --Lose Level--> LoseGame{Lose Game} --Replay or Skip Level-->GameManager
+    Level --Replay Level--> ReplayGame{Replay Game}
+    ReplayGame --Replay Level--> GameManager
+    PopupManager --Show PopupWin--> WinGame
+    PopupManager --Show PopupLose--> LoseGame
+```
 
 ## Note
 ### GameConfig Window
@@ -19,7 +47,8 @@ Description: Gamebase for mobile hyper casual, casual game
 
 ### DebugView
 
-![Unity_Je2ULcRBwx](https://github.com/user-attachments/assets/9f71d670-60cd-4069-8507-36afe641ec1b)
-
 - Enable Debug View `true` in GameConfig window
 - Swipe up on the edge (left or right) of the screen to open (shortcut in editor (`Alt+D` or `Option+D`))
+
+
+![Unity_9YRD8rJRE1](https://github.com/user-attachments/assets/73692ff8-918a-4721-bd7b-c380d4a9cb14)
