@@ -26,13 +26,6 @@
       "dependencies": {},
       "hash": "7c0f199fe0d3fc528024488ccd671e6c7b27745b"
     },
-    "com.google.external-dependency-manager": {
-      "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.183",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "d5ff67d7b8fe2aea1ae801aaba2d6f2dbad39917"
-    },
     "com.harumak.unitydebugsheet": {
       "version": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
       "depth": 0,
@@ -288,7 +281,7 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/wolf-org/sunflower_2.git#1.4.5",
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.4.6",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -297,7 +290,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "835b7c5aac4611b8d6aa69956aa2e0e965cd17e0"
+      "hash": "b4723ad4141a5e3575af10c6f9e33b2ab5e446f4"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

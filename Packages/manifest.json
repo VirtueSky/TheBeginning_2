@@ -2,7 +2,6 @@
   "dependencies": {
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.0",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10",
-    "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.183",
     "com.harumak.unitydebugsheet": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
     "com.matthewminer.consolation": "https://github.com/wolf-package/consolation.git#1.4.2",
     "com.tayx.graphy": "https://github.com/wolf-org/graphy.git#3.0.6",
@@ -23,7 +22,7 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
-    "com.wolf-org.sunflower2": "https://github.com/wolf-org/sunflower_2.git#1.4.5",
+    "com.wolf-org.sunflower2": "https://github.com/wolf-org/sunflower_2.git#1.4.6",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
