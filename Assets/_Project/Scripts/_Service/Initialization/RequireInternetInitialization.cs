@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
 
@@ -7,14 +8,15 @@ namespace Base.Services
     [HideMonoScript]
     public class RequireInternetInitialization : ServiceInitialization
     {
-        [SerializeField] private GameConfig gameConfig;
+        [FormerlySerializedAs("gameConfig")] [SerializeField]
+        private GameSettings gameSettings;
 
         public override void Initialization()
         {
-            if (gameConfig.enableRequireInternet)
+            if (gameSettings.EnableRequireInternet)
             {
-                InvokeRepeating(nameof(CheckInternet), gameConfig.timeDelayCheckInternet,
-                    gameConfig.timeLoopCheckInternet);
+                InvokeRepeating(nameof(CheckInternet), gameSettings.TimeDelayCheckInternet,
+                    gameSettings.TimeLoopCheckInternet);
             }
         }
 

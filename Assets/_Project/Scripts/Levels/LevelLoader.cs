@@ -5,6 +5,7 @@ using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using Cysharp.Threading.Tasks;
+using UnityEngine.Serialization;
 
 namespace Base.Levels
 {
@@ -13,18 +14,20 @@ namespace Base.Levels
     {
         [ReadOnly] [SerializeField] private Level currentLevel;
         [ReadOnly] [SerializeField] private Level previousLevel;
-        [SerializeField] private GameConfig gameConfig;
+
+        [FormerlySerializedAs("gameConfig")] [SerializeField]
+        private LevelSettings levelSettings;
 
         private static event Func<Level> OnGetCurrentLevelEvent;
         private static event Func<Level> OnGetPrevLevelEvent;
-        private static event Func<UniTask<Level>> OnLoadLevelEvent;
+        private static event Func<Level> OnLoadLevelEvent;
         private Level InternalCurrentLevel() => currentLevel;
         private Level InternalPreviousLevel() => previousLevel;
 
 
         public static Level CurrentLevel() => OnGetCurrentLevelEvent?.Invoke();
         public static Level PreviousLevel() => OnGetPrevLevelEvent?.Invoke();
-        public static UniTask<Level> LoadLevel() => (UniTask<Level>)OnLoadLevelEvent?.Invoke();
+        public static Level LoadLevel() => OnLoadLevelEvent?.Invoke();
 
         private void OnEnable()
         {
@@ -45,10 +48,10 @@ namespace Base.Levels
             var instance = InternalLoadLevel();
         }
 
-        private async UniTask<Level> InternalLoadLevel()
+        private Level InternalLoadLevel()
         {
             int index = HandleIndexLevel(UserData.CurrentLevel);
-            var result = await Addressables.LoadAssetAsync<GameObject>($"Level {index}");
+            var result = levelSettings.GePrefabLevel($"Level {index}");
             if (currentLevel != null)
             {
                 previousLevel = currentLevel;
@@ -56,7 +59,7 @@ namespace Base.Levels
             else
             {
                 int indexPrev = HandleIndexLevel(UserData.CurrentLevel - 1);
-                var resultPre = await Addressables.LoadAssetAsync<GameObject>($"Level {indexPrev}");
+                var resultPre = levelSettings.GePrefabLevel($"Level {indexPrev}");
                 previousLevel = resultPre.GetComponent<Level>();
             }
 
@@ -66,22 +69,21 @@ namespace Base.Levels
 
         int HandleIndexLevel(int indexLevel)
         {
-            if (indexLevel > gameConfig.maxLevel)
+            if (indexLevel > levelSettings.MaxLevel)
             {
-                return (indexLevel - gameConfig.startLoopLevel) %
-                       (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
-                       gameConfig.startLoopLevel;
+                return (indexLevel - levelSettings.StartLoopLevel) %
+                       (levelSettings.MaxLevel - levelSettings.StartLoopLevel + 1) +
+                       levelSettings.StartLoopLevel;
             }
 
-            if (indexLevel > 0 && indexLevel <= gameConfig.maxLevel)
+            if (indexLevel > 0 && indexLevel <= levelSettings.MaxLevel)
             {
-                //return (indexLevel - 1) % gameConfig.maxLevel + 1;
                 return indexLevel;
             }
 
             if (indexLevel == 0)
             {
-                return gameConfig.maxLevel;
+                return levelSettings.MaxLevel;
             }
 
             return 1;
