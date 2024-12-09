@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Base.UI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Inspector;
@@ -8,7 +7,7 @@ using Cysharp.Threading.Tasks;
 using VirtueSky.Misc;
 using VirtueSky.Utils;
 
-namespace Base.Game
+namespace Base.UI
 {
     [EditorIcon("icon_generator")]
     public class PopupManager : Singleton<PopupManager>

@@ -5,12 +5,15 @@ using Base.Global;
 using UnityEngine;
 using VirtueSky.Core;
 using Cysharp.Threading.Tasks;
+using UnityEngine.Serialization;
 
 namespace Base.UI
 {
     public class WinPopup : UIPopup
     {
-        [SerializeField] private GameConfig gameConfig;
+        [FormerlySerializedAs("gameConfig")] [SerializeField]
+        private GameSettings gameSettings;
+
         private bool isDoneAllCoinGenerate;
 
 
@@ -34,7 +37,7 @@ namespace Base.UI
 
         public async void OnClickContinue()
         {
-            CoinSystem.AddCoin(gameConfig.winLevelMoney);
+            CoinSystem.AddCoin(gameSettings.winLevelMoney);
             await UniTask.WaitUntil(() => isDoneAllCoinGenerate);
             GameManager.Instance.PlayCurrentLevel();
             Hide();

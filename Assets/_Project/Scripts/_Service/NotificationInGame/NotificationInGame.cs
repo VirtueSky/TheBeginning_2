@@ -2,6 +2,7 @@ using System;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Core;
 
 namespace Base.Services
@@ -10,7 +11,10 @@ namespace Base.Services
     {
         [SerializeField] private TextMeshProUGUI textNoti;
         [SerializeField] private RectTransform container;
-        [SerializeField] private GameConfig gameConfig;
+
+        [FormerlySerializedAs("gameConfig")] [SerializeField]
+        private GameSettings gameSettings;
+
         [SerializeField] private float posYShow = -125;
         [SerializeField] private float posYHide = 125;
         [SerializeField] private float timeMove = .5f;
@@ -35,20 +39,20 @@ namespace Base.Services
 
         private void InternalShow(string _textNoti)
         {
-            if (!gameConfig.enableNotificationInGame) return;
+            if (!gameSettings.enableNotificationInGame) return;
             if (isShow) return;
             isShow = true;
             gameObject.SetActive(true);
             textNoti.text = _textNoti;
             Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack).OnComplete(() =>
             {
-                App.Delay(gameConfig.timeDelayHideNotificationInGame, () => { InternalHide(); });
+                App.Delay(gameSettings.timeDelayHideNotificationInGame, () => { InternalHide(); });
             });
         }
 
         private void InternalHide()
         {
-            if (!gameConfig.enableNotificationInGame) return;
+            if (!gameSettings.enableNotificationInGame) return;
             if (!isShow) return;
             Tween.UIAnchoredPositionY(container, posYHide, timeMove, Ease.InBack).OnComplete(() =>
             {

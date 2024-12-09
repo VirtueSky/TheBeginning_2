@@ -5,6 +5,7 @@ using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using Cysharp.Threading.Tasks;
+using UnityEngine.Serialization;
 
 namespace Base.Levels
 {
@@ -13,7 +14,9 @@ namespace Base.Levels
     {
         [ReadOnly] [SerializeField] private Level currentLevel;
         [ReadOnly] [SerializeField] private Level previousLevel;
-        [SerializeField] private GameConfig gameConfig;
+
+        [FormerlySerializedAs("gameConfig")] [SerializeField]
+        private GameSettings gameSettings;
 
         private static event Func<Level> OnGetCurrentLevelEvent;
         private static event Func<Level> OnGetPrevLevelEvent;
@@ -66,14 +69,14 @@ namespace Base.Levels
 
         int HandleIndexLevel(int indexLevel)
         {
-            if (indexLevel > gameConfig.maxLevel)
+            if (indexLevel > gameSettings.maxLevel)
             {
-                return (indexLevel - gameConfig.startLoopLevel) %
-                       (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
-                       gameConfig.startLoopLevel;
+                return (indexLevel - gameSettings.startLoopLevel) %
+                       (gameSettings.maxLevel - gameSettings.startLoopLevel + 1) +
+                       gameSettings.startLoopLevel;
             }
 
-            if (indexLevel > 0 && indexLevel <= gameConfig.maxLevel)
+            if (indexLevel > 0 && indexLevel <= gameSettings.maxLevel)
             {
                 //return (indexLevel - 1) % gameConfig.maxLevel + 1;
                 return indexLevel;
@@ -81,7 +84,7 @@ namespace Base.Levels
 
             if (indexLevel == 0)
             {
-                return gameConfig.maxLevel;
+                return gameSettings.maxLevel;
             }
 
             return 1;

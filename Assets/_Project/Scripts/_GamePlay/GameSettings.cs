@@ -1,10 +1,8 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 
-[CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
-[HideMonoScript]
-public class GameConfig : ScriptableObject
+[EditorIcon("icon_scriptable"), HideMonoScript]
+public class GameSettings : ScriptableObject
 {
     [Space, HeaderLine("Level config")] public int maxLevel = 2;
     public int startLoopLevel;

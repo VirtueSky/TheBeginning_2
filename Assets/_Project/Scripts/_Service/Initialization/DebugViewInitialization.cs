@@ -1,6 +1,7 @@
 using Consolation;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 
 namespace Base.Services
@@ -10,7 +11,10 @@ namespace Base.Services
     {
         [SerializeField] private DebugSheet debugViewSheet;
         [SerializeField] private ConsoleInGame consoleInGamePrefab;
-        [SerializeField] private GameConfig gameConfig;
+
+        [FormerlySerializedAs("gameConfig")] [SerializeField]
+        private GameSettings gameSettings;
+
         [SerializeField] private ItemConfig itemConfig;
         [HeaderLine("Icon"), SerializeField] private Sprite iconTool;
         [SerializeField] private Sprite iconAds;
@@ -34,7 +38,7 @@ namespace Base.Services
 
         public override void Initialization()
         {
-            if (!gameConfig.enableDebugView)
+            if (!gameSettings.enableDebugView)
             {
                 debugViewSheet.gameObject.SetActive(false);
                 return;
@@ -45,19 +49,13 @@ namespace Base.Services
             var initPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning2 Debug");
             // Game Page
             initPage.AddPageLinkButton<GameDebugPage>("Game Debug", icon: iconTool, onLoad:
-                debugView =>
-                {
-                    debugView.page.Init(itemConfig, iconInput, iconOke, iconToggle, iconCoinDebug, iconOutfitDebug);
-                });
+                debugView => { debugView.page.Init(itemConfig, iconInput, iconOke, iconToggle, iconCoinDebug, iconOutfitDebug); });
             // Ads Page
             initPage.AddPageLinkButton<AdsDebugPage>("Ads Debug", icon: iconAds,
                 onLoad: debugView => { debugView.page.Init(iconToggle); });
             // Level Page
             initPage.AddPageLinkButton<LevelDebugPage>("Level Debug", icon: iconLevel,
-                onLoad: debugView =>
-                {
-                    debugView.page.Init(iconNext, iconBack, iconWin, iconLose, iconInput, iconOke);
-                });
+                onLoad: debugView => { debugView.page.Init(iconNext, iconBack, iconWin, iconLose, iconInput, iconOke); });
             // Add system analysis page
             initPage.AddPageLinkButton<SystemAnalysisDebugPage>("System analysis", icon: iconAnalysis, onLoad:
                 debugView => { debugView.page.Init(iconFps, iconRam, iconAudio, iconAdvanced); });
