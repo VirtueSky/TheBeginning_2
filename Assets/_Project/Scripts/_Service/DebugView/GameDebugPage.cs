@@ -8,7 +8,6 @@ namespace Base.Services
 {
     public class GameDebugPage : DefaultDebugPageBase
     {
-        private ItemConfig itemConfig;
         private Sprite iconInput;
         private Sprite iconOk;
         private Sprite iconToggle;
@@ -17,11 +16,10 @@ namespace Base.Services
         private string _targetCoin = "";
         protected override string Title => "Game Debug";
 
-        public void Init(ItemConfig _itemConfig, Sprite _iconInput, Sprite _iconOk, Sprite _iconToggle,
+        public void Init(Sprite _iconInput, Sprite _iconOk, Sprite _iconToggle,
             Sprite _iconCoinDebug,
             Sprite _iconOutfitDebug)
         {
-            itemConfig = _itemConfig;
             iconInput = _iconInput;
             iconOk = _iconOk;
             iconToggle = _iconToggle;
@@ -53,7 +51,6 @@ namespace Base.Services
                     if (_targetCoin != "") CoinSystem.SetCoin(int.Parse(_targetCoin));
                 },
                 icon: iconOk);
-            AddButton("Unlock All Skin", icon: iconOutfitDebug, clicked: () => itemConfig.UnlockAllSkins());
             AddSwitch(UserData.IsOffUIDebug, "Is Hide UI", valueChanged: b => UserData.IsOffUIDebug = b,
                 icon: iconToggle);
             AddSwitch(UserData.IsTestingDebug, "Is Testing", valueChanged: b => UserData.IsTestingDebug = b,

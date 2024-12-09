@@ -324,7 +324,6 @@ GameObject:
   - component: {fileID: 431478666}
   - component: {fileID: 431478667}
   - component: {fileID: 431478665}
-  - component: {fileID: 431478660}
   - component: {fileID: 431478662}
   - component: {fileID: 431478663}
   - component: {fileID: 431478664}
@@ -351,19 +350,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &431478660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431478658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c569c9ba5464e41b2f197ed86ae19b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
 --- !u!114 &431478661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877b81dc0ebc4b159ad5fbcdc42ee923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  gameSettings: {fileID: 11400000, guid: 33d887a3a88b9f844bc780a49153cc79, type: 2}
 --- !u!114 &431478662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebfd77a6a9bb499caf27bc04093c01f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  gameSettings: {fileID: 11400000, guid: 33d887a3a88b9f844bc780a49153cc79, type: 2}
 --- !u!114 &431478664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,8 +403,7 @@ MonoBehaviour:
   debugViewSheet: {fileID: 1074052692}
   consoleInGamePrefab: {fileID: 8478324341984481285, guid: 118ad1c12eaa22746b564562f7f985e9,
     type: 3}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
-  itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
+  gameSettings: {fileID: 11400000, guid: 33d887a3a88b9f844bc780a49153cc79, type: 2}
   iconTool: {fileID: 21300000, guid: 2d8be02cedaf05d4086f421a7bd95109, type: 3}
   iconAds: {fileID: 21300000, guid: 36c9f1d626150294ab77f0c9aa120fef, type: 3}
   iconLevel: {fileID: 21300000, guid: c1469ad627c1b494cbd24e4874f63442, type: 3}
@@ -506,7 +491,6 @@ MonoBehaviour:
   - {fileID: 431478666}
   - {fileID: 431478667}
   - {fileID: 431478665}
-  - {fileID: 431478660}
   - {fileID: 431478662}
   - {fileID: 431478663}
   - {fileID: 431478664}
@@ -1445,7 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 0}
   previousLevel: {fileID: 0}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  gameSettings: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
 --- !u!114 &1646167648
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ namespace Base.Services
         [FormerlySerializedAs("gameConfig")] [SerializeField]
         private GameSettings gameSettings;
 
-        [SerializeField] private ItemConfig itemConfig;
         [HeaderLine("Icon"), SerializeField] private Sprite iconTool;
         [SerializeField] private Sprite iconAds;
         [SerializeField] private Sprite iconLevel;
@@ -49,7 +48,7 @@ namespace Base.Services
             var initPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning2 Debug");
             // Game Page
             initPage.AddPageLinkButton<GameDebugPage>("Game Debug", icon: iconTool, onLoad:
-                debugView => { debugView.page.Init(itemConfig, iconInput, iconOke, iconToggle, iconCoinDebug, iconOutfitDebug); });
+                debugView => { debugView.page.Init(iconInput, iconOke, iconToggle, iconCoinDebug, iconOutfitDebug); });
             // Ads Page
             initPage.AddPageLinkButton<AdsDebugPage>("Ads Debug", icon: iconAds,
                 onLoad: debugView => { debugView.page.Init(iconToggle); });
