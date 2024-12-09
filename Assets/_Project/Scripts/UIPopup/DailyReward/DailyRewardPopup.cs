@@ -12,7 +12,7 @@ using VirtueSky.Utils;
 
 namespace Base.UI
 {
-    public class PopupDailyReward : UIPopup
+    public class DailyRewardPopup : UIPopup
     {
         [TitleColor("Attribute", CustomColor.Lavender, CustomColor.Cornsilk)]
         public GameObject btnWatchVideo;

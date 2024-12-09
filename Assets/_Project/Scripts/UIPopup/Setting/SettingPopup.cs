@@ -11,7 +11,7 @@ using VirtueSky.Utils;
 
 namespace Base.UI
 {
-    public class PopupSetting : UIPopup
+    public class SettingPopup : UIPopup
     {
         [SerializeField] private Button buttonRestore;
         [SerializeField] private Button buttonPrivacyConsent;

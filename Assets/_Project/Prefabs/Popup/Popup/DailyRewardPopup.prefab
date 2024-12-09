@@ -2350,7 +2350,7 @@ GameObject:
   - component: {fileID: -7875144206898530341}
   - component: {fileID: 7797597552439563120}
   m_Layer: 5
-  m_Name: PopupDailyReward
+  m_Name: DailyRewardPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

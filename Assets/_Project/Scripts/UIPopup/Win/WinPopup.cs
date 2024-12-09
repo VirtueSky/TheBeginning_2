@@ -8,7 +8,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Base.UI
 {
-    public class PopupWin : UIPopup
+    public class WinPopup : UIPopup
     {
         [SerializeField] private GameConfig gameConfig;
         private bool isDoneAllCoinGenerate;

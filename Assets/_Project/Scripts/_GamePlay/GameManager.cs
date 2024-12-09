@@ -37,21 +37,21 @@ namespace Base.Game
         public void BackHome()
         {
             GameState = GameState.Lobby;
-            PopupManager.Show<PopupHome>();
+            PopupManager.Show<HomePopup>();
             levelHolder.ClearTransform();
         }
 
         public void PlayCurrentLevel()
         {
             StartLevel();
-            PopupManager.Show<PopupInGame>();
+            PopupManager.Show<GameplayPopup>();
         }
 
         public void ReplayLevel()
         {
             OnReplayLevel?.Invoke(CurrentLevel());
             StartLevel();
-            PopupManager.Show<PopupInGame>();
+            PopupManager.Show<GameplayPopup>();
         }
 
         public async void NextLevel()
@@ -90,7 +90,7 @@ namespace Base.Game
             OnWinLevel?.Invoke(CurrentLevel());
             App.Delay(timeDelayShowPopup, () =>
             {
-                PopupManager.Show<PopupWin>(showPopupCompleted: () =>
+                PopupManager.Show<WinPopup>(showPopupCompleted: () =>
                 {
                     UserData.CurrentLevel++;
                     var ins = LevelLoader.LoadLevel();
@@ -104,7 +104,7 @@ namespace Base.Game
                 GameState == GameState.LoseLevel) return;
             GameState = GameState.LoseLevel;
             OnLoseLevel?.Invoke(CurrentLevel());
-            App.Delay(timeDelayShowPopup, () => { PopupManager.Show<PopupLose>(); });
+            App.Delay(timeDelayShowPopup, () => { PopupManager.Show<LosePopup>(); });
         }
 
         public GameState GameState

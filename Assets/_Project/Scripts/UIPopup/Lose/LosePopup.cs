@@ -2,7 +2,7 @@ using Base.Game;
 
 namespace Base.UI
 {
-    public class PopupLose : UIPopup
+    public class LosePopup : UIPopup
     {
         public void OnClickReplay()
         {

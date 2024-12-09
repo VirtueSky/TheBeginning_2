@@ -9,7 +9,7 @@ using Virtuesky.Events;
 
 namespace Base.UI
 {
-    public class PopupInGame : UIPopup
+    public class GameplayPopup : UIPopup
     {
         [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshProUGUI levelTypeText;
