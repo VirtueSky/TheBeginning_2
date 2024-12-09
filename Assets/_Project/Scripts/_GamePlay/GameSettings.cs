@@ -4,29 +4,51 @@ using VirtueSky.Inspector;
 [EditorIcon("icon_scriptable"), HideMonoScript]
 public class GameSettings : ScriptableObject
 {
-    [Space, HeaderLine("Level config")] public int maxLevel = 2;
-    public int startLoopLevel;
+    #region Field
 
-    [Space, HeaderLine("Gameplay config")] public bool enableDebugView = true;
+    [HeaderLine("Gameplay config")] [SerializeField]
+    private bool enableDebugView = true;
 
-    public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
-    public bool multiTouchEnabled;
-    public int winLevelMoney = 100;
-    public int percentWinGiftPerLevel = 10;
+    [SerializeField] private TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
+    [SerializeField] private bool multiTouchEnabled;
+    [SerializeField] private int winLevelMoney = 100;
+    [SerializeField] private int percentWinGiftPerLevel = 10;
 
-    [Space, HeaderLine("Notification In Game")]
-    public bool enableNotificationInGame = true;
+    [Space, HeaderLine("Notification In Game")] [SerializeField]
+    private bool enableNotificationInGame = true;
 
-    public float timeDelayHideNotificationInGame = 1.0f;
+    [ShowIf(nameof(enableNotificationInGame)), SerializeField]
+    private float timeDelayHideNotificationInGame = 1.0f;
 
-    [Space, HeaderLine("Require Internet")]
-    public bool enableRequireInternet = false;
+    [Space, HeaderLine("Require Internet")] [SerializeField]
+    private bool enableRequireInternet = false;
 
-    public float timeDelayCheckInternet = 5;
-    public float timeLoopCheckInternet = .5f;
+    [ShowIf(nameof(enableRequireInternet)), SerializeField]
+    private float timeDelayCheckInternet = 5;
 
-    [Space, HeaderLine("Show Popup Update")]
-    public bool enableShowPopupUpdate = false;
+    [ShowIf(nameof(enableRequireInternet)), SerializeField]
+    private float timeLoopCheckInternet = .5f;
+
+    [Space, HeaderLine("Show Popup Update")] [SerializeField]
+    private bool enableShowPopupUpdate = false;
+
+    #endregion
+
+    #region Properties
+
+    public bool EnableDebugView => enableDebugView;
+    public TargetFrameRate TargetFrameRate => targetFrameRate;
+    public bool MultiTouchEnabled => multiTouchEnabled;
+    public int WinLevelMoney => winLevelMoney;
+    public int PercentWinGiftPerLevel => percentWinGiftPerLevel;
+    public bool EnableNotificationInGame => enableNotificationInGame;
+    public float TimeDelayHideNotificationInGame => timeDelayHideNotificationInGame;
+    public bool EnableRequireInternet => enableRequireInternet;
+    public float TimeDelayCheckInternet => timeDelayCheckInternet;
+    public float TimeLoopCheckInternet => timeLoopCheckInternet;
+    public bool EnableShowPopupUpdate => enableShowPopupUpdate;
+
+    #endregion
 }
 
 public enum TargetFrameRate

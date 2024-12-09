@@ -54,10 +54,10 @@ namespace Base.Game
             PopupManager.Show<GameplayPopup>();
         }
 
-        public async void NextLevel()
+        public void NextLevel()
         {
             UserData.CurrentLevel++;
-            var levelPrefab = await LevelLoader.LoadLevel();
+            var levelPrefab = LevelLoader.LoadLevel();
             levelHolder.ClearTransform();
             Instantiate(levelPrefab, levelHolder, false);
             OnNextLevel?.Invoke(CurrentLevel());

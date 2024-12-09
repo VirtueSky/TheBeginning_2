@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using VirtueSky.Inspector;
-using Cysharp.Threading.Tasks;
 using VirtueSky.Misc;
 using VirtueSky.Utils;
 
@@ -12,6 +10,8 @@ namespace Base.UI
     [EditorIcon("icon_generator")]
     public class PopupManager : Singleton<PopupManager>
     {
+        [SerializeField] private PopupSettings popupSettings;
+
         [HeaderLine("Environment", false, CustomColor.Aqua, CustomColor.Beige)] [SerializeField]
         private Transform parentContainer;
 
@@ -19,13 +19,12 @@ namespace Base.UI
 
         private int index = 1;
 
-        private async void InternalShow<T>(bool isHideAll = true, Action showPopupCompleted = null)
+        private void InternalShow<T>(bool isHideAll = true, Action showPopupCompleted = null)
         {
             _container.TryGetValue(typeof(T), out UIPopup popup);
             if (popup == null)
             {
-                var obj = await Addressables.LoadAssetAsync<GameObject>(GetKeyPopup(typeof(T).ToString()));
-                var popupPrefab = obj.GetComponent<UIPopup>();
+                var popupPrefab = popupSettings.GetPrefabPopup(typeof(T).Name);
                 if (popupPrefab != null)
                 {
                     var popupInstance = Instantiate(popupPrefab, parentContainer);

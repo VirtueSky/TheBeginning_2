@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 0}
   previousLevel: {fileID: 0}
-  gameSettings: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  levelSettings: {fileID: 11400000, guid: c2c884351f28ae843802e93a35463152, type: 2}
 --- !u!114 &1646167648
 MonoBehaviour:
   m_ObjectHideFlags: 0

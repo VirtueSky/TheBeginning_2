@@ -444,6 +444,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &1263461802
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,8 +834,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
+  popupSettings: {fileID: 11400000, guid: 5b3bdb5e5106cae43a176f978bc073e8, type: 2}
   parentContainer: {fileID: 1536123558}
-  cameraUI: {fileID: 714015873}
 --- !u!1 &2095473172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressBar: {fileID: 407301744253377686}
   localeTextLoading: {fileID: 5080742876099345293}
-  timeLoading: 2.5
+  timeLoading: 1.5
   isWaitingFetchRemoteConfig: 0
 --- !u!114 &4038346323238380603
 MonoBehaviour:

@@ -39,20 +39,20 @@ namespace Base.Services
 
         private void InternalShow(string _textNoti)
         {
-            if (!gameSettings.enableNotificationInGame) return;
+            if (!gameSettings.EnableNotificationInGame) return;
             if (isShow) return;
             isShow = true;
             gameObject.SetActive(true);
             textNoti.text = _textNoti;
             Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack).OnComplete(() =>
             {
-                App.Delay(gameSettings.timeDelayHideNotificationInGame, () => { InternalHide(); });
+                App.Delay(gameSettings.TimeDelayHideNotificationInGame, () => { InternalHide(); });
             });
         }
 
         private void InternalHide()
         {
-            if (!gameSettings.enableNotificationInGame) return;
+            if (!gameSettings.EnableNotificationInGame) return;
             if (!isShow) return;
             Tween.UIAnchoredPositionY(container, posYHide, timeMove, Ease.InBack).OnComplete(() =>
             {

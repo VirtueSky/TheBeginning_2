@@ -37,7 +37,7 @@ namespace Base.Services
 
         public override void Initialization()
         {
-            if (!gameSettings.enableDebugView)
+            if (!gameSettings.EnableDebugView)
             {
                 debugViewSheet.gameObject.SetActive(false);
                 return;
