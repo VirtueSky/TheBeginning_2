@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.0",
+      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
       },
-      "hash": "53e6b41b9da8909ef6caa435dad523146621b5f0"
+      "hash": "3d23cbfcdb1f746ff059c271b135a9bead933a39"
     },
     "com.coffee.ui-particle": {
       "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.10.2",
@@ -281,7 +281,7 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/unity-package/sunflower_2.git#1.4.7",
+      "version": "https://github.com/unity-package/sunflower_2.git#1.4.8",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -290,7 +290,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "9f97aa25ba5731b29e2947e451b8fd286413b488"
+      "hash": "e4754cf706b7f9f6f29be2f75f0e1109d06ca635"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
