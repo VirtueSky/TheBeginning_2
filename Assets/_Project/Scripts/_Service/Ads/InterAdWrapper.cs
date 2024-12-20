@@ -49,7 +49,7 @@ namespace Base.Services
                    UserData.CurrentLevel >= RemoteData.LEVEL_TURN_ON_INTER_ADS &&
                    adsCounter >= RemoteData.INTER_CAPPING_LEVEL &&
                    timeAdsPlay >= RemoteData.INTER_CAPPING_TIME && RemoteData.ON_OFF_INTER &&
-                   !UserData.IsOffInterAdsDebug;
+                   !UserData.IsOnOffInterAdsDebug;
         }
 
         public void Show(Action completed = null, Action displayed = null)

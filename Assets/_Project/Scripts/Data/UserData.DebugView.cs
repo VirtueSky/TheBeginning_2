@@ -16,31 +16,31 @@ namespace Base.Data
             }
         }
 
-        public static bool IsOffInterAdsDebug
+        public static bool IsOnOffInterAdsDebug
         {
-            get => GameData.Get(Constant.IS_OFF_INTER_ADS_ADMIN, false);
+            get => GameData.Get(Constant.IS_OFF_INTER_ADS_ADMIN, true);
             set => GameData.Set(Constant.IS_OFF_INTER_ADS_ADMIN, value);
         }
 
-        public static bool IsOffBannerAdsDebug
+        public static bool IsOnOffBannerAdsDebug
         {
-            get => GameData.Get(Constant.IS_OFF_BANNER_ADS_ADMIN, false);
+            get => GameData.Get(Constant.IS_OFF_BANNER_ADS_ADMIN, true);
             set => GameData.Set(Constant.IS_OFF_BANNER_ADS_ADMIN, value);
         }
 
-        public static bool IsOffRewardAdsDebug
+        public static bool IsOnOffRewardAdsDebug
         {
-            get => GameData.Get(Constant.IS_OFF_REWARD_ADS_ADMIN, false);
+            get => GameData.Get(Constant.IS_OFF_REWARD_ADS_ADMIN, true);
             set => GameData.Set(Constant.IS_OFF_REWARD_ADS_ADMIN, value);
         }
 
-        public static bool IsOffUIDebug
+        public static bool IsOnOffUIDebug
         {
-            get => GameData.Get(Constant.IS_OFF_UI_ADMIN, false);
+            get => GameData.Get(Constant.IS_OFF_UI_ADMIN, true);
             set
             {
                 GameData.Set(Constant.IS_OFF_UI_ADMIN, value);
-                EventName.OffUIChanged.Raise(value);
+                EventName.OnOffUIChanged.Raise(value);
             }
         }
     }

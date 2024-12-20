@@ -477,7 +477,6 @@ MonoBehaviour:
   serviceInitializations:
   - {fileID: 431478661}
   - {fileID: 431478666}
-  - {fileID: 0}
   - {fileID: 431478665}
   - {fileID: 431478662}
   - {fileID: 431478663}

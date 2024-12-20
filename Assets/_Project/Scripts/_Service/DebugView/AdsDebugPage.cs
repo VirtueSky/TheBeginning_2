@@ -37,13 +37,13 @@ namespace Base.Services
             AddButton("Hide Banner", clicked: HideBanner);
             AddButton("Show Inter", clicked: ShowInter);
             AddButton("Show Reward", clicked: ShowReward);
-            AddSwitch(UserData.IsOffInterAdsDebug, "Is Off Inter", valueChanged: b => UserData.IsOffInterAdsDebug = b,
+            AddSwitch(UserData.IsOnOffInterAdsDebug, "On/Off Inter", valueChanged: b => UserData.IsOnOffInterAdsDebug = b,
                 icon: iconToggle);
-            AddSwitch(UserData.IsOffBannerAdsDebug, "Is Off Banner",
-                valueChanged: b => UserData.IsOffBannerAdsDebug = b,
+            AddSwitch(UserData.IsOnOffBannerAdsDebug, "On/Off Banner",
+                valueChanged: b => UserData.IsOnOffBannerAdsDebug = b,
                 icon: iconToggle);
-            AddSwitch(UserData.IsOffRewardAdsDebug, "Is Off Reward",
-                valueChanged: b => UserData.IsOffRewardAdsDebug = b,
+            AddSwitch(UserData.IsOnOffRewardAdsDebug, "On/Off Reward",
+                valueChanged: b => UserData.IsOnOffRewardAdsDebug = b,
                 icon: iconToggle);
         }
 
