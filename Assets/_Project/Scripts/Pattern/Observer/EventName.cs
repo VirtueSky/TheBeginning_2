@@ -6,6 +6,6 @@ namespace Virtuesky.Events
         IsTestingChanged,
         CurrentLevelChanged,
         ClaimDailyReward,
-        OffUIChanged,
+        OnOffUIChanged,
     }
 }

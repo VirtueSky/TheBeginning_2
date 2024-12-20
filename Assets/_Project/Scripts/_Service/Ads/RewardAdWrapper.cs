@@ -14,7 +14,7 @@ namespace Base.Services
 
         bool Conditions()
         {
-            return Advertising.RewardAd.IsReady() && !UserData.IsOffRewardAdsDebug;
+            return Advertising.RewardAd.IsReady() && !UserData.IsOnOffRewardAdsDebug;
         }
 
         public void Show(Action completed = null, Action skipped = null, Action displayed = null, Action closed = null)

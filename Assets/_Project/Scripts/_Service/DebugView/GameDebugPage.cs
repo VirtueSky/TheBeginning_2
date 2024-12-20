@@ -51,7 +51,7 @@ namespace Base.Services
                     if (_targetCoin != "") CoinSystem.SetCoin(int.Parse(_targetCoin));
                 },
                 icon: iconOk);
-            AddSwitch(UserData.IsOffUIDebug, "Is Hide UI", valueChanged: b => UserData.IsOffUIDebug = b,
+            AddSwitch(UserData.IsOnOffUIDebug, "On/Off UI", valueChanged: b => UserData.IsOnOffUIDebug = b,
                 icon: iconToggle);
             AddSwitch(UserData.IsTestingDebug, "Is Testing", valueChanged: b => UserData.IsTestingDebug = b,
                 icon: iconToggle);

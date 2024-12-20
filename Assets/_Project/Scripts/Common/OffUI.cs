@@ -15,13 +15,13 @@ public class OffUI : MonoBehaviour
     private void OnEnable()
     {
         GetComponentUI();
-        EventName.OffUIChanged.AddListener(Setup);
-        Setup(UserData.IsOffUIDebug);
+        EventName.OnOffUIChanged.AddListener(Setup);
+        Setup(UserData.IsOnOffUIDebug);
     }
 
     private void OnDisable()
     {
-        EventName.OffUIChanged.RemoveListener(Setup);
+        EventName.OnOffUIChanged.RemoveListener(Setup);
     }
 
     void Setup(bool isOff)
@@ -29,7 +29,7 @@ public class OffUI : MonoBehaviour
         if (listGraphics.Count == 0) return;
         foreach (var graphic in listGraphics)
         {
-            graphic.SetAlpha(isOff ? 0 : 1);
+            graphic.SetAlpha(isOff ? 1 : 0);
         }
     }
 
