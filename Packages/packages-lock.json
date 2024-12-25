@@ -281,16 +281,17 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/unity-package/sunflower_2.git#1.4.8",
+      "version": "https://github.com/unity-package/sunflower_2.git#1.4.9",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.serialization": "3.1.1",
         "com.unity.collections": "2.1.4",
         "com.unity.textmeshpro": "3.0.8",
-        "com.unity.addressables": "1.21.20"
+        "com.unity.addressables": "1.21.20",
+        "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
       },
-      "hash": "e4754cf706b7f9f6f29be2f75f0e1109d06ca635"
+      "hash": "4bf455001fcf930a0f4bc4232911b298130fd29c"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
