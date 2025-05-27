@@ -14,12 +14,13 @@ namespace Base.Services
 
         bool Conditions()
         {
-            return Advertising.BannerAd.IsReady() && !UserData.IsOffBannerAdsDebug && RemoteData.ON_OFF_BANNER;
+            return Advertising.BannerAd(AdNetwork.Admob).IsReady() && !UserData.IsOffBannerAdsDebug &&
+                   RemoteData.ON_OFF_BANNER;
         }
 
         public void Show()
         {
-            if (Conditions()) Advertising.BannerAd.Show();
+            if (Conditions()) Advertising.BannerAd(AdNetwork.Admob).Show();
         }
     }
 }

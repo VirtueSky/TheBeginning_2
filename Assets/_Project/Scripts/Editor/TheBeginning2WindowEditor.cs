@@ -15,7 +15,7 @@ public class TheBeginning2WindowEditor : EditorWindow
     [MenuItem("TheBeginning_2/Open GameConfig %`", priority = 1)]
     public static void OpenGameConfigWindow()
     {
-        GameConfig gameConfig = AssetUtils.FindAssetAtFolder<GameConfig>(new string[] { "Assets" }).FirstOrDefault();
+        GameConfig gameConfig = FileExtension.FindAssetAtFolder<GameConfig>(new string[] { "Assets" }).FirstOrDefault();
         TheBeginning2WindowEditor window = GetWindow<TheBeginning2WindowEditor>("Game Config");
         window._gameConfig = gameConfig;
         if (window == null)

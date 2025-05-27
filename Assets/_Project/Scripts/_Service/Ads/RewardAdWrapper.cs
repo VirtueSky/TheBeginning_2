@@ -14,14 +14,15 @@ namespace Base.Services
 
         bool Conditions()
         {
-            return Advertising.RewardAd.IsReady() && !UserData.IsOffRewardAdsDebug;
+            return Advertising.RewardAd(AdNetwork.Admob).IsReady() && !UserData.IsOffRewardAdsDebug;
         }
 
         public void Show(Action completed = null, Action skipped = null, Action displayed = null, Action closed = null)
         {
             if (Conditions())
             {
-                Advertising.RewardAd.Show().OnCompleted(completed).OnSkipped(skipped).OnDisplayed(displayed)
+                Advertising.RewardAd(AdNetwork.Admob).Show().OnCompleted(completed).OnSkipped(skipped)
+                    .OnDisplayed(displayed)
                     .OnClosed(closed);
             }
         }
