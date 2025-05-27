@@ -3,6 +3,8 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityToolbarExtender;
+using VirtueSky.DataStorage;
 using VirtueSky.Misc;
 using VirtueSky.UtilsEditor;
 
@@ -61,6 +63,38 @@ public class TheBeginning2WindowEditor : EditorWindow
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICES_SCENE}.unity");
         Debug.Log($"Change {Constant.SERVICES_SCENE} scene succeed".SetColor(Color.cyan));
+    }
+
+    static TheBeginning2WindowEditor()
+    {
+        ToolbarExtender.LeftToolbarGUI.Add(() =>
+        {
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("Service Scene"))
+            {
+                PlayFromServiceScene();
+            }
+
+            if (GUILayout.Button("Game Scene"))
+            {
+                PlayFromGamePlayScene();
+            }
+        });
+
+        ToolbarExtender.RightToolbarGUI.Add(() =>
+        {
+            if (GUILayout.Button("Game Config"))
+            {
+                OpenGameConfigWindow();
+            }
+
+            if (GUILayout.Button("Clear All Data"))
+            {
+                DataWindowEditor.ClearAllData();
+            }
+
+            GUILayout.FlexibleSpace();
+        });
     }
 }
 #endif
