@@ -37,7 +37,8 @@ namespace Base.Services
             AddButton("Hide Banner", clicked: HideBanner);
             AddButton("Show Inter", clicked: ShowInter);
             AddButton("Show Reward", clicked: ShowReward);
-            AddSwitch(UserData.IsOnOffInterAdsDebug, "On/Off Inter", valueChanged: b => UserData.IsOnOffInterAdsDebug = b,
+            AddSwitch(UserData.IsOnOffInterAdsDebug, "On/Off Inter",
+                valueChanged: b => UserData.IsOnOffInterAdsDebug = b,
                 icon: iconToggle);
             AddSwitch(UserData.IsOnOffBannerAdsDebug, "On/Off Banner",
                 valueChanged: b => UserData.IsOnOffBannerAdsDebug = b,
@@ -51,7 +52,7 @@ namespace Base.Services
         {
             if (Application.isMobilePlatform)
             {
-                Advertising.BannerAd.Show();
+                Advertising.BannerAd(AdNetwork.Admob).Show();
             }
             else
             {
@@ -63,7 +64,7 @@ namespace Base.Services
         {
             if (Application.isMobilePlatform)
             {
-                Advertising.BannerAd.HideBanner();
+                Advertising.BannerAd(AdNetwork.Admob).HideBanner();
             }
             else
             {
@@ -75,7 +76,7 @@ namespace Base.Services
         {
             if (Application.isMobilePlatform)
             {
-                Advertising.InterstitialAd.Show();
+                Advertising.InterstitialAd(AdNetwork.Admob).Show();
             }
             else
             {
@@ -87,7 +88,7 @@ namespace Base.Services
         {
             if (Application.isMobilePlatform)
             {
-                Advertising.RewardAd.Show();
+                Advertising.RewardAd(AdNetwork.Admob).Show();
             }
             else
             {
