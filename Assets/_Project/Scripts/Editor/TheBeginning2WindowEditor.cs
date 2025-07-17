@@ -7,7 +7,7 @@ using UnityToolbarExtender;
 using VirtueSky.DataStorage;
 using VirtueSky.Misc;
 using VirtueSky.UtilsEditor;
-
+[InitializeOnLoad]
 public class TheBeginning2WindowEditor : EditorWindow
 {
     private Editor _editorGameConfig;

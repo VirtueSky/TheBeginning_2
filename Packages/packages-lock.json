@@ -1,23 +1,23 @@
 {
   "dependencies": {
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.0",
+      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.9.6",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
       },
-      "hash": "53e6b41b9da8909ef6caa435dad523146621b5f0"
+      "hash": "6f90044ec83adbd66475a6d2b5baa38e85678809"
     },
     "com.coffee.ui-particle": {
-      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.10.2",
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.11.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
-      "hash": "2b3cec69aceddbddf1c5307d28300c3328161ab4"
+      "hash": "4b98abd7469b10d55c9c623830cb6e1518f72731"
     },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10",
@@ -84,7 +84,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ai.navigation": {
-      "version": "1.1.5",
+      "version": "2.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -103,7 +103,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "2.4.3",
+      "version": "2.7.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -153,7 +153,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.7.0",
+      "version": "1.13.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -176,6 +176,14 @@
         "com.unity.modules.androidjni": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.unity.multiplayer.center": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      }
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.4",
@@ -252,7 +260,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.sharp-zip-lib": {
-      "version": "1.3.3-preview",
+      "version": "1.3.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -280,14 +288,14 @@
     },
     "com.unity.textmeshpro": {
       "version": "5.0.0",
-      "depth": 0,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.ugui": "2.0.0"
       }
     },
     "com.unity.timeline": {
-      "version": "1.7.6",
+      "version": "1.8.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -308,7 +316,7 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/wolf-org/sunflower_2.git#1.5.5",
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.6.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -318,7 +326,13 @@
         "com.unity.addressables": "1.21.20",
         "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
       },
-      "hash": "57c9d96bcfd1729634e9c0050641d52621061d23"
+      "hash": "9a5591924a5844c1a2f30ff159014ea6e7f0d2fc"
+    },
+    "com.unity.modules.accessibility": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
