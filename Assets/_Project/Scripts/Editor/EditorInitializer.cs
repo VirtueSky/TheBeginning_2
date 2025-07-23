@@ -1,20 +1,46 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using Cysharp.Threading.Tasks;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.SceneManagement;
 
-public struct EditorInitializer
+[InitializeOnLoad]
+public static class EditorInitializer
 {
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    public static async void RuntimeEditorInitialize()
+    static EditorInitializer()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
-        switch (currentScene)
+        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+    }
+
+    private const string serviceScenePath = "Assets/_Project/Scenes/Service.unity";
+    const string SaveSceneKey = "SaveSceneKey";
+
+    private static void OnPlayModeStateChanged(PlayModeStateChange state)
+    {
+        switch (state)
         {
-            case Constant.SERVICES_SCENE:
-                return;
-            case Constant.GAMEPLAY_SCENE:
-                await SceneManager.LoadSceneAsync(Constant.SERVICES_SCENE);
+            case PlayModeStateChange.ExitingEditMode:
+                var activeScenePath = EditorSceneManager.GetActiveScene().path;
+                if (!activeScenePath.Equals(serviceScenePath))
+                {
+                    EditorPrefs.SetString(SaveSceneKey, activeScenePath);
+                    EditorApplication.isPlaying = false;
+                    EditorApplication.delayCall += () =>
+                    {
+                        EditorSceneManager.OpenScene(serviceScenePath);
+                        EditorApplication.isPlaying = true;
+                    };
+                }
+
+                break;
+            case PlayModeStateChange.EnteredEditMode:
+                if (EditorPrefs.HasKey(SaveSceneKey))
+                {
+                    string previousScenePath = EditorPrefs.GetString(SaveSceneKey);
+                    EditorPrefs.DeleteKey(SaveSceneKey);
+                    EditorApplication.delayCall += () => { EditorSceneManager.OpenScene(previousScenePath); };
+                }
+
                 break;
         }
     }
 }
+#endif

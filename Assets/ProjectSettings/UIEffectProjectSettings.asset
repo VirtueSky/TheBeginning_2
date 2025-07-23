@@ -32,7 +32,9 @@ MonoBehaviour:
   m_UseHDRColorPicker: 1
   m_ShaderVariantCollection: {fileID: -2970441130086979049}
   m_ShaderVariantRegistry:
-    m_OptionalShaders: []
+    m_OptionalShaders:
+    - key: Hidden/UI/Default (SoftMaskable)
+      value: Hidden/UI/Default (UIEffect)
     m_Asset: {fileID: -2970441130086979049}
     m_ErrorOnUnregisteredVariant: 0
     m_UnregisteredVariants: []
