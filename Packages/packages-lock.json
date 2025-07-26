@@ -316,7 +316,7 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/wolf-org/sunflower_2.git#1.6.1",
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.6.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -326,7 +326,7 @@
         "com.unity.addressables": "1.21.20",
         "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
       },
-      "hash": "84d6b8716c5c7725b652219413ce0fe23e256f3f"
+      "hash": "9ba606f0c30745aa1aec2f648d3a49f11f63911c"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
