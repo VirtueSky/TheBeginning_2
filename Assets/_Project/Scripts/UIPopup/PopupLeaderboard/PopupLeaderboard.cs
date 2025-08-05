@@ -295,7 +295,7 @@ namespace Base.UI
 #if UNITY_EDITOR
             return playerNameEditor;
 #else
-            return ServiceAuthentication.GetNameAuthentication();
+            return ServiceAuthentication.UserName;
 #endif
         }
 

@@ -11,10 +11,10 @@ namespace Base.Services
 
         public override void Initialization()
         {
-            if (gameConfig.enableRequireInternet)
+            if (gameConfig.EnableRequireInternet)
             {
-                InvokeRepeating(nameof(CheckInternet), gameConfig.timeDelayCheckInternet,
-                    gameConfig.timeLoopCheckInternet);
+                InvokeRepeating(nameof(CheckInternet), gameConfig.TimeDelayCheckInternet,
+                    gameConfig.TimeLoopCheckInternet);
             }
         }
 

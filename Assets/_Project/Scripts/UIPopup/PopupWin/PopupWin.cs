@@ -34,7 +34,7 @@ namespace Base.UI
 
         public async void OnClickContinue()
         {
-            CoinSystem.AddCoin(gameConfig.winLevelMoney);
+            CoinSystem.AddCoin(gameConfig.WinLevelMoney);
             await UniTask.WaitUntil(() => isDoneAllCoinGenerate);
             GameManager.Instance.PlayCurrentLevel();
             Hide();
