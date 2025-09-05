@@ -4,6 +4,7 @@ using Unity.Advertisement.IosSupport;
 using VirtueSky.Inspector;
 using VirtueSky.RemoteConfigs;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Tracking;
 
@@ -15,6 +16,7 @@ namespace Base.Services
         public override void Initialization()
         {
             RequireTracking();
+            GetInfo();
         }
 
         private void RequireTracking()
@@ -50,6 +52,33 @@ namespace Base.Services
         {
             await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.FirebaseDependencyAvailable);
             AppTracking.TrackEventATTResult(status);
+        }
+
+        void GetInfo()
+        {
+            string deviceId = SystemInfo.deviceUniqueIdentifier;
+            Debug.Log($"DeviceID: {deviceId}");
+            Application.RequestAdvertisingIdentifierAsync((string advertisingId, bool trackingEnable, string error) =>
+            {
+                if (!string.IsNullOrEmpty(advertisingId))
+                {
+                    Debug.Log($"AdvertisingId: {advertisingId}");
+                }
+                else
+                {
+                    Debug.Log("Failed to get AdvertisingId");
+                }
+
+                if (!trackingEnable)
+                {
+                    Debug.Log("User has limited ad tracking");
+                }
+
+                if (!string.IsNullOrEmpty(error))
+                {
+                    Debug.Log($"Error when get AdvertisingId: {error}");
+                }
+            });
         }
     }
 }
