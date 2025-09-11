@@ -52,3 +52,9 @@ subgraph ServiceScene["<i class="fa-brands fa-unity"></i> Service Scene"]
 
 
 ![Unity_9YRD8rJRE1](https://github.com/user-attachments/assets/73692ff8-918a-4721-bd7b-c380d4a9cb14)
+
+
+- Disable Automatically switch service scene when play editor mode via `The Beginning` > `Auto Switch Service Scene`
+
+
+https://github.com/user-attachments/assets/3f4980a7-2c61-4a6e-b738-535df046b9f5
