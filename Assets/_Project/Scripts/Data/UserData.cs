@@ -2,7 +2,7 @@ using System;
 using Base.Global;
 using UnityEngine;
 using VirtueSky.DataStorage;
-using Virtuesky.Events;
+using Virtuesky.Pattern;
 
 namespace Base.Data
 {

@@ -4,7 +4,7 @@ using Base.Data;
 using Base.Global;
 using UnityEngine;
 using UnityEngine.UI;
-using Virtuesky.Events;
+using Virtuesky.Pattern;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
 
@@ -15,13 +15,13 @@ public class OffUI : MonoBehaviour
     private void OnEnable()
     {
         GetComponentUI();
-        EventName.OffUIChanged.AddListener(Setup);
+        EventName.OffUIChanged.AddListener<bool>(Setup);
         Setup(UserData.IsOffUIDebug);
     }
 
     private void OnDisable()
     {
-        EventName.OffUIChanged.RemoveListener(Setup);
+        EventName.OffUIChanged.RemoveListener<bool>(Setup);
     }
 
     void Setup(bool isOff)

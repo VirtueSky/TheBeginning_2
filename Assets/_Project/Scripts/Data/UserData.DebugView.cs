@@ -1,6 +1,6 @@
 using Base.Global;
 using VirtueSky.DataStorage;
-using Virtuesky.Events;
+using Virtuesky.Pattern;
 
 namespace Base.Data
 {
@@ -40,7 +40,7 @@ namespace Base.Data
             set
             {
                 GameData.Set(Constant.IS_OFF_UI_ADMIN, value);
-                EventName.OffUIChanged.Raise(value);
+                EventName.OffUIChanged.Raise<bool>(value);
             }
         }
     }

@@ -1,4 +1,4 @@
-namespace Virtuesky.Events
+namespace Virtuesky.Pattern
 {
     public enum EventName
     {
