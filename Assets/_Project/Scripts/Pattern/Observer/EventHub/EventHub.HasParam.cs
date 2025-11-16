@@ -1,6 +1,6 @@
 using System;
 
-namespace Virtuesky.Pattern
+namespace VirtueSky.Pattern
 {
     public static partial class EventHub
     {

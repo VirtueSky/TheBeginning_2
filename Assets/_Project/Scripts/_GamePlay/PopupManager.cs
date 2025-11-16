@@ -6,6 +6,7 @@ using UnityEngine.AddressableAssets;
 using VirtueSky.Inspector;
 using Cysharp.Threading.Tasks;
 using VirtueSky.Misc;
+using VirtueSky.Pattern;
 using VirtueSky.Utils;
 
 namespace Base.Game

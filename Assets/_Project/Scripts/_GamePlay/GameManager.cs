@@ -7,6 +7,7 @@ using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
+using VirtueSky.Pattern;
 using VirtueSky.Tracking;
 
 namespace Base.Game

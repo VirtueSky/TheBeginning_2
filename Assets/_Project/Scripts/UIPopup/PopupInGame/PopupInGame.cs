@@ -4,7 +4,7 @@ using Base.Global;
 using TMPro;
 using UnityEngine;
 using VirtueSky.Audio;
-using Virtuesky.Pattern;
+using VirtueSky.Pattern;
 
 
 namespace Base.UI

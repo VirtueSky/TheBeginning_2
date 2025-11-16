@@ -7,7 +7,7 @@ using Base.Global;
 using Base.Services;
 using UnityEngine;
 using VirtueSky.Inspector;
-using Virtuesky.Pattern;
+using VirtueSky.Pattern;
 using VirtueSky.Utils;
 
 namespace Base.UI

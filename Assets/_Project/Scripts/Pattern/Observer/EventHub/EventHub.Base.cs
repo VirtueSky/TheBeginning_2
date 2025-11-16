@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace Virtuesky.Pattern
+namespace VirtueSky.Pattern
 {
     /// <summary>
     /// Static event hub sử dụng Observer Pattern với type safety và IDisposable pattern.

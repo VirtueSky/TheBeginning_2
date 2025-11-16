@@ -3,7 +3,7 @@ using Base.Data;
 using Base.Global;
 using UnityEngine;
 using VirtueSky.Core;
-using Virtuesky.Pattern;
+using VirtueSky.Pattern;
 using VirtueSky.Inspector;
 
 public class ShowObject : MonoBehaviour

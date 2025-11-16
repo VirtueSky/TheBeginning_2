@@ -8,6 +8,7 @@ using VirtueSky.Audio;
 using VirtueSky.Core;
 using VirtueSky.ObjectPooling;
 using Cysharp.Threading.Tasks;
+using VirtueSky.Pattern;
 using Random = UnityEngine.Random;
 
 namespace Base.Global
@@ -127,12 +128,11 @@ namespace Base.Global
                 .DOMove(coin.transform.position + (Vector3)Random.insideUnitCircle * offsetNear,
                     durationNear)
                 .SetEase(easeNear)
-                .OnComplete(
-                    () =>
-                    {
-                        coin.transform.DOMove(to.transform.position, durationTarget).SetEase(easeTarget)
-                            .OnComplete(completed);
-                    });
+                .OnComplete(() =>
+                {
+                    coin.transform.DOMove(to.transform.position, durationTarget).SetEase(easeTarget)
+                        .OnComplete(completed);
+                });
         }
 
 

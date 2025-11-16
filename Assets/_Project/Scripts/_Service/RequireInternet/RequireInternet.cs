@@ -1,3 +1,5 @@
+using VirtueSky.Pattern;
+
 namespace Base.Services
 {
     public class RequireInternet : Singleton<RequireInternet>

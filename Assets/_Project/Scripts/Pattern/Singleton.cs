@@ -1,32 +1,35 @@
 using UnityEngine;
 using VirtueSky.Core;
 
-public abstract class Singleton<T> : BaseMono where T : MonoBehaviour
+namespace VirtueSky.Pattern
 {
-    [SerializeField] private bool isDontDestroyOnLoad;
-    static T _instance;
-
-    public static T Instance => _instance ??= FindObjectOfType<T>();
-
-    protected virtual void Awake()
+    public abstract class Singleton<T> : BaseMono where T : MonoBehaviour
     {
-        if (isDontDestroyOnLoad)
+        [SerializeField] private bool isDontDestroyOnLoad;
+        static T _instance;
+
+        public static T Instance => _instance ??= FindObjectOfType<T>();
+
+        protected virtual void Awake()
         {
-            DontDestroyOnLoad(this);
+            if (isDontDestroyOnLoad)
+            {
+                DontDestroyOnLoad(this);
+            }
+
+            if (_instance == null)
+            {
+                _instance = this as T;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
-        if (_instance == null)
+        protected virtual void OnDestroy()
         {
-            _instance = this as T;
+            if (_instance == this) _instance = null;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    protected virtual void OnDestroy()
-    {
-        if (_instance == this) _instance = null;
     }
 }

@@ -4,7 +4,7 @@ using Base.Data;
 using Base.Global;
 using UnityEngine;
 using UnityEngine.UI;
-using Virtuesky.Pattern;
+using VirtueSky.Pattern;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
 

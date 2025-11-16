@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using Virtuesky.Pattern;
+using VirtueSky.Pattern;
 
 public class LiteEventHubExample : MonoBehaviour
 {
