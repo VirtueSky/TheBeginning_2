@@ -316,8 +316,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431478659}
-  - component: {fileID: 431478669}
   - component: {fileID: 431478670}
+  - component: {fileID: 431478669}
   - component: {fileID: 431478661}
   - component: {fileID: 431478666}
   - component: {fileID: 431478665}
