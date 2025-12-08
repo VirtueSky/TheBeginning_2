@@ -6,6 +6,8 @@ using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.RemoteConfigs;
 using Cysharp.Threading.Tasks;
+using UnityEngine.AddressableAssets;
+using UnityEngine.SceneManagement;
 using VirtueSky.Localization;
 
 namespace Base.Launcher
@@ -17,25 +19,34 @@ namespace Base.Launcher
         public LocaleTextComponent localeTextLoading;
         [Range(0.1f, 10f)] public float timeLoading = 5f;
         [SerializeField] bool isWaitingFetchRemoteConfig = true;
+        private bool isProgressDone = false;
 
-        private void Start()
+        private void Awake()
+        {
+            Init();
+            LoadScene();
+        }
+
+        void Init()
         {
             progressBar.fillAmount = 0;
             progressBar.DOFillAmount(1, timeLoading)
                 .OnUpdate(progressBar,
                     (image, tween) => localeTextLoading.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}"))
-                .OnComplete(Done);
+                .OnComplete(() => isProgressDone = true, false);
         }
 
-        private async void Done()
+        private async void LoadScene()
         {
+            await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive);
+            await UniTask.WaitUntil(() => isProgressDone);
+            App.Delay(1.0f, () => { NotificationInGame.Show("Welcome TheBeginning"); });
             if (isWaitingFetchRemoteConfig)
             {
                 await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.IsFetchRemoteConfigCompleted);
             }
 
-            NotificationInGame.Show("Welcome!");
-            Destroy(gameObject);
+            SceneLoader.Instance.ChangeScene(Constant.GAMEPLAY_SCENE);
         }
     }
 }

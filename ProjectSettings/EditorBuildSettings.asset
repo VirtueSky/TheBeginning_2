@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/Service.unity
     guid: 77b1768aad43e4481a4442ca9598a1cd
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/Gameplay.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
@@ -16,3 +16,4 @@ EditorBuildSettings:
       type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: e252a1bbdd4d9104f85f8e5d9f667680,
       type: 2}
+  m_UseUCBPForAssetBundles: 0

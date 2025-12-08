@@ -6,8 +6,8 @@ using UnityEditor.SceneManagement;
 public static class EditorInitializer
 {
     private const string enableAutoSwitchKey = "EditorInitializer_Enable";
-    private const string menuPath = "The Beginning/Auto Switch Service Scene";
-    private const string serviceScenePath = "Assets/_Project/Scenes/Service.unity";
+    private const string menuPath = "TheBeginning_2/Auto Switch Launcher Scene";
+    private const string serviceScenePath = "Assets/_Project/Scenes/Launcher.unity";
     private const string saveSceneKey = "SaveSceneKey";
 
     static EditorInitializer()

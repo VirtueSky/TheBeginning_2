@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using VirtueSky.Inspector;
 using VirtueSky.Localization;
 
@@ -15,7 +14,6 @@ namespace Base.Services
             Application.targetFrameRate = (int)gameConfig.TargetFrameRate;
             Input.multiTouchEnabled = gameConfig.MultiTouchEnabled;
             Locale.LoadLanguageSetting();
-            SceneManager.LoadSceneAsync(Constant.GAMEPLAY_SCENE, LoadSceneMode.Additive);
         }
     }
 }
