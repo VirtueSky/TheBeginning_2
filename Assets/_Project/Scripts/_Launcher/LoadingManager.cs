@@ -38,7 +38,7 @@ namespace Base.Launcher
 
         private async void LoadScene()
         {
-            await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive);
+            await SceneLoader.Instance.LoadSceneAdditiveAsync(Constant.SERVICE_SCENE);
             await UniTask.WaitUntil(() => isProgressDone);
             App.Delay(1.0f, () => { NotificationInGame.Show("Welcome TheBeginning"); });
             if (isWaitingFetchRemoteConfig)
@@ -46,7 +46,7 @@ namespace Base.Launcher
                 await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.IsFetchRemoteConfigCompleted);
             }
 
-            SceneLoader.Instance.ChangeScene(Constant.GAMEPLAY_SCENE);
+            await SceneLoader.Instance.ChangeSceneAsync(Constant.GAMEPLAY_SCENE);
         }
     }
 }

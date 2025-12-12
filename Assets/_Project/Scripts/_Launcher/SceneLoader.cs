@@ -1,45 +1,96 @@
+using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
+using VirtueSky.DataType;
 using VirtueSky.Pattern;
 
 namespace Base.Launcher
 {
     public class SceneLoader : Singleton<SceneLoader>
     {
-        public static Dictionary<string, AsyncOperationHandle<SceneInstance>> sceneHolder =
-            new Dictionary<string, AsyncOperationHandle<SceneInstance>>();
+        public DictionaryCustom<string, AsyncOperationHandle<SceneInstance>> sceneHolder =
+            new DictionaryCustom<string, AsyncOperationHandle<SceneInstance>>();
 
-        public void ChangeScene(string sceneName)
+        public async UniTask<bool> LoadSceneAdditiveAsync(string sceneName, Action<float> onProgress = null)
         {
+            var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            
+            while (!handle.IsDone)
+            {
+                onProgress?.Invoke(handle.PercentComplete);
+                await UniTask.Yield();
+            }
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                string loadedSceneName = handle.Result.Scene.name;
+                if (!sceneHolder.ContainsKey(loadedSceneName))
+                {
+                    sceneHolder.Add(loadedSceneName, handle);
+                }
+                return true;
+            }
+
+            return false;
+        }
+
+        public void ChangeScene(string sceneName, Action<float> onProgress = null)
+        {
+            ChangeSceneAsync(sceneName, onProgress).Forget();
+        }
+
+        public async UniTask ChangeSceneAsync(string sceneName, Action<float> onProgress = null)
+        {
+            // Collect scenes to unload (exclude SERVICE_SCENE)
+            var scenesToUnload = new List<string>();
             foreach (var scene in GetAllLoadedScene())
             {
-                if (!scene.name.Equals(Constant.SERVICE_SCENE))
+                if (scene.IsValid() && !string.IsNullOrEmpty(scene.name) && !scene.name.Equals(Constant.SERVICE_SCENE))
                 {
-                    if (sceneHolder.ContainsKey(scene.name))
+                    scenesToUnload.Add(scene.name);
+                }
+            }
+
+            // Unload scenes
+            foreach (var sceneNameToUnload in scenesToUnload)
+            {
+                if (sceneHolder.ContainsKey(sceneNameToUnload))
+                {
+                    await Addressables.UnloadSceneAsync(sceneHolder[sceneNameToUnload]);
+                    sceneHolder.Remove(sceneNameToUnload);
+                }
+                else
+                {
+                    var scene = SceneManager.GetSceneByName(sceneNameToUnload);
+                    if (scene.IsValid())
                     {
-                        Addressables.UnloadSceneAsync(sceneHolder[scene.name]);
-                        sceneHolder.Remove(scene.name);
-                    }
-                    else
-                    {
-                        SceneManager.UnloadSceneAsync(scene);
+                        await SceneManager.UnloadSceneAsync(scene);
                     }
                 }
             }
 
-            Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive).Completed += OnAdditiveSceneLoaded;
-        }
-
-        void OnAdditiveSceneLoaded(AsyncOperationHandle<SceneInstance> scene)
-        {
-            if (scene.Status == AsyncOperationStatus.Succeeded)
+            // Load new scene
+            var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            
+            while (!handle.IsDone)
             {
-                string sceneName = scene.Result.Scene.name;
-                sceneHolder.Add(sceneName, scene);
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+                onProgress?.Invoke(handle.PercentComplete);
+                await UniTask.Yield();
+            }
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                string loadedSceneName = handle.Result.Scene.name;
+                if (!sceneHolder.ContainsKey(loadedSceneName))
+                {
+                    sceneHolder.Add(loadedSceneName, handle);
+                }
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(loadedSceneName));
             }
         }
 
