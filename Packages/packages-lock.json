@@ -33,6 +33,13 @@
       "dependencies": {},
       "hash": "2b1cf90f0375e10c9c0909cc91c5b92d707f2ce3"
     },
+    "com.kyrylokuzyk.primetween": {
+      "version": "1.3.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
     "com.marijnzwemmer.unity-toolbar-extender": {
       "version": "https://github.com/marijnz/unity-toolbar-extender.git",
       "depth": 0,
@@ -316,7 +323,7 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/wolf-org/sunflower_2.git#1.6.6",
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.7.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -324,9 +331,10 @@
         "com.unity.collections": "2.1.4",
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20",
-        "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
+        "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10",
+        "com.kyrylokuzyk.primetween": "1.3.8"
       },
-      "hash": "a2fceaf27afa1bceeec292e35a9061916bf91da6"
+      "hash": "0cd894edc3adb1dff3996f3406afec1b6e94bc67"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
