@@ -45,7 +45,7 @@ namespace Base.Services
 
         private bool Conditions()
         {
-            return Advertising.InterstitialAd(AdNetwork.Admob).IsReady() &&
+            return Advertising.InterstitialAd(AdMediation.Admob).IsReady() &&
                    UserData.CurrentLevel >= RemoteData.LEVEL_TURN_ON_INTER_ADS &&
                    adsCounter >= RemoteData.INTER_CAPPING_LEVEL &&
                    timeAdsPlay >= RemoteData.INTER_CAPPING_TIME && RemoteData.ON_OFF_INTER &&
@@ -56,12 +56,12 @@ namespace Base.Services
         {
             if (Conditions())
             {
-                Advertising.InterstitialAd(AdNetwork.Admob).Show().OnCompleted(() =>
+                Advertising.InterstitialAd(AdMediation.Admob).Show().OnCompleted(() =>
                 {
                     completed?.Invoke();
                     adsCounter = 0;
                     timeAdsPlay = 0;
-                }).OnDisplayed(displayed);
+                }).OnDisplayed(adsInfo => displayed?.Invoke());
             }
             else
             {

@@ -16,7 +16,10 @@ MonoBehaviour:
   runtimeAutoInitType: 0
   adCheckingInterval: 8
   adLoadingInterval: 15
-  adNetwork: 0
+  useMax: 1
+  useAdmob: 0
+  useLevelPlay: 0
+  enableTrackAdRevenue: 1
   enableGDPR: 1
   enableGDPRTestMode: 1
   sdkKey: 
@@ -31,13 +34,11 @@ MonoBehaviour:
   maxRewardAdUnit:
     androidId: 
     iOSId: 
-  maxRewardedInterstitialAdUnit:
-    androidId: 
-    iOSId: 
   maxAppOpenAdUnit:
     androidId: 
     iOSId: 
     autoShow: 0
+    timeBetweenFullScreenAd: 2
   admobBannerAdUnit:
     androidId: ca-app-pub-3940256099942544/6300978111
     iOSId: 
@@ -61,20 +62,26 @@ MonoBehaviour:
     androidId: ca-app-pub-3940256099942544/9257395921
     iOSId: 
     autoShow: 1
+    timeBetweenFullScreenAd: 2
     useTestId: 1
+  admobNativeOverlayAdUnit:
+    androidId: 
+    iOSId: 
+    useTestId: 0
+  autoTrackingAdImpressionAdmob: 1
   admobEnableTestMode: 0
   admobDevicesTest: []
   androidAppKey: 
   iOSAppKey: 
   useTestAppKey: 0
-  ironSourceBannerAdUnit:
+  levelPlayBannerAdUnit:
     androidId: 
     iOSId: 
     size: 0
     position: 0
-  ironSourceInterstitialAdUnit:
+  levelPlayInterstitialAdUnit:
     androidId: 
     iOSId: 
-  ironSourceRewardAdUnit:
+  levelPlayRewardAdUnit:
     androidId: 
     iOSId: 
