@@ -1,8 +1,8 @@
 using System;
-using PrimeTween;
 using TMPro;
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.Tweening;
 
 namespace Base.Services
 {
@@ -18,18 +18,18 @@ namespace Base.Services
         private static event Action<string> OnShowEvent;
         private static event Action OnHideEvent;
 
-        private void OnEnable()
+        private void Awake()
         {
             OnShowEvent += InternalShow;
             OnHideEvent += InternalHide;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             OnShowEvent -= InternalShow;
             OnHideEvent -= InternalHide;
         }
-
+        
         public static void Show(string textNoti) => OnShowEvent?.Invoke(textNoti);
         public static void Hide() => OnHideEvent?.Invoke();
 
@@ -40,21 +40,21 @@ namespace Base.Services
             isShow = true;
             gameObject.SetActive(true);
             textNoti.text = _textNoti;
-            Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack).OnComplete(() =>
+            Tween.Create(posYHide, posYShow, timeMove).WithEase(Ease.OutBack).WithOnComplete(() =>
             {
-                App.Delay(gameConfig.TimeDelayHideNotificationInGame, () => { InternalHide(); });
-            });
+                App.Delay(gameConfig.TimeDelayHideNotificationInGame, InternalHide);
+            }).BindToAnchoredPositionY(container);
         }
 
         private void InternalHide()
         {
             if (!gameConfig.EnableNotificationInGame) return;
             if (!isShow) return;
-            Tween.UIAnchoredPositionY(container, posYHide, timeMove, Ease.InBack).OnComplete(() =>
+            Tween.Create(posYShow, posYHide, timeMove).WithEase(Ease.InBack).WithOnComplete(() =>
             {
-                isShow = false;
-                gameObject.SetActive(false);
-            });
+                    isShow = false;
+                    gameObject.SetActive(false);
+            }).BindToAnchoredPositionY(container);
         }
     }
 }

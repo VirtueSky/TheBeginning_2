@@ -1,8 +1,8 @@
 using Base.Data;
-using PrimeTween;
 using TMPro;
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.Tweening;
 
 namespace Base.Global
 {
@@ -60,9 +60,12 @@ namespace Base.Global
         void UpdateTextCoin()
         {
             int starCoin = int.Parse(CurrencyAmountText.text);
-            int coinChange = starCoin;
-            Tween.Custom(starCoin, CoinSystem.GetCurrentCoin(), 0.5f, valueChange => coinChange = (int)valueChange)
-                .OnUpdate(this, (coin, tween) => { CurrencyAmountText.text = coinChange.ToString(); });
+            
+            Tween.Create(starCoin, CoinSystem.GetCurrentCoin(), 0.5f).OnValueChanged(value =>
+            {
+                CurrencyAmountText.text = ((int)value).ToString();
+            });
+            
         }
     }
 }

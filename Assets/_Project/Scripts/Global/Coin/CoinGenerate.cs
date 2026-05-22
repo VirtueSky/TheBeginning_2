@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Base.Data;
-using PrimeTween;
 using UnityEngine;
 using VirtueSky.Audio;
 using VirtueSky.Core;
 using VirtueSky.ObjectPooling;
 using Cysharp.Threading.Tasks;
 using VirtueSky.Pattern;
+using VirtueSky.Tweening;
 using Random = UnityEngine.Random;
 
 namespace Base.Global
@@ -124,24 +124,26 @@ namespace Base.Global
 
         private void MoveToTarget(GameObject coin, Action completed)
         {
-            coin.transform
-                .DOMove(coin.transform.position + (Vector3)Random.insideUnitCircle * offsetNear,
-                    durationNear)
-                .SetEase(easeNear)
-                .OnComplete(() =>
+            Tween.Create(coin.transform.position, coin.transform.position + (Vector3)Random.insideUnitCircle * offsetNear, durationNear)
+                .WithEase(easeNear)
+                .WithOnComplete(() =>
                 {
-                    coin.transform.DOMove(to.transform.position, durationTarget).SetEase(easeTarget)
-                        .OnComplete(completed);
-                });
+                    Tween.Create(coin.transform.position, to.transform.position, durationTarget)
+                        .WithEase(easeTarget)
+                        .WithOnComplete(completed).BindToPosition(coin.transform);
+                }).BindToPosition(coin.transform);
+            
         }
 
 
         private void ScaleIconTo()
         {
-            Vector3 currentScale = Vector3.one;
+            Vector3 currentScale = to.transform.localScale;
             Vector3 nextScale = currentScale + new Vector3(.1f, .1f, .1f);
-            to.transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
-                .OnComplete((() => { to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
+            Tween.Create(currentScale, nextScale, durationTarget).WithEase(Ease.OutBack).WithOnComplete(() =>
+            {
+                Tween.Create(nextScale, currentScale, durationTarget).WithEase(Ease.OutBack).BindToLocalScale(to.transform);
+            }).BindToLocalScale(to.transform);
         }
     }
 }

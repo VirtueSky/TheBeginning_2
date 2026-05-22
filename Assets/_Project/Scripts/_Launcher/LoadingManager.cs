@@ -1,5 +1,4 @@
 using Base.Services;
-using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Core;
@@ -9,6 +8,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using VirtueSky.Localization;
+using VirtueSky.Tweening;
 
 namespace Base.Launcher
 {
@@ -30,10 +30,11 @@ namespace Base.Launcher
         void Init()
         {
             progressBar.fillAmount = 0;
-            progressBar.DOFillAmount(1, timeLoading)
-                .OnUpdate(progressBar,
-                    (image, tween) => localeTextLoading.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}"))
-                .OnComplete(() => isProgressDone = true, false);
+            Tween.Create(progressBar.fillAmount, 1, timeLoading).OnValueChanged(value =>
+            {
+                progressBar.fillAmount = value;
+                localeTextLoading.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}");
+            }).WithOnComplete(() => isProgressDone = true).BindToFillAmount(progressBar);
         }
 
         private async void LoadScene()

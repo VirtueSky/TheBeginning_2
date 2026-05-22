@@ -1,9 +1,9 @@
-using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Audio;
 using VirtueSky.Core;
+using VirtueSky.Tweening;
 using VirtueSky.Vibration;
 
 namespace Base.UI
@@ -72,31 +72,31 @@ namespace Base.UI
             switchState = SwitchState.Moving;
             if (isOn)
             {
-                switchBar.transform.DOMove(offPos.position, timeSwitching);
+                Tween.Create(onPos.position, offPos.position, timeSwitching).BindToPosition(switchBar.transform);
             }
             else
             {
-                switchBar.transform.DOMove(onPos.position, timeSwitching);
+                Tween.Create(offPos.position, onPos.position, timeSwitching).BindToPosition(switchBar.transform);
             }
-
-            DOTween.Sequence().AppendInterval(timeSwitching / 2f).SetEase(Ease.Linear).AppendCallback(
-                () =>
+            
+            Tween.Delay(timeSwitching / 2, () =>
+            {
+                switch (SettingType)
                 {
-                    switch (SettingType)
-                    {
-                        case SettingType.BackgroundMusic:
-                            MusicChanged = !isOn;
-                            break;
-                        case SettingType.SoundFx:
-                            SoundFxChanged = !isOn;
-                            break;
-                        case SettingType.Vibration:
-                            VibrateChanged = !isOn;
-                            break;
-                    }
+                    case SettingType.BackgroundMusic:
+                        MusicChanged = !isOn;
+                        break;
+                    case SettingType.SoundFx:
+                        SoundFxChanged = !isOn;
+                        break;
+                    case SettingType.Vibration:
+                        VibrateChanged = !isOn;
+                        break;
+                }
 
-                    Setup();
-                }).OnComplete(() => { switchState = SwitchState.Idle; });
+                Setup();
+                switchState = SwitchState.Idle; 
+            });
         }
 
         private bool MusicChanged
