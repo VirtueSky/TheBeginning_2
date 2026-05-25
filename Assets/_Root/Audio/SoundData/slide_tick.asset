@@ -20,4 +20,5 @@ MonoBehaviour:
   fadeInDuration: 0.5
   fadeOutDuration: 0.5
   getType: 0
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: d4297d20e97f64194a5a9aeb2561ab37, type: 3}
