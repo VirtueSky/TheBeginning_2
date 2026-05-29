@@ -38,11 +38,11 @@
       "hash": "7c0f199fe0d3fc528024488ccd671e6c7b27745b"
     },
     "com.harumak.unitydebugsheet": {
-      "version": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
+      "version": "https://github.com/unity-package/UnityDebugSheet.git?path=/Assets/UnityDebugSheet#1.5.6",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "2b1cf90f0375e10c9c0909cc91c5b92d707f2ce3"
+      "hash": "bd8630681207186da41d0690a39c870ea5c208d6"
     },
     "com.marijnzwemmer.unity-toolbar-extender": {
       "version": "https://github.com/marijnz/unity-toolbar-extender.git",
