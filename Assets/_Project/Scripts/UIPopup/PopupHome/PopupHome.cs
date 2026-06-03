@@ -1,7 +1,7 @@
 using Base.Game;
-using Base.Services;
 using UnityEngine;
 using VirtueSky.Audio;
+using VirtueSky.Pattern;
 
 namespace Base.UI
 {
@@ -9,14 +9,16 @@ namespace Base.UI
     {
         [SerializeField] private SoundData musicHome;
 
-        private void Start()
-        {
-        }
-
         protected override void OnBeforeShow()
         {
             base.OnBeforeShow();
             musicHome.PlayMusic();
+        }
+
+        protected override void OnAfterShow()
+        {
+            base.OnAfterShow();
+            EventName.PopupHomeShowed.Raise();
         }
 
         public void OnClickStartGame()

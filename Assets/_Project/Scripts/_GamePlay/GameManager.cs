@@ -29,7 +29,6 @@ namespace Base.Game
         public static event Action<Level> OnLoseLevel;
         public static event Action<GameState> OnChangeStateGame;
 
-
         private void Start()
         {
             BackHome();

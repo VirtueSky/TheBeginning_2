@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 6979410885939453044}
   - component: {fileID: 6412313485491675382}
   - component: {fileID: 1282265445309922402}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoadingShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressBar: {fileID: 1325407582385883924}
   localeTextLoading: {fileID: 1770982268523625383}
-  timeLoading: 2.5
+  timeLoading: 1
   isWaitingFetchRemoteConfig: 0
 --- !u!114 &1770982268523625383
 MonoBehaviour:
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 2914686568786441670}
   - component: {fileID: 8119306502836619746}
   - component: {fileID: 2940409022564667588}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Tittle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,6 +525,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -571,7 +572,7 @@ GameObject:
   - component: {fileID: 5982341428085504467}
   - component: {fileID: 7403787365883093206}
   - component: {fileID: 3175857756655713998}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +606,7 @@ GameObject:
   - component: {fileID: 7559692175635800533}
   - component: {fileID: 103462773600279844}
   - component: {fileID: 303138668584828138}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +643,7 @@ GameObject:
   - component: {fileID: 7087716323630463603}
   - component: {fileID: 1770982268523625383}
   - component: {fileID: 8165001623032423228}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoadingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -660,7 +661,7 @@ GameObject:
   - component: {fileID: 1557717471788202183}
   - component: {fileID: 295213378722056661}
   - component: {fileID: 1325407582385883924}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +725,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2129369102399867671}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoadingHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +753,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!20 &6868975884932131248
 Camera:
@@ -793,7 +794,7 @@ Camera:
   m_Depth: 10
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -883,6 +884,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

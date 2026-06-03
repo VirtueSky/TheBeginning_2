@@ -7,5 +7,6 @@ namespace VirtueSky.Pattern
         CurrentLevelChanged,
         ClaimDailyReward,
         OffUIChanged,
+        PopupHomeShowed,
     }
 }

@@ -1,4 +1,6 @@
+using Base.Game;
 using Base.Services;
+using Base.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Core;
@@ -8,6 +10,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using VirtueSky.Localization;
+using VirtueSky.Pattern;
 using VirtueSky.Tweening;
 
 namespace Base.Launcher
@@ -23,8 +26,16 @@ namespace Base.Launcher
 
         private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
             Init();
             LoadScene();
+            EventName.PopupHomeShowed.AddListener(DestroyLoadingObject);
+        }
+
+        void DestroyLoadingObject()
+        {
+            EventName.PopupHomeShowed.RemoveListener(DestroyLoadingObject);
+            Destroy(gameObject);
         }
 
         void Init()
