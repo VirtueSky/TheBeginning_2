@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3459480986744562541}
   - component: {fileID: 1088179717051547498}
   m_Layer: 5
-  m_Name: block
+  m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,13 +211,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isHandleEventClickButton: 1
+  invokeClickButton: 1
   isMotion: 1
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 0
+  soundClickButton: {fileID: 0}
 --- !u!1 &7927387592745108744
 GameObject:
   m_ObjectHideFlags: 0
