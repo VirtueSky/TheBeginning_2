@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6f24e5e094279489e564e1f39bacd9, type: 3}
   m_Name: AdSettings
   m_EditorClassIdentifier: 
-  runtimeAutoInit: 1
-  runtimeAutoInitType: 0
+  runtimeInitType: 0
   adCheckingInterval: 8
   adLoadingInterval: 15
-  useMax: 1
+  mediationLoadMode: 0
+  currentMediation: 0
+  useAppLovin: 1
   useAdmob: 0
   useLevelPlay: 0
   enableTrackAdRevenue: 1
@@ -74,11 +75,13 @@ MonoBehaviour:
   androidAppKey: 
   iOSAppKey: 
   useTestAppKey: 0
+  enableTestSuiteDefault: 0
   levelPlayBannerAdUnit:
     androidId: 
     iOSId: 
     size: 0
     position: 0
+    isShowOnLoad: 0
   levelPlayInterstitialAdUnit:
     androidId: 
     iOSId: 
