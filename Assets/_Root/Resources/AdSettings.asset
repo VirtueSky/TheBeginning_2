@@ -16,7 +16,7 @@ MonoBehaviour:
   adCheckingInterval: 8
   adLoadingInterval: 15
   mediationLoadMode: 0
-  currentMediation: 0
+  currentMediation: 1
   useAppLovin: 1
   useAdmob: 0
   useLevelPlay: 0

@@ -11,6 +11,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using VirtueSky.Localization;
 using VirtueSky.Pattern;
+using VirtueSky.RemoteConfigGenerated;
 using VirtueSky.Tweening;
 
 namespace Base.Launcher
@@ -55,7 +56,7 @@ namespace Base.Launcher
             App.Delay(1.0f, () => { NotificationInGame.Show("Welcome TheBeginning"); });
             if (isWaitingFetchRemoteConfig)
             {
-                await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.IsFetchRemoteConfigCompleted);
+                await UniTask.WaitUntil(() => RemoteConfig.IsLoaded);
             }
 
             await SceneLoader.Instance.ChangeSceneAsync(Constant.GAMEPLAY_SCENE);

@@ -6,6 +6,7 @@ using VirtueSky.RemoteConfigs;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.RemoteConfigGenerated;
 using VirtueSky.Tracking;
 
 namespace Base.Services
@@ -50,7 +51,7 @@ namespace Base.Services
 
         async void TrackingAttFirebase(int status)
         {
-            await UniTask.WaitUntil(() => FirebaseRemoteConfigManager.FirebaseDependencyAvailable);
+            await UniTask.WaitUntil(() => RemoteConfig.IsFirebaseAppDependencyStatusAvailable);
             AppTracking.TrackEventATTResult(status);
         }
 
