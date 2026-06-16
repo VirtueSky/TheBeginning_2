@@ -33,9 +33,7 @@ namespace VirtueSky.RemoteConfigGenerated
 
         protected void Awake()
         {
-            RemoteDataExtensions.Storage = new RemoteConfigStorage();
             PrepareLoad();
-            LoadFromPrefs();
             IsLoaded = false;
 #if VIRTUESKY_FIREBASE
             FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
@@ -72,11 +70,39 @@ namespace VirtueSky.RemoteConfigGenerated
                 return;
             }
 
-            FirebaseFetchDataAsync();
+            ActivateCachedValuesAndLoad();
 #endif
         }
 
         #region Firebase
+
+        private void ActivateCachedValuesAndLoad()
+        {
+#if VIRTUESKY_FIREBASE_REMOTECONFIG
+            _fbRemoteConfigInstance.ActivateAsync().ContinueWithOnMainThread(task =>
+            {
+                if (task.IsCanceled)
+                {
+                    VLog.Log("Activate cached values canceled.");
+                }
+                else if (task.IsFaulted)
+                {
+                    VLog.Log("Activate cached values encountered an error.");
+                }
+
+                if (TryApplyActivatedValues())
+                {
+                    VLog.Log("Activated cached Remote Config values from a previous session. Waiting for remote fetch before EndLoad.");
+                }
+                else
+                {
+                    VLog.Log("No cached Remote Config values available. Using in-app defaults until remote fetch completes.");
+                }
+
+                FirebaseFetchDataAsync();
+            });
+#endif
+        }
 
         private void FirebaseFetchDataAsync()
         {
@@ -86,7 +112,7 @@ namespace VirtueSky.RemoteConfigGenerated
             setting.MinimumFetchIntervalInMilliseconds = 0;
             _fbRemoteConfigInstance.SetConfigSettingsAsync(setting).ContinueWithOnMainThread(task =>
             {
-                Task fetchTask = _fbRemoteConfigInstance.FetchAndActivateAsync();
+                Task fetchTask = _fbRemoteConfigInstance.FetchAsync();
                 fetchTask.ContinueWithOnMainThread(FirebaseFetchComplete);
             });
 #endif
@@ -118,13 +144,25 @@ namespace VirtueSky.RemoteConfigGenerated
                 case LastFetchStatus.Success:
                     _fbRemoteConfigInstance.ActivateAsync().ContinueWithOnMainThread(task =>
                     {
-                        // OPTIMIZED: Use generated methods - Zero reflection!
-                        FirebaseMergeAllKeys_Optimized();
+                        if (task.IsCanceled)
+                        {
+                            VLog.Log("Activate fetched values canceled.");
+                        }
+                        else if (task.IsFaulted)
+                        {
+                            VLog.Log("Activate fetched values encountered an error.");
+                        }
 
-                        this.StartCoroutine(SaveRemoteConfigToPrefCoroutine());
-
-                        EndLoad();
-                        VLog.Log(String.Format("Remote data loaded and ready (last fetch time {0}).", info.FetchTime));
+                        if (TryApplyActivatedValues())
+                        {
+                            EndLoad();
+                            VLog.Log(String.Format("Remote data loaded and ready with latest fetched values (last fetch time {0}).", info.FetchTime));
+                        }
+                        else
+                        {
+                            VLog.Log("Fetch succeeded but no activated Remote Config keys were available. Using current values.");
+                            EndLoad();
+                        }
                     });
                     break;
                 case LastFetchStatus.Failure:
@@ -138,12 +176,36 @@ namespace VirtueSky.RemoteConfigGenerated
                             break;
                     }
 
+                    if (!IsLoaded)
+                    {
+                        VLog.Log("Continuing startup with the currently active Remote Config values or in-app defaults.");
+                        EndLoad();
+                    }
+
                     break;
                 case LastFetchStatus.Pending:
                     VLog.Log("Latest Fetch call still pending.");
+
+                    if (!IsLoaded)
+                    {
+                        EndLoad();
+                    }
+
                     break;
             }
 #endif
+        }
+
+        private bool TryApplyActivatedValues()
+        {
+#if VIRTUESKY_FIREBASE_REMOTECONFIG
+            foreach (var _ in _fbRemoteConfigInstance.Keys)
+            {
+                FirebaseMergeAllKeys_Optimized();
+                return true;
+            }
+#endif
+            return false;
         }
         
         public void FirebaseMergeAllKeys_Optimized()
