@@ -19,34 +19,6 @@ namespace Base.Global.Currency
         protected override string StorageKey => "CURRENT_COIN";
         protected override string DisplayName => "Coins";
 
-        private const string InitializedKey = "COIN_INITIALIZED";
-
-        private bool IsInitialized
-        {
-            get => GameData.Get(InitializedKey, false);
-            set => GameData.Set(InitializedKey, value);
-        }
-
-        protected override void Awake()
-        {
-            base.Awake();
-            // Initialization is now handled by CoinSystemInitializer after RemoteConfig loads
-        }
-
-        /// <summary>
-        /// Initialize coin balance from remote config.
-        /// Called by CoinSystemInitializer after RemoteConfig is loaded.
-        /// </summary>
-        public void InitializeFromRemoteConfig()
-        {
-            if (!IsInitialized)
-            {
-                IsInitialized = true;
-                InitFirstCoin();
-            }
-        }
-
-
         /// <summary>
         /// Legacy event kích hoạt khi coin được thêm.
         /// Giữ để backward compatibility.

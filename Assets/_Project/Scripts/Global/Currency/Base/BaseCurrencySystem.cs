@@ -13,6 +13,12 @@ namespace Base.Global.Currency
     public abstract class BaseCurrencySystem<T> : Singleton<T> where T : MonoBehaviour
     {
 
+        protected override void Awake()
+        {
+            base.Awake();
+            LoadBalance();
+        }
+
         /// <summary>
         /// Unique identifier cho currency type (ví dụ: "coin", "diamond", "gem")
         /// </summary>
@@ -34,19 +40,19 @@ namespace Base.Global.Currency
         /// Kích hoạt khi currency balance thay đổi.
         /// Parameters: (oldValue, newValue)
         /// </summary>
-        public event Action<int, int> OnCurrencyChanged;
+        public static event Action<int, int> OnCurrencyChanged;
 
         /// <summary>
         /// Kích hoạt khi currency được thêm với source position.
         /// Parameters: (amount, sourcePosition)
         /// </summary>
-        public event Action<int, Vector3> OnCurrencyAdded;
+        public static event Action<int, Vector3> OnCurrencyAdded;
 
         /// <summary>
         /// Kích hoạt khi currency bị trừ.
         /// Parameters: (amount)
         /// </summary>
-        public event Action<int> OnCurrencySubtracted;
+        public static event Action<int> OnCurrencySubtracted;
 
 
 
@@ -65,16 +71,6 @@ namespace Base.Global.Currency
                 SaveBalance();
             }
         }
-
-
-
-        protected override void Awake()
-        {
-            base.Awake();
-            LoadBalance();
-        }
-
-
 
         /// <summary>
         /// Thêm currency với optional source position cho animation.

@@ -29,10 +29,10 @@ namespace Base.Global.Currency
         /// </summary>
         protected abstract SoundData CollectSound { get; }
 
-        /// <summary>
-        /// Sound effect phát khi coin bắt đầu bung ra. Optional — null = không play.
-        /// </summary>
-        protected virtual SoundData SpawnSound => null;
+        // /// <summary>
+        // /// Sound effect phát khi coin bắt đầu bung ra. Optional — null = không play.
+        // /// </summary>
+         protected virtual SoundData SpawnSound => null;
         
         [HeaderLine("Near", false)]
         [SerializeField] protected float durationNear = 0.3f;
@@ -148,7 +148,10 @@ namespace Base.Global.Currency
                 return;
             }
 
-            if (from == default) return; // Không có position = không play animation
+            if (from == default)
+            {
+                from = holder.transform.position;
+            }
 
             _hasPlayedSound = false;
             isFirstCoinMoveDone = false;

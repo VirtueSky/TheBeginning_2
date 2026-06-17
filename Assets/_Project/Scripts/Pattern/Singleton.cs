@@ -8,7 +8,7 @@ namespace VirtueSky.Pattern
         [SerializeField] private bool isDontDestroyOnLoad;
         static T _instance;
 
-        public static T Instance => _instance ??= FindObjectOfType<T>();
+        public static T Instance => _instance;
 
         protected virtual void Awake()
         {
@@ -23,6 +23,7 @@ namespace VirtueSky.Pattern
             }
             else
             {
+                Debug.LogError($"An instance of {typeof(T).Name} already exists. Destroying the new one.");
                 Destroy(gameObject);
             }
         }

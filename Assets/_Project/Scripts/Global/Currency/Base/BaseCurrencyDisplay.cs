@@ -50,8 +50,8 @@ namespace Base.Global.Currency
             {
                 // Subscribe vào currency events
                 //system.OnCurrencyChanged += OnCurrencyChanged;
-                system.OnCurrencyAdded += OnCurrencyAdded;
-                system.OnCurrencySubtracted += OnCurrencySubtracted;
+                BaseCurrencySystem<TSystem>.OnCurrencyAdded += OnCurrencyAdded;
+                BaseCurrencySystem<TSystem>.OnCurrencySubtracted += OnCurrencySubtracted;
 
                 // Hiển thị initial balance (không có animation)
                 int currentBalance = system.Get();
@@ -80,8 +80,8 @@ namespace Base.Global.Currency
             if (system != null)
             {
                 //system.OnCurrencyChanged -= OnCurrencyChanged;
-                system.OnCurrencyAdded -= OnCurrencyAdded;
-                system.OnCurrencySubtracted -= OnCurrencySubtracted;
+                BaseCurrencySystem<TSystem>.OnCurrencyAdded -= OnCurrencyAdded;
+                BaseCurrencySystem<TSystem>.OnCurrencySubtracted -= OnCurrencySubtracted;
             }
 
             var animator = GetCurrencyAnimator();

@@ -16,31 +16,23 @@ namespace Base.Global.Currency
 
         protected override SoundData CollectSound => coinCollectSound;
         protected override SoundData SpawnSound => coinSpawnSound;
-        
-        protected virtual void OnEnable()
+
+        public override void OnEnable()
         {
-            // Subscribe to CoinSystem events
-            if (CoinSystem.Instance != null)
-            {
-                CoinSystem.Instance.OnCurrencyAdded += OnCurrencyAdded;
-            }
+            base.OnEnable();
+            CoinSystem.OnCurrencyAdded += OnCurrencyAdded;
         }
 
-        protected virtual void OnDisable()
+        public override void OnDisable()
         {
-            // Unsubscribe from CoinSystem events
-            if (CoinSystem.Instance != null)
-            {
-                CoinSystem.Instance.OnCurrencyAdded -= OnCurrencyAdded;
-            }
+            base.OnDisable();
+            CoinSystem.OnCurrencyAdded -= OnCurrencyAdded;
         }
-
 
 
         private void OnCurrencyAdded(int amount, Vector3 position)
         {
             AnimateCollection(amount, position);
         }
-
     }
 }

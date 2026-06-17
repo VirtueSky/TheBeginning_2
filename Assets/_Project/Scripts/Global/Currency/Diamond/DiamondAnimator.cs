@@ -14,22 +14,18 @@ namespace Base.Global.Currency
         protected override GameObject AnimationPrefab => diamondPrefab;
 
         protected override SoundData CollectSound => diamondCollectSound;
+        
 
-
-
-        protected virtual void OnEnable()
+        public override void OnEnable()
         {
-            // Subscribe to DiamondSystem events
-            DiamondSystem.Instance.OnCurrencyAdded += OnCurrencyAdded;
+            base.OnEnable();
+            DiamondSystem.OnCurrencyAdded += OnCurrencyAdded;
         }
 
-        protected virtual void OnDisable()
+        public override void OnDisable()
         {
-            // Unsubscribe from DiamondSystem events
-            if (DiamondSystem.Instance != null)
-            {
-                DiamondSystem.Instance.OnCurrencyAdded -= OnCurrencyAdded;
-            }
+            base.OnDisable();
+            DiamondSystem.OnCurrencyAdded -= OnCurrencyAdded;
         }
 
 
