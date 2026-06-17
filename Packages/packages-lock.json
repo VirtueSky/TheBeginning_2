@@ -37,6 +37,20 @@
       "dependencies": {},
       "hash": "7c0f199fe0d3fc528024488ccd671e6c7b27745b"
     },
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "acc1c7bc9ea34c33b830e40316fca52553878d29"
+    },
+    "com.google.external-dependency-manager": {
+      "version": "https://github.com/googlesamples/unity-jar-resolver.git?path=upm#v1.2.187",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "38f31affdc54bf7ed0ffb8b97f3444395912a398"
+    },
     "com.harumak.unitydebugsheet": {
       "version": "https://github.com/unity-package/UnityDebugSheet.git?path=/Assets/UnityDebugSheet#1.5.6",
       "depth": 0,
@@ -328,16 +342,17 @@
       }
     },
     "com.wolf-org.sunflower2": {
-      "version": "https://github.com/wolf-org/sunflower_2.git#1.8.4",
+      "version": "https://github.com/wolf-org/sunflower_2.git#1.8.6",
       "depth": 0,
       "source": "git",
       "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.serialization": "3.1.1",
         "com.unity.collections": "2.1.4",
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "55ec94af74b06c096195a280319361b6ee4f312a"
+      "hash": "7b6aeb2be4fa49c52e4427026deb7380434cce6c"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

@@ -14,8 +14,7 @@ namespace Base.Services
 
         bool Conditions()
         {
-            return Advertising.BannerAd(AdMediation.Admob).IsReady() && !UserData.IsOffBannerAdsDebug &&
-                   RemoteData.ON_OFF_BANNER;
+            return Advertising.IsExist && Advertising.BannerAd() != null && Advertising.BannerAd().IsReady() && !UserData.IsOffBannerAdsDebug;
         }
 
         public void Show()

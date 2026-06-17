@@ -1,6 +1,7 @@
 using System;
 using Base.Data;
 using Base.Global;
+using Base.Global.Currency;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

@@ -2,6 +2,7 @@ using System;
 using Base.Data;
 using Base.Game;
 using Base.Global;
+using Base.Global.Currency;
 using UnityEngine;
 using VirtueSky.Core;
 using Cysharp.Threading.Tasks;
@@ -18,13 +19,13 @@ namespace Base.UI
         {
             base.OnBeforeShow();
             isDoneAllCoinGenerate = false;
-            CoinGenerate.OnMoveAllCoinDone += OnMoveAllCoinDone;
+            CoinAnimator.Instance.OnMoveAllCoinDone += OnMoveAllCoinDone;
         }
 
         protected override void OnBeforeHide()
         {
             base.OnBeforeHide();
-            CoinGenerate.OnMoveAllCoinDone -= OnMoveAllCoinDone;
+            CoinAnimator.Instance.OnMoveAllCoinDone -= OnMoveAllCoinDone;
         }
 
         void OnMoveAllCoinDone()

@@ -3,6 +3,7 @@ using Base.Data;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
 using System.Collections;
+using Base.Global.Currency;
 
 namespace Base.Services
 {
