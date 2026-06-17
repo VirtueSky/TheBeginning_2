@@ -11,9 +11,10 @@ namespace VirtueSky.Tracking
 {
     public static partial class Trackings
     {
+#if VIRTUESKY_FIREBASE_ANALYTIC
         private static Queue<KeyValuePair<string, Firebase.Analytics.Parameter[]>> queueAnaData =
             new Queue<KeyValuePair<string, Firebase.Analytics.Parameter[]>>(50);
-
+#endif
         /// <summary>
         /// Track multiple param
         /// </summary>

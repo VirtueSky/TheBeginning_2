@@ -51,33 +51,6 @@
       "dependencies": {},
       "hash": "38f31affdc54bf7ed0ffb8b97f3444395912a398"
     },
-    "com.google.firebase.analytics": {
-      "version": "https://github.com/RageAgainstThePixel/com.google.firebase.analytics.git#12.10.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.firebase.app": "12.10.1"
-      },
-      "hash": "af26eae34440515a854e7a11a9c7940abea3f14b"
-    },
-    "com.google.firebase.app": {
-      "version": "https://github.com/RageAgainstThePixel/com.google.firebase.app.git#12.10.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.external-dependency-manager": "1.2.186"
-      },
-      "hash": "43788f60559d70924ba3a00177fa0b23806be0ca"
-    },
-    "com.google.firebase.remote-config": {
-      "version": "https://github.com/RageAgainstThePixel/com.google.firebase.remote-config.git#12.10.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.firebase.app": "12.10.1"
-      },
-      "hash": "6cdd7632001437e9efc3e6d7f4b9b947cd05b06d"
-    },
     "com.harumak.unitydebugsheet": {
       "version": "https://github.com/unity-package/UnityDebugSheet.git?path=/Assets/UnityDebugSheet#1.5.6",
       "depth": 0,

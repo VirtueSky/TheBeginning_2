@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Firebase;
 using UnityEngine;
-
+#if VIRTUESKY_FIREBASE
+using Firebase;
+#endif
 #if VIRTUESKY_FIREBASE_REMOTECONFIG
 using Firebase.Extensions;
 using Firebase.RemoteConfig;
+
 #endif
 
-using Google.MiniJSON;
+using Newtonsoft.Json;
 using RemoteConfigGenerator;
 using VirtueSky.Pattern;
 using VirtueSky.Utils;
@@ -219,7 +221,7 @@ namespace VirtueSky.RemoteConfigGenerated
                 if (k.Contains("Settings"))
                 {
                     Dictionary<string, object> jsonDict =
-                        (Dictionary<string, object>)Json.Deserialize(_fbRemoteConfigInstance.GetValue(k).StringValue);
+                        JsonConvert.DeserializeObject<Dictionary<string, object>>(_fbRemoteConfigInstance.GetValue(k).StringValue);
                     MergeNestedKeys_Optimized(jsonDict, k.Replace("Settings", ""));
                     continue;
                 }
@@ -266,7 +268,7 @@ namespace VirtueSky.RemoteConfigGenerated
                         }
                         else
                         {
-                            valueStr = Json.Serialize(data.Value);
+                            valueStr = JsonConvert.SerializeObject(data.Value);
                         }
 
                         setter.Invoke(valueStr);
@@ -293,27 +295,6 @@ namespace VirtueSky.RemoteConfigGenerated
 
         #endregion
         
-        public void SaveToPrefs()
-        {
-            RemoteDataExtensions.SaveToPrefs_Generated();
-
-            VLog.Log("SaveToPrefs_Optimized Done - Zero reflection used!");
-        }
-
-        private IEnumerator SaveRemoteConfigToPrefCoroutine()
-        {
-            yield return null;
-            SaveToPrefs();
-        }
-
-       
-        private void LoadFromPrefs()
-        {
-            RemoteDataExtensions.LoadFromPrefs_Generated();
-
-            VLog.Log("LoadFromPrefs_Optimized Done - Zero reflection used!");
-        }
-
         /// <summary>
         /// Reset loaded flag
         /// </summary>
@@ -342,7 +323,7 @@ namespace VirtueSky.RemoteConfigGenerated
         {
             if (IsLoaded) return;
             IsLoaded = true;
-            Debug.Log(RemoteDataExtensions.ExportToString_Generated());
+            Debug.Log(ExportToString());
             OnLoaded?.Invoke();
         }
     }
