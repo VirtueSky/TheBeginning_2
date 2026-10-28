@@ -350,7 +350,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
+  m_HDR: 0
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -366,11 +366,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 714015871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7905672dbad167c459993c103399e16c, type: 3}
+  m_Script: {fileID: 11500000, guid: fee20330cac07454981f7842e5a8ec40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraType: 2
-  camera: {fileID: 714015873}
+  overlay: 1
 --- !u!114 &714015875
 MonoBehaviour:
   m_ObjectHideFlags: 0
