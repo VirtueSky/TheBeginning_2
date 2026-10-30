@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: BaseGameUnity
+  companyName: ZByteGames
   productName: TheBeginning_2
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
