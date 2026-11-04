@@ -1,7 +1,9 @@
+using Base.Data;
 using Consolation;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
 using VirtueSky.Inspector;
+using VirtueSky.Pattern;
 
 namespace Base.Services
 {
@@ -32,15 +34,28 @@ namespace Base.Services
         [SerializeField] private Sprite iconConsoleLog;
         [SerializeField] private Sprite iconSlider;
 
+        private bool isSetup;
+
         public override void Initialization()
         {
-            if (!gameConfig.EnableDebugView)
-            {
-                debugViewSheet.gameObject.SetActive(false);
-                return;
-            }
+            EventName.DebugViewChanged.AddListener<bool>(OnDebugViewChanged);
+            OnDebugViewChanged(UserData.EnableDebugView);
+        }
 
-            debugViewSheet.gameObject.SetActive(true);
+        private void OnDestroy()
+        {
+            EventName.DebugViewChanged.RemoveListener<bool>(OnDebugViewChanged);
+        }
+
+        void OnDebugViewChanged(bool isEnable)
+        {
+            debugViewSheet.gameObject.SetActive(isEnable);
+            if (isEnable && !isSetup) SetupDebugView();
+        }
+
+        void SetupDebugView()
+        {
+            isSetup = true;
             SetupConsoleInGame();
             var initPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning2 Debug");
             // Game Page

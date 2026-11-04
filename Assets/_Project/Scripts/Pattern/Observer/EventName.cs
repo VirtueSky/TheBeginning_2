@@ -8,5 +8,6 @@ namespace VirtueSky.Pattern
         ClaimDailyReward,
         OffUIChanged,
         PopupHomeShowed,
+        DebugViewChanged
     }
 }

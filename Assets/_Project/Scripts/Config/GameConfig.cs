@@ -13,8 +13,7 @@ public class GameConfig : ScriptableObject
 
     [SerializeField] private int startLoopLevel = 1;
 
-    [Space, HeaderLine("Gameplay config")] [SerializeField]
-    private bool enableDebugView = true;
+    [Space, HeaderLine("Gameplay config")]
 
     [SerializeField] private TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
     [SerializeField] private bool multiTouchEnabled;
@@ -41,7 +40,6 @@ public class GameConfig : ScriptableObject
 
     public int MaxLevel => maxLevel;
     public int StartLoopLevel => startLoopLevel;
-    public bool EnableDebugView => enableDebugView;
     public TargetFrameRate TargetFrameRate => targetFrameRate;
     public bool MultiTouchEnabled => multiTouchEnabled;
     public int WinLevelMoney => winLevelMoney;

@@ -1,0 +1,109 @@
+using Base.Data;
+using Base.Services;
+using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+namespace Base.UI
+{
+    /// <summary>
+    /// Attach to the title of PopupSetting. Tapping it <see cref="requiredTapCount"/> times quickly
+    /// shows a password panel; entering the correct password enables the debug view.
+    /// </summary>
+    public class DebugViewUnlocker : MonoBehaviour, IPointerClickHandler
+    {
+        private const string Password = "zbyte12345";
+
+        [SerializeField] private int requiredTapCount = 10;
+        [SerializeField] private float maxTapInterval = 0.35f;
+
+        [Header("Password Panel")] [SerializeField]
+        private GameObject passwordPanel;
+
+        [SerializeField] private TMP_InputField inputPassword;
+        [SerializeField] private Button buttonConfirm;
+        [SerializeField] private Button buttonClose;
+        [SerializeField] private TextMeshProUGUI textMessage;
+
+        private int tapCount;
+        private float lastTapTime;
+
+        private void OnEnable()
+        {
+            ResetTap();
+            HidePanel();
+            if (buttonConfirm != null) buttonConfirm.onClick.AddListener(OnClickConfirm);
+            if (buttonClose != null) buttonClose.onClick.AddListener(HidePanel);
+            if (inputPassword != null) inputPassword.onSubmit.AddListener(OnSubmitPassword);
+        }
+
+        private void OnDisable()
+        {
+            if (buttonConfirm != null) buttonConfirm.onClick.RemoveListener(OnClickConfirm);
+            if (buttonClose != null) buttonClose.onClick.RemoveListener(HidePanel);
+            if (inputPassword != null) inputPassword.onSubmit.RemoveListener(OnSubmitPassword);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (UserData.EnableDebugView) return;
+            if (passwordPanel != null && passwordPanel.activeSelf) return;
+
+            float now = Time.unscaledTime;
+            tapCount = now - lastTapTime <= maxTapInterval ? tapCount + 1 : 1;
+            lastTapTime = now;
+
+            if (tapCount < requiredTapCount) return;
+            ResetTap();
+            ShowPanel();
+        }
+
+        void ShowPanel()
+        {
+            if (passwordPanel == null) return;
+            passwordPanel.SetActive(true);
+            SetMessage(string.Empty);
+            if (inputPassword != null)
+            {
+                inputPassword.text = string.Empty;
+                inputPassword.ActivateInputField();
+            }
+        }
+
+        void HidePanel()
+        {
+            if (passwordPanel != null) passwordPanel.SetActive(false);
+        }
+
+        void OnSubmitPassword(string _) => OnClickConfirm();
+
+        void OnClickConfirm()
+        {
+            if (inputPassword == null) return;
+            if (inputPassword.text == Password)
+            {
+                UserData.EnableDebugView = true;
+                HidePanel();
+                NotificationInGame.Show("Debug view enabled");
+            }
+            else
+            {
+                inputPassword.text = string.Empty;
+                SetMessage("Wrong password");
+                NotificationInGame.Show("Wrong password");
+            }
+        }
+
+        void SetMessage(string message)
+        {
+            if (textMessage != null) textMessage.text = message;
+        }
+
+        void ResetTap()
+        {
+            tapCount = 0;
+            lastTapTime = float.NegativeInfinity;
+        }
+    }
+}

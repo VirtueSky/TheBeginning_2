@@ -43,5 +43,15 @@ namespace Base.Data
                 EventName.OffUIChanged.Raise<bool>(value);
             }
         }
+
+        public static bool EnableDebugView
+        {
+            get => GameData.Get(Constant.ENABLE_DEBUG_VIEW, false);
+            set
+            {
+                GameData.Set(Constant.ENABLE_DEBUG_VIEW, value);
+                EventName.DebugViewChanged.Raise<bool>(value);
+            }
+        }
     }
 }

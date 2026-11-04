@@ -31,4 +31,5 @@ public class Constant
     public const string IS_OFF_BANNER_ADS_ADMIN = "IS_OFF_BANNER_ADS_ADMIN";
     public const string IS_OFF_REWARD_ADS_ADMIN = "IS_OFF_REWARD_ADS_ADMIN";
     public const string IS_OFF_UI_ADMIN = "IS_OFF_UI_ADMIN";
+    public const string ENABLE_DEBUG_VIEW = "ENABLE_DEBUG_VIEW";
 }
