@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Force newer AndroidX versions to replace old transitive ones
+  (androidx.fragment 1.1.0 / androidx.activity 1.0.0 pulled in by
+  play-services-base / Firebase), which Google Play flags as outdated.
+  Picked up by External Dependency Manager (Android Resolver).
+-->
+<dependencies>
+  <androidPackages>
+    <androidPackage spec="androidx.fragment:fragment:1.8.5" />
+    <androidPackage spec="androidx.activity:activity:1.9.3" />
+  </androidPackages>
+</dependencies>
