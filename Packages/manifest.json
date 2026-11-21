@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.aprius.ide.haze": "https://github.com/aprius/Haze.git?path=/unity/com.aprius.ide.haze",
     "com.coplaydev.coplay": "https://github.com/CoplayDev/coplay-unity-plugin.git#beta",
     "com.annulusgames.lit-motion": "https://github.com/annulusgames/LitMotion.git?path=src/LitMotion/Assets/LitMotion#v2.0.2",
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.9.6",

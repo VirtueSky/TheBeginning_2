@@ -11,6 +11,13 @@
       },
       "hash": "0b4c588ee75a07198841d92aab653e6b39445089"
     },
+    "com.aprius.ide.haze": {
+      "version": "https://github.com/aprius/Haze.git?path=/unity/com.aprius.ide.haze",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c8b3cd5fba45c61b4fe58eea1e9c70ebbc545a04"
+    },
     "com.coffee.ui-effect": {
       "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.9.6",
       "depth": 0,
