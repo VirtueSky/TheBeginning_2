@@ -61,6 +61,13 @@ namespace Base.UI
         private Vector3 pointHidePos;
 
         private TweenHandle tween;
+        private TweenHandle subTween;
+
+        private bool isCachedDefault;
+        private Vector3 defaultLocalPos;
+        private Vector3 defaultScale;
+        private Vector3 defaultLocalEuler;
+        private bool isHiding;
 
         private bool ConditionShowMove =>
             useAnimation && useShowAnimation && showAnimationType == ShowAnimationType.Move;
@@ -77,179 +84,152 @@ namespace Base.UI
         private bool ConditionShowFlip =>
             useAnimation && useShowAnimation && showAnimationType == ShowAnimationType.Flip;
 
+        private bool CanAnimateShow => useAnimation && useShowAnimation && container != null;
+        private bool CanAnimateHide => useAnimation && useHideAnimation && container != null;
+
         public virtual void Show()
         {
+            CacheDefault();
+            StopTweens();
+            isHiding = false;
+            ResetState();
             OnBeforeShow();
-            if (useShowAnimation)
-            {
-                Vector3 currentPos = container.transform.position;
-                Vector3 currentScale = container.transform.localScale;
-                Vector3 currentAngle = container.transform.localEulerAngles;
-                switch (showAnimationType)
-                {
-                    case ShowAnimationType.OutBack:
-                        container.transform.localScale = scaleFromShow;
-                        gameObject.SetActive(true);
-                        tween = Tween.Create(scaleFromShow, currentScale, durationShowPopup).WithEase(Ease.OutBack).WithOnComplete(OnAfterShow).BindToLocalScale(container.transform);
-                        break;
-                    case ShowAnimationType.Flip:
-                        container.transform.eulerAngles = eulerAngleShowFrom;
-                        gameObject.SetActive(true);
-                        tween = Tween.Create(eulerAngleShowFrom, currentAngle, durationShowPopup).WithEase(Ease.OutBack).WithOnComplete(OnAfterShow).BindToEulerAngles(container.transform);
-                        break;
-                    case ShowAnimationType.Fade:
-                        canvasGroup.alpha = 0;
-                        gameObject.SetActive(true);
-                        tween = Tween.Create(0, 1, durationShowPopup).WithEase(Ease.OutBack).WithOnComplete(() =>
-                        {
-                            canvasGroup.alpha = 1;
-                            OnAfterShow();
-                        }).BindToAlpha(canvasGroup);
-                        break;
-                    case ShowAnimationType.Move:
-                        switch (showMovePopup)
-                        {
-                            case MovePopupType.Left:
-                                container.transform.position = new Vector3(
-                                    container.transform.position.x - offsetShowMove,
-                                    container.transform.position.y,
-                                    container.transform.position.z);
-                                gameObject.SetActive(true);
-                                tween = Tween.Create(container.transform.position, currentPos, durationShowPopup).WithEase(Ease.Linear).WithOnComplete(OnAfterShow).BindToPosition(container.transform);
-                                break;
-                            case MovePopupType.Right:
-                                container.transform.position = new Vector3(
-                                    container.transform.position.x + offsetShowMove,
-                                    container.transform.position.y,
-                                    container.transform.position.z);
-                                gameObject.SetActive(true);
-                                tween = Tween.Create(container.transform.position, currentPos, durationShowPopup).WithEase(Ease.Linear).WithOnComplete(OnAfterShow).BindToPosition(container.transform);
-                                break;
-                            case MovePopupType.Up:
-                                container.transform.position = new Vector3(container.transform.position.x,
-                                    container.transform.position.y + offsetShowMove,
-                                    container.transform.position.z);
-                                gameObject.SetActive(true);
-                                tween = Tween.Create(container.transform.position, currentPos, durationShowPopup).WithEase(Ease.Linear).WithOnComplete(OnAfterShow).BindToPosition(container.transform);
-                                break;
-                            case MovePopupType.Down:
-                                container.transform.position = new Vector3(container.transform.position.x,
-                                    container.transform.position.y - offsetShowMove,
-                                    container.transform.position.z);
-                                gameObject.SetActive(true);
-                                tween = Tween.Create(container.transform.position, currentPos, durationShowPopup).WithEase(Ease.Linear).WithOnComplete(OnAfterShow).BindToPosition(container.transform);
-                                break;
-                        }
-
-                        break;
-                    case ShowAnimationType.OutBackFromPoint:
-                        container.transform.position = pointShowPos;
-                        container.transform.localScale = Vector3.zero;
-                        gameObject.SetActive(true);
-                        Tween.Create(pointShowPos, currentPos, durationShowPopup).WithEase(Ease.OutSine).BindToPosition(container.transform);
-                        tween = Tween.Create(container.transform.localScale, currentScale, durationShowPopup).WithEase(Ease.OutSine).WithOnComplete(OnAfterShow).BindToLocalScale(container.transform);
-                        break;
-                }
-            }
-            else
+            if (!CanAnimateShow)
             {
                 gameObject.SetActive(true);
                 OnAfterShow();
+                return;
+            }
+
+            var t = container.transform;
+            switch (showAnimationType)
+            {
+                case ShowAnimationType.OutBack:
+                    t.localScale = scaleFromShow;
+                    gameObject.SetActive(true);
+                    tween = Tween.Create(scaleFromShow, defaultScale, durationShowPopup).WithEase(Ease.OutBack).WithOnComplete(OnAfterShow).BindToLocalScale(t);
+                    break;
+                case ShowAnimationType.Flip:
+                    t.localEulerAngles = eulerAngleShowFrom;
+                    gameObject.SetActive(true);
+                    tween = Tween.Create(eulerAngleShowFrom, defaultLocalEuler, durationShowPopup).WithEase(Ease.OutBack).WithOnComplete(OnAfterShow).BindToLocalEulerAngles(t);
+                    break;
+                case ShowAnimationType.Fade:
+                    canvasGroup.alpha = 0;
+                    gameObject.SetActive(true);
+                    tween = Tween.Create(0f, 1f, durationShowPopup).WithEase(Ease.OutQuad).WithOnComplete(() =>
+                    {
+                        canvasGroup.alpha = 1;
+                        OnAfterShow();
+                    }).BindToAlpha(canvasGroup);
+                    break;
+                case ShowAnimationType.Move:
+                    Vector3 showPos = t.position;
+                    Vector3 fromPos = showPos + GetMoveOffset(showMovePopup, offsetShowMove);
+                    t.position = fromPos;
+                    gameObject.SetActive(true);
+                    tween = Tween.Create(fromPos, showPos, durationShowPopup).WithEase(Ease.Linear).WithOnComplete(OnAfterShow).BindToPosition(t);
+                    break;
+                case ShowAnimationType.OutBackFromPoint:
+                    Vector3 targetPos = t.position;
+                    t.position = pointShowPos;
+                    t.localScale = Vector3.zero;
+                    gameObject.SetActive(true);
+                    subTween = Tween.Create(pointShowPos, targetPos, durationShowPopup).WithEase(Ease.OutSine).BindToPosition(t);
+                    tween = Tween.Create(Vector3.zero, defaultScale, durationShowPopup).WithEase(Ease.OutSine).WithOnComplete(OnAfterShow).BindToLocalScale(t);
+                    break;
+                default:
+                    gameObject.SetActive(true);
+                    OnAfterShow();
+                    break;
             }
         }
 
         public virtual void Hide()
         {
+            // Ignore repeated Hide() calls while the hide animation is still running
+            if (isHiding) return;
+            isHiding = true;
+            CacheDefault();
+            StopTweens();
             OnBeforeHide();
-            if (useHideAnimation)
+            if (!CanAnimateHide)
             {
-                Vector3 currentPos = container.transform.position;
-                Vector3 currentScale = container.transform.localScale;
-                switch (hideAnimationType)
-                {
-                    case HideAnimationType.Fade:
-                        tween = Tween.Create(canvasGroup.alpha, 0, durationHidePopup).WithEase(Ease.InBack).WithOnComplete(() =>
-                        {
-                            gameObject.SetActive(false);
-                            canvasGroup.alpha = 1;
-                            OnAfterHide();
-                        }).BindToAlpha(canvasGroup);
-                        break;
-                    case HideAnimationType.InBack:
-                        tween = Tween.Create(currentPos, scaleFromHide, durationHidePopup).WithEase(Ease.InBack).WithOnComplete(() =>
-                        {
-                            gameObject.SetActive(false);
-                            container.transform.position = currentPos;
-                            container.transform.localScale = currentScale;
-                            OnAfterHide();
-                        }).BindToPosition(container.transform);
-                        break;
-                    case HideAnimationType.Move:
-                        switch (hideMovePopup)
-                        {
-                            case MovePopupType.Left:
-                                Vector3 targetPosL = new Vector3(container.transform.position.x - offsetHideMove,
-                                    container.transform.position.y,
-                                    container.transform.position.z);
-                                tween = Tween.Create(container.transform.position, targetPosL, durationHidePopup).WithEase(Ease.Linear).WithOnComplete(() =>
-                                {
-                                    gameObject.SetActive(false);
-                                    container.transform.position = currentPos;
-                                    OnAfterHide();
-                                }).BindToPosition(container.transform);
-                                break;
-                            case MovePopupType.Right:
-                                Vector3 targetPosR = new Vector3(container.transform.position.x + offsetHideMove,
-                                    container.transform.position.y,
-                                    container.transform.position.z);
-                                tween = Tween.Create(container.transform.position, targetPosR, durationHidePopup).WithEase(Ease.Linear).WithOnComplete(() =>
-                                {
-                                    gameObject.SetActive(false);
-                                    container.transform.position = currentPos;
-                                    OnAfterHide();
-                                }).BindToPosition(container.transform);
-                                break;
-                            case MovePopupType.Up:
-                                Vector3 targetPosU = new Vector3(container.transform.position.x,
-                                    container.transform.position.y + offsetHideMove,
-                                    container.transform.position.z);
-                                tween = Tween.Create(container.transform.position, targetPosU, durationHidePopup).WithEase(Ease.Linear).WithOnComplete(() =>
-                                {
-                                    gameObject.SetActive(false);
-                                    container.transform.position = currentPos;
-                                    OnAfterHide();
-                                }).BindToPosition(container.transform);
-                                break;
-                            case MovePopupType.Down:
-                                Vector3 targetPosD = new Vector3(container.transform.position.x,
-                                    container.transform.position.y - offsetHideMove,
-                                    container.transform.position.z);
-                                tween = Tween.Create(container.transform.position, targetPosD, durationHidePopup).WithEase(Ease.Linear).WithOnComplete(() =>
-                                {
-                                    gameObject.SetActive(false);
-                                    container.transform.position = currentPos;
-                                    OnAfterHide();
-                                }).BindToPosition(container.transform);
-                                break;
-                        }
-
-                        break;
-                    case HideAnimationType.InBackToPoint:
-                        Tween.Create(container.transform.position, pointHidePos, durationHidePopup).WithEase(Ease.InSine).BindToPosition(container.transform);
-                        tween = Tween.Create(container.transform.localScale, Vector3.zero, durationHidePopup).WithEase(Ease.InSine).WithOnComplete(() =>
-                        {
-                            gameObject.SetActive(false);
-                            container.transform.position = currentPos;
-                            container.transform.localScale = currentScale;
-                            OnAfterHide();
-                        }).BindToLocalScale(container.transform);
-                        break;
-                }
+                FinishHide();
+                return;
             }
-            else
+
+            var t = container.transform;
+            switch (hideAnimationType)
             {
-                gameObject.SetActive(false);
-                OnAfterHide();
+                case HideAnimationType.Fade:
+                    tween = Tween.Create(canvasGroup.alpha, 0f, durationHidePopup).WithEase(Ease.InQuad).WithOnComplete(FinishHide).BindToAlpha(canvasGroup);
+                    break;
+                case HideAnimationType.InBack:
+                    tween = Tween.Create(t.localScale, scaleFromHide, durationHidePopup).WithEase(Ease.InBack).WithOnComplete(FinishHide).BindToLocalScale(t);
+                    break;
+                case HideAnimationType.Move:
+                    Vector3 hideTargetPos = t.position + GetMoveOffset(hideMovePopup, offsetHideMove);
+                    tween = Tween.Create(t.position, hideTargetPos, durationHidePopup).WithEase(Ease.Linear).WithOnComplete(FinishHide).BindToPosition(t);
+                    break;
+                case HideAnimationType.InBackToPoint:
+                    subTween = Tween.Create(t.position, pointHidePos, durationHidePopup).WithEase(Ease.InSine).BindToPosition(t);
+                    tween = Tween.Create(t.localScale, Vector3.zero, durationHidePopup).WithEase(Ease.InSine).WithOnComplete(FinishHide).BindToLocalScale(t);
+                    break;
+                default:
+                    FinishHide();
+                    break;
+            }
+        }
+
+        private void FinishHide()
+        {
+            if (subTween.IsActive) subTween.Cancel();
+            gameObject.SetActive(false);
+            ResetState();
+            isHiding = false;
+            OnAfterHide();
+        }
+
+        /// <summary>
+        /// Cache the original transform of container once, so an interrupted tween
+        /// never leaves a half-scaled / half-moved state as the new default.
+        /// </summary>
+        private void CacheDefault()
+        {
+            if (isCachedDefault || container == null) return;
+            var t = container.transform;
+            defaultLocalPos = t.localPosition;
+            defaultScale = t.localScale;
+            defaultLocalEuler = t.localEulerAngles;
+            isCachedDefault = true;
+        }
+
+        private void StopTweens()
+        {
+            if (tween.IsActive) tween.Cancel();
+            if (subTween.IsActive) subTween.Cancel();
+        }
+
+        private void ResetState()
+        {
+            canvasGroup.alpha = 1;
+            if (!isCachedDefault) return;
+            var t = container.transform;
+            t.localPosition = defaultLocalPos;
+            t.localScale = defaultScale;
+            t.localEulerAngles = defaultLocalEuler;
+        }
+
+        private static Vector3 GetMoveOffset(MovePopupType type, float offset)
+        {
+            switch (type)
+            {
+                case MovePopupType.Left: return Vector3.left * offset;
+                case MovePopupType.Right: return Vector3.right * offset;
+                case MovePopupType.Up: return Vector3.up * offset;
+                case MovePopupType.Down: return Vector3.down * offset;
+                default: return Vector3.zero;
             }
         }
 
@@ -259,10 +239,6 @@ namespace Base.UI
 
         protected virtual void OnAfterShow()
         {
-            if (tween.IsActive)
-            {
-                tween.Complete();
-            }
         }
 
         protected virtual void OnBeforeHide()
@@ -271,10 +247,6 @@ namespace Base.UI
 
         protected virtual void OnAfterHide()
         {
-            if (tween.IsActive)
-            {
-                tween.Complete();
-            }
         }
 
 #if UNITY_EDITOR
